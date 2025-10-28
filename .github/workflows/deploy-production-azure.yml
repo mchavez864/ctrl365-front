@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       deploy_to_production:
-        description: 'Deploy to production environment?'
+        description: 'Deploy to staging environment?'
         required: true
         default: 'false'
         type: choice
@@ -38,13 +38,13 @@ jobs:
       - name: Build and Push Docker image to ACR
         run: |
           IMAGE_TAG=$(echo $GITHUB_SHA | cut -c1-7)
-          docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/rauw-front:latest -t ${{ secrets.ACR_LOGIN_SERVER }}/rauw-front:$IMAGE_TAG
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/rauw-front:latest
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/rauw-front:$IMAGE_TAG
+          docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/ctrl365-front:latest -t ${{ secrets.ACR_LOGIN_SERVER }}/ctrl365-front:$IMAGE_TAG
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/ctrl365-front:latest
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/ctrl365-front:$IMAGE_TAG
 
       - name: Deploy to Azure Container App
         run: |
           az containerapp update \
             --name ${{ secrets.AZURE_CONTAINERAPP_NAME }} \
             --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-            --image ${{ secrets.ACR_LOGIN_SERVER }}/rauw-front:latest
+            --image ${{ secrets.ACR_LOGIN_SERVER }}/ctrl365-front:latest
