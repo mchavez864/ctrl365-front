@@ -44,6 +44,9 @@ jobs:
         run: |
           npm ci
           npm run build
+      
+      - name: Login to Azure Container Registry
+        run: az acr login --name stagingctrl365com
 
       - name: Build and Push Docker image to ACR
         run: |
