@@ -35,6 +35,16 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS_CTRL365WEB }}
 
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies and build Next.js app
+        run: |
+          npm ci
+          npm run build
+
       - name: Build and Push Docker image to ACR
         run: |
           IMAGE_TAG=$(echo $GITHUB_SHA | cut -c1-7)
