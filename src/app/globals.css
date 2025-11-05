@@ -240,3 +240,13 @@ body {
   mask-composite: exclude;
   pointer-events: none;
 }
+
+/* Social media icon hover effect */
+.social-icon svg path {
+  fill: #6C6C6C;
+  transition: fill 0.3s ease;
+}
+
+.social-icon:hover svg path {
+  fill: #FFF;
+}

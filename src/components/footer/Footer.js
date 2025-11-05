@@ -45,11 +45,31 @@ const Footer = () => {
         <div className="px-[16px] md:px-[64px] lg:mt-[64px] xxl:px-[128px]">
           <hr className="w-full border-grey-20 my-[32px] lg:hidden" />
           <div className="flex flex-col gap-[32px] items-center md:flex-row md:justify-between">
-            <div className="flex justify-between items-center w-[128px] mx-auto md:mx-0 md:order-2">
-              <Instagram />
-              <Linkedin />
-
-              <Youtube />
+             <div className="flex justify-between items-center w-[128px] mx-auto md:mx-0 md:order-2">
+              <a 
+                href="https://instagram.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-icon"
+              >
+                <Instagram />
+              </a>
+              <a 
+                href="https://linkedin.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-icon"
+              >
+                <Linkedin />
+              </a>
+              <a 
+                href="https://youtube.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-icon"
+              >
+                <Youtube />
+              </a>
             </div>
             <p className="text-grey-20 text-center leading-[120%] md:order-1">
               © Ctrl365 - All rights reserved.
