@@ -26,6 +26,11 @@
   --text-lg: 1.125rem;
 }
 
+:root {
+}
+
+/* fonts */
+
 .display {
   font-family: var(--font-sora);
   font-weight: 400;
@@ -137,7 +142,29 @@ p {
   }
 }
 
-:root {
+
+
+/* Lenis styles */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto!important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped{
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe{
+  pointer-events: none;
 }
 
 body {
@@ -145,6 +172,8 @@ body {
   color: var(--foreground);
   font-family: var(--font-times);
 }
+
+/* glass effect */
 
 .glass {
   background: rgba(236, 236, 236, 0.20);
@@ -157,4 +186,57 @@ body {
 .glass:hover {
   background: rgba(236, 236, 236, 0.40);
   transition: background 0.3s ease;
+}
+
+/* Gradient border with border-radius */
+.gradient-border-rounded {
+  background: rgba(41, 41, 41, 0.50);
+}
+
+.gradient-border-rounded::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: -1px;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(to bottom, #4B4B4B, #666666);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Gradient border dark with gradient background */
+.gradient-border-dark {
+  position: relative;
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.5), rgba(34, 34, 34, 0.5));
+}
+
+.gradient-border-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -1px;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(to bottom, #000000, #666666);
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
