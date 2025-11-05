@@ -6,21 +6,21 @@ import Youtube from "@/svg/youtube.js";
 const Footer = () => {
   return (
     <footer className="relative bg-grey-40 h-full w-full overflow-hidden">
-      <div className="relative z-10 pt-[128px] pb-[64px]">
-        <div className="px-[16px]">
+      <div className="relative z-10 pt-[128px] md:pt-[64px] pb-[64px]">
+        <div className="px-[16px] md:px-[64px]">
           <h4 className="text-grey-00 text-center">
             La transformación <br /> no termina,{" "}
             <span className="text-orange">evoluciona.</span>
           </h4>
         </div>
-        <div className="h-[300px] w-full relative mt-[32px]">
-          <div className="absolute right-[-1px] overflow-hidden rounded-l-[999px] w-[70%] h-full gradient-border-rounded"></div>
-          <div className="absolute left-[-1px] overflow-hidden rounded-r-[999px] w-[70%] h-full gradient-border-dark"></div>
+        <div className="h-[300px] w-full relative mt-[32px] md:mt-[64px]">
+          <div className="absolute right-[-1px] overflow-hidden rounded-l-[999px] w-[70%] md:w-[60%] h-full gradient-border-rounded"></div>
+          <div className="absolute left-[-1px] overflow-hidden rounded-r-[999px] w-[70%] md:w-[60%] h-full gradient-border-dark"></div>
         </div>
-        <div className="px-[16px] mt-[32px]">
-          <Logo color="white" />
-          <div className="flex items-center justify-between h-[132px] mt-[32px]">
-            <div className="flex flex-col gap-[16px] py-[4px]">
+        <div className="px-[16px] md:px-[64px] mt-[32px] md:mt-[64px]">
+           <Logo color="white" className="w-[92px] h-[32px] md:w-[138px] md:h-[48px]" />
+          <div className="flex items-center justify-between h-[132px] mt-[32px] md:h-auto">
+            <div className="flex flex-col gap-[16px] py-[4px] md:flex-row">
               <button className="relative hover:pl-[20px] uppercase text-grey-20 font-medium leading-[120%] hover:text-grey-00 cursor-pointer text-left duration-300 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-0 before:h-0 before:bg-orange before:rounded-full before:duration-300 before:opacity-0 hover:before:w-[12px] hover:before:h-[12px] hover:before:opacity-100">
                 Home
               </button>
@@ -36,14 +36,14 @@ const Footer = () => {
             </div>
           </div>
           <hr className="w-full border-grey-20 my-[32px]" />
-          <div className="flex flex-col gap-[32px] items-center">
-            <div className="flex justify-between items-center w-[128px] mx-auto">
+          <div className="flex flex-col gap-[32px] items-center md:flex-row md:justify-between">
+            <div className="flex justify-between items-center w-[128px] mx-auto md:mx-0 md:order-2">
               <Instagram />
               <Linkedin />
 
               <Youtube />
             </div>
-            <p className="text-grey-20 text-center leading-[120%]">
+            <p className="text-grey-20 text-center leading-[120%] md:order-1">
               © Ctrl365 - All rights reserved.
             </p>
           </div>
