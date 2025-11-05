@@ -1,4 +1,5 @@
 import { Sora, Inter } from "next/font/google";
+import Footer from "@/components/footer/Footer";
 import "./globals.css";
 
 const sora = Sora({
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
         className={`${sora.variable} ${inter.variable} antialiased`}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );
