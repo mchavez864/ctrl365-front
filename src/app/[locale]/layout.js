@@ -1,7 +1,9 @@
 import { Sora, Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
-import "./globals.css";
+import "@/app/globals.css";
 import { ReactLenis } from "@/utils/lenis";
+import { NextIntlClientProvider } from "next-intl";
+
 
 const sora = Sora({
   subsets: ["latin"],
@@ -13,18 +15,14 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <ReactLenis root>
-      <body
-        className={`${sora.variable} ${inter.variable} antialiased`}
-      >
-        {children}
-        <Footer />
-     
-      </body>
+        <body className={`${sora.variable} ${inter.variable} antialiased`}>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <Footer />
+        </body>
       </ReactLenis>
     </html>
   );
