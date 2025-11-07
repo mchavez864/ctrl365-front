@@ -55,10 +55,10 @@ const Menu = ({ onClose }) => {
             alt=""
             width={544}
             height={544}
-            className="w-[186px] h-[186px] mx-auto"
+            className="w-[186px] h-[186px] mx-auto md:w-[312px] md:h-[312px] md:mt-[138px]"
           />
-          <div className="flex flex-col items-start gap-[32px]">
-            <div className="flex items-center relative w-[82px] h-[26px]">
+          <div className="flex flex-col items-start gap-[32px] md:gap-[64px]">
+            <div className="flex items-center relative w-[82px] h-[26px] md:hidden">
               <button className="bg-grey-00 text-grey-40 absolute left-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px]">
                 ES
               </button>
@@ -114,7 +114,7 @@ const Menu = ({ onClose }) => {
           alt=""
           width={1638}
           height={1113}
-          className="absolute -bottom-[400px] w-full h-full object-cover opacity-10 z-20"
+          className="absolute -bottom-[400px] w-full h-full object-cover opacity-10 z-20 md:h-[677px] md:bottom-[50%] md:translate-y-1/2"
         />
         <div className="absolute bottom-0 right-0 w-[187px] h-[252px] bg-orange rounded-full blur-[150px] z-20" />
       </div>
