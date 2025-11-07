@@ -1,7 +1,3 @@
-import Logo from "@/svg/logo.js";
-import Linkedin from "@/svg/linkedin.js";
-import Instagram from "@/svg/instagram.js";
-import Youtube from "@/svg/youtube.js";
 import Button from "@/components/buttons/Button";
 import Image from "next/image";
 
@@ -9,7 +5,7 @@ const Hero = () => {
   return (
     <section className="bg-grey-10 overflow-hidden">
       <div className="relative px-[16px] py-[128px] md:px-[64px] md:pt-[168px] lg:pt-[232px] lg:pb-[64px] overflow-hidden">
-        <div className="absolute bottom-[-100px] md:bottom-[40px] right-0 overflow-hidden lg:bg-[url('/images/hero/dots.webp')] lg:w-[700px] lg:h-[1273px] lg:rotate-45 xxl:rotate-[37.5deg] lg:bg-cover lg:bg-center lg:bg-no-repeat lg:top-[-100px] lg:bottom-auto lg:right-[200px] xxl:right-[500px]">
+        <div className="absolute bottom-[-100px] md:bottom-[-200px] right-0 overflow-hidden lg:bg-[url('/images/hero/dots.webp')] lg:w-[700px] lg:h-[1273px] lg:rotate-45 xxl:rotate-[37.5deg] lg:bg-cover lg:bg-center lg:bg-no-repeat lg:top-[-100px] lg:bottom-auto lg:right-[200px] xxl:right-[500px]">
           <Image
             src="/images/hero/dots.webp"
             alt=""
