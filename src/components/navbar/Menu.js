@@ -27,7 +27,7 @@ const Menu = ({ onClose }) => {
     >
       <div className="relative w-full h-full overflow-hidden flex items-center">
         <div className="absolute top-0 left-0 w-full z-30">
-          <div className="flex justify-between items-center px-[16px] md:px-[64px] py-[16px]">
+          <div className="flex justify-between items-center px-[16px] md:px-[64px] py-[16px] md:py-[32px]">
             <Logo
               color="white"
               className="w-[92px] h-[32px] md:w-[138px] md:h-[48px]"

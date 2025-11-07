@@ -16,8 +16,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-grey-10 overflow-hidden absolute top-0 left-0 w-full z-20">
-        <div className="flex justify-between items-center px-[16px] md:px-[64px] py-[16px]">
+      <nav className="bg-transparent overflow-hidden absolute top-0 left-0 w-full z-20">
+        <div className="flex justify-between items-center px-[16px] md:px-[64px] py-[16px] md:py-[32px]">
           <Logo
             color="black"
             className="w-[92px] h-[32px] md:w-[138px] md:h-[48px]"
