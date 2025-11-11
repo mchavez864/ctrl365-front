@@ -45,5 +45,143 @@
         "ctaLabel": "Conocer más"
       }
     }
+  },
+  "ResultadosCasosdeExitoSlider": {
+    "section": {
+      "title": "Transformación visible. Impacto real.",
+      "description": "Casos que demuestran cómo escalamos operaciones, aceleramos lanzamientos y generamos resultados de negocio medibles."
+    },
+    "items": {
+      "santander": {
+        "title": "Santander",
+        "description": "Digitalización del proceso de créditos, reduciendo tiempos de aprobación de 7 semanas a 20 minutos, con un 94% de mejora en eficiencia y más de 1M de préstamos procesados."
+      },
+      "galiciaSeguros": {
+        "title": "Galicia Seguros",
+        "description": "Cotización automática de seguros agrícolas, logrando un 90% de reducción en tiempos de procesamiento, USD 3,2M en primas nuevas y cobertura de 125.000 hectáreas."
+      },
+      "supervielle": {
+        "title": "Supervielle",
+        "description": "Automatización de underwriting, con workflows sin fricción y 60% menos costos operativos en la red de sucursales."
+      },
+      "prisma": {
+        "title": "Prisma Medios de Pago",
+        "description": "Automatización de 50+ procesos industriales, con 30% de incremento en capacidad exportadora, 15% de reducción en costos logísticos y 10% de mejora energética."
+      },
+      "molinosAgro": {
+        "title": "Molinos Agro",
+        "description": "Implementación de torres de control para trading agrícola, reduciendo un 35% los tiempos de conciliación y aumentando un 18% el margen operativo."
+      },
+      "molinosRio": {
+        "title": "Molinos Río de la Plata",
+        "description": "Digitalización de 40+ procesos de e-commerce, logrando 0% de errores, 40% de reducción de costos y cumplimiento fiscal automatizado en tiempo real."
+      },
+      "ypf": {
+        "title": "YPF",
+        "description": "Gestión predictiva de activos energéticos, con 25% menos incidentes críticos y ahorros anuales de USD 4M en mantenimiento."
+      },
+      "bbva": {
+        "title": "BBVA",
+        "description": "Plataforma de onboarding digital para pymes, con 3x más cuentas abiertas y NPS positivo en menos de seis semanas."
+      },
+      "telecom": {
+        "title": "Telecom",
+        "description": "Experiencia omnicanal para posventa, integrando IA conversacional y logrando un 45% de resolución en primer contacto."
+      },
+      "osde": {
+        "title": "OSDE",
+        "description": "Ecosistema de telemedicina que reduce en 60% las visitas presenciales y sube 22 puntos la satisfacción de afiliados."
+      },
+      "axion": {
+        "title": "Axion",
+        "description": "Plataforma de fidelización regional con segmentación en tiempo real y crecimiento del 28% en ventas cruzadas."
+      },
+      "bancoProvincia": {
+        "title": "Banco Provincia",
+        "description": "Digitalización de crédito productivo, emitiendo el 75% de los préstamos en menos de 48 horas."
+      },
+      "arcor": {
+        "title": "Arcor",
+        "description": "Cadena de suministro inteligente, con visibilidad end-to-end y 18% menos quiebres de stock en retail."
+      },
+      "mercadoLibre": {
+        "title": "Mercado Libre",
+        "description": "Motor de personalización para fintech, generando un uplift del 32% en conversión de productos financieros."
+      },
+      "sanCor": {
+        "title": "SanCor Salud",
+        "description": "Front digital unificado que mejora 40% la productividad comercial y habilita reporting regulatorio en minutos."
+      },
+      "nacionSeguros": {
+        "title": "Nación Seguros",
+        "description": "Portal de brokers con servicios componibles que reduce en 55% el time-to-market de nuevos productos."
+      },
+      "tarjetaNaranja": {
+        "title": "Naranja X",
+        "description": "Superapp de beneficios con arquitectura escalable y aumento del 25% en transacciones recurrentes."
+      },
+      "bancoCiudad": {
+        "title": "Banco Ciudad",
+        "description": "Marketplace crediticio con scoring responsable que expande la inclusión financiera en segmentos subatendidos."
+      },
+      "laAnonima": {
+        "title": "La Anónima",
+        "description": "Pricing dinámico para retail, con analítica en tiempo real y 3,5 puntos de mejora en márgenes."
+      },
+      "petrobras": {
+        "title": "Petrobras",
+        "description": "Supervisión remota de plantas industriales, con reducción de 20% en horas de parada y alertas predictivas."
+      },
+      "icbc": {
+        "title": "ICBC",
+        "description": "Arquitectura de banca abierta con APIs seguras que habilitan nuevas alianzas y productos en semanas."
+      },
+      "clarin": {
+        "title": "Clarín",
+        "description": "Estrategia data-driven para suscripciones digitales, triplicando la conversión y fidelizando audiencias."
+      },
+      "andreani": {
+        "title": "Andreani",
+        "description": "Logística inteligente con ruteo optimizado y 30% menos tiempos de entrega en última milla."
+      },
+      "globant": {
+        "title": "Globant",
+        "description": "Centro global de excelencia ágil que acelera la incorporación de talento y buenas prácticas en squads distribuidos."
+      }
+    },
+    "slides": {
+      "list-1": [
+        "santander",
+        "galiciaSeguros",
+        "supervielle",
+        "prisma",
+        "molinosAgro",
+        "molinosRio"
+      ],
+      "list-2": [
+        "ypf",
+        "bbva",
+        "telecom",
+        "osde",
+        "axion",
+        "bancoProvincia"
+      ],
+      "list-3": [
+        "arcor",
+        "mercadoLibre",
+        "sanCor",
+        "nacionSeguros",
+        "tarjetaNaranja",
+        "bancoCiudad"
+      ],
+      "list-4": [
+        "laAnonima",
+        "petrobras",
+        "icbc",
+        "clarin",
+        "andreani",
+        "globant"
+      ]
+    }
   }
 }

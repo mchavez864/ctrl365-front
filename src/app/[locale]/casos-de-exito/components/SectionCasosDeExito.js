@@ -26,7 +26,7 @@ const SLIDER_MEDIA = [
   },
 ];
 
-export default async function CasosDeExito() {
+export default async function SectionCasosDeExito() {
   const t = await getTranslations('SuccessStoriesSlider');
 
   const slides = SLIDER_MEDIA.map(({ translationKey, ...slide }) => {
@@ -53,7 +53,16 @@ export default async function CasosDeExito() {
           {t('section.description')}
         </p>
       </div>
-      <SliderCasosDeExito slides={slides} />
+      <SliderCasosDeExito
+        swiperConfig={{
+          slidesPerView: 1.1,
+          spaceBetween: 16,
+          className: '!overflow-visible',
+        }}
+        slides={slides}
+        footerClassName="mt-8"
+        progressTrackClassName="max-w-md"
+      />
     </section>
   );
 }

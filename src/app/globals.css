@@ -108,6 +108,10 @@ p, .p {
   line-height: 120%;
 }
 
+.font-inter {
+  font-family: var(--font-inter);
+}
+
 @media screen and (min-width: 1025px) {
   .display {
     font-size: 8rem;
