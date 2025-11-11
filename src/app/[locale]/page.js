@@ -4,6 +4,7 @@ import Button from "@/components/buttons/Button";
 import { getTranslations } from "next-intl/server";
 import Hero from "@/components/hero/Hero";
 import Navbar from "@/components/navbar/Navbar";
+import Impacto from "@/components/home/Impacto";
 
 
 
@@ -13,6 +14,7 @@ export default async function Home() {
       <main className="bg-grey-40 relative">
         <Navbar />
         <Hero />
+        <Impacto />
       </main>
   );
 }
