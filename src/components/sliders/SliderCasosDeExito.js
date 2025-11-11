@@ -7,51 +7,7 @@ import 'swiper/css';
 import ArrowLeft from '@/svg/arrow-left';
 import CaseCard from '../cards/CaseCard';
 
-const slides = [
-  {
-    id: 1,
-    brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-santander.svg',
-    pre: 'Resultados',
-    title: 'Automatización inteligente de créditos',
-    description:
-      'De 7 semanas a 20 minutos con IA y automatización inteligente.',
-    premetric: '+',
-    metric: '94',
-    postmetric: '%',
-    metricDescription: 'reducción en el tiempo de aprobación.',
-    image:
-      '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-santander.webp',
-    link: '#',
-  },
-  {
-    id: 2,
-    brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-galicia.svg',
-    pre: 'Resultados',
-    title: 'IA geoespacial para riesgos agrícolas',
-    description: 'Cotizaciones 90% más rápidas y mayor precisión.',
-    premetric: '+',
-    metric: '3.2',
-    postmetric: 'M',
-    metricDescription: 'nuevas primas generadas en seis semanas.',
-    image: '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-galicia.webp',
-    link: '#',
-  },
-  {
-    id: 3,
-    brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-howden.svg',
-    pre: 'HOWDEN',
-    title: 'Automatización inteligente de pólizas.',
-    description: '90% menos costos y 600% más productividad.',
-    premetric: '+',
-    metric: '600',
-    postmetric: '%',
-    metricDescription: 'en volumen de pólizas emitidas.',
-    image: '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-howden.webp',
-    link: '#',
-  },
-];
-
-export default function SliderCasosDeExito() {
+export default function SliderCasosDeExito({ slides = [] }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
@@ -61,11 +17,12 @@ export default function SliderCasosDeExito() {
   const [canNext, setCanNext] = useState(slides.length > 1);
   const [navReady, setNavReady] = useState(false);
 
-  const total = slides.length;
+  const totalSlides = slides.length;
   const label = `${String(activeIndex + 1).padStart(2, '0')}/${String(
-    total
+    totalSlides || 1
   ).padStart(2, '0')}`;
-  const progress = total > 1 ? ((activeIndex + 1) / total) * 100 : 0;
+  const progress =
+    totalSlides > 1 ? ((activeIndex + 1) / totalSlides) * 100 : 0;
 
   const updateControls = (swiper) => {
     setCanPrev(!swiper.isBeginning);
@@ -91,7 +48,17 @@ export default function SliderCasosDeExito() {
   useEffect(() => {
     if (!navReady) return;
     attachNavigation();
-  }, [navReady]);
+  }, [navReady, slides.length]);
+
+  useEffect(() => {
+    if (!swiperRef.current) return;
+    setCanNext(slides.length > 1);
+    updateControls(swiperRef.current);
+  }, [slides.length]);
+
+  if (!slides.length) {
+    return null;
+  }
 
   return (
     <section className="">
@@ -101,8 +68,8 @@ export default function SliderCasosDeExito() {
         spaceBetween={24}
         className="!overflow-visible mb-16"
         breakpoints={{
-          768: { slidesPerView: 1.03, spaceBetween: 24 },
-          768: { slidesPerView: 1.07, spaceBetween: 24 },
+          768: { slidesPerView: 1.08, spaceBetween: 28 },
+          1280: { slidesPerView: 1.2, spaceBetween: 32 },
         }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
