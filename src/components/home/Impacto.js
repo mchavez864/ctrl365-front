@@ -1,11 +1,10 @@
 "use client";
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-  useTransform,
 } from "framer-motion";
 
 const cards = [
@@ -63,6 +62,7 @@ const cards = [
 
 const Impacto = () => {
   const [currentCard, setCurrentCard] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
   const containerRef = useRef(null);
   const lastCardRef = useRef(0);
 
@@ -70,6 +70,19 @@ const Impacto = () => {
     target: containerRef,
     offset: ["start start", "end end"],
   });
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    
+    const handleChange = (e) => {
+      setIsDesktop(e.matches);
+    };
+    
+    setIsDesktop(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handleChange);
+    
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
 
   const updateCard = useCallback((latest) => {
     const cardIndex = Math.min(
@@ -106,11 +119,7 @@ const Impacto = () => {
                     ease: "easeOut",
                   }}
                   className="flex items-center gap-2"
-                  style={{
-                    transform: "translate3d(0, 0, 0)",
-                    backfaceVisibility: "hidden",
-                    WebkitBackfaceVisibility: "hidden",
-                  }}
+
                 >
                   {cards[currentCard].symbol && (
                     <p className="text-grey-00 text-[36px]! leading-[110%]! tracking-[-0.72px]!">
@@ -136,10 +145,7 @@ const Impacto = () => {
           
           <div
             className="absolute lg:relative top-[200px] md:top-auto md:bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl lg:w-[380px] lg:max-w-full lg:translate-y-0 lg:translate-x-0 lg:top-0 lg:left-0"
-            style={{
-              backfaceVisibility: "hidden",
-              WebkitBackfaceVisibility: "hidden",
-            }}
+
           >
             <div className="lg:flex lg:flex-col lg:items-start lg:justify-start lg:min-h-[280px]">
               <AnimatePresence mode="wait">
@@ -147,11 +153,11 @@ const Impacto = () => {
                   key={currentCard}
                   initial={{ 
                     opacity: 0,
-                    marginTop: currentCard === 0 ? '20%' : '0%'
+                    y: isDesktop && currentCard === 0 ? '20%' : '0%'
                   }}
                   animate={{ 
                     opacity: 1,
-                    marginTop: currentCard === 0 ? '20%' : '0%'
+                    y: isDesktop && currentCard === 0 ? '20%' : '0%'
                   }}
                   exit={{ opacity: 0 }}
                   transition={{
@@ -159,12 +165,7 @@ const Impacto = () => {
                     ease: "easeOut",
                   }}
                   className="lg:flex lg:flex-col lg:items-start"
-                  style={{
-                    transform: "translate3d(0, 0, 0)",
-                    backfaceVisibility: "hidden",
-                    WebkitBackfaceVisibility: "hidden",
-                    WebkitFontSmoothing: "antialiased",
-                  }}
+
                 >
                   {cards[currentCard].number && (
                     <div className="flex items-center gap-2 pl-[4px] mb-[20px]">
