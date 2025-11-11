@@ -5,38 +5,49 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import ArrowLeft from '@/svg/arrow-left';
-import CaseCard from './CaseCard';
+import CaseCard from '../cards/CaseCard';
 
 const slides = [
   {
     id: 1,
-    brand: 'Santander',
+    brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-santander.svg',
+    pre: 'Resultados',
     title: 'Automatización inteligente de créditos',
     description:
-      'De 2 semanas a 20 minutos con IA y automatización inteligente.',
-    metric: '+94%',
+      'De 7 semanas a 20 minutos con IA y automatización inteligente.',
+    premetric: '+',
+    metric: '94',
+    postmetric: '%',
     metricDescription: 'reducción en el tiempo de aprobación.',
-    image: '/images/pages/casos-de-uso/slider-casos-de-uso/ejemplo.jpg',
+    image:
+      '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-santander.webp',
+    link: '#',
   },
   {
     id: 2,
-    brand: 'Galicia Seguros',
+    brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-galicia.svg',
+    pre: 'Resultados',
     title: 'IA geoespacial para riesgos agrícolas',
-    description:
-      'Combinamos microservicios, datos y equipos híbridos in-house y nearshore.',
-    metric: '3.2 m',
-    metricDescription: 'hectáreas monitoreadas en tiempo real.',
-    image: '/images/pages/casos-de-uso/slider-casos-de-uso/ejemplo.jpg',
+    description: 'Cotizaciones 90% más rápidas y mayor precisión.',
+    premetric: '+',
+    metric: '3.2',
+    postmetric: 'M',
+    metricDescription: 'nuevas primas generadas en seis semanas.',
+    image: '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-galicia.webp',
+    link: '#',
   },
   {
     id: 3,
-    brand: 'Onda',
-    title: 'Plataforma omnicanal de beneficios',
-    description:
-      'Rediseñamos la experiencia end-to-end para 1.2m de usuarios activos.',
-    metric: '+68%',
-    metricDescription: 'de adopción digital en 90 días.',
-    image: '/images/pages/casos-de-uso/slider-casos-de-uso/ejemplo.jpg',
+    brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-howden.svg',
+    pre: 'HOWDEN',
+    title: 'Automatización inteligente de pólizas.',
+    description: '90% menos costos y 600% más productividad.',
+    premetric: '+',
+    metric: '600',
+    postmetric: '%',
+    metricDescription: 'en volumen de pólizas emitidas.',
+    image: '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-howden.webp',
+    link: '#',
   },
 ];
 
@@ -86,12 +97,12 @@ export default function SliderCasosDeExito() {
     <section className="">
       <Swiper
         modules={[Navigation]}
-        slidesPerView={1.2}
+        slidesPerView={1.06}
         spaceBetween={24}
         className="!overflow-visible mb-16"
         breakpoints={{
-          640: { slidesPerView: 1.12, spaceBetween: 28 },
-          1024: { slidesPerView: 1.2, spaceBetween: 32 },
+          768: { slidesPerView: 1.03, spaceBetween: 24 },
+          768: { slidesPerView: 1.07, spaceBetween: 24 },
         }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
@@ -146,7 +157,7 @@ export default function SliderCasosDeExito() {
             aria-label="Caso siguiente"
             className={`relative z-10 flex w-[88px] h-[56px] items-center justify-center rounded-full border border-gray-200  ${
               canNext
-                ? 'bg-gray-200 '
+                ? 'bg-gray-200 border-grey-20/40'
                 : 'bg-transparent border border-[#9E9E9E]'
             }`}
             disabled={!canNext}

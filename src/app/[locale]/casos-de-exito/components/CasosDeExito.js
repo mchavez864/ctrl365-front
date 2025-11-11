@@ -1,4 +1,4 @@
-import SliderCasosDeExito from './SliderCasosDeExito';
+import SliderCasosDeExito from '../../../../components/sliders/SliderCasosDeExito';
 
 export default function CasosDeExito() {
   return (

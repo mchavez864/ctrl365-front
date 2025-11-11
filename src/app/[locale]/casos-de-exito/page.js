@@ -1,5 +1,5 @@
 import Navbar from '@/components/navbar/Navbar';
-import SliderCasosDeExito from './components/SliderCasosDeExito';
+import SliderCasosDeExito from '../../../components/sliders/SliderCasosDeExito';
 import CasosDeExito from './components/CasosDeExito';
 
 export default function SuccessStoriesPage() {
