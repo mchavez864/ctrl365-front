@@ -251,3 +251,15 @@ body {
 .social-icon:hover svg path {
   fill: #FFF;
 }
+
+
+/* Text with gradient effect */
+
+@media screen and (min-width: 1025px) {
+.gradient-text {
+  background: linear-gradient(96deg, #FFF 3.63%, #8A8A8A 81.6%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+}

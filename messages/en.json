@@ -1,5 +1,49 @@
 {
-    "Home": {
-        "title": "Home"
+  "Home": {
+    "title": "Home"
+  },
+  "SuccessStoriesSlider": {
+    "section": {
+      "title": "[i]Designed to deliver results",
+      "description": "[i]Solutions recognized for their impact on efficiency, speed and growth."
+    },
+    "slides": {
+      "santander": {
+        "pre": "Results",
+        "title": "[i]Intelligent credit automation",
+        "description": "From 7 weeks to 20 minutes with AI and intelligent automation.",
+        "metric": {
+          "prefix": "+",
+          "value": "94",
+          "suffix": "%"
+        },
+        "metricDescription": "reduction in approval time.",
+        "ctaLabel": "Learn more"
+      },
+      "galicia": {
+        "pre": "[i]Results",
+        "title": "[i]Geospatial AI for agricultural risk",
+        "description": "[i]Quotes 90% faster with greater accuracy.",
+        "metric": {
+          "prefix": "+",
+          "value": "3.2",
+          "suffix": "M"
+        },
+        "metricDescription": "[i]new premiums generated in six weeks.",
+        "ctaLabel": "[i]Learn more"
+      },
+      "howden": {
+        "pre": "[i]Howden",
+        "title": "[i]Intelligent policy automation",
+        "description": "[i]90% lower costs and 600% more productivity.",
+        "metric": {
+          "prefix": "+",
+          "value": "600",
+          "suffix": "%"
+        },
+        "metricDescription": "[i]increase in issued policies volume.",
+        "ctaLabel": "[i]Learn more"
+      }
     }
+  }
 }

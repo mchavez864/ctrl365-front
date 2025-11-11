@@ -1,5 +1,49 @@
 {
-    "Home": {
-        "title": "CASA"
+  "Home": {
+    "title": "CASA"
+  },
+  "SuccessStoriesSlider": {
+    "section": {
+      "title": "Diseñado para entregar resultados",
+      "description": "Soluciones reconocidas por su impacto en eficiencia, velocidad y crecimiento."
+    },
+    "slides": {
+      "santander": {
+        "pre": "Resultados",
+        "title": "Automatización inteligente de créditos",
+        "description": "De 7 semanas a 20 minutos con IA y automatización inteligente.",
+        "metric": {
+          "prefix": "+",
+          "value": "94",
+          "suffix": "%"
+        },
+        "metricDescription": "reducción en el tiempo de aprobación.",
+        "ctaLabel": "Conocer más"
+      },
+      "galicia": {
+        "pre": "Resultados",
+        "title": "IA geoespacial para riesgos agrícolas",
+        "description": "Cotizaciones 90% más rápidas y mayor precisión.",
+        "metric": {
+          "prefix": "+",
+          "value": "3.2",
+          "suffix": "M"
+        },
+        "metricDescription": "nuevas primas generadas en seis semanas.",
+        "ctaLabel": "Conocer más"
+      },
+      "howden": {
+        "pre": "Howden",
+        "title": "Automatización inteligente de pólizas",
+        "description": "90% menos costos y 600% más productividad.",
+        "metric": {
+          "prefix": "+",
+          "value": "600",
+          "suffix": "%"
+        },
+        "metricDescription": "en volumen de pólizas emitidas.",
+        "ctaLabel": "Conocer más"
+      }
     }
+  }
 }
