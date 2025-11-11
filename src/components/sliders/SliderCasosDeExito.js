@@ -69,7 +69,7 @@ export default function SliderCasosDeExito({ slides = [] }) {
         className="!overflow-visible mb-16"
         breakpoints={{
           768: { slidesPerView: 1.08, spaceBetween: 28 },
-          1280: { slidesPerView: 1.2, spaceBetween: 32 },
+          1280: { slidesPerView: 1.1, spaceBetween: 32 },
         }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;

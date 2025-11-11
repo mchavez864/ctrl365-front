@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 const SLIDER_MEDIA = [
   {
     id: 1,
-    key: 'santander',
+    translationKey: 'santander',
     brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-santander.svg',
     image:
       '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-santander.webp',
@@ -12,14 +12,14 @@ const SLIDER_MEDIA = [
   },
   {
     id: 2,
-    key: 'galicia',
+    translationKey: 'galicia',
     brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-galicia.svg',
     image: '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-galicia.webp',
     link: '#',
   },
   {
     id: 3,
-    key: 'howden',
+    translationKey: 'howden',
     brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-howden.svg',
     image: '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-howden.webp',
     link: '#',
@@ -29,18 +29,17 @@ const SLIDER_MEDIA = [
 export default async function CasosDeExito() {
   const t = await getTranslations('SuccessStoriesSlider');
 
-  const slides = SLIDER_MEDIA.map((slide) => {
-    const key = slide.key;
+  const slides = SLIDER_MEDIA.map(({ translationKey, ...slide }) => {
     return {
       ...slide,
-      pre: t(`slides.${key}.pre`),
-      title: t(`slides.${key}.title`),
-      description: t(`slides.${key}.description`),
-      premetric: t(`slides.${key}.metric.prefix`),
-      metric: t(`slides.${key}.metric.value`),
-      postmetric: t(`slides.${key}.metric.suffix`),
-      metricDescription: t(`slides.${key}.metricDescription`),
-      ctaLabel: t(`slides.${key}.ctaLabel`),
+      pre: t(`slides.${translationKey}.pre`),
+      title: t(`slides.${translationKey}.title`),
+      description: t(`slides.${translationKey}.description`),
+      premetric: t(`slides.${translationKey}.metric.prefix`),
+      metric: t(`slides.${translationKey}.metric.value`),
+      postmetric: t(`slides.${translationKey}.metric.suffix`),
+      metricDescription: t(`slides.${translationKey}.metricDescription`),
+      ctaLabel: t(`slides.${translationKey}.ctaLabel`),
     };
   });
 
