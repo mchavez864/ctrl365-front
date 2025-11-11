@@ -44,7 +44,17 @@ export default async function SectionCasosDeExito() {
   });
 
   return (
-    <section className="px-4 py-16 md:px-16 xl:py-32 xxl:px-32 overflow-hidden">
+    <section className="px-4 py-16 md:px-16 xl:py-32 xxl:px-32 overflow-hidden relative">
+      <img
+        src="/images/pages/casos-de-uso/slider-casos-de-uso/left.png"
+        alt=""
+        className="absolute top-0 left-[50%] translate-x-[-50%] opacity-50 xl:translate-x-[-20%] xl:left-0"
+      />
+      <img
+        src="/images/pages/casos-de-uso/slider-casos-de-uso/right.png"
+        alt=""
+        className="hidden absolute top-0 right-0 opacity-50 xl:block xl:translate-x-[20%]"
+      />
       <div className="mb-16 text-center lg:text-left xl:flex xl:justify-between xl:items-start">
         <h2 className="mt-3 text-3xl font-semibold text-grey-40 md:text-4xl lg:text-5xl">
           {t('section.title')}
