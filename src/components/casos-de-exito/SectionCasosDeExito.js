@@ -1,4 +1,4 @@
-import SliderCasosDeExito from '../../../../components/sliders/SliderCasosDeExito';
+import SliderCasosDeExito from '../sliders/SliderCasosDeExito';
 import { getTranslations } from 'next-intl/server';
 
 const SLIDER_MEDIA = [

@@ -1,6 +1,6 @@
 import Navbar from '@/components/navbar/Navbar';
-import SectionCasosDeExito from './components/SectionCasosDeExito';
-import SectionResultadosCasosdeExito from './components/SectionResultadosCasosdeExito';
+import SectionCasosDeExito from '@/components/casos-de-exito/SectionCasosDeExito';
+import SectionResultadosCasosdeExito from '@/components/casos-de-exito/SectionResultadosCasosdeExito';
 
 export default function SuccessStoriesPage() {
   return (
