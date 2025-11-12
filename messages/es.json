@@ -199,6 +199,17 @@
       "policy2": "Política de Privacidad",
       "policy3": " de Ctrl365",
       "policyLink": "/",
+      "success": {
+        "title": "Mensaje enviado",
+        "subtitle": "Gracias por escribirnos. Nuestro equipo se pondrá en contacto muy pronto.",
+        "reset": "Enviar otro mensaje"
+      },
+      "errors": {
+        "required": "Este campo es obligatorio",
+        "email": "Ingresá un correo válido",
+        "goals": "Seleccioná al menos una opción",
+        "services": "Seleccioná al menos un servicio"
+      },
       "fields": {
         "name": "Nombre*",
         "lastName": "Apellido*",
@@ -211,6 +222,7 @@
       },
       "goals": {
         "label": "¿Qué estás buscando lograr con Ctrl365?",
+        "title": "¿Qué estás buscando lograr con Ctrl365?*",
         "placeholder": "Seleccionar",
         "options": [
           { "value": "techAdvisory", "label": "Asesoramiento general sobre soluciones tecnológicas" },
@@ -226,6 +238,7 @@
       },
       "services": {
         "label": "¿Qué tipo de servicio buscás?",
+        "title": "¿Qué tipo de servicio buscás?*",
         "placeholder": "Seleccionar",
         "options": [
           { "value": "discovery", "label": "Discovery" },

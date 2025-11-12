@@ -23,6 +23,7 @@ export default function Form() {
     reset,
     watch,
     setValue,
+    trigger,
   } = useForm({
     defaultValues: {
       firstName: '',
@@ -44,11 +45,15 @@ export default function Form() {
   const selectedServices = watch('services');
 
   const submitHandler = (data) => {
-    if (!data.goal && !Object.values(data.services || {}).includes(true)) {
+    const hasDesktopServices = Object.values(data.services || {}).includes(
+      true
+    );
+    const hasMobileSelection = Boolean(data.servicesMob);
+
+    if (!hasDesktopServices && !hasMobileSelection) {
+      setValue('servicesError', true, { shouldValidate: true });
       return;
     }
-    // En esta instancia sólo mostramos el estado de éxito.
-    // En la etapa 3 haremos el envío real.
   };
 
   if (isSubmitSuccessful) {
@@ -70,6 +75,9 @@ export default function Form() {
       </div>
     );
   }
+
+  const renderError = (message) =>
+    message ? <p className="mt-1 text-xs text-red-500">{message}</p> : null;
 
   return (
     <form
@@ -152,11 +160,12 @@ export default function Form() {
             placeholder={t('goals.placeholder')}
             options={goalOptions}
             value={selectedGoal}
-            onChange={(value) => setValue('goal', value, { shouldValidate: true })}
+            onChange={(value) => {
+              setValue('goal', value, { shouldValidate: true });
+              trigger('goal');
+            }}
           />
-          {errors.goal?.message && (
-            <p className="mt-2 text-xs text-red-500">{errors.goal.message}</p>
-          )}
+          {renderError(errors.goal?.message)}
         </div>
         <div className="hidden flex-wrap gap-2 lg:flex">
           {goalOptions.map((option) => (
@@ -175,9 +184,8 @@ export default function Form() {
             />
           ))}
         </div>
-        {errors.services?.message && (
-          <p className="text-xs text-red-500">{errors.services.message}</p>
-        )}
+        {renderError(errors.goal?.message) ||
+          renderError(errors.services?.message)}
       </div>
 
       <div className="flex flex-col gap-4">
@@ -190,11 +198,12 @@ export default function Form() {
             placeholder={t('services.placeholder')}
             options={serviceOptions}
             value={selectedServiceMob}
-            onChange={(value) => setValue('servicesMob', value, { shouldValidate: true })}
+            onChange={(value) => {
+              setValue('servicesMob', value, { shouldValidate: true });
+              trigger('servicesMob');
+            }}
           />
-          {errors.servicesMob?.message && (
-            <p className="mt-2 text-xs text-red-500">{errors.servicesMob.message}</p>
-          )}
+          {renderError(errors.servicesMob?.message)}
         </div>
         <div className="hidden flex-wrap gap-2 lg:flex">
           {serviceOptions.map((option) => (
@@ -221,15 +230,17 @@ export default function Form() {
           type="submit"
           className="w-full md:w-auto"
         />
-        <p className="mt-16 font-inter text-sm text-grey-30">
-          {t('policy')}{' '}
-          <Link href={t('policyLink')} className="underline">
+        <p className="mt-16 text-sm font-inter text-grey-30">
+          {t('policy')}
+          <Link
+            href={t('policyLink')}
+            className="underline"
+          >
             {t('policy2')}
-          </Link>{' '}
+          </Link>
           {t('policy3')}
         </p>
       </div>
     </form>
   );
 }
-

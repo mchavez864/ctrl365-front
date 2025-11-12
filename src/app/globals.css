@@ -288,5 +288,5 @@ body {
 /* Background grid white */
 
 .bg-grid-white {
-  background: url('/images/elements/gridWhite.svg') no-repeat top left;
+  background: #E7E5E4 url('/images/elements/gridWhite.svg') no-repeat top left;
 }

@@ -195,10 +195,21 @@
       "title2": "[i]about real outcomes",
       "subtitle": "[i]Measurable, fast and sustainable impact for your company.",
       "submit": "[i]Send",
-      "policy": "[i]Al completar el formulario, aceptas la ",
-      "policy2": "[i]Política de Privacidad",
-      "policy3": "[i] de Ctrl365",
+      "policy": "[i]By submitting the form, you accept the ",
+      "policy2": "[i]Privacy Policy",
+      "policy3": "[i] of Ctrl365",
       "policyLink": "/",
+      "success": {
+        "title": "[i]Message sent",
+        "subtitle": "[i]Thanks for reaching out. Our team will follow up shortly.",
+        "reset": "[i]Send another message"
+      },
+      "errors": {
+        "required": "[i]This field is required",
+        "email": "[i]Enter a valid email",
+        "goals": "[i]Select at least one goal",
+        "services": "[i]Select at least one service"
+      },
       "fields": {
         "name": "[i]First name",
         "lastName": "[i]Last name",
@@ -211,6 +222,7 @@
       },
       "goals": {
         "label": "[i]What are you looking to achieve with Ctrl365?",
+        "title": "[i]What are you looking to achieve with Ctrl365?*",
         "placeholder": "[i]Select",
         "options": [
           { "value": "techAdvisory", "label": "[i]Technology advisory" },
@@ -226,6 +238,7 @@
       },
       "services": {
         "label": "[i]What type of service are you looking for?",
+        "title": "[i]What type of service are you looking for?*",
         "placeholder": "[i]Select",
         "options": [
           { "value": "discovery", "label": "[i]Discovery" },
