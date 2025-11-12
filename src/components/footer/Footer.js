@@ -5,7 +5,7 @@ import Youtube from "@/svg/youtube.js";
 
 const Footer = () => {
   return (
-    <footer className="relative bg-grey-40 h-full w-full overflow-hidden">
+    <footer className="relative bg-grey-40 h-full w-full overflow-hidden" data-dark-section="true">
       <div className="relative z-10 pt-[128px] md:pt-[64px] pb-[64px] lg:mt-[160px]">
         <div className="lg:relative ">
           <div className="px-[16px] md:px-[64px] lg:absolute z-10 lg:top-[50%] lg:-translate-y-1/2  xxl:px-[128px]">

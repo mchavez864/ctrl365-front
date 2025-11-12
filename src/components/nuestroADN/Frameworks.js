@@ -109,6 +109,7 @@ const Frameworks = () => {
       ref={containerRef}
       className="relative bg-grey-10"
       style={{ height: `${frameworks.length * 80}vh` }}
+      data-dark-section="true"
     >
       <section className="sticky top-0 overflow-hidden h-screen">
         <div className="relative bg-grey-40 md:bg-gradient-to-t  md:from-[#2D1D36]  
