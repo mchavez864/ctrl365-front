@@ -33,7 +33,7 @@ export default async function SectionResultadosCasosdeExito() {
       <div className="flex flex-col gap-10 rounded-[48px] bg-grey-00/6 p-6 md:flex-row md:items-start md:p-10">
         <div className="hidden lg:block justify-center items-start lg:w-1/3">
           <img
-            src="/images/animaciones/orbe-de-particulas.gif"
+            src="/images/animations/orbe-de-particulas.gif"
             alt=""
             width={340}
             height={340}
