@@ -161,7 +161,7 @@ const Select = forwardRef(
                         type="button"
                         onClick={() => handleSelect(option)}
                         className={classNames(
-                          'flex w-full items-start px-4 py-3 font-inter transition hover:bg-orange/10 hover:text-grey-40',
+                          'flex text-left w-full items-start px-4 py-3 font-inter transition hover:bg-orange/10 hover:text-grey-40',
                           selected && 'text-grey-40'
                         )}
                         role="option"
