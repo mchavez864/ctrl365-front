@@ -186,8 +186,59 @@
   },
   "ContactPage": {
     "hero": {
-      "title": "Contact Us",
-      "description": "[i] Querés saber más sobre nuestros servicios? Dejanos tus datos y te responderemos pronto con toda la información."
+      "title": "[i]Contact us",
+      "description": "[i]Want to know more about our services? Leave your details and we’ll get back to you soon with all the information."
     }
-  }
+  },
+  "Form": {
+      "title": "[i]Let’s talk ",
+      "title2": "[i]about real outcomes",
+      "subtitle": "[i]Measurable, fast and sustainable impact for your company.",
+      "submit": "[i]Send",
+      "policy": "[i]Al completar el formulario, aceptas la ",
+      "policy2": "[i]Política de Privacidad",
+      "policy3": "[i] de Ctrl365",
+      "policyLink": "/",
+      "fields": {
+        "name": "[i]First name",
+        "lastName": "[i]Last name",
+        "company": "[i]Company",
+        "role": "[i]Job title",
+        "phone": "[i]Phone",
+        "email": "[i]Corporate email",
+        "country": "[i]Country",
+        "message": "[i]Message"
+      },
+      "goals": {
+        "label": "[i]What are you looking to achieve with Ctrl365?",
+        "placeholder": "[i]Select",
+        "options": [
+          { "value": "techAdvisory", "label": "[i]Technology advisory" },
+          { "value": "processTransformation", "label": "[i]Business process transformation" },
+          { "value": "employeeExperience", "label": "[i]Employee experience and cultural evolution" },
+          { "value": "customApps", "label": "[i]Custom application development" },
+          { "value": "automation", "label": "[i]Task automation (RPA, OCR or Low/No-Code)" },
+          { "value": "cloud", "label": "[i]Cloud solution implementation" },
+          { "value": "security", "label": "[i]Security and compliance in digital environments" },
+          { "value": "dataAnalytics", "label": "[i]Data analytics & BI visualization" },
+          { "value": "aiIntegration", "label": "[i]AI integration for processes and decisions (AI/Copilots/Agents)" }
+        ]
+      },
+      "services": {
+        "label": "[i]What type of service are you looking for?",
+        "placeholder": "[i]Select",
+        "options": [
+          { "value": "discovery", "label": "[i]Discovery" },
+          { "value": "assessment", "label": "[i]Assessment" },
+          { "value": "consultancy", "label": "[i]Consulting" },
+          { "value": "implementation", "label": "[i]Implementation" },
+          { "value": "configuration", "label": "[i]Configuration" },
+          { "value": "training", "label": "[i]Training" },
+          { "value": "licences", "label": "[i]Licences / Subscriptions" },
+          { "value": "support", "label": "[i]Support" },
+          { "value": "partners", "label": "[i]Partners / Alliances / Collaborations" },
+          { "value": "notSure", "label": "[i]Not sure yet" }
+        ]
+      }
+    }
 }

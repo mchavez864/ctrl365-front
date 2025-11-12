@@ -189,5 +189,56 @@
       "title": "Contáctanos",
       "description": "Querés saber más sobre nuestros servicios? Dejanos tus datos y te responderemos pronto con toda la información."
     }
-  }
+  },
+  "Form": {
+      "title": "Hablemos",
+      "title2": "de resultados reales",
+      "subtitle": "Impacto medible, rápido y sostenible para tu compañía.",
+      "submit": "Enviar",
+      "policy": "Al completar el formulario, aceptas la ",
+      "policy2": "Política de Privacidad",
+      "policy3": " de Ctrl365",
+      "policyLink": "/",
+      "fields": {
+        "name": "Nombre*",
+        "lastName": "Apellido*",
+        "company": "Empresa*",
+        "role": "Puesto de trabajo*",
+        "phone": "Teléfono*",
+        "email": "Correo corporativo*",
+        "country": "País*",
+        "message": "Consulta"
+      },
+      "goals": {
+        "label": "¿Qué estás buscando lograr con Ctrl365?",
+        "placeholder": "Seleccionar",
+        "options": [
+          { "value": "techAdvisory", "label": "Asesoramiento general sobre soluciones tecnológicas" },
+          { "value": "processTransformation", "label": "Transformación digital de procesos empresariales" },
+          { "value": "employeeExperience", "label": "Mejora de la experiencia del empleado y cultura organizacional" },
+          { "value": "customApps", "label": "Desarrollo de aplicaciones personalizadas" },
+          { "value": "automation", "label": "Automatización de tareas repetitivas (RPA, OCR o Low/No-Code)" },
+          { "value": "cloud", "label": "Implementación de soluciones cloud" },
+          { "value": "security", "label": "Seguridad y cumplimiento normativo en entornos digitales" },
+          { "value": "dataAnalytics", "label": "Análisis y visualización de datos con herramientas de BI" },
+          { "value": "aiIntegration", "label": "Integración de inteligencia artificial en procesos y decisiones (AI/Copilots/Agents)" }
+        ]
+      },
+      "services": {
+        "label": "¿Qué tipo de servicio buscás?",
+        "placeholder": "Seleccionar",
+        "options": [
+          { "value": "discovery", "label": "Discovery" },
+          { "value": "assessment", "label": "Assessment" },
+          { "value": "consultancy", "label": "Consultoría" },
+          { "value": "implementation", "label": "Implementación" },
+          { "value": "configuration", "label": "Configuración" },
+          { "value": "training", "label": "Capacitación" },
+          { "value": "licences", "label": "Licencias / Suscripciones" },
+          { "value": "support", "label": "Soporte" },
+          { "value": "partners", "label": "Partners / Alianzas / Colaboraciones" },
+          { "value": "notSure", "label": "Aún no lo sé" }
+        ]
+      }
+    }
 }
