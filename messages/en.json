@@ -183,5 +183,11 @@
         "globant"
       ]
     }
+  },
+  "ContactPage": {
+    "hero": {
+      "title": "Contact Us",
+      "description": "[i] Querés saber más sobre nuestros servicios? Dejanos tus datos y te responderemos pronto con toda la información."
+    }
   }
 }

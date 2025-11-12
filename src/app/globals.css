@@ -28,7 +28,9 @@
 
 :root {
 }
-
+html {
+  background-color: var(--color-grey-10);
+}
 /* fonts */
 
 .display {

@@ -1,24 +1,24 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
-import Logo from "@/svg/logo.js";
-import Cross from "@/svg/cross.js";
-import Instagram from "@/svg/instagram.js";
-import Linkedin from "@/svg/linkedin.js";
-import Youtube from "@/svg/youtube.js";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import Logo from '@/svg/logo.js';
+import Cross from '@/svg/cross.js';
+import Instagram from '@/svg/instagram.js';
+import Linkedin from '@/svg/linkedin.js';
+import Youtube from '@/svg/youtube.js';
 
 const menuItems = [
-  { name: "Home", href: "#" },
-  { name: "Quienes somos", href: "#" },
-  { name: "Casos de éxito", href: "#" },
-  { name: "Contacto", href: "#" },
+  { name: 'Home', href: '#' },
+  { name: 'Quienes somos', href: '#' },
+  { name: 'Casos de éxito', href: '/casos-de-exito' },
+  { name: 'Contacto', href: '/contacto' },
 ];
 
 const Menu = ({ onClose }) => {
   return (
     <motion.div
-      initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
-      animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-      exit={{ clipPath: "inset(0% 0% 100% 0%)" }}
+      initial={{ clipPath: 'inset(0% 0% 100% 0%)' }}
+      animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+      exit={{ clipPath: 'inset(0% 0% 100% 0%)' }}
       transition={{
         duration: 0.6,
         ease: [0.43, 0.13, 0.23, 0.96],
@@ -32,29 +32,29 @@ const Menu = ({ onClose }) => {
               color="white"
               className="w-[92px] h-[32px] md:w-[138px] md:h-[48px]"
             />
-                  <div className="md:flex md:items-center md:justify-between md:w-[228px]">
-            <div className="hidden md:flex items-center relative w-[82px] h-[26px] ">
-              <button className="bg-grey-00 text-grey-40 absolute left-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px]">
-                ES
-              </button>
-              <button className="bg-transparent absolute right-0 rounded-[900px] border border-grey-20 text-grey-20 text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px]">
-                EN
-              </button>
-            </div>
-            <button
-              onClick={onClose}
-              className="flex items-center gap-[8px] cursor-pointer"
-            >
-              <p className="text-[12px] leading-[120%] tracking-[-0.24px] uppercase text-grey-00">
-                Cerrar
-              </p>
-              <div className="w-[52px] h-[24px] rounded-[900px] bg-grey-00 relative">
-                <Cross
-                  color="black"
-                  className="w-[12px] h-[12px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                />
+            <div className="md:flex md:items-center md:justify-between md:w-[228px]">
+              <div className="hidden md:flex items-center relative w-[82px] h-[26px] ">
+                <button className="bg-grey-00 text-grey-40 absolute left-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px]">
+                  ES
+                </button>
+                <button className="bg-transparent absolute right-0 rounded-[900px] border border-grey-20 text-grey-20 text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px]">
+                  EN
+                </button>
               </div>
-            </button>
+              <button
+                onClick={onClose}
+                className="flex items-center gap-[8px] cursor-pointer"
+              >
+                <p className="text-[12px] leading-[120%] tracking-[-0.24px] uppercase text-grey-00">
+                  Cerrar
+                </p>
+                <div className="w-[52px] h-[24px] rounded-[900px] bg-grey-00 relative">
+                  <Cross
+                    color="black"
+                    className="w-[12px] h-[12px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  />
+                </div>
+              </button>
             </div>
           </div>
         </div>
