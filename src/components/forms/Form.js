@@ -8,7 +8,7 @@ import Textarea from '@/components/forms/Textarea';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useForm } from 'react-hook-form';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 
 export default function Form() {
   const t = useTranslations('Form');
@@ -19,12 +19,16 @@ export default function Form() {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors, isSubmitSuccessful, isValid },
     reset,
     watch,
     setValue,
     trigger,
+    getValues,
   } = useForm({
+    mode: 'onChange',
+    reValidateMode: 'onChange',
+    shouldUnregister: false,
     defaultValues: {
       firstName: '',
       lastName: '',
@@ -35,26 +39,41 @@ export default function Form() {
       country: '',
       message: '',
       goal: '',
+      goalDesktop: {},
       servicesMob: '',
       services: {},
     },
   });
 
+  useEffect(() => {
+    register('goalDesktop');
+    register('services');
+    register('goal', {
+      validate: () =>
+        Boolean(getValues('goal')) ||
+        Object.values(getValues('goalDesktop') || {}).some(Boolean) ||
+        t('goals.required'),
+    });
+    register('servicesMob', {
+      validate: () =>
+        Boolean(getValues('servicesMob')) ||
+        Object.values(getValues('services') || {}).some(Boolean) ||
+        t('services.required'),
+    });
+    register('services', {
+      validate: () =>
+        Object.values(getValues('services') || {}).some(Boolean) ||
+        Boolean(getValues('servicesMob')) ||
+        t('services.required'),
+    });
+  }, [register, getValues, t]);
+
   const selectedGoal = watch('goal');
+  const selectedGoalDesktop = watch('goalDesktop');
   const selectedServiceMob = watch('servicesMob');
   const selectedServices = watch('services');
 
-  const submitHandler = (data) => {
-    const hasDesktopServices = Object.values(data.services || {}).includes(
-      true
-    );
-    const hasMobileSelection = Boolean(data.servicesMob);
-
-    if (!hasDesktopServices && !hasMobileSelection) {
-      setValue('servicesError', true, { shouldValidate: true });
-      return;
-    }
-  };
+  const submitHandler = () => {};
 
   if (isSubmitSuccessful) {
     return (
@@ -88,36 +107,107 @@ export default function Form() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <Input
           placeholder={t('fields.name')}
+          maxLength={25}
+          limitHint={t('errors.maxChars')}
           {...register('firstName', {
             required: t('errors.required'),
+            minLength: {
+              value: 3,
+              message: t('errors.minChars'),
+            },
+            maxLength: {
+              value: 25,
+              message: t('errors.maxChars'),
+            },
+            pattern: {
+              value: /^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]+$/,
+              message: t('errors.onlyLetters'),
+            },
           })}
           hint={errors.firstName?.message}
         />
         <Input
           placeholder={t('fields.lastName')}
+          maxLength={25}
+          limitHint={t('errors.maxChars')}
           {...register('lastName', {
             required: t('errors.required'),
+            minLength: {
+              value: 3,
+              message: t('errors.minChars'),
+            },
+            maxLength: {
+              value: 25,
+              message: t('errors.maxChars'),
+            },
+            pattern: {
+              value: /^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]+$/,
+              message: t('errors.onlyLetters'),
+            },
           })}
           hint={errors.lastName?.message}
         />
         <Input
           placeholder={t('fields.company')}
+          maxLength={30}
+          limitHint={t('errors.maxCharsCompany')}
           {...register('company', {
             required: t('errors.required'),
+            minLength: {
+              value: 3,
+              message: t('errors.minChars'),
+            },
+            maxLength: {
+              value: 30,
+              message: t('errors.maxCharsCompany'),
+            },
+            pattern: {
+              value:
+                /^(?=.*[A-Za-zÁÉÍÓÚáéíóúÜüÑñ])[A-Za-zÁÉÍÓÚáéíóúÜüÑñ0-9\s&.,'"-]+$/,
+              message: t('errors.alphaNumeric'),
+            },
           })}
           hint={errors.company?.message}
         />
         <Input
           placeholder={t('fields.role')}
+          maxLength={25}
+          limitHint={t('errors.maxChars')}
           {...register('role', {
             required: t('errors.required'),
+            minLength: {
+              value: 3,
+              message: t('errors.minChars'),
+            },
+            maxLength: {
+              value: 25,
+              message: t('errors.maxChars'),
+            },
+            pattern: {
+              value: /^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]+$/,
+              message: t('errors.onlyLetters'),
+            },
           })}
           hint={errors.role?.message}
         />
         <Input
           placeholder={t('fields.phone')}
+          maxLength={12}
+          limitHint={t('errors.maxDigits')}
           {...register('phone', {
             required: t('errors.required'),
+            pattern: {
+              value: /^[0-9]+$/,
+              message: t('errors.onlyNumbers'),
+            },
+            minLength: {
+              value: 6,
+              message: t('errors.minDigits'),
+            },
+            maxLength: {
+              value: 12,
+              message: t('errors.maxDigits'),
+            },
           })}
           hint={errors.phone?.message}
         />
@@ -137,8 +227,22 @@ export default function Form() {
         <Input
           placeholder={t('fields.country')}
           wrapperClassName="md:col-span-2"
+          maxLength={20}
+          limitHint={t('errors.maxCharsCountry')}
           {...register('country', {
             required: t('errors.required'),
+            minLength: {
+              value: 3,
+              message: t('errors.minChars'),
+            },
+            maxLength: {
+              value: 20,
+              message: t('errors.maxCharsCountry'),
+            },
+            pattern: {
+              value: /^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]+$/,
+              message: t('errors.onlyLetters'),
+            },
           })}
           hint={errors.country?.message}
         />
@@ -162,7 +266,7 @@ export default function Form() {
             value={selectedGoal}
             onChange={(value) => {
               setValue('goal', value, { shouldValidate: true });
-              trigger('goal');
+              trigger(['goal']);
             }}
           />
           {renderError(errors.goal?.message)}
@@ -172,20 +276,22 @@ export default function Form() {
             <Checkbox
               key={option.value}
               chip
-              name={`services.${option.value}`}
+              name={`goalDesktop.${option.value}`}
               label={option.label}
-              checked={!!selectedServices?.[option.value]}
+              checked={!!selectedGoalDesktop?.[option.value]}
               onChange={(event) => {
                 const checked = event.target.checked;
-                setValue(`services.${option.value}`, checked, {
-                  shouldValidate: true,
-                });
+                const updated = {
+                  ...(selectedGoalDesktop || {}),
+                  [option.value]: checked,
+                };
+                setValue('goalDesktop', updated, { shouldValidate: true });
+                trigger(['goal']);
               }}
             />
           ))}
         </div>
-        {renderError(errors.goal?.message) ||
-          renderError(errors.services?.message)}
+        {renderError(errors.goal?.message)}
       </div>
 
       <div className="flex flex-col gap-4">
@@ -200,7 +306,7 @@ export default function Form() {
             value={selectedServiceMob}
             onChange={(value) => {
               setValue('servicesMob', value, { shouldValidate: true });
-              trigger('servicesMob');
+              trigger(['services', 'servicesMob']);
             }}
           />
           {renderError(errors.servicesMob?.message)}
@@ -215,13 +321,17 @@ export default function Form() {
               checked={!!selectedServices?.[option.value]}
               onChange={(event) => {
                 const checked = event.target.checked;
-                setValue(`services.${option.value}`, checked, {
-                  shouldValidate: true,
-                });
+                const updated = {
+                  ...(selectedServices || {}),
+                  [option.value]: checked,
+                };
+                setValue('services', updated, { shouldValidate: true });
+                trigger(['services', 'servicesMob']);
               }}
             />
           ))}
         </div>
+        {renderError(errors.services?.message)}
       </div>
 
       <div>
@@ -229,6 +339,7 @@ export default function Form() {
           copy={t('submit')}
           type="submit"
           className="w-full md:w-auto"
+          disabled={!isValid}
         />
         <p className="mt-16 text-sm font-inter text-grey-30">
           {t('policy')}

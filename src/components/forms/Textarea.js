@@ -21,6 +21,7 @@ const Textarea = forwardRef(
       onChange,
       placeholder = '',
       disabled,
+      maxLength,
       ...props
     },
     ref
@@ -55,6 +56,11 @@ const Textarea = forwardRef(
       }
     };
 
+    const currentValue = controlled ? value : internalValue;
+    const currentLength = currentValue?.length ?? 0;
+    const reachedLimit = maxLength !== undefined && currentLength >= maxLength;
+    const hasError = Boolean(hint);
+
     return (
       <div className={classNames('flex flex-col gap-2', wrapperClassName)}>
         <div className="relative">
@@ -73,7 +79,10 @@ const Textarea = forwardRef(
               }
             }}
             className={classNames(
-              'w-full rounded-2xl border border-grey-20/40 bg-grey-00 px-4 py-3 font-inter text-grey-40 placeholder:text-grey-20 focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/40 transition',
+              'w-full rounded-2xl bg-grey-00 px-4 py-3 text-grey-40 placeholder:text-grey-20 focus:outline-none focus:ring-0 transition',
+              hasError
+                ? 'border border-red-500 focus:border-red-500'
+                : 'border border-grey-20/40 focus:border-orange',
               className
             )}
             value={controlled ? value : internalValue}

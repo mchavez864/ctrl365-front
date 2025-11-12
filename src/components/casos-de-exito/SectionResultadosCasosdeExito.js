@@ -52,7 +52,7 @@ export default async function SectionResultadosCasosdeExito() {
               effect: 'fade',
               fadeEffect: { crossFade: true },
             }}
-            footerClassName="bg-transparent mt-8 lg:px-6"
+            footerClassName="bg-transparent mt-8 "
             labelClassName="!text-grey-30 "
             progressTrackClassName="max-w-md"
           />

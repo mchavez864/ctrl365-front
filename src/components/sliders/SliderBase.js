@@ -70,7 +70,7 @@ export default function SliderBase({
   }
 
   const listRenderer = (slide) => (
-    <div className="lg:px-6">
+    <div className="">
       <ul className="flex flex-col divide-y divide-grey-10">
         {slide.items?.map((item) => (
           <li
