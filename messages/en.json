@@ -45,5 +45,224 @@
         "ctaLabel": "[i]Learn more"
       }
     }
-  }
+  },
+  "ResultadosCasosdeExitoSlider": {
+    "section": {
+      "title": "[i]Visible transformation. Real impact.",
+      "description": "[i]Stories that showcase how we scale operations, accelerate launches and deliver measurable business value."
+    },
+    "items": {
+      "santander": {
+        "title": "[i]Santander",
+        "description": "[i]Digitized the credit process, cutting approval times from 7 weeks to 20 minutes, with a 94% efficiency uplift and over 1M loans processed."
+      },
+      "galiciaSeguros": {
+        "title": "[i]Galicia Seguros",
+        "description": "[i]Automated agricultural insurance quotes, achieving a 90% reduction in processing time, USD 3.2M in new premiums and coverage for 125,000 hectares."
+      },
+      "supervielle": {
+        "title": "[i]Supervielle",
+        "description": "[i]Streamlined underwriting workflows, removing friction and reducing branch operating costs by 60%."
+      },
+      "prisma": {
+        "title": "[i]Prisma Payments",
+        "description": "[i]Automated 50+ industrial processes, boosting export capacity by 30%, trimming logistics costs 15% and improving energy efficiency 10%."
+      },
+      "molinosAgro": {
+        "title": "[i]Molinos Agro",
+        "description": "[i]Implemented control towers for agricultural trading, cutting reconciliation time 35% and lifting operating margin 18%."
+      },
+      "molinosRio": {
+        "title": "[i]Molinos Río de la Plata",
+        "description": "[i]Digitized 40+ e-commerce processes, delivering 0% errors, 40% cost reduction and automated fiscal compliance in real time."
+      },
+      "ypf": {
+        "title": "[i]YPF",
+        "description": "[i]Predictive asset management that reduced critical incidents 25% and saved USD 4M annually in maintenance."
+      },
+      "bbva": {
+        "title": "[i]BBVA",
+        "description": "[i]Digital onboarding for SMBs, tripling account openings and reaching positive NPS in under six weeks."
+      },
+      "telecom": {
+        "title": "[i]Telecom",
+        "description": "[i]Omnichannel post-sales experience with conversational AI, resolving 45% of cases at first contact."
+      },
+      "osde": {
+        "title": "[i]OSDE",
+        "description": "[i]Telemedicine ecosystem that cut in-person visits 60% and lifted member satisfaction by 22 points."
+      },
+      "axion": {
+        "title": "[i]Axion",
+        "description": "[i]Regional loyalty platform with real-time segmentation, growing cross-sales by 28%."
+      },
+      "bancoProvincia": {
+        "title": "[i]Banco Provincia",
+        "description": "[i]Digitized productive credit, issuing 75% of loans in under 48 hours."
+      },
+      "arcor": {
+        "title": "[i]Arcor",
+        "description": "[i]Smart supply chain with end-to-end visibility, reducing retail stockouts 18%."
+      },
+      "mercadoLibre": {
+        "title": "[i]Mercado Libre",
+        "description": "[i]Personalization engine for fintech products, increasing conversion by 32%."
+      },
+      "sanCor": {
+        "title": "[i]SanCor Salud",
+        "description": "[i]Unified digital front office that improved commercial productivity 40% and enabled regulatory reporting in minutes."
+      },
+      "nacionSeguros": {
+        "title": "[i]Nación Seguros",
+        "description": "[i]Composable broker portal that cut the time-to-market for new products by 55%."
+      },
+      "tarjetaNaranja": {
+        "title": "[i]Naranja X",
+        "description": "[i]Benefits super app with scalable architecture, lifting recurring transactions 25%."
+      },
+      "bancoCiudad": {
+        "title": "[i]Banco Ciudad",
+        "description": "[i]Credit marketplace with responsible scoring, expanding financial inclusion for underserved segments."
+      },
+      "laAnonima": {
+        "title": "[i]La Anónima",
+        "description": "[i]Dynamic pricing for retail powered by real-time analytics, adding 3.5 margin points."
+      },
+      "petrobras": {
+        "title": "[i]Petrobras",
+        "description": "[i]Remote plant supervision that cut downtime hours 20% with predictive alerts."
+      },
+      "icbc": {
+        "title": "[i]ICBC",
+        "description": "[i]Open banking architecture with secure APIs, enabling new partnerships and products in weeks."
+      },
+      "clarin": {
+        "title": "[i]Clarín",
+        "description": "[i]Data-driven strategy for digital subscriptions, tripling conversion while strengthening engagement."
+      },
+      "andreani": {
+        "title": "[i]Andreani",
+        "description": "[i]Smart logistics with optimized routing, cutting last-mile delivery times 30%."
+      },
+      "globant": {
+        "title": "[i]Globant",
+        "description": "[i]Global agile excellence hub that accelerates talent ramp-up and best-practice adoption across distributed squads."
+      }
+    },
+    "slides": {
+      "list-1": [
+        "santander",
+        "galiciaSeguros",
+        "supervielle",
+        "prisma",
+        "molinosAgro",
+        "molinosRio"
+      ],
+      "list-2": [
+        "ypf",
+        "bbva",
+        "telecom",
+        "osde",
+        "axion",
+        "bancoProvincia"
+      ],
+      "list-3": [
+        "arcor",
+        "mercadoLibre",
+        "sanCor",
+        "nacionSeguros",
+        "tarjetaNaranja",
+        "bancoCiudad"
+      ],
+      "list-4": [
+        "laAnonima",
+        "petrobras",
+        "icbc",
+        "clarin",
+        "andreani",
+        "globant"
+      ]
+    }
+  },
+  "ContactPage": {
+    "hero": {
+      "title": "[i]Contact us",
+      "description": "[i]Want to know more about our services? Leave your details and we’ll get back to you soon with all the information."
+    }
+  },
+  "Form": {
+      "title": "[i]Let’s talk ",
+      "title2": "[i]about real outcomes",
+      "subtitle": "[i]Measurable, fast and sustainable impact for your company.",
+      "submit": "[i]Send",
+      "policy": "[i]By submitting the form, you accept the ",
+      "policy2": "[i]Privacy Policy",
+      "policy3": "[i] of Ctrl365",
+      "policyLink": "/",
+      "success": {
+        "title": "[i]Message sent",
+        "subtitle": "[i]Thanks for reaching out. Our team will follow up shortly.",
+        "reset": "[i]Send another message"
+      },
+      "errors": {
+        "required": "[i]This field is required",
+        "email": "[i]Enter a valid email",
+        "onlyLetters": "[i]Letters only",
+        "minChars": "[i]Must be at least 3 characters",
+        "maxChars": "[i]Maximum 25 characters",
+        "maxCharsCountry": "[i]Maximum 20 characters",
+        "maxCharsCompany": "[i]Maximum 30 characters",
+        "alphaNumeric": "[i]Use letters and numbers (at least one letter)",
+        "onlyNumbers": "[i]Digits only",
+        "minDigits": "[i]Must be at least 6 digits",
+        "maxDigits": "[i]Maximum 12 digits",
+        "goals": "[i]Select at least one goal",
+        "services": "[i]Select at least one service"
+      },
+      "fields": {
+        "name": "[i]First name",
+        "lastName": "[i]Last name",
+        "company": "[i]Company",
+        "role": "[i]Job title",
+        "phone": "[i]Phone",
+        "email": "[i]Corporate email",
+        "country": "[i]Country",
+        "message": "[i]Message"
+      },
+      "goals": {
+        "label": "[i]What are you looking to achieve with Ctrl365?",
+        "title": "[i]What are you looking to achieve with Ctrl365?*",
+        "placeholder": "[i]Select",
+        "required": "[i]You must choose an option",
+        "options": [
+          { "value": "techAdvisory", "label": "[i]Technology advisory" },
+          { "value": "processTransformation", "label": "[i]Business process transformation" },
+          { "value": "employeeExperience", "label": "[i]Employee experience and cultural evolution" },
+          { "value": "customApps", "label": "[i]Custom application development" },
+          { "value": "automation", "label": "[i]Task automation (RPA, OCR or Low/No-Code)" },
+          { "value": "cloud", "label": "[i]Cloud solution implementation" },
+          { "value": "security", "label": "[i]Security and compliance in digital environments" },
+          { "value": "dataAnalytics", "label": "[i]Data analytics & BI visualization" },
+          { "value": "aiIntegration", "label": "[i]AI integration for processes and decisions (AI/Copilots/Agents)" }
+        ]
+      },
+      "services": {
+        "required": "[i]You must choose an option",
+        "label": "[i]What type of service are you looking for?",
+        "title": "[i]What type of service are you looking for?*",
+        "placeholder": "[i]Select",
+        "options": [
+          { "value": "discovery", "label": "[i]Discovery" },
+          { "value": "assessment", "label": "[i]Assessment" },
+          { "value": "consultancy", "label": "[i]Consulting" },
+          { "value": "implementation", "label": "[i]Implementation" },
+          { "value": "configuration", "label": "[i]Configuration" },
+          { "value": "training", "label": "[i]Training" },
+          { "value": "licences", "label": "[i]Licences / Subscriptions" },
+          { "value": "support", "label": "[i]Support" },
+          { "value": "partners", "label": "[i]Partners / Alliances / Collaborations" },
+          { "value": "notSure", "label": "[i]Not sure yet" }
+        ]
+      }
+    }
 }

@@ -102,6 +102,7 @@ const Impacto = () => {
       ref={containerRef}
       className="relative"
       style={{ height: `${cards.length * 80}vh` }}
+      data-dark-section="true"
     >
       <section className="sticky top-0 bg-grey-40 overflow-hidden h-screen px-[16px] md:px-[146px] lg:px-[128px] xxl:px-[256px] py-[64px] flex flex-col items-center justify-center ">
         {/* Área del porcentaje - posición absoluta fija */}

@@ -1,13 +1,18 @@
 import Navbar from '@/components/navbar/Navbar';
-import SliderCasosDeExito from '../../../components/sliders/SliderCasosDeExito';
-import CasosDeExito from './components/CasosDeExito';
+import SectionCasosDeExito from '@/components/casos-de-exito/SectionCasosDeExito';
+import SectionResultadosCasosdeExito from '@/components/casos-de-exito/SectionResultadosCasosdeExito';
+import Resultados from '@/components/casos-de-exito/Resultados';
+import SectionForm from '@/components/sections/SectionForm';
 
 export default function SuccessStoriesPage() {
   return (
     <>
       <Navbar />
-      <main className="pt-40">
-        <CasosDeExito />
+      <main className="">
+        <Resultados />
+        <SectionCasosDeExito />
+        <SectionResultadosCasosdeExito />
+        <SectionForm />
       </main>
     </>
   );

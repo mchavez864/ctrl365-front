@@ -1,18 +1,18 @@
-import { Sora, Inter } from "next/font/google";
-import Footer from "@/components/footer/Footer";
-import "@/app/globals.css";
-import { ReactLenis } from "@/utils/lenis";
-import { NextIntlClientProvider } from "next-intl";
-
+import { Sora, Inter } from 'next/font/google';
+import Footer from '@/components/footer/Footer';
+import '@/app/globals.css';
+import { ReactLenis } from '@/utils/lenis';
+import { NextIntlClientProvider } from 'next-intl';
 
 const sora = Sora({
-  subsets: ["latin"],
-  variable: "--font-sora",
+  subsets: ['latin'],
+  variable: '--font-sora',
 });
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-inter',
 });
 
 export default function RootLayout({ children }) {
