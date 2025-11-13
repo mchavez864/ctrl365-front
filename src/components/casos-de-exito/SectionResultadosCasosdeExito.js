@@ -20,7 +20,7 @@ export default async function SectionResultadosCasosdeExito() {
   });
 
   return (
-    <section className="overflow-hidden px-4 py-16 md:px-16 xl:py-32 xxl:px-32">
+    <section className="bg-grey-10 overflow-hidden px-4 py-16 md:px-16 xl:py-32 xxl:px-32">
       <div className="mb-16 text-center lg:text-left xl:flex xl:items-start xl:justify-between">
         <h2 className="mt-3 text-3xl font-semibold text-grey-40 md:text-4xl lg:text-5xl">
           {t('section.title')}
@@ -52,7 +52,7 @@ export default async function SectionResultadosCasosdeExito() {
               effect: 'fade',
               fadeEffect: { crossFade: true },
             }}
-            footerClassName="bg-transparent mt-8 lg:px-6"
+            footerClassName="bg-transparent mt-8 "
             labelClassName="!text-grey-30 "
             progressTrackClassName="max-w-md"
           />

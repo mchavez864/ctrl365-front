@@ -40,7 +40,7 @@ const Checkbox = forwardRef(
           />
           <span
             className={classNames(
-              'inline-flex w-full items-center justify-center rounded-[3px] border border-grey-20 bg-transparent px-4 py-2 text-sm font-inter transition',
+              'inline-flex w-full items-center justify-center rounded-[3px] border border-grey-20 bg-transparent px-4 py-2 font-inter transition',
               'peer-checked:border-orange peer-checked:text-grey-40 peer-focus-visible:ring-2 peer-focus-visible:ring-orange/40',
               'hover:border-orange/60 hover:text-grey-40'
             )}

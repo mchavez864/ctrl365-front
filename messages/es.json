@@ -199,6 +199,26 @@
       "policy2": "Política de Privacidad",
       "policy3": " de Ctrl365",
       "policyLink": "/",
+      "success": {
+        "title": "Mensaje enviado",
+        "subtitle": "Gracias por escribirnos. Nuestro equipo se pondrá en contacto muy pronto.",
+        "reset": "Enviar otro mensaje"
+      },
+      "errors": {
+        "required": "Este campo es obligatorio",
+        "email": "Ingresá un correo válido",
+        "onlyLetters": "Solo se permiten letras",
+        "minChars": "Debe tener al menos 3 caracteres",
+        "maxChars": "Máximo 25 caracteres",
+        "maxCharsCountry": "Máximo 20 caracteres",
+        "maxCharsCompany": "Máximo 30 caracteres",
+        "alphaNumeric": "Ingresá letras y números, con al menos una letra",
+        "onlyNumbers": "Solo se permiten números",
+        "minDigits": "Debe tener al menos 6 dígitos",
+        "maxDigits": "Máximo 12 dígitos",
+        "goals": "Seleccioná al menos una opción",
+        "services": "Seleccioná al menos un servicio"
+      },
       "fields": {
         "name": "Nombre*",
         "lastName": "Apellido*",
@@ -211,7 +231,9 @@
       },
       "goals": {
         "label": "¿Qué estás buscando lograr con Ctrl365?",
+        "title": "¿Qué estás buscando lograr con Ctrl365?*",
         "placeholder": "Seleccionar",
+        "required": "Debes elegir una opción",
         "options": [
           { "value": "techAdvisory", "label": "Asesoramiento general sobre soluciones tecnológicas" },
           { "value": "processTransformation", "label": "Transformación digital de procesos empresariales" },
@@ -225,7 +247,9 @@
         ]
       },
       "services": {
+        "required": "Debes elegir una opción",
         "label": "¿Qué tipo de servicio buscás?",
+        "title": "¿Qué tipo de servicio buscás?*",
         "placeholder": "Seleccionar",
         "options": [
           { "value": "discovery", "label": "Discovery" },
