@@ -359,7 +359,10 @@ const Resultados = () => {
       <div
         ref={linesRef}
         className="flex flex-col gap-[13px] md:grid md:grid-cols-2 
-      md:gap-[13px] md:py-[64px] md:h-[670px] lg:py-[128px] lg:h-[1664px] lg:gap-[32px] lg:grid-rows-[198px_198px_198px_256px_198px_200px] lg:grid-cols-[minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)] lg:self-stretch"
+      md:gap-[13px] md:py-[64px] md:h-[670px] lg:py-[128px] lg:h-[1664px] lg:gap-[32px] 
+      lg:grid-rows-[198px_198px_198px_256px_198px_200px] 
+      lg:grid-cols-[minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)] 
+      lg:self-stretch xxl:px-[128px] xxl:h-[1579px]"
       >
         {resultados.map((resultado, index) => (
           <ResultadoCard
@@ -405,10 +408,10 @@ const Resultados = () => {
           Impacto real.
         </h5>
       </div>
-      {/* Blur reducido para mejor performance */}
       <div
         className="absolute bottom-[-81px] md:bottom-[-121px] left-1/2 -translate-x-1/2 z-10 bg-purple 
-      rounded-full w-[256px] md:w-[386px] h-[179px] md:h-[269px] blur-2xl will-change-transform"
+      rounded-full w-[256px] md:w-[386px] h-[179px] md:h-[269px] lg:w-[980px] lg:h-[686px]  lg:bottom-[-400px] 
+      blur-2xl will-change-transform lg:blur-3xl"
       ></div>
     </section>
   );
