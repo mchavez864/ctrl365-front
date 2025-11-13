@@ -195,6 +195,7 @@
       "title2": "[i]about real outcomes",
       "subtitle": "[i]Measurable, fast and sustainable impact for your company.",
       "submit": "[i]Send",
+      "sending": "[i]Sending...",
       "policy": "[i]By submitting the form, you accept the ",
       "policy2": "[i]Privacy Policy",
       "policy3": "[i] of Ctrl365",
@@ -217,7 +218,8 @@
         "minDigits": "[i]Must be at least 6 digits",
         "maxDigits": "[i]Maximum 12 digits",
         "goals": "[i]Select at least one goal",
-        "services": "[i]Select at least one service"
+        "services": "[i]Select at least one service",
+        "server": "[i]We couldn't send your message. Please try again later."
       },
       "fields": {
         "name": "[i]First name",

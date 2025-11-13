@@ -195,6 +195,7 @@
       "title2": "de resultados reales",
       "subtitle": "Impacto medible, rápido y sostenible para tu compañía.",
       "submit": "Enviar",
+      "sending": "Enviando...",
       "policy": "Al completar el formulario, aceptas la ",
       "policy2": "Política de Privacidad",
       "policy3": " de Ctrl365",
@@ -217,7 +218,8 @@
         "minDigits": "Debe tener al menos 6 dígitos",
         "maxDigits": "Máximo 12 dígitos",
         "goals": "Seleccioná al menos una opción",
-        "services": "Seleccioná al menos un servicio"
+        "services": "Seleccioná al menos un servicio",
+        "server": "No pudimos enviar tu mensaje. Intentá nuevamente más tarde."
       },
       "fields": {
         "name": "Nombre*",

@@ -11,8 +11,11 @@ const Button = ({
   type = "button",
   onClick,
   disabled = false,
+  loading = false,
   variant = "black",
 }) => {
+  const isDisabled = disabled || loading;
+
   const variantStyles = {
     black:
       "leading-[110%] tracking-[-0.32px] font-normal bg-grey-40 text-grey-00 px-[32px] py-[15px] items-center justify-center rounded-[900px] relative flex gap-[8px]",
@@ -32,7 +35,7 @@ const Button = ({
   // Clases comunes para el contenedor (button o a), incluyendo disabled
   const containerClasses = [
     `cursor-pointer flex items-center justify-center relative font-semibold group gap-[2px] duration-300 ${variant === "onlyText" ? "rounded-[4px]" : "rounded-[900px]"} focus:outline-none`,
-    disabled
+    isDisabled
       ? "cursor-not-allowed pointer-events-none"
       : "focus:ring-2 focus:ring-orange",
     className,
@@ -40,9 +43,8 @@ const Button = ({
     .filter(Boolean)
     .join(" ");
 
-  // Manejador para desplazamiento suave si es un anclaje
   const handleScroll = (e) => {
-    if (disabled) return;
+    if (isDisabled) return;
     if (url && url.startsWith("#")) {
       e.preventDefault();
       const element = document.getElementById(url.substring(1));
@@ -53,20 +55,18 @@ const Button = ({
     if (onClick) onClick(e);
   };
 
-  // Renderizar un <a> si hay url, de lo contrario renderizar un <button>
   const Element = url ? "a" : "button";
 
-  // Condicionalmente asignar props para <a> o <button>
   const elementProps = url
     ? {
         href: url,
         target,
         rel: target === "_blank" ? "noopener noreferrer" : undefined,
-        ...(url.startsWith("#") && !disabled ? { onClick: handleScroll } : {}), // Solo añadir onClick para anclajes
+        ...(url.startsWith("#") && !isDisabled ? { onClick: handleScroll } : {}),
       }
     : {
         type: type === "submit" ? "submit" : "button",
-        disabled,
+        disabled: isDisabled,
         onClick,
       };
 
@@ -75,17 +75,17 @@ const Button = ({
       <span
         className={[
           selectedVariant,
-          disabled && variant === "black" ? "!bg-grey-30 !text-grey-00" : "",
-          disabled && variant === "white" ? "!bg-grey-10 !text-grey-30" : "",
-          disabled && (variant === "glass" || variant === "glassArrow")
+          isDisabled && variant === "black" ? "!bg-grey-30 !text-grey-00" : "",
+          isDisabled && variant === "white" ? "!bg-grey-10 !text-grey-30" : "",
+          isDisabled && (variant === "glass" || variant === "glassArrow")
             ? "!bg-transparent !text-grey-20 !border !border-solid !border-grey-20"
             : "",
-          disabled && variant === "onlyText" ? "!text-grey-30" : "",
-          !disabled && variant === "black" ? "active:bg-orange" : "",
-          !disabled && (variant === "glass" || variant === "glassArrow")
+          isDisabled && variant === "onlyText" ? "!text-grey-30" : "",
+          !isDisabled && variant === "black" ? "active:bg-orange" : "",
+          !isDisabled && (variant === "glass" || variant === "glassArrow")
             ? "active:text-grey-40 active:!bg-grey-00 active:backdrop-blur-none active:border-grey-00 active:shadow-none"
             : "",
-          !disabled && variant === "onlyText" ? "active:text-orange" : "",
+          !isDisabled && variant === "onlyText" ? "active:text-orange" : "",
         ]
           .filter(Boolean)
           .join(" ")}
@@ -93,7 +93,7 @@ const Button = ({
         {variant === "black" && (
           <div
             className={`w-[8px] h-[8px] rounded-full duration-300 ${
-              disabled
+              isDisabled
                 ? "bg-grey-00"
                 : "bg-grey-00 group-hover:bg-orange group-active:bg-grey-00"
             }`}
@@ -102,12 +102,15 @@ const Button = ({
         {variant === "white" && (
           <div
             className={`w-[8px] h-[8px] rounded-full duration-300 ${
-              disabled ? "bg-grey-30" : "bg-grey-40 group-hover:bg-orange"
+              isDisabled ? "bg-grey-30" : "bg-grey-40 group-hover:bg-orange"
             }`}
           />
         )}
         {variant !== "glassArrow" && copy}
-        {(variant === "glass" || variant === "glassArrow") && (
+        {loading && (
+          <span className="ml-3 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+        )}
+        {(variant === "glass" || variant === "glassArrow") && !loading && (
           <ArrowLeftLight color="currentColor" className="duration-300" />
         )}
       </span>
