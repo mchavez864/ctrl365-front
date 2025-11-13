@@ -1,13 +1,10 @@
 "use client";
-import React, { useState, useRef, useCallback, useEffect } from "react";
+import React, { useState, memo, useCallback, useEffect } from "react";
 import Image from "next/image";
-import {
-  motion,
-  AnimatePresence,
-  useScroll,
-  useMotionValueEvent,
-} from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import NumberFlow from "@number-flow/react";
 
+// Mover datos fuera del componente para evitar recrearlos
 const resultados = [
   {
     id: 1,
@@ -66,136 +63,353 @@ const resultados = [
   },
 ];
 
+// Componente Card memoizado para evitar re-renders innecesarios
+const ResultadoCard = memo(
+  ({ resultado, index, isActive, onCardClick, onCardHover, onCardLeave }) => {
+    // Ref para detectar cuando la card entra en viewport
+    const cardRef = React.useRef(null);
+    const cardInView = useInView(cardRef, { once: true, amount: 0.5 });
+
+    // Convertir el número a formato numérico (manejar casos con coma)
+    const numericValue = parseFloat(resultado.number.replace(",", "."));
+
+    return (
+      <div
+        ref={cardRef}
+        onClick={onCardClick}
+        onMouseEnter={onCardHover}
+        onMouseLeave={onCardLeave}
+        className={`relative flex flex-col p-[16px] items-center cursor-pointer overflow-hidden transition-[border-color] duration-300                ${
+          resultado.id === 1 ? "lg:col-start-1 lg:row-start-1" : ""
+        }
+    ${resultado.id === 2 ? "lg:col-start-7 lg:row-start-1" : ""}
+    ${resultado.id === 3 ? "lg:col-start-3 lg:row-start-2" : ""}
+    ${resultado.id === 4 ? "lg:col-start-5 lg:row-start-3" : ""}
+    ${resultado.id === 5 ? "lg:col-start-3 lg:row-start-5" : ""}
+    ${resultado.id === 6 ? "lg:col-start-7 lg:row-start-5" : ""}
+    ${resultado.id === 7 ? "lg:col-start-1 lg:row-start-6" : ""}
+    ${resultado.id === 8 ? "lg:col-start-5 lg:row-start-6" : ""}
+            ${
+              isActive
+                ? ""
+                : "border-b border-grey-20 border-solid md:border-none"
+            }`}
+      >
+        {/* Animación MOBILE: Tipo cortina simple (del Untitled-1) */}
+        <AnimatePresence>
+          {isActive && (
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={{
+                scaleY: 1,
+                transition: {
+                  duration: 0.3,
+                  ease: "easeOut",
+                  delay: 0,
+                },
+              }}
+              exit={{
+                scaleY: 0,
+                transition: {
+                  duration: 0.3,
+                  ease: "easeOut",
+                  delay: 0.3,
+                },
+              }}
+              className="absolute inset-0 glass-results rounded-[12px] origin-top md:hidden"
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Contenedor principal con layout responsivo */}
+        <div
+          className={`relative w-full z-10 flex transition-all duration-400 ${
+            isActive ? "justify-start" : "justify-center"
+          } md:justify-center md:items-center`}
+        >
+          <motion.div
+            layout
+            className="flex gap-[8px] items-center"
+            transition={{
+              layout: {
+                duration: 0.4,
+                ease: [0.4, 0, 0.2, 1],
+                delay: isActive ? 0.2 : 0.3,
+              },
+            }}
+          >
+            {resultado.symbol && (
+              <p
+                className={`${
+                  isActive ? "text-grey-40 md:text-grey-00" : "text-grey-00"
+                } h2 md:text-[32px] transition-colors duration-300`}
+              >
+                {resultado.symbol}
+              </p>
+            )}
+            <h3
+              className={`${
+                isActive ? "text-grey-40 md:text-grey-00" : "text-grey-00"
+              } text-center md:text-left md:text-[96px]! md:tracking-[-0.96px] md:leading-[110%] transition-colors duration-300`}
+            >
+              <NumberFlow
+                value={cardInView ? numericValue : 0}
+                format={{
+                  minimumFractionDigits: resultado.number.includes(",")
+                    ? 1
+                    : 0,
+                  maximumFractionDigits: resultado.number.includes(",")
+                    ? 1
+                    : 0,
+                }}
+                locales="es-ES"
+              />
+            </h3>
+            {resultado.modifier && (
+              <p
+                className={`${
+                  isActive ? "text-grey-40 md:text-grey-00" : "text-grey-00"
+                } lg md:uppercase transition-colors duration-300`}
+              >
+                {resultado.modifier}
+              </p>
+            )}
+          </motion.div>
+
+          {/* Descripción MOBILE con fade */}
+          <AnimatePresence mode="wait">
+            {isActive && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.3,
+                  ease: "easeOut",
+                  delay: isActive ? 0.4 : 0,
+                }}
+                className="text-grey-00 text-[14px]! absolute right-0 top-1/2 -translate-y-1/2 max-w-[168px] md:hidden"
+              >
+                {resultado.desc}
+              </motion.p>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* Animación TABLET+: Card cortina que aparece encima (clipPath) */}
+        <AnimatePresence>
+          {isActive && (
+            <motion.div
+              initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+              animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+              exit={{ clipPath: "inset(0% 0% 100% 0%)" }}
+              transition={{
+                duration: 0.5,
+                ease: [0.43, 0.13, 0.23, 0.96],
+              }}
+              className="hidden md:flex absolute inset-0 glass-results rounded-[12px] z-20 flex-col justify-between p-[16px]"
+            >
+              <motion.div
+                className="flex gap-[8px] items-center"
+                initial={{ opacity: 0, y: -5 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.4,
+                    delay: 0.2,
+                    ease: "easeOut",
+                  },
+                }}
+              >
+                {resultado.symbol && (
+                  <p className="text-grey-00 text-[18px]">
+                    {resultado.symbol}
+                  </p>
+                )}
+                <h3 className="text-grey-00 text-[36px] leading-[110%] tracking-[-0.36px]">
+                  <NumberFlow
+                    value={cardInView ? numericValue : 0}
+                    format={{
+                      minimumFractionDigits: resultado.number.includes(",")
+                        ? 1
+                        : 0,
+                      maximumFractionDigits: resultado.number.includes(",")
+                        ? 1
+                        : 0,
+                    }}
+                    locales="es-ES"
+                  />
+                </h3>
+                {resultado.modifier && (
+                  <p className="text-grey-00 uppercase text-[18px]">
+                    {resultado.modifier}
+                  </p>
+                )}
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: -5 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.4,
+                    delay: 0.3,
+                    ease: "easeOut",
+                  },
+                }}
+                className="text-grey-00 text-[16px] lg:text-right"
+              >
+                {resultado.desc}
+              </motion.p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  }
+);
+
+ResultadoCard.displayName = "ResultadoCard";
+
 const Resultados = () => {
   const [activeId, setActiveId] = useState(null);
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  const handleCardClick = (id) => {
-    setActiveId(activeId === id ? null : id);
-  };
+  // Ref para detectar cuando las líneas entran en viewport
+  const linesRef = React.useRef(null);
+  const smallLineRef = React.useRef(null);
+  const smallLineInView = useInView(smallLineRef, { once: true, amount: 0.3 });
+  const linesInView = useInView(linesRef, { once: true, amount: 0.3 });
+
+  // Detectar si es desktop (lg breakpoint = 1024px)
+  useEffect(() => {
+    const checkIsDesktop = () => {
+      setIsDesktop(window.innerWidth >= 1024);
+    };
+
+    // Check inicial
+    checkIsDesktop();
+
+    // Listener para resize
+    window.addEventListener("resize", checkIsDesktop);
+    return () => window.removeEventListener("resize", checkIsDesktop);
+  }, []);
+
+  // Click handler para móvil
+  const handleCardClick = useCallback(
+    (id) => {
+      if (!isDesktop) {
+        setActiveId((prevId) => (prevId === id ? null : id));
+      }
+    },
+    [isDesktop]
+  );
+
+  // Hover handlers para desktop
+  const handleCardHover = useCallback(
+    (id) => {
+      if (isDesktop) {
+        setActiveId(id);
+      }
+    },
+    [isDesktop]
+  );
+
+  const handleCardLeave = useCallback(() => {
+    if (isDesktop) {
+      setActiveId(null);
+    }
+  }, [isDesktop]);
 
   return (
-    <section className="relative bg-grey-40 px-[16px] pt-[128px] overflow-hidden" data-dark-section="true">
-      <div className=" mx-auto flex flex-col items-center max-w-[295px] pb-[64px]">
-        <h2 className=".h1 text-grey-00 text-center mb-[32px] ">
+    <section
+      className="relative bg-grey-40 px-[16px] md:px-[64px] pt-[128px] lg:pt-[104px] overflow-hidden"
+      data-dark-section="true"
+    >
+      <div className="mx-auto flex flex-col items-center max-w-[295px] pb-[64px] md:max-w-[640px] lg:relative lg:flex-row lg:items-center lg:justify-between lg:max-w-full lg:py-[128px]">
+        <h2 className="h1 text-grey-00 text-center mb-[32px] lg:w-[434px] lg:text-left gradient-text lg:mb-0">
           Resultados que hablan
         </h2>
-        <p className=".lg text-grey-00 text-center mb-[24px] ">
-          En Ctrl365 convertimos desafíos en resultados medibles. Cada proyecto
-          de IA y automatización crea valor real: eficiencia, ahorro,
-          crecimiento y velocidad.
-        </p>
-        <p className=".lg text-grey-00 text-center mb-[64px]">
-          No implementamos tecnología: diseñamos impacto.
-        </p>
-        <div className="relative w-[156px] h-[156px]">
-          <div className="absolute top-0 left-0 w-[156px] h-[156px] bg-orange rounded-full blur-2xl"></div>
+        <div className="lg:w-[434px]">
+          <p className="lg text-grey-00 text-center mb-[24px] lg:text-left">
+            En Ctrl365 convertimos desafíos en resultados medibles. Cada
+            proyecto de IA y automatización crea valor real: eficiencia, ahorro,
+            crecimiento y velocidad.
+          </p>
+          <p className="lg text-grey-00 text-center mb-[64px] lg:text-left lg:mb-0">
+            No implementamos tecnología: diseñamos impacto.
+          </p>
+        </div>
+        <div className="relative w-[156px] h-[156px] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:w-[316px] lg:h-[316px]">
+          {/* Blur reducido con will-change para mejor performance */}
+          <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full blur-2xl will-change-transform"></div>
           <Image
             src="/images/orb.webp"
             alt="Resultados"
             width={405}
             height={405}
-            className="w-[156px] h-auto z-30 relative"
+            className="w-[156px] h-auto z-30 relative lg:w-[316px]"
+            priority
           />
-          <div className="absolute top-0 left-0 w-[156px] h-[156px] bg-orange rounded-full opacity-90 mix-blend-soft-light z-40 pointer-events-none"></div>
+          <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full opacity-90 mix-blend-soft-light z-40 pointer-events-none"></div>
         </div>
       </div>
-      <div className="flex flex-col gap-[13px]">
-        {resultados.map((resultado) => (
-          <div
+      <div
+        ref={linesRef}
+        className="flex flex-col gap-[13px] md:grid md:grid-cols-2 
+      md:gap-[13px] md:py-[64px] md:h-[670px] lg:py-[128px] lg:h-[1664px] lg:gap-[32px] lg:grid-rows-[198px_198px_198px_256px_198px_200px] lg:grid-cols-[minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)] lg:self-stretch"
+      >
+        {resultados.map((resultado, index) => (
+          <ResultadoCard
             key={resultado.id}
-            onClick={() => handleCardClick(resultado.id)}
-            className={`relative flex flex-col p-[16px] items-center cursor-pointer overflow-hidden transition-all duration-300 ${
-              activeId === resultado.id
-                ? ""
-                : "border-b border-grey-20 border-solid"
-            }`}
-          >
-            {/* Fondo gris animado con efecto cortina */}
-            <AnimatePresence>
-              {activeId === resultado.id && (
-                <motion.div
-                  initial={{ scaleY: 0 }}
-                  animate={{
-                    scaleY: 1,
-                    transition: {
-                      duration: 0.3,
-                      ease: "easeOut",
-                      delay: 0,
-                    },
-                  }}
-                  exit={{
-                    scaleY: 0,
-                    transition: {
-                      duration: 0.3,
-                      ease: "easeOut",
-                      delay: 0.3,
-                    },
-                  }}
-                  className="absolute inset-0 glass rounded-[12px] origin-top "
-                />
-              )}
-            </AnimatePresence>
-
-            <div
-              className={`relative w-full z-10 flex transition-all duration-400 ${
-                activeId === resultado.id ? "justify-start" : "justify-center"
-              }`}
-            >
-              <motion.div
-                layout
-                className="flex gap-[8px] items-center"
-                transition={{
-                  layout: {
-                    duration: 0.4,
-                    ease: [0.4, 0, 0.2, 1],
-                    delay: activeId === resultado.id ? 0.2 : 0.3,
-                  },
-                }}
-              >
-                {resultado.symbol && (
-                  <p className="text-grey-00 h2">{resultado.symbol}</p>
-                )}
-                <h3 className="text-grey-00 text-center h1">
-                  {resultado.number}
-                </h3>
-                {resultado.modifier && (
-                  <p className="text-grey-00 lg">{resultado.modifier}</p>
-                )}
-              </motion.div>
-
-              {/* Descripción con fade */}
-              <AnimatePresence mode="wait">
-                {activeId === resultado.id && (
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{
-                      duration: 0.3,
-                      ease: "easeOut",
-                      delay: activeId === resultado.id ? 0.4 : 0,
-                    }}
-                    className="text-grey-00 text-[14px]! absolute right-0 top-1/2 -translate-y-1/2 max-w-[168px]"
-                  >
-                    {resultado.desc}
-                  </motion.p>
-                )}
-              </AnimatePresence>
-            </div>
-          </div>
+            resultado={resultado}
+            index={index}
+            isActive={activeId === resultado.id}
+            onCardClick={() => handleCardClick(resultado.id)}
+            onCardHover={() => handleCardHover(resultado.id)}
+            onCardLeave={handleCardLeave}
+          />
         ))}
+        <div className="hidden lg:flex lg:items-center lg:justify-center lg:col-start-3 lg:row-start-4 lg:col-span-3">
+          <h5 className="text-grey-00 text-center z-20 relative h2">
+            <span className="text-grey-20">Transformación visible.</span> <br />
+            Impacto real.
+          </h5>
+        </div>
+        {/* Líneas verticales con animación de dibujo */}
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: linesInView ? 1 : 0 }}
+          transition={{ duration: 2, ease: "easeOut", delay: 0 }}
+          className="hidden lg:block bg-grey-30 w-[2px] h-full row-start-1 col-start-2 row-span-6 origin-top"
+        />
+        <motion.div
+          ref={smallLineRef}
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: smallLineInView ? 1 : 0 }}
+          transition={{ duration: 2, ease: "easeOut", delay: 0 }}
+          className="hidden lg:block bg-grey-30 w-[2px] h-full row-start-5 col-start-4 row-span-2 origin-top"
+        />
+        <motion.div
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: linesInView ? 1 : 0 }}
+          transition={{ duration: 2, ease: "easeOut", delay: 0.4 }}
+          className="hidden lg:block bg-grey-30 w-[2px] h-full row-start-1 col-start-6 row-span-6 origin-top"
+        />
       </div>
-      <div className="py-[64px]">
+      <div className="py-[64px] lg:hidden">
         <h5 className="text-grey-00 text-center h5 z-20 relative">
           Transformación visible. <br />
           Impacto real.
         </h5>
       </div>
-      <div className="absolute bottom-[-81px] 
-      left-1/2 -translate-x-1/2 z-10 bg-purple rounded-full 
-      w-[256px] h-[179px] blur-2xl
-      "></div>
-      {/* gradient-circle-purple  */}
+      {/* Blur reducido para mejor performance */}
+      <div
+        className="absolute bottom-[-81px] md:bottom-[-121px] left-1/2 -translate-x-1/2 z-10 bg-purple 
+      rounded-full w-[256px] md:w-[386px] h-[179px] md:h-[269px] blur-2xl will-change-transform"
+      ></div>
     </section>
   );
 };
