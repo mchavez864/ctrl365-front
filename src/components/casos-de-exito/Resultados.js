@@ -141,7 +141,7 @@ const ResultadoCard = memo(
             {resultado.symbol && (
               <p
                 className={`${
-                  isActive ? "text-grey-40 md:text-grey-00" : "text-grey-00"
+                  isActive ? "text-grey-00 md:text-grey-40" : "text-grey-00"
                 } h2 md:text-[32px] transition-colors duration-300`}
               >
                 {resultado.symbol}
@@ -149,7 +149,7 @@ const ResultadoCard = memo(
             )}
             <h3
               className={`${
-                isActive ? "text-grey-40 md:text-grey-00" : "text-grey-00"
+                isActive ? "text-grey-00 md:text-grey-40" : "text-grey-00"
               } text-center md:text-left md:text-[96px]! md:tracking-[-0.96px] md:leading-[110%] transition-colors duration-300`}
             >
               <NumberFlow
@@ -168,7 +168,7 @@ const ResultadoCard = memo(
             {resultado.modifier && (
               <p
                 className={`${
-                  isActive ? "text-grey-40 md:text-grey-00" : "text-grey-00"
+                  isActive ? "text-grey-00 md:text-grey-40" : "text-grey-00"
                 } lg md:uppercase transition-colors duration-300`}
               >
                 {resultado.modifier}
@@ -328,6 +328,7 @@ const Resultados = () => {
       className="relative bg-grey-40 px-[16px] md:px-[64px] pt-[128px] lg:pt-[104px] overflow-hidden"
       data-dark-section="true"
     >
+      <div className="relative z-30">
       <div className="mx-auto flex flex-col items-center max-w-[295px] pb-[64px] md:max-w-[640px] lg:relative lg:flex-row lg:items-center lg:justify-between lg:max-w-full lg:py-[128px]">
         <h2 className="h1 text-grey-00 text-center mb-[32px] lg:w-[434px] lg:text-left gradient-text lg:mb-0">
           Resultados que hablan
@@ -359,7 +360,10 @@ const Resultados = () => {
       <div
         ref={linesRef}
         className="flex flex-col gap-[13px] md:grid md:grid-cols-2 
-      md:gap-[13px] md:py-[64px] md:h-[670px] lg:py-[128px] lg:h-[1664px] lg:gap-[32px] lg:grid-rows-[198px_198px_198px_256px_198px_200px] lg:grid-cols-[minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)] lg:self-stretch"
+      md:gap-[13px] md:py-[64px] md:h-[670px] lg:py-[128px] lg:h-[1664px] lg:gap-[32px] 
+      lg:grid-rows-[198px_198px_198px_256px_198px_200px] 
+      lg:grid-cols-[minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)] 
+      lg:self-stretch xxl:px-[128px] xxl:h-[1579px]"
       >
         {resultados.map((resultado, index) => (
           <ResultadoCard
@@ -405,10 +409,11 @@ const Resultados = () => {
           Impacto real.
         </h5>
       </div>
-      {/* Blur reducido para mejor performance */}
+      </div>
       <div
         className="absolute bottom-[-81px] md:bottom-[-121px] left-1/2 -translate-x-1/2 z-10 bg-purple 
-      rounded-full w-[256px] md:w-[386px] h-[179px] md:h-[269px] blur-2xl will-change-transform"
+      rounded-full w-[256px] md:w-[386px] h-[179px] md:h-[269px] lg:w-[980px] lg:h-[686px]  lg:bottom-[-400px] 
+      blur-2xl will-change-transform lg:blur-3xl"
       ></div>
     </section>
   );

@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import Form from '../forms/Form';
 
-export default function SectionForm() {
+export default function SectionForm({ subject, destination }) {
   const t = useTranslations('Form');
 
   return (
@@ -26,7 +26,10 @@ export default function SectionForm() {
           <p className="font-inter text-grey-30 mb-4 lg:mb-8">
             {t('subtitle')}
           </p>
-          <Form />
+          <Form
+            subject={subject}
+            destination={destination}
+          />
         </div>
       </div>
     </section>

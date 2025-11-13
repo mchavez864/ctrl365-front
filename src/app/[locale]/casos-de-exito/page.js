@@ -12,7 +12,10 @@ export default function SuccessStoriesPage() {
         <Resultados />
         <SectionCasosDeExito />
         <SectionResultadosCasosdeExito />
-        <SectionForm />
+        <SectionForm
+          subject="Llega a jaubetete?"
+          destination="matias@jaubet.com"
+        />
       </main>
     </>
   );
