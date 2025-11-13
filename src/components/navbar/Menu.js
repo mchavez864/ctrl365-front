@@ -60,7 +60,7 @@ const Menu = ({ onClose }) => {
         </div>
 
         <div className="relative w-full h-[80%] flex flex-col lg:flex-row items-start justify-between z-30 px-[16px] md:px-[64px] xxl:px-[128px] lg:h-full lg:items-center">
-          <div className="lg:order-2 xxl:w-1/2">
+          <div className="lg:order-2 xxl:w-1/2 self-center	lg:self-auto">
             <Image
               src="/images/orb.webp"
               alt=""

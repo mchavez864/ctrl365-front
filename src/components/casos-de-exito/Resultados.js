@@ -328,6 +328,7 @@ const Resultados = () => {
       className="relative bg-grey-40 px-[16px] md:px-[64px] pt-[128px] lg:pt-[104px] overflow-hidden"
       data-dark-section="true"
     >
+      <div className="relative z-30">
       <div className="mx-auto flex flex-col items-center max-w-[295px] pb-[64px] md:max-w-[640px] lg:relative lg:flex-row lg:items-center lg:justify-between lg:max-w-full lg:py-[128px]">
         <h2 className="h1 text-grey-00 text-center mb-[32px] lg:w-[434px] lg:text-left gradient-text lg:mb-0">
           Resultados que hablan
@@ -407,6 +408,7 @@ const Resultados = () => {
           Transformación visible. <br />
           Impacto real.
         </h5>
+      </div>
       </div>
       <div
         className="absolute bottom-[-81px] md:bottom-[-121px] left-1/2 -translate-x-1/2 z-10 bg-purple 
