@@ -141,7 +141,7 @@ const ResultadoCard = memo(
             {resultado.symbol && (
               <p
                 className={`${
-                  isActive ? "text-grey-40 md:text-grey-00" : "text-grey-00"
+                  isActive ? "text-grey-00 md:text-grey-40" : "text-grey-00"
                 } h2 md:text-[32px] transition-colors duration-300`}
               >
                 {resultado.symbol}
@@ -149,7 +149,7 @@ const ResultadoCard = memo(
             )}
             <h3
               className={`${
-                isActive ? "text-grey-40 md:text-grey-00" : "text-grey-00"
+                isActive ? "text-grey-00 md:text-grey-40" : "text-grey-00"
               } text-center md:text-left md:text-[96px]! md:tracking-[-0.96px] md:leading-[110%] transition-colors duration-300`}
             >
               <NumberFlow
@@ -168,7 +168,7 @@ const ResultadoCard = memo(
             {resultado.modifier && (
               <p
                 className={`${
-                  isActive ? "text-grey-40 md:text-grey-00" : "text-grey-00"
+                  isActive ? "text-grey-00 md:text-grey-40" : "text-grey-00"
                 } lg md:uppercase transition-colors duration-300`}
               >
                 {resultado.modifier}
