@@ -204,6 +204,18 @@ body {
   transition: background 0.3s ease;
 }
 
+/* glass for results */
+
+.glass-results {
+  background: rgba(236, 236, 236, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+
+
 /* Gradient border with border-radius */
 .gradient-border-rounded {
   background: rgba(41, 41, 41, 0.5);
