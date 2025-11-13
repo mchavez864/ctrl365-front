@@ -8,21 +8,21 @@ const SLIDER_MEDIA = [
     brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-santander.svg',
     image:
       '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-santander.webp',
-    link: '#',
+    link: '/casos/',
   },
   {
     id: 2,
     translationKey: 'galicia',
     brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-galicia.svg',
     image: '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-galicia.webp',
-    link: '#',
+    link: '/casos/',
   },
   {
     id: 3,
     translationKey: 'howden',
     brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-howden.svg',
     image: '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-howden.webp',
-    link: '#',
+    link: '/casos/',
   },
 ];
 
