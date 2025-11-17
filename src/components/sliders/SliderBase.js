@@ -167,7 +167,9 @@ export default function SliderBase({
             ref={prevRef}
             aria-label="Slide anterior"
             className={`relative right-[-30px] z-0 flex h-[56px] w-[88px] items-center justify-center rounded-full border border-grey-20/40 ${
-              canPrev ? 'bg-gray-200' : 'border-[#9E9E9E] bg-transparent'
+              canPrev
+                ? 'bg-gradient-to-br from-[#c2bfbf] to-[#d2cfce]'
+                : 'border-[#9E9E9E] bg-transparent'
             }`}
             disabled={!canPrev}
           >
@@ -183,7 +185,7 @@ export default function SliderBase({
             aria-label="Slide siguiente"
             className={`relative z-10 flex h-[56px] w-[88px] items-center justify-center rounded-full border border-gray-200 ${
               canNext
-                ? 'border-grey-20/40 bg-gray-200'
+                ? 'border-grey-20/40 bg-gradient-to-br from-[#c2bfbf] to-[#d2cfce]'
                 : 'border-[#9E9E9E] bg-transparent'
             }`}
             disabled={!canNext}
