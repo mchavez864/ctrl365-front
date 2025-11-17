@@ -1,4 +1,35 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { useInView, useMotionValue, useSpring } from 'framer-motion';
 import SmallCard from '../cards/SmallCard';
+
+// Componente para animar números
+function AnimatedCounter({ value, decimals = 0, suffix = '' }) {
+  const ref = useRef(null);
+  const motionValue = useMotionValue(0);
+  const springValue = useSpring(motionValue, {
+    damping: 60,
+    stiffness: 100,
+  });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  useEffect(() => {
+    if (isInView) {
+      motionValue.set(value);
+    }
+  }, [motionValue, isInView, value]);
+
+  useEffect(() => {
+    springValue.on('change', (latest) => {
+      if (ref.current) {
+        ref.current.textContent = latest.toFixed(decimals) + suffix;
+      }
+    });
+  }, [springValue, decimals, suffix]);
+
+  return <span ref={ref}>0{suffix}</span>;
+}
 
 export default function ImpactCaso() {
   return (
@@ -11,7 +42,8 @@ export default function ImpactCaso() {
           <div className="flex gap-8 flex-col md:flex-row md:flex-wrap lg:justify-end">
             <article className="md:w-[45%] lg:w-[30%]">
               <p className="!font-sora flex items-center gap-2 font-medium text-grey-40 !text-[64px] !leading-[120%] xl:!text-[128px]">
-                20 <span className="!text-[28px] xl:!text-[40px]">min</span>
+                <AnimatedCounter value={20} />{' '}
+                <span className="!text-[28px] xl:!text-[40px]">min</span>
               </p>
               <p className="!text-[20px] text-grey-30 max-w-[150px] xl:!text-[24px] xl:max-w-[210px]">
                 Decisiones en el punto de venta
@@ -19,7 +51,11 @@ export default function ImpactCaso() {
             </article>
             <article className="md:w-[45%] lg:w-[30%]">
               <p className="!font-sora flex items-center gap-2 font-medium text-grey-40 !text-[64px] !leading-[120%] xl:!text-[128px]">
-                1.5 <span className="!text-[28px] xl:!text-[40px]">M</span>
+                <AnimatedCounter
+                  value={1.5}
+                  decimals={1}
+                />{' '}
+                <span className="!text-[28px] xl:!text-[40px]">M</span>
               </p>
               <p className="!text-[20px] text-grey-30 max-w-[150px] xl:!text-[24px] xl:max-w-[210px]">
                 Originación nueva por día
@@ -27,7 +63,8 @@ export default function ImpactCaso() {
             </article>
             <article className="md:w-[45%] lg:w-[30%]">
               <p className="!font-sora flex items-center gap-2 font-medium text-grey-40 !text-[64px] !leading-[120%] xl:!text-[128px]">
-                400 <span className="!text-[28px] xl:!text-[40px]">k</span>
+                <AnimatedCounter value={400} />{' '}
+                <span className="!text-[28px] xl:!text-[40px]">k</span>
               </p>
               <p className="!text-[20px] text-grey-30 max-w-[150px] xl:!text-[24px]">
                 Préstamos en 2024
