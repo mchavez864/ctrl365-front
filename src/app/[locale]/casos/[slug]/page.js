@@ -1,5 +1,6 @@
 // src/app/[locale]/casos/[slug]/page.js
 import HeroCaso from '@/components/caso-page/HeroCaso';
+import SolutionCaso from '@/components/caso-page/SolutionCaso';
 import Navbar from '@/components/navbar/Navbar';
 
 // Función para obtener datos de Strapi (hardcodeado por ahora)
@@ -58,6 +59,7 @@ export default async function CasoDeExitoPage({ params }) {
           title={data.title}
           data={data.heroData}
         />
+        <SolutionCaso />
       </main>
     </>
   );
