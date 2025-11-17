@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
+import { useLocale } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
 import Button from "@/components/buttons/Button";
 import Image from "next/image";
 import Logo from "@/svg/logo.js";
@@ -11,9 +13,23 @@ import Menu from "./Menu";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkBackground, setIsDarkBackground] = useState(false);
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const openMenu = () => setIsMenuOpen(true);
   const closeMenu = () => setIsMenuOpen(false);
+
+  const changeLanguage = (newLocale) => {
+    if (newLocale === locale) return;
+    
+    // Remover el locale actual del pathname y agregar el nuevo
+    const segments = pathname.split('/').filter(Boolean);
+    const pathWithoutLocale = segments.slice(1).join('/');
+    const newPath = `/${newLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
+    
+    router.push(newPath);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,18 +73,36 @@ const Navbar = () => {
           <div>
             <div className="md:flex md:items-center md:justify-between md:w-[228px]">
               <div className="hidden md:flex items-center relative w-[82px] h-[26px] ">
-                <button className={`${
-                  isDarkBackground 
-                    ? "bg-grey-00 text-grey-40" 
-                    : "bg-grey-40 text-grey-00"
-                } absolute left-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300`}>
+                <button 
+                  onClick={() => changeLanguage('es')}
+                  className={`${
+                    locale === 'es'
+                      ? isDarkBackground 
+                        ? "bg-grey-00 text-grey-40 z-10" 
+                        : "bg-grey-40 text-grey-00 z-10"
+                      : `bg-transparent border z-0 ${
+                          isDarkBackground 
+                            ? "border-grey-20 text-grey-20" 
+                            : "border-grey-30 text-grey-30"
+                        }`
+                  } absolute left-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300 cursor-pointer`}
+                >
                   ES
                 </button>
-                <button className={`bg-transparent absolute right-0 rounded-[900px] border ${
-                  isDarkBackground 
-                    ? "border-grey-20 text-grey-20" 
-                    : "border-grey-30 text-grey-30"
-                } text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300`}>
+                <button 
+                  onClick={() => changeLanguage('en')}
+                  className={`${
+                    locale === 'en'
+                      ? isDarkBackground 
+                        ? "bg-grey-00 text-grey-40 z-10" 
+                        : "bg-grey-40 text-grey-00 z-10"
+                      : `bg-transparent border z-0 ${
+                          isDarkBackground 
+                            ? "border-grey-20 text-grey-20" 
+                            : "border-grey-30 text-grey-30"
+                        }`
+                  } absolute right-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300 cursor-pointer`}
+                >
                   EN
                 </button>
               </div>
