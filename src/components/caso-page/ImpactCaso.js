@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { useInView, useMotionValue, useSpring } from 'framer-motion';
+import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import SmallCard from '../cards/SmallCard';
 
 // Componente para animar números
@@ -73,13 +73,37 @@ export default function ImpactCaso() {
           </div>
         </div>
       </div>
-      <h2 className="mb-8 lg:max-w-[1046px]">
+      <motion.h2
+        className="mb-8 lg:max-w-[1046px]"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
         Los resultados obtenidos fueron muy significativos y cubren varios
         frentes:
-      </h2>
+      </motion.h2>
       <div className="lg:flex lg:justify-end">
-        <div className="flex gap-8 flex-col md:gap-x-16 md:flex-row md:flex-wrap lg:gap-8 lg:justify-end lg:w-[850px] xxl:w-[1046px]">
-          <article className="md:w-[45%] lg:w-[250px] xxl:w-[307px]">
+        <motion.div
+          className="flex gap-8 flex-col md:gap-x-16 md:flex-row md:flex-wrap lg:gap-8 lg:justify-end lg:w-[850px] xxl:w-[1046px]"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-100px' }}
+          variants={{
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+        >
+          <motion.article
+            className="md:w-[45%] lg:w-[250px] xxl:w-[307px]"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+          >
             <SmallCard
               copy="01"
               className="mb-4"
@@ -88,8 +112,14 @@ export default function ImpactCaso() {
               Se procesan &gt;350 solicitudes por día sin sacrificar calidad ni
               control.
             </p>
-          </article>
-          <article className="md:w-[45%] lg:w-[250px] xxl:w-[307px]">
+          </motion.article>
+          <motion.article
+            className="md:w-[45%] lg:w-[250px] xxl:w-[307px]"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+          >
             <SmallCard
               copy="02"
               className="mb-4"
@@ -98,8 +128,14 @@ export default function ImpactCaso() {
               El ciclo de aprobación bajó de hasta 7 semanas a ~20 minutos en el
               punto de venta.
             </p>
-          </article>
-          <article className="md:w-[45%] lg:w-[250px] xxl:w-[307px]">
+          </motion.article>
+          <motion.article
+            className="md:w-[45%] lg:w-[250px] xxl:w-[307px]"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+          >
             <SmallCard
               copy="03"
               className="mb-4"
@@ -108,8 +144,14 @@ export default function ImpactCaso() {
               Santander incrementó conversión y velocidad de alta de nuevos
               clientes.
             </p>
-          </article>
-          <article className="md:w-[45%] lg:w-[250px] xxl:w-[307px]">
+          </motion.article>
+          <motion.article
+            className="md:w-[45%] lg:w-[250px] xxl:w-[307px]"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+          >
             <SmallCard
               copy="04"
               className="mb-4"
@@ -118,8 +160,14 @@ export default function ImpactCaso() {
               Escala probada: de 10.000 préstamos (2020) a 400.000+ (2024), con
               &gt;1M proyectados.
             </p>
-          </article>
-          <article className="md:w-[45%] lg:w-[250px] xxl:w-[307px]">
+          </motion.article>
+          <motion.article
+            className="md:w-[45%] lg:w-[250px] xxl:w-[307px]"
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+            }}
+          >
             <SmallCard
               copy="05"
               className="mb-4"
@@ -128,8 +176,8 @@ export default function ImpactCaso() {
               Mejoró NPS y uso de talento: las personas enfocadas en tareas de
               valor y la plataforma en el trabajo repetible.
             </p>
-          </article>
-        </div>
+          </motion.article>
+        </motion.div>
       </div>
     </section>
   );
