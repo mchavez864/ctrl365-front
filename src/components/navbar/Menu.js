@@ -8,7 +8,7 @@ import Youtube from '@/svg/youtube.js';
 
 const menuItems = [
   { name: 'Home', href: '#' },
-  { name: 'Quienes somos', href: '#' },
+  { name: 'Nuestro ADN', href: '#' },
   { name: 'Casos de éxito', href: '/casos-de-exito' },
   { name: 'Contacto', href: '/contacto' },
 ];
