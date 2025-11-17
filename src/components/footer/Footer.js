@@ -29,7 +29,7 @@ const Footer = () => {
                   Home
                 </button>
                 <button className="relative hover:pl-[20px] uppercase text-grey-20 font-medium leading-[120%] hover:text-grey-00 cursor-pointer text-left duration-300 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-0 before:h-0 before:bg-orange before:rounded-full before:duration-300 before:opacity-0 hover:before:w-[12px] hover:before:h-[12px] hover:before:opacity-100">
-                  Quienes somos
+                  Nuestro ADN
                 </button>
                 <button className="relative hover:pl-[20px] uppercase text-grey-20 font-medium leading-[120%] hover:text-grey-00 cursor-pointer text-left duration-300 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-0 before:h-0 before:bg-orange before:rounded-full before:duration-300 before:opacity-0 hover:before:w-[12px] hover:before:h-[12px] hover:before:opacity-100">
                   Casos de éxito

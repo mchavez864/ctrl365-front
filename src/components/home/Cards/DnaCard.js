@@ -1,0 +1,57 @@
+import React from 'react'
+import { motion } from "framer-motion";
+import Logo from '@/svg/logo';
+
+
+
+const DNACard = ({ index, id, title, icon, description }) => {
+    return <motion.div
+        key={id}
+        className="relative w-[328px] md:w-[394px] 2xl:w-[400px] mr-4 xl:mr-5 rounded-2xl  xl:rounded-3xl p-8 overflow-hidden group cursor-pointer shrink-0 bg-grey-40"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
+    >
+        {/* Contenido de la tarjeta */}
+        {/* Overlay gradient on hover */}
+        <div
+            className="absolute w-[234px] h-[259px] rounded-[259px] -top-[98px] -right-[85px] bg-orange blur-[166px] pointer-events-none"
+        />
+        <div
+            className={`absolute ${id !== 4 ? "hidden" : "block"} inset-0 pointer-events-none`}
+            style={{
+                background: 'url(/images/pages/home/ourDNA/card4_bg.png)',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+            }}
+        />
+        <div className="relative z-10 flex flex-col h-full min-h-[538px] justify-between ">
+            {/* Header */}
+            <h4 className={`h5 mb-6 ${id === 4 ? 'text-orange' : 'text-grey-00'}`}>
+                {title}
+            </h4>
+
+            {/* Icono */}
+            {id !== 4 &&
+                <div className="mb-8 flex items-center h-24">
+                    <img src={icon} alt="icon dna card" />
+                </div>
+            }
+
+            {/* Descripción */}
+            <p className="p text-grey-00">
+                {description}
+            </p>
+
+            {id === 4 &&
+                <Logo />
+            }
+        </div>
+
+
+    </motion.div>
+}
+
+export default DNACard

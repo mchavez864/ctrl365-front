@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useLocale } from 'next-intl';
+import { usePathname, useRouter } from 'next/navigation';
 import Logo from '@/svg/logo.js';
 import Cross from '@/svg/cross.js';
 import Instagram from '@/svg/instagram.js';
@@ -8,12 +10,27 @@ import Youtube from '@/svg/youtube.js';
 
 const menuItems = [
   { name: 'Home', href: '#' },
-  { name: 'Quienes somos', href: '#' },
+  { name: 'Nuestro ADN', href: '#' },
   { name: 'Casos de éxito', href: '/casos-de-exito' },
   { name: 'Contacto', href: '/contacto' },
 ];
 
 const Menu = ({ onClose }) => {
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const changeLanguage = (newLocale) => {
+    if (newLocale === locale) return;
+    
+    // Remover el locale actual del pathname y agregar el nuevo
+    const segments = pathname.split('/').filter(Boolean);
+    const pathWithoutLocale = segments.slice(1).join('/');
+    const newPath = `/${newLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
+    
+    router.push(newPath);
+  };
+
   return (
     <motion.div
       initial={{ clipPath: 'inset(0% 0% 100% 0%)' }}
@@ -34,10 +51,24 @@ const Menu = ({ onClose }) => {
             />
             <div className="md:flex md:items-center md:justify-between md:w-[228px]">
               <div className="hidden md:flex items-center relative w-[82px] h-[26px] ">
-                <button className="bg-grey-00 text-grey-40 absolute left-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px]">
+                <button 
+                  onClick={() => changeLanguage('es')}
+                  className={`${
+                    locale === 'es'
+                      ? "bg-grey-00 text-grey-40 z-10"
+                      : "bg-transparent border border-grey-20 text-grey-20 z-0"
+                  } absolute left-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300 cursor-pointer`}
+                >
                   ES
                 </button>
-                <button className="bg-transparent absolute right-0 rounded-[900px] border border-grey-20 text-grey-20 text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px]">
+                <button 
+                  onClick={() => changeLanguage('en')}
+                  className={`${
+                    locale === 'en'
+                      ? "bg-grey-00 text-grey-40 z-10"
+                      : "bg-transparent border border-grey-20 text-grey-20 z-0"
+                  } absolute right-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300 cursor-pointer`}
+                >
                   EN
                 </button>
               </div>
@@ -71,10 +102,24 @@ const Menu = ({ onClose }) => {
           </div>
           <div className="flex flex-col items-start gap-[32px] md:gap-[64px] lg:h-full lg:justify-between lg:pt-[200px] lg:pb-[90px]">
             <div className="flex items-center relative w-[82px] h-[26px] md:hidden">
-              <button className="bg-grey-00 text-grey-40 absolute left-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px]">
+              <button 
+                onClick={() => changeLanguage('es')}
+                className={`${
+                  locale === 'es'
+                    ? "bg-grey-00 text-grey-40 z-10"
+                    : "bg-transparent border border-grey-20 text-grey-20 z-0"
+                } absolute left-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300 cursor-pointer`}
+              >
                 ES
               </button>
-              <button className="bg-transparent absolute right-0 rounded-[900px] border border-grey-20 text-grey-20 text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px]">
+              <button 
+                onClick={() => changeLanguage('en')}
+                className={`${
+                  locale === 'en'
+                    ? "bg-grey-00 text-grey-40 z-10"
+                    : "bg-transparent border border-grey-20 text-grey-20 z-0"
+                } absolute right-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300 cursor-pointer`}
+              >
                 EN
               </button>
             </div>

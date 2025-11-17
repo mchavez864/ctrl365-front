@@ -344,7 +344,6 @@ const Resultados = () => {
           </p>
         </div>
         <div className="relative w-[156px] h-[156px] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:w-[316px] lg:h-[316px]">
-          {/* Blur reducido con will-change para mejor performance */}
           <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full blur-2xl will-change-transform"></div>
           <Image
             src="/images/orb.webp"
