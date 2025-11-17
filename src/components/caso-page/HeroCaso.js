@@ -1,11 +1,12 @@
 import Image from 'next/image';
+import SmallCard from '../cards/SmallCard';
 
 export default function HeroCaso({ slug, title, data }) {
   return (
     <>
       <section className="px-4 py-16 md:px-16 xl:py-32 xxl:px-32 overflow-hidden relative">
-        <div className="bg-red-500 mb-8 md:mb-16 md:flex md:items-start lg:mb-24 lg:justify-between">
-          <div className="flex flex-col bg-blue-500 md:w-1/2 lg:w-2/3">
+        <div className="mb-8 md:mb-16 md:flex md:items-start lg:mb-24 lg:justify-between">
+          <div className="flex flex-col md:w-1/2 lg:w-2/3">
             <h1 className="mb-16 md:mb-8 order-2 md:order-1 lg:max-w-[648px] xxl:max-w-[1000px]">
               {title}
             </h1>
@@ -17,7 +18,7 @@ export default function HeroCaso({ slug, title, data }) {
               className="max-w-[98px] mb-4 md:max-w-full md:mb-0 order-1 md:order-2"
             />
           </div>
-          <div className="md:w-1/2 bg-green-500 lg:w-1/3">
+          <div className="md:w-1/2 lg:w-1/3">
             <p className="mb-8 lg:mb-16 lg:!text-[18px]">
               La demanda de préstamos prendarios crecía con fuerza en Argentina.
               Santander necesitaba escalar la originación y aprobación sin
@@ -31,10 +32,11 @@ export default function HeroCaso({ slug, title, data }) {
                 Decisiones en el punto de venta
               </small>
             </div>
-            <div className="flex items-center font-inter gap-2 text-grey-30 font-medium">
-              <span className="inline-block w-[12px] h-[12px] rounded-full bg-grey-30"></span>
-              SCROLL
-            </div>
+            <SmallCard
+              copy="SCROLL"
+              colorCircle="bg-grey-30"
+              colorCopy="text-grey-30"
+            />
           </div>
         </div>
         <figure className="h-[218px] rounded-4xl overflow-hidden mb-8 md:mb-16 md:h-[462px] lg:h-[786px] lg:mb-24">
@@ -46,6 +48,24 @@ export default function HeroCaso({ slug, title, data }) {
             className="w-full h-full object-cover"
           />
         </figure>
+        <div className="mb-8 md:mb-16 lg:mb-24 lg:flex">
+          <div className="lg:w-1/6">
+            <SmallCard
+              copy="CHALLENGE"
+              className="mb-4  lg:mb-0"
+            />
+          </div>
+          <div className="lg:w-5/6">
+            <h2 className="mb-8 xxl:max-w-[1050px]">
+              El reto era absorber un pico de demanda manteniendo tiempos de
+              respuesta de minutos, no de días.
+            </h2>
+            <p className="!text-[18px] text-grey-30 lg:max-w-[544px]">
+              Además había que aumentar throughput, mejorar la experiencia en
+              concesionarias y asegurar cumplimiento normativo de punta a punta.
+            </p>
+          </div>
+        </div>
       </section>
     </>
   );
