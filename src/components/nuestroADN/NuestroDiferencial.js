@@ -58,7 +58,7 @@ const NuestroDiferencial = () => {
         </p>
       </div>
       <div className="mt-[64px]">
-        <div className="flex items-center justify-between mb-[64px]">
+        <div className="flex items-center justify-between  mb-[12px] ">
           <h2 className="">Nuestro diferencial</h2>
           <div className="w-[99px] h-[75px] overflow-hidden rounded-[8px]">
             <Image

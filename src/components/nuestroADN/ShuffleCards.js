@@ -1,11 +1,14 @@
+"use client";
 import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import { useTranslations } from 'next-intl';
+import Logo from '@/svg/logo';
 
 const ShuffleCards = () => {
-  const [order, setOrder] = useState(["front", "middle", "back"]);
+  const [order, setOrder] = useState(["front", "middle", "back", "back2"]);
   const [exitingCardKey, setExitingCardKey] = useState(null);
   const orderRef = useRef(order);
+  const t = useTranslations("Home.OurDNA");
 
   // Mantener la referencia actualizada
   useEffect(() => {
@@ -38,45 +41,63 @@ const ShuffleCards = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const dnaCards = [
+    {
+      id: 1,
+      title: t("Cards.card1.title"),
+      icon: "/images/pages/home/ourDNA/ChallengersIcon.svg",
+      description: t("Cards.card1.description")
+    },
+    {
+      id: 2,
+      title: t("Cards.card2.title"),
+      icon: "/images/pages/home/ourDNA/HumanIcon.svg",
+      description: t("Cards.card2.description")
+    },
+    {
+      id: 3,
+      title: t("Cards.card3.title"),
+      icon: "/images/pages/home/ourDNA/IAIcon.svg",
+      description: t("Cards.card3.description")
+    },
+    {
+      id: 4,
+      title: t("Cards.card4.title"),
+      icon: "",
+      description: t("Cards.card4.description")
+    }
+  ];
+
+  // Mostrar todas las 4 cards
+  const cardsToShow = dnaCards;
+
   return (
-    <div className="grid place-content-center overflow-hidden bg-slate-900 px-8 py-24 text-slate-50">
-      <div className="relative h-[450px] w-[350px]">
-        <Card
-          key="card-0"
-          cardKey="card-0"
-          //    imgUrl="/imgs/head-shots/7.jpg"
-          testimonial="I feel like I've learned as much from X as I did completing my masters. It's the first thing I read every morning."
-          author="Jenn F. - Marketing Director @ Square"
-          position={order[0]}
-          isExiting={exitingCardKey === "card-0"}
-        />
-        <Card
-          key="card-1"
-          cardKey="card-1"
-          //    imgUrl="/imgs/head-shots/7.jpg"
-          testimonial="My boss thinks I know what I'm doing. Honestly, I just read this newsletter."
-          author="Adrian Y. - Product Marketing @ Meta"
-          position={order[1]}
-          isExiting={exitingCardKey === "card-1"}
-        />
-        <Card
-          key="card-2"
-          cardKey="card-2"
-          //    imgUrl="/imgs/head-shots/7.jpg"
-          testimonial="Can not believe this is free. If X was $5,000 a month, it would be worth every penny. I plan to name my next child after X."
-          author="Devin R. - Growth Marketing Lead @ OpenAI"
-          position={order[2]}
-          isExiting={exitingCardKey === "card-2"}
-        />
+    <div className="relative flex justify-center items-center overflow-hidden  pt-[64px]">
+      <div className="relative h-[700px] w-[328px] md:w-[394px] 2xl:w-[400px]">
+        {cardsToShow.map((card, index) => (
+          <Card
+            key={`card-${index}`}
+            cardKey={`card-${index}`}
+            id={card.id}
+            title={card.title}
+            icon={card.icon}
+            description={card.description}
+            position={order[index]}
+            isExiting={exitingCardKey === `card-${index}`}
+          />
+        ))}
       </div>
     </div>
   );
 };
 
-const Card = ({ testimonial, position, imgUrl, author, isExiting }) => {
+const Card = ({ id, title, icon, description, position, isExiting }) => {
   const x = "0%"; // Todas las cards centradas
   const rotateZ = "0deg"; // Sin rotación
-  const zIndex = position === "front" ? "2" : position === "middle" ? "1" : "0";
+  const zIndex = position === "front" ? "3" : position === "middle" ? "2" : position === "back" ? "1" : "0";
+
+  // Determinar la opacidad según la posición
+  const opacity = position === "front" ? 1 : position === "middle" ? 0.7 : position === "back" ? 0.5 : 0.3;
 
   // Determinar la posición Y según el estado
   let y;
@@ -84,21 +105,21 @@ const Card = ({ testimonial, position, imgUrl, author, isExiting }) => {
 
   if (isExiting && position === "front") {
     // Card que está saliendo y aún está en "front": sube
-    y = "-200px";
+    y = "-50px";
     transitionConfig = {
       duration: 0.3,
       ease: "easeIn",
     };
-  } else if (isExiting && position === "back") {
-    // Card que está saliendo y ya cambió a "back": baja desde arriba
-    y = "16px";
+  } else if (isExiting && (position === "back" || position === "back2")) {
+    // Card que está saliendo y ya cambió a "back" o "back2": baja desde arriba
+    y = position === "back" ? "16px" : "24px";
     transitionConfig = {
       duration: 0.3,
       ease: "easeOut",
     };
   } else {
     // Posición normal según el estado - animación suave
-    y = position === "front" ? "0%" : position === "middle" ? "8px" : "16px";
+    y = position === "front" ? "0%" : position === "middle" ? "8px" : position === "back" ? "16px" : "24px";
     transitionConfig = {
       duration: 0.3,
       ease: "easeOut",
@@ -115,21 +136,46 @@ const Card = ({ testimonial, position, imgUrl, author, isExiting }) => {
         rotate: rotateZ,
         x,
         y,
+        opacity,
       }}
       transition={transitionConfig}
-      className="absolute left-0 top-0 grid h-[450px] w-[350px] select-none place-content-center space-y-6 rounded-2xl border-2 border-slate-700 bg-slate-800/20 p-6 shadow-xl backdrop-blur-md"
+      className="absolute left-0 top-0 w-[328px] md:w-[394px] 2xl:w-[400px] rounded-2xl xl:rounded-3xl p-8 overflow-hidden group cursor-pointer bg-grey-40"
     >
-      {/* <img
-        src={imgUrl}
-        alt={`Image of ${author}`}
-        className="pointer-events-none mx-auto h-32 w-32 rounded-full border-2 border-slate-700 bg-slate-200 object-cover"
-      /> */}
-      <span className="text-center text-lg italic text-slate-400">
-        "{testimonial}"
-      </span>
-      <span className="text-center text-sm font-medium text-indigo-400">
-        {author}
-      </span>
+      {/* Overlay gradient */}
+      <div
+        className="absolute w-[234px] h-[259px] rounded-[259px] -top-[98px] -right-[85px] bg-orange blur-[166px] pointer-events-none"
+      />
+      <div
+        className={`absolute ${id !== 4 ? "hidden" : "block"} inset-0 pointer-events-none`}
+        style={{
+          background: 'url(/images/pages/home/ourDNA/card4_bg.png)',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+        }}
+      />
+      <div className="relative z-10 flex flex-col h-full min-h-[538px] justify-between">
+        {/* Header */}
+        <h4 className={`h5 mb-6 ${id === 4 ? 'text-orange' : 'text-grey-00'} ${id === 4 && position !== 'front' ? 'opacity-0' : ''}`}>
+          {title}
+        </h4>
+
+        {/* Icono */}
+        {id !== 4 &&
+          <div className="mb-8 flex items-center h-24">
+            <img src={icon} alt="icon dna card" />
+          </div>
+        }
+
+        {/* Descripción */}
+        <p className={`p text-grey-00 ${id === 4 && position !== 'front' ? 'opacity-0' : ''}`}>
+          {description}
+        </p>
+
+        {id === 4 && position === 'front' &&
+          <Logo />
+        }
+      </div>
     </motion.div>
   );
 };

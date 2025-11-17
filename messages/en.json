@@ -2,28 +2,26 @@
   "Home": {
     "title": "Home",
     "OurDNA": {
-      "section": {
-        "title": "Our ADN",
-        "Cards": {
-          "card1": {
-            "title": "Challengers",
-            "description": "Somos challengers por naturaleza: cuestionamos nuestro éxito, aprendemos más rápido y empoderamos con tecnología para generar valor real."
-          },
-          "card2": {
-            "title": "IA con sentido",
-            "description": "Vivimos la IA desde la realidad del negocio. Diseñamos estrategias prácticas, medibles y alineadas a resultados concretos. "
-          },
-          "card3": {
-            "title": "Human+",
-            "description": "IA que amplifica la inteligencia humana, no que la reemplaza. Creamos soluciones que empoderan personas y generan impacto medible. "
-          },
-          "card4": {
-            "title": "Nuestro equipo",
-            "description": "Somos thinkers, builders y problem solvers con curiosidad, foco y ejecución. Combinamos visión estratégica con experiencia real para transformar la IA y la automatización en impacto tangible de negocio."
-          }
+      "title": "Our ADN",
+      "Cards": {
+        "card1": {
+          "title": "Challengers",
+          "description": "We are challengers by nature: we question our success, learn faster and empower with technology to generate real value."
         },
-        "button": "Learn more"
-      }
+        "card2": {
+          "title": "AI with purpose",
+          "description": "We live AI from business reality. We design practical, measurable strategies aligned to concrete results."
+        },
+        "card3": {
+          "title": "Human+",
+          "description": "AI that amplifies human intelligence, not replaces it. We create solutions that empower people and generate measurable impact."
+        },
+        "card4": {
+          "title": "Our team",
+          "description": "We are thinkers, builders and problem solvers with curiosity, focus and execution. We combine strategic vision with real experience to transform AI and automation into tangible business impact."
+        }
+      },
+      "button": "Learn more"
     }
   },
   "SuccessStoriesSlider": {
