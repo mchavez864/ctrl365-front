@@ -1,5 +1,6 @@
 // src/app/[locale]/casos/[slug]/page.js
 import HeroCaso from '@/components/caso-page/HeroCaso';
+import ImpactCaso from '@/components/caso-page/ImpactCaso';
 import SolutionCaso from '@/components/caso-page/SolutionCaso';
 import Navbar from '@/components/navbar/Navbar';
 
@@ -24,7 +25,7 @@ async function getCasoData(slug) {
 
 // Función para generar metadatos dinámicos (SEO)
 export async function generateMetadata({ params }) {
-  const { slug, locale } = params;
+  const { slug, locale } = await params;
   const data = await getCasoData(slug);
 
   return {
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }) {
 
 // Componente de página (Server Component)
 export default async function CasoDeExitoPage({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   const data = await getCasoData(slug);
 
   return (
@@ -60,6 +61,7 @@ export default async function CasoDeExitoPage({ params }) {
           data={data.heroData}
         />
         <SolutionCaso />
+        <ImpactCaso />
       </main>
     </>
   );

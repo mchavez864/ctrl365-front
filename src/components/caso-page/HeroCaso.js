@@ -4,7 +4,7 @@ import SmallCard from '../cards/SmallCard';
 export default function HeroCaso({ slug, title, data }) {
   return (
     <>
-      <section className="px-4 py-16 md:px-16 xl:py-32 xxl:px-32 overflow-hidden relative">
+      <section className="px-4 pt-16 md:px-16 xl:pt-32 xxl:px-32 overflow-hidden relative">
         <div className="mb-8 md:mb-16 md:flex md:items-start lg:mb-24 lg:justify-between">
           <div className="flex flex-col md:w-1/2 lg:w-2/3">
             <h1 className="mb-16 md:mb-8 order-2 md:order-1 lg:max-w-[648px] xxl:max-w-[1000px]">
