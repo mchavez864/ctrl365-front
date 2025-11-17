@@ -6,7 +6,10 @@ import SmallCard from '../cards/SmallCard';
 
 export default function SolutionCaso({ slug, title, data }) {
   return (
-    <section className="bg-grey-40 rounded-2xl mb-16 px-4 py-16 md:px-16 md:py-24 lg:mb-32 lg:rounded-4xl xl:py-32 xxl:p-32 overflow-hidden relative">
+    <section
+      data-dark-section="true"
+      className="bg-grey-40 rounded-2xl mb-16 px-4 py-16 md:px-16 md:py-24 lg:mb-32 lg:rounded-4xl xl:py-32 xxl:p-32 overflow-hidden relative"
+    >
       {/* CHIFLO */}
       <div className="absolute right-5 top-6 w-[47px] h-[47px] md:w-[80px] md:h-[80px] lg:top-[160px] lg:right-[70px] lg:w-[150px] lg:h-[150px] xl:top-[160px] xl:right-[100px] xl:w-[250px] xl:h-[250px]">
         <div className="relative w-full h-full">
