@@ -1,6 +1,28 @@
 {
   "Home": {
-    "title": "CASA"
+    "title": "CASA",
+    "OurDNA": {
+      "title": "Nuestro ADN",
+      "Cards": {
+        "card1": {
+          "title": "Challengers",
+          "description": "Somos challengers por naturaleza: cuestionamos nuestro éxito, aprendemos más rápido y empoderamos con tecnología para generar valor real."
+        },
+        "card2": {
+          "title": "IA con sentido",
+          "description": "Vivimos la IA desde la realidad del negocio. Diseñamos estrategias prácticas, medibles y alineadas a resultados concretos. "
+        },
+        "card3": {
+          "title": "Human+",
+          "description": "IA que amplifica la inteligencia humana, no que la reemplaza. Creamos soluciones que empoderan personas y generan impacto medible. "
+        },
+        "card4": {
+          "title": "Nuestro equipo",
+          "description": "Somos thinkers, builders y problem solvers con curiosidad, foco y ejecución. Combinamos visión estratégica con experiencia real para transformar la IA y la automatización en impacto tangible de negocio."
+        }
+      },
+      "button": "Conocé más"
+    }
   },
   "SuccessStoriesSlider": {
     "section": {
@@ -191,80 +213,137 @@
     }
   },
   "Form": {
-      "title": "Hablemos",
-      "title2": "de resultados reales",
-      "subtitle": "Impacto medible, rápido y sostenible para tu compañía.",
-      "submit": "Enviar",
-      "sending": "Enviando...",
-      "policy": "Al completar el formulario, aceptas la ",
-      "policy2": "Política de Privacidad",
-      "policy3": " de Ctrl365",
-      "policyLink": "/",
-      "success": {
-        "title": "Mensaje enviado",
-        "subtitle": "Gracias por escribirnos. Nuestro equipo se pondrá en contacto muy pronto.",
-        "reset": "Enviar otro mensaje"
-      },
-      "errors": {
-        "required": "Este campo es obligatorio",
-        "email": "Ingresá un correo válido",
-        "onlyLetters": "Solo se permiten letras",
-        "minChars": "Debe tener al menos 3 caracteres",
-        "maxChars": "Máximo 25 caracteres",
-        "maxCharsCountry": "Máximo 20 caracteres",
-        "maxCharsCompany": "Máximo 30 caracteres",
-        "alphaNumeric": "Ingresá letras y números, con al menos una letra",
-        "onlyNumbers": "Solo se permiten números",
-        "minDigits": "Debe tener al menos 6 dígitos",
-        "maxDigits": "Máximo 12 dígitos",
-        "goals": "Seleccioná al menos una opción",
-        "services": "Seleccioná al menos un servicio",
-        "server": "No pudimos enviar tu mensaje. Intentá nuevamente más tarde."
-      },
-      "fields": {
-        "name": "Nombre*",
-        "lastName": "Apellido*",
-        "company": "Empresa*",
-        "role": "Puesto de trabajo*",
-        "phone": "Teléfono*",
-        "email": "Correo corporativo*",
-        "country": "País*",
-        "message": "Consulta"
-      },
-      "goals": {
-        "label": "¿Qué estás buscando lograr con Ctrl365?",
-        "title": "¿Qué estás buscando lograr con Ctrl365?*",
-        "placeholder": "Seleccionar",
-        "required": "Debes elegir una opción",
-        "options": [
-          { "value": "techAdvisory", "label": "Asesoramiento general sobre soluciones tecnológicas" },
-          { "value": "processTransformation", "label": "Transformación digital de procesos empresariales" },
-          { "value": "employeeExperience", "label": "Mejora de la experiencia del empleado y cultura organizacional" },
-          { "value": "customApps", "label": "Desarrollo de aplicaciones personalizadas" },
-          { "value": "automation", "label": "Automatización de tareas repetitivas (RPA, OCR o Low/No-Code)" },
-          { "value": "cloud", "label": "Implementación de soluciones cloud" },
-          { "value": "security", "label": "Seguridad y cumplimiento normativo en entornos digitales" },
-          { "value": "dataAnalytics", "label": "Análisis y visualización de datos con herramientas de BI" },
-          { "value": "aiIntegration", "label": "Integración de inteligencia artificial en procesos y decisiones (AI/Copilots/Agents)" }
-        ]
-      },
-      "services": {
-        "required": "Debes elegir una opción",
-        "label": "¿Qué tipo de servicio buscás?",
-        "title": "¿Qué tipo de servicio buscás?*",
-        "placeholder": "Seleccionar",
-        "options": [
-          { "value": "discovery", "label": "Discovery" },
-          { "value": "assessment", "label": "Assessment" },
-          { "value": "consultancy", "label": "Consultoría" },
-          { "value": "implementation", "label": "Implementación" },
-          { "value": "configuration", "label": "Configuración" },
-          { "value": "training", "label": "Capacitación" },
-          { "value": "licences", "label": "Licencias / Suscripciones" },
-          { "value": "support", "label": "Soporte" },
-          { "value": "partners", "label": "Partners / Alianzas / Colaboraciones" },
-          { "value": "notSure", "label": "Aún no lo sé" }
-        ]
-      }
+    "title": "Hablemos",
+    "title2": "de resultados reales",
+    "subtitle": "Impacto medible, rápido y sostenible para tu compañía.",
+    "submit": "Enviar",
+    "sending": "Enviando...",
+    "policy": "Al completar el formulario, aceptas la ",
+    "policy2": "Política de Privacidad",
+    "policy3": " de Ctrl365",
+    "policyLink": "/",
+    "success": {
+      "title": "Mensaje enviado",
+      "subtitle": "Gracias por escribirnos. Nuestro equipo se pondrá en contacto muy pronto.",
+      "reset": "Enviar otro mensaje"
+    },
+    "errors": {
+      "required": "Este campo es obligatorio",
+      "email": "Ingresá un correo válido",
+      "onlyLetters": "Solo se permiten letras",
+      "minChars": "Debe tener al menos 3 caracteres",
+      "maxChars": "Máximo 25 caracteres",
+      "maxCharsCountry": "Máximo 20 caracteres",
+      "maxCharsCompany": "Máximo 30 caracteres",
+      "alphaNumeric": "Ingresá letras y números, con al menos una letra",
+      "onlyNumbers": "Solo se permiten números",
+      "minDigits": "Debe tener al menos 6 dígitos",
+      "maxDigits": "Máximo 12 dígitos",
+      "goals": "Seleccioná al menos una opción",
+      "services": "Seleccioná al menos un servicio",
+      "server": "No pudimos enviar tu mensaje. Intentá nuevamente más tarde."
+    },
+    "fields": {
+      "name": "Nombre*",
+      "lastName": "Apellido*",
+      "company": "Empresa*",
+      "role": "Puesto de trabajo*",
+      "phone": "Teléfono*",
+      "email": "Correo corporativo*",
+      "country": "País*",
+      "message": "Consulta"
+    },
+    "goals": {
+      "label": "¿Qué estás buscando lograr con Ctrl365?",
+      "title": "¿Qué estás buscando lograr con Ctrl365?*",
+      "placeholder": "Seleccionar",
+      "required": "Debes elegir una opción",
+      "options": [
+        {
+          "value": "techAdvisory",
+          "label": "Asesoramiento general sobre soluciones tecnológicas"
+        },
+        {
+          "value": "processTransformation",
+          "label": "Transformación digital de procesos empresariales"
+        },
+        {
+          "value": "employeeExperience",
+          "label": "Mejora de la experiencia del empleado y cultura organizacional"
+        },
+        {
+          "value": "customApps",
+          "label": "Desarrollo de aplicaciones personalizadas"
+        },
+        {
+          "value": "automation",
+          "label": "Automatización de tareas repetitivas (RPA, OCR o Low/No-Code)"
+        },
+        {
+          "value": "cloud",
+          "label": "Implementación de soluciones cloud"
+        },
+        {
+          "value": "security",
+          "label": "Seguridad y cumplimiento normativo en entornos digitales"
+        },
+        {
+          "value": "dataAnalytics",
+          "label": "Análisis y visualización de datos con herramientas de BI"
+        },
+        {
+          "value": "aiIntegration",
+          "label": "Integración de inteligencia artificial en procesos y decisiones (AI/Copilots/Agents)"
+        }
+      ]
+    },
+    "services": {
+      "required": "Debes elegir una opción",
+      "label": "¿Qué tipo de servicio buscás?",
+      "title": "¿Qué tipo de servicio buscás?*",
+      "placeholder": "Seleccionar",
+      "options": [
+        {
+          "value": "discovery",
+          "label": "Discovery"
+        },
+        {
+          "value": "assessment",
+          "label": "Assessment"
+        },
+        {
+          "value": "consultancy",
+          "label": "Consultoría"
+        },
+        {
+          "value": "implementation",
+          "label": "Implementación"
+        },
+        {
+          "value": "configuration",
+          "label": "Configuración"
+        },
+        {
+          "value": "training",
+          "label": "Capacitación"
+        },
+        {
+          "value": "licences",
+          "label": "Licencias / Suscripciones"
+        },
+        {
+          "value": "support",
+          "label": "Soporte"
+        },
+        {
+          "value": "partners",
+          "label": "Partners / Alianzas / Colaboraciones"
+        },
+        {
+          "value": "notSure",
+          "label": "Aún no lo sé"
+        }
+      ]
     }
+  }
 }

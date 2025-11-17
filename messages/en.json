@@ -1,6 +1,30 @@
 {
   "Home": {
-    "title": "Home"
+    "title": "Home",
+    "OurDNA": {
+      "section": {
+        "title": "Our ADN",
+        "Cards": {
+          "card1": {
+            "title": "Challengers",
+            "description": "Somos challengers por naturaleza: cuestionamos nuestro éxito, aprendemos más rápido y empoderamos con tecnología para generar valor real."
+          },
+          "card2": {
+            "title": "IA con sentido",
+            "description": "Vivimos la IA desde la realidad del negocio. Diseñamos estrategias prácticas, medibles y alineadas a resultados concretos. "
+          },
+          "card3": {
+            "title": "Human+",
+            "description": "IA que amplifica la inteligencia humana, no que la reemplaza. Creamos soluciones que empoderan personas y generan impacto medible. "
+          },
+          "card4": {
+            "title": "Nuestro equipo",
+            "description": "Somos thinkers, builders y problem solvers con curiosidad, foco y ejecución. Combinamos visión estratégica con experiencia real para transformar la IA y la automatización en impacto tangible de negocio."
+          }
+        },
+        "button": "Learn more"
+      }
+    }
   },
   "SuccessStoriesSlider": {
     "section": {
@@ -191,80 +215,137 @@
     }
   },
   "Form": {
-      "title": "[i]Let’s talk ",
-      "title2": "[i]about real outcomes",
-      "subtitle": "[i]Measurable, fast and sustainable impact for your company.",
-      "submit": "[i]Send",
-      "sending": "[i]Sending...",
-      "policy": "[i]By submitting the form, you accept the ",
-      "policy2": "[i]Privacy Policy",
-      "policy3": "[i] of Ctrl365",
-      "policyLink": "/",
-      "success": {
-        "title": "[i]Message sent",
-        "subtitle": "[i]Thanks for reaching out. Our team will follow up shortly.",
-        "reset": "[i]Send another message"
-      },
-      "errors": {
-        "required": "[i]This field is required",
-        "email": "[i]Enter a valid email",
-        "onlyLetters": "[i]Letters only",
-        "minChars": "[i]Must be at least 3 characters",
-        "maxChars": "[i]Maximum 25 characters",
-        "maxCharsCountry": "[i]Maximum 20 characters",
-        "maxCharsCompany": "[i]Maximum 30 characters",
-        "alphaNumeric": "[i]Use letters and numbers (at least one letter)",
-        "onlyNumbers": "[i]Digits only",
-        "minDigits": "[i]Must be at least 6 digits",
-        "maxDigits": "[i]Maximum 12 digits",
-        "goals": "[i]Select at least one goal",
-        "services": "[i]Select at least one service",
-        "server": "[i]We couldn't send your message. Please try again later."
-      },
-      "fields": {
-        "name": "[i]First name",
-        "lastName": "[i]Last name",
-        "company": "[i]Company",
-        "role": "[i]Job title",
-        "phone": "[i]Phone",
-        "email": "[i]Corporate email",
-        "country": "[i]Country",
-        "message": "[i]Message"
-      },
-      "goals": {
-        "label": "[i]What are you looking to achieve with Ctrl365?",
-        "title": "[i]What are you looking to achieve with Ctrl365?*",
-        "placeholder": "[i]Select",
-        "required": "[i]You must choose an option",
-        "options": [
-          { "value": "techAdvisory", "label": "[i]Technology advisory" },
-          { "value": "processTransformation", "label": "[i]Business process transformation" },
-          { "value": "employeeExperience", "label": "[i]Employee experience and cultural evolution" },
-          { "value": "customApps", "label": "[i]Custom application development" },
-          { "value": "automation", "label": "[i]Task automation (RPA, OCR or Low/No-Code)" },
-          { "value": "cloud", "label": "[i]Cloud solution implementation" },
-          { "value": "security", "label": "[i]Security and compliance in digital environments" },
-          { "value": "dataAnalytics", "label": "[i]Data analytics & BI visualization" },
-          { "value": "aiIntegration", "label": "[i]AI integration for processes and decisions (AI/Copilots/Agents)" }
-        ]
-      },
-      "services": {
-        "required": "[i]You must choose an option",
-        "label": "[i]What type of service are you looking for?",
-        "title": "[i]What type of service are you looking for?*",
-        "placeholder": "[i]Select",
-        "options": [
-          { "value": "discovery", "label": "[i]Discovery" },
-          { "value": "assessment", "label": "[i]Assessment" },
-          { "value": "consultancy", "label": "[i]Consulting" },
-          { "value": "implementation", "label": "[i]Implementation" },
-          { "value": "configuration", "label": "[i]Configuration" },
-          { "value": "training", "label": "[i]Training" },
-          { "value": "licences", "label": "[i]Licences / Subscriptions" },
-          { "value": "support", "label": "[i]Support" },
-          { "value": "partners", "label": "[i]Partners / Alliances / Collaborations" },
-          { "value": "notSure", "label": "[i]Not sure yet" }
-        ]
-      }
+    "title": "[i]Let’s talk ",
+    "title2": "[i]about real outcomes",
+    "subtitle": "[i]Measurable, fast and sustainable impact for your company.",
+    "submit": "[i]Send",
+    "sending": "[i]Sending...",
+    "policy": "[i]By submitting the form, you accept the ",
+    "policy2": "[i]Privacy Policy",
+    "policy3": "[i] of Ctrl365",
+    "policyLink": "/",
+    "success": {
+      "title": "[i]Message sent",
+      "subtitle": "[i]Thanks for reaching out. Our team will follow up shortly.",
+      "reset": "[i]Send another message"
+    },
+    "errors": {
+      "required": "[i]This field is required",
+      "email": "[i]Enter a valid email",
+      "onlyLetters": "[i]Letters only",
+      "minChars": "[i]Must be at least 3 characters",
+      "maxChars": "[i]Maximum 25 characters",
+      "maxCharsCountry": "[i]Maximum 20 characters",
+      "maxCharsCompany": "[i]Maximum 30 characters",
+      "alphaNumeric": "[i]Use letters and numbers (at least one letter)",
+      "onlyNumbers": "[i]Digits only",
+      "minDigits": "[i]Must be at least 6 digits",
+      "maxDigits": "[i]Maximum 12 digits",
+      "goals": "[i]Select at least one goal",
+      "services": "[i]Select at least one service",
+      "server": "[i]We couldn't send your message. Please try again later."
+    },
+    "fields": {
+      "name": "[i]First name",
+      "lastName": "[i]Last name",
+      "company": "[i]Company",
+      "role": "[i]Job title",
+      "phone": "[i]Phone",
+      "email": "[i]Corporate email",
+      "country": "[i]Country",
+      "message": "[i]Message"
+    },
+    "goals": {
+      "label": "[i]What are you looking to achieve with Ctrl365?",
+      "title": "[i]What are you looking to achieve with Ctrl365?*",
+      "placeholder": "[i]Select",
+      "required": "[i]You must choose an option",
+      "options": [
+        {
+          "value": "techAdvisory",
+          "label": "[i]Technology advisory"
+        },
+        {
+          "value": "processTransformation",
+          "label": "[i]Business process transformation"
+        },
+        {
+          "value": "employeeExperience",
+          "label": "[i]Employee experience and cultural evolution"
+        },
+        {
+          "value": "customApps",
+          "label": "[i]Custom application development"
+        },
+        {
+          "value": "automation",
+          "label": "[i]Task automation (RPA, OCR or Low/No-Code)"
+        },
+        {
+          "value": "cloud",
+          "label": "[i]Cloud solution implementation"
+        },
+        {
+          "value": "security",
+          "label": "[i]Security and compliance in digital environments"
+        },
+        {
+          "value": "dataAnalytics",
+          "label": "[i]Data analytics & BI visualization"
+        },
+        {
+          "value": "aiIntegration",
+          "label": "[i]AI integration for processes and decisions (AI/Copilots/Agents)"
+        }
+      ]
+    },
+    "services": {
+      "required": "[i]You must choose an option",
+      "label": "[i]What type of service are you looking for?",
+      "title": "[i]What type of service are you looking for?*",
+      "placeholder": "[i]Select",
+      "options": [
+        {
+          "value": "discovery",
+          "label": "[i]Discovery"
+        },
+        {
+          "value": "assessment",
+          "label": "[i]Assessment"
+        },
+        {
+          "value": "consultancy",
+          "label": "[i]Consulting"
+        },
+        {
+          "value": "implementation",
+          "label": "[i]Implementation"
+        },
+        {
+          "value": "configuration",
+          "label": "[i]Configuration"
+        },
+        {
+          "value": "training",
+          "label": "[i]Training"
+        },
+        {
+          "value": "licences",
+          "label": "[i]Licences / Subscriptions"
+        },
+        {
+          "value": "support",
+          "label": "[i]Support"
+        },
+        {
+          "value": "partners",
+          "label": "[i]Partners / Alliances / Collaborations"
+        },
+        {
+          "value": "notSure",
+          "label": "[i]Not sure yet"
+        }
+      ]
     }
+  }
 }

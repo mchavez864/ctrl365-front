@@ -5,16 +5,18 @@ import { getTranslations } from "next-intl/server";
 import Hero from "@/components/hero/Hero";
 import Navbar from "@/components/navbar/Navbar";
 import Impacto from "@/components/home/Impacto";
+import OurDNA from "@/components/home/OurDNA";
 
 
 
 export default async function Home() {
   const t = await getTranslations("Home");
   return (
-      <main className="bg-grey-40 relative">
-        <Navbar />
-        <Hero />
-        <Impacto />
-      </main>
+    <main className="bg-grey-40 relative">
+      <Navbar />
+      <Hero />
+      <Impacto />
+      <OurDNA />
+    </main>
   );
 }
