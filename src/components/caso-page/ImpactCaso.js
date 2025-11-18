@@ -83,9 +83,9 @@ export default function ImpactCaso() {
         Los resultados obtenidos fueron muy significativos y cubren varios
         frentes:
       </motion.h2>
-      <div className="lg:flex lg:justify-end">
+      <div className="lg:flex ">
         <motion.div
-          className="flex gap-8 flex-col md:gap-x-16 md:flex-row md:flex-wrap lg:gap-8 lg:justify-end lg:w-[850px] xxl:w-[1046px]"
+          className="flex gap-8 flex-col md:gap-x-16 md:flex-row md:flex-wrap lg:gap-8  lg:w-[850px] xxl:w-[1046px]"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
