@@ -72,8 +72,8 @@ const ShuffleCards = () => {
   const cardsToShow = dnaCards;
 
   return (
-    <div className="relative flex justify-center items-center overflow-hidden  pt-[64px]">
-      <div className="relative h-[700px] w-[328px] md:w-[394px] 2xl:w-[400px]">
+    <div className="relative flex justify-center items-center overflow-hidden  pt-[64px] lg:block">
+      <div className="relative h-[550px] w-full md:w-full md:h-[440px] lg:w-[684px]">
         {cardsToShow.map((card, index) => (
           <Card
             key={`card-${index}`}
@@ -139,11 +139,11 @@ const Card = ({ id, title, icon, description, position, isExiting }) => {
         opacity,
       }}
       transition={transitionConfig}
-      className="absolute left-0 top-0 w-[328px] md:w-[394px] 2xl:w-[400px] rounded-2xl xl:rounded-3xl p-8 overflow-hidden group cursor-pointer bg-grey-40"
+      className="absolute left-0 top-0 w-full h-[487px] md:w-full  md:h-[385px]  2xl:w-[400px] rounded-2xl xl:rounded-3xl p-8 overflow-hidden group cursor-pointer bg-grey-40"
     >
       {/* Overlay gradient */}
       <div
-        className="absolute w-[234px] h-[259px] rounded-[259px] -top-[98px] -right-[85px] bg-orange blur-[166px] pointer-events-none"
+        className="absolute w-[234px] h-[259px] rounded-[259px] md:h-[321px] -top-[98px] -right-[85px] bg-orange blur-[166px] pointer-events-none"
       />
       <div
         className={`absolute ${id !== 4 ? "hidden" : "block"} inset-0 pointer-events-none`}
@@ -154,15 +154,15 @@ const Card = ({ id, title, icon, description, position, isExiting }) => {
           backgroundSize: 'cover',
         }}
       />
-      <div className="relative z-10 flex flex-col h-full min-h-[538px] justify-between">
+      <div className="relative z-10 flex flex-col h-[423px] md:h-[321px] justify-between">
         {/* Header */}
-        <h4 className={`h5 mb-6 ${id === 4 ? 'text-orange' : 'text-grey-00'} ${id === 4 && position !== 'front' ? 'opacity-0' : ''}`}>
+        <h4 className={`h5 mb-[120px] md:mb-[90px] ${id === 4 ? 'text-orange' : 'text-grey-00'} ${id === 4 && position !== 'front' ? 'opacity-0' : ''}`}>
           {title}
         </h4>
 
         {/* Icono */}
         {id !== 4 &&
-          <div className="mb-8 flex items-center h-24">
+          <div className="mb-[120px] md:mb-[90px] flex items-center h-[163px] md:h-[122px]">
             <img src={icon} alt="icon dna card" />
           </div>
         }
