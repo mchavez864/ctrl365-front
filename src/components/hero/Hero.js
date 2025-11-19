@@ -1,7 +1,26 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Button from "@/components/buttons/Button";
 import Image from "next/image";
 
 const Hero = () => {
+  const words = ["rápida", "medible", "humana"];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false);
+      setTimeout(() => {
+        setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        setFade(true);
+      }, 300); 
+    }, 1700); 
+
+    return () => clearInterval(interval);
+  }, [words.length]);
+
   return (
     <section className="bg-grey-10 overflow-hidden">
       <div className="relative px-[16px] py-[128px] md:px-[64px] md:pt-[168px] lg:pt-[232px] lg:pb-[64px] overflow-hidden xxl:px-[128px]">
@@ -26,14 +45,18 @@ const Hero = () => {
             <Button copy="Comenzá hoy" variant="black" className="mb-[64px]" />
           </div>
           <div className="lg:self-end lg:flex lg:flex-col lg:items-end">
-            <p className="display hidden lg:block">rápida</p>
+            <p className={`display hidden lg:block transition-opacity duration-300 ${fade ? 'opacity-100' : 'opacity-0'}`}>
+              {words[currentWordIndex]}
+            </p>
+            <div className="w-full h-full lg:h-auto lg:w-[426px] rounded-[16px] overflow-hidden">
             <Image
               src="/images/hero/video.webp"
               alt="video"
               width={640}
               height={360}
-              className="w-full h-full object-cover lg:w-[426px] lg:h-auto"
+              className="object-cover"
             />
+            </div>
           </div>
         </div>
         <div className="hidden lg:flex lg:justify-between lg:mt-[16px]">

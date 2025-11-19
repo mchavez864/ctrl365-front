@@ -9,8 +9,8 @@ import Linkedin from '@/svg/linkedin.js';
 import Youtube from '@/svg/youtube.js';
 
 const menuItems = [
-  { name: 'Home', href: '#' },
-  { name: 'Nuestro ADN', href: '#' },
+  { name: 'Home', href: '/' },
+  { name: 'Nuestro ADN', href: '/nuestro-adn' },
   { name: 'Casos de éxito', href: '/casos-de-exito' },
   { name: 'Contacto', href: '/contacto' },
 ];
@@ -45,10 +45,12 @@ const Menu = ({ onClose }) => {
       <div className="relative w-full h-full overflow-hidden flex items-center">
         <div className="absolute top-0 left-0 w-full z-40 bg-transparent">
           <div className="bg-transparent flex justify-between items-center px-[16px] md:px-[64px] py-[16px] md:py-[32px] xxl:px-[128px]">
+          <a href="/">
             <Logo
               color="white"
               className="w-[92px] h-[32px] md:w-[138px] md:h-[48px]"
             />
+            </a>
             <div className="md:flex md:items-center md:justify-between md:w-[228px]">
               <div className="hidden md:flex items-center relative w-[82px] h-[26px] ">
                 <button 
