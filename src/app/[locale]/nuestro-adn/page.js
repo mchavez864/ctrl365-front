@@ -7,7 +7,7 @@ export default function SuccessStoriesPage() {
     <>
       <Navbar />
       <main className="">
-        {/* <Frameworks /> */}
+        <Frameworks />
         <NuestroDiferencial />
       </main>
     </>
