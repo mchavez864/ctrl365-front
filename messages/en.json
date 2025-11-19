@@ -33,8 +33,8 @@
   },
   "SuccessStoriesSlider": {
     "section": {
-      "title": "[i]Designed to deliver results",
-      "description": "[i]Solutions recognized for their impact on efficiency, speed and growth."
+      "title": "Designed to deliver real outcomes.",
+      "description": "Solutions highlighted for their impact on efficiency, speed, and growth."
     },
     "slides": {
       "santander": {
@@ -215,58 +215,58 @@
   },
   "CasosDeExitoPage": {
     "resultados": {
-      "title": "Results that speak",
-      "paragraph1": "At Ctrl365, we turn challenges into measurable results. Every AI and automation project creates real value: efficiency, savings, growth, and speed.",
-      "paragraph2": "We don't just implement technology — we design impact.",
+      "title": "Outcomes that speak for themselves",
+      "paragraph1": "At Ctrl365 we turn challenges into measurable outcomes. Every AI and automation project creates real value: efficiency, savings, growth, and speed.",
+      "paragraph2": "We don’t just implement technology — we design impact.",
       "tagline": "Visible transformation. Real impact.",
       "cards": [
         {
           "number": "70",
           "symbol": "+",
           "modifier": "%",
-          "desc": "Higher operational productivity in financial services."
+          "desc": "higher operational productivity in financial services."
         },
         {
           "number": "90",
           "symbol": "-",
           "modifier": "%",
-          "desc": "Lower back-office and policy issuance costs."
+          "desc": "lower back-office and policy-issuance costs."
         },
         {
           "number": "35",
           "symbol": "+",
           "modifier": "%",
-          "desc": "More revenue with agile decisions and optimized processes."
+          "desc": "more revenue through faster decisions and optimized processes."
         },
         {
           "number": "94",
           "symbol": "-",
           "modifier": "%",
-          "desc": "New agricultural insurance premiums with geospatial AI."
+          "desc": "in new agricultural insurance premiums with geospatial AI."
         },
         {
           "number": "3,2",
           "symbol": "+",
           "modifier": "M",
-          "desc": "Credit approval reduced from 7 weeks to 20 minutes."
+          "desc": "reduction in credit-approval time — from 7 weeks to 20 minutes."
         },
         {
           "number": "30",
           "symbol": "+",
           "modifier": "%",
-          "desc": "Greater export capacity and logistics efficiency."
+          "desc": "greater export capacity and logistics efficiency."
         },
         {
           "number": "24",
           "symbol": "",
           "modifier": "h",
-          "desc": "Automated payments to producers in one day."
+          "desc": "automated payments to producers in a single day."
         },
         {
           "number": "600",
           "symbol": "+",
           "modifier": "%",
-          "desc": "More policies issued without expanding cost structure."
+          "desc": "additional policies issued without increasing cost structure."
         }
       ]
     }
