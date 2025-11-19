@@ -228,6 +228,10 @@
         "title": "Visión",
         "description": "Crear soluciones reales que transformen la vida de las personas y del planeta."
       }
+    },
+    "paises": {
+      "paragraph1": "Operamos sin fronteras, acompañando a empresas en América, Europa y el Caribe. Impulsamos proyectos que combinan tecnología, inteligencia y resultados reales, con presencia regional y visión global.",
+      "paragraph2": "Nuestra cercanía nos permite entender los desafíos de cada industria, actuar con velocidad y ofrecer soluciones que escalan con impacto."
     }
   },
   "ContactPage": {

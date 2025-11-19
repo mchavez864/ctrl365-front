@@ -218,7 +218,7 @@
       "title": "Our DNA",
       "description": "We are a strategic partner for organizations that want real business outcomes, not promises.",
       "smallCard": "TRANSFORMING WITH PURPOSE",
-      "subtitle": "At Ctrl365, we don’t just implement technology — we design impact.",
+      "subtitle": "At Ctrl365, we don't just implement technology — we design impact.",
       "content": "We integrate automation, artificial intelligence, and business strategy to drive efficiency, growth, and measurable transformation.",
       "mission": {
         "title": "Mission",
@@ -226,8 +226,12 @@
       },
       "vision": {
         "title": "Vision",
-        "description": "Create real solutions that transform people’s lives and the planet."
+        "description": "Create real solutions that transform people's lives and the planet."
       }
+    },
+    "paises": {
+      "paragraph1": "We operate without borders, partnering with companies across the Americas, Europe, and the Caribbean. We drive projects that combine technology, intelligence, and real business outcomes, with regional presence and a global vision.",
+      "paragraph2": "Our proximity to our clients lets us understand each industry’s challenges, move fast, and deliver solutions that scale with impact."
     }
   },
   "ContactPage": {
