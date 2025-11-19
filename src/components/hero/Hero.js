@@ -27,13 +27,15 @@ const Hero = () => {
           </div>
           <div className="lg:self-end lg:flex lg:flex-col lg:items-end">
             <p className="display hidden lg:block">rápida</p>
+            <div className="w-full h-full lg:h-auto lg:w-[426px] rounded-[16px] overflow-hidden">
             <Image
               src="/images/hero/video.webp"
               alt="video"
               width={640}
               height={360}
-              className="w-full h-full object-cover lg:w-[426px] lg:h-auto"
+              className="object-cover"
             />
+            </div>
           </div>
         </div>
         <div className="hidden lg:flex lg:justify-between lg:mt-[16px]">
