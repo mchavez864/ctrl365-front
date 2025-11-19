@@ -3,7 +3,7 @@ import SmallCard from '../cards/SmallCard';
 import BigCard from '../cards/BigCard';
 
 export default async function HeroNuestroAdn() {
-  const t = await getTranslations('ContactPage.hero');
+  const t = await getTranslations('NuestroAdnPage.hero');
 
   return (
     <section
@@ -11,36 +11,32 @@ export default async function HeroNuestroAdn() {
       data-dark-section="true"
     >
       <div className="text-center relative z-10 py-16 lg:flex lg:items-center lg:justify-between lg:pt-64 lg:pb-32">
-        <h1 className="text-white mb-8 lg:mb-0">Nuestro ADN</h1>
+        <h1 className="text-grey-10 gradient-text mb-8 lg:mb-0">
+          {t('title')}
+        </h1>
         <p className="text-white !text-[18px] lg:max-w-[500px] text-left">
-          Somos un aliado estratégico para organizaciones que buscan resultados
-          reales, no promesas.
+          {t('description')}
         </p>
       </div>
       <div className="relative z-20 pt-16 pb-32 lg:pt-32 lg:max-w-[824px]">
         <SmallCard
-          copy="Transformamos con propósito"
+          copy={t('smallCard')}
           colorCopy="text-white"
           className="uppercase mb-4"
         />
-        <h2 className="text-white mb-8">
-          En Ctrl365 no implementamos tecnología: diseñamos impacto
-        </h2>
-        <p className="text-white !text-[18px]">
-          Integramos automatización, inteligencia artificial y estrategia de
-          negocio para generar eficiencia, crecimiento y transformación medible.
-        </p>
+        <h2 className="text-white mb-8">{t('subtitle')}</h2>
+        <p className="text-white !text-[18px]">{t('content')}</p>
       </div>
       <div className="relative z-20 flex flex-col gap-4 lg:flex-row">
         <BigCard
-          title="Misión"
-          copy="Extender las capacidades humanas con inteligencia aplicada."
+          title={t('mission.title')}
+          copy={t('mission.description')}
           image="/images/pages/nuestro-adn/adn-mision.webp"
           className="lg:w-[50%]"
         />
         <BigCard
-          title="Visión"
-          copy="Crear soluciones reales que transformen la vida de las personas y del planeta."
+          title={t('vision.title')}
+          copy={t('vision.description')}
           image="/images/pages/nuestro-adn/adn-vision.webp"
           className="lg:w-[50%]"
         />
