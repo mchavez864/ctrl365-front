@@ -1,67 +1,8 @@
-"use client";
-import React, { useState, memo, useCallback, useEffect } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence, useInView } from "framer-motion";
-import NumberFlow from "@number-flow/react";
-
-// Mover datos fuera del componente para evitar recrearlos
-const resultados = [
-  {
-    id: 1,
-    number: "70",
-    symbol: "+",
-    modifier: "%",
-    desc: "Mayor productividad operativa en servicios financieros.",
-  },
-  {
-    id: 2,
-    number: "90",
-    symbol: "-",
-    modifier: "%",
-    desc: "Menos costos en back-office y emisión de pólizas.",
-  },
-  {
-    id: 3,
-    number: "35",
-    symbol: "+",
-    modifier: "%",
-    desc: "Más ingresos con decisiones ágiles y procesos optimizados.",
-  },
-  {
-    id: 4,
-    number: "94",
-    symbol: "-",
-    modifier: "%",
-    desc: "Primas nuevas en seguros agrícolas con IA geoespacial.",
-  },
-  {
-    id: 5,
-    number: "3,2",
-    symbol: "+",
-    modifier: "M",
-    desc: "Aprobación de créditos reducida de 7 semanas a 20 minutos.",
-  },
-  {
-    id: 6,
-    number: "30",
-    symbol: "+",
-    modifier: "%",
-    desc: "Mayor capacidad exportadora y eficiencia logística.",
-  },
-  {
-    id: 7,
-    number: "24",
-    modifier: "h",
-    desc: "Pagos automatizados a productores en un día.",
-  },
-  {
-    id: 8,
-    number: "600",
-    symbol: "+",
-    modifier: "%",
-    desc: "Más pólizas emitidas sin ampliar estructura de costos.",
-  },
-];
+'use client';
+import React, { useState, memo, useCallback, useEffect } from 'react';
+import Image from 'next/image';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
+import NumberFlow from '@number-flow/react';
 
 // Componente Card memoizado para evitar re-renders innecesarios
 const ResultadoCard = memo(
@@ -71,7 +12,7 @@ const ResultadoCard = memo(
     const cardInView = useInView(cardRef, { once: true, amount: 0.5 });
 
     // Convertir el número a formato numérico (manejar casos con coma)
-    const numericValue = parseFloat(resultado.number.replace(",", "."));
+    const numericValue = parseFloat(resultado.number.replace(',', '.'));
 
     return (
       <div
@@ -80,19 +21,19 @@ const ResultadoCard = memo(
         onMouseEnter={onCardHover}
         onMouseLeave={onCardLeave}
         className={`relative flex flex-col p-[16px] items-center cursor-pointer overflow-hidden transition-[border-color] duration-300                ${
-          resultado.id === 1 ? "lg:col-start-1 lg:row-start-1" : ""
+          resultado.id === 1 ? 'lg:col-start-1 lg:row-start-1' : ''
         }
-    ${resultado.id === 2 ? "lg:col-start-7 lg:row-start-1" : ""}
-    ${resultado.id === 3 ? "lg:col-start-3 lg:row-start-2" : ""}
-    ${resultado.id === 4 ? "lg:col-start-5 lg:row-start-3" : ""}
-    ${resultado.id === 5 ? "lg:col-start-3 lg:row-start-5" : ""}
-    ${resultado.id === 6 ? "lg:col-start-7 lg:row-start-5" : ""}
-    ${resultado.id === 7 ? "lg:col-start-1 lg:row-start-6" : ""}
-    ${resultado.id === 8 ? "lg:col-start-5 lg:row-start-6" : ""}
+    ${resultado.id === 2 ? 'lg:col-start-7 lg:row-start-1' : ''}
+    ${resultado.id === 3 ? 'lg:col-start-3 lg:row-start-2' : ''}
+    ${resultado.id === 4 ? 'lg:col-start-5 lg:row-start-3' : ''}
+    ${resultado.id === 5 ? 'lg:col-start-3 lg:row-start-5' : ''}
+    ${resultado.id === 6 ? 'lg:col-start-7 lg:row-start-5' : ''}
+    ${resultado.id === 7 ? 'lg:col-start-1 lg:row-start-6' : ''}
+    ${resultado.id === 8 ? 'lg:col-start-5 lg:row-start-6' : ''}
             ${
               isActive
-                ? ""
-                : "border-b border-grey-20 border-solid md:border-none"
+                ? ''
+                : 'border-b border-grey-20 border-solid md:border-none'
             }`}
       >
         {/* Animación MOBILE: Tipo cortina simple (del Untitled-1) */}
@@ -104,7 +45,7 @@ const ResultadoCard = memo(
                 scaleY: 1,
                 transition: {
                   duration: 0.3,
-                  ease: "easeOut",
+                  ease: 'easeOut',
                   delay: 0,
                 },
               }}
@@ -112,7 +53,7 @@ const ResultadoCard = memo(
                 scaleY: 0,
                 transition: {
                   duration: 0.3,
-                  ease: "easeOut",
+                  ease: 'easeOut',
                   delay: 0.3,
                 },
               }}
@@ -124,7 +65,7 @@ const ResultadoCard = memo(
         {/* Contenedor principal con layout responsivo */}
         <div
           className={`relative w-full z-10 flex transition-all duration-400 ${
-            isActive ? "justify-start" : "justify-center"
+            isActive ? 'justify-start' : 'justify-center'
           } md:justify-center md:items-center`}
         >
           <motion.div
@@ -141,7 +82,9 @@ const ResultadoCard = memo(
             {resultado.symbol && (
               <p
                 className={`${
-                  isActive ? "text-grey-00 md:text-grey-40 md:opacity-0" : "text-grey-00 md:opacity-100"
+                  isActive
+                    ? 'text-grey-00 md:text-grey-40 md:opacity-0'
+                    : 'text-grey-00 md:opacity-100'
                 } h2 md:text-[32px] transition-all duration-300`}
               >
                 {resultado.symbol}
@@ -149,18 +92,16 @@ const ResultadoCard = memo(
             )}
             <h3
               className={`${
-                isActive ? "text-grey-00 md:text-grey-40 md:opacity-0" : "text-grey-00 md:opacity-100"
+                isActive
+                  ? 'text-grey-00 md:text-grey-40 md:opacity-0'
+                  : 'text-grey-00 md:opacity-100'
               } text-center md:text-left md:text-[96px]! md:tracking-[-0.96px] md:leading-[110%] transition-all duration-300`}
             >
               <NumberFlow
                 value={cardInView ? numericValue : 0}
                 format={{
-                  minimumFractionDigits: resultado.number.includes(",")
-                    ? 1
-                    : 0,
-                  maximumFractionDigits: resultado.number.includes(",")
-                    ? 1
-                    : 0,
+                  minimumFractionDigits: resultado.number.includes(',') ? 1 : 0,
+                  maximumFractionDigits: resultado.number.includes(',') ? 1 : 0,
                 }}
                 locales="es-ES"
               />
@@ -168,7 +109,9 @@ const ResultadoCard = memo(
             {resultado.modifier && (
               <p
                 className={`${
-                  isActive ? "text-grey-00 md:text-grey-40 md:opacity-0" : "text-grey-00 md:opacity-100"
+                  isActive
+                    ? 'text-grey-00 md:text-grey-40 md:opacity-0'
+                    : 'text-grey-00 md:opacity-100'
                 } lg md:uppercase transition-all duration-300`}
               >
                 {resultado.modifier}
@@ -185,7 +128,7 @@ const ResultadoCard = memo(
                 exit={{ opacity: 0 }}
                 transition={{
                   duration: 0.3,
-                  ease: "easeOut",
+                  ease: 'easeOut',
                   delay: isActive ? 0.4 : 0,
                 }}
                 className="text-grey-00 text-[14px]! absolute right-0 top-1/2 -translate-y-1/2 max-w-[168px] md:hidden"
@@ -200,9 +143,9 @@ const ResultadoCard = memo(
         <AnimatePresence>
           {isActive && (
             <motion.div
-              initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
-              animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-              exit={{ clipPath: "inset(0% 0% 100% 0%)" }}
+              initial={{ clipPath: 'inset(0% 0% 100% 0%)' }}
+              animate={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+              exit={{ clipPath: 'inset(0% 0% 100% 0%)' }}
               transition={{
                 duration: 0.5,
                 ease: [0.43, 0.13, 0.23, 0.96],
@@ -218,23 +161,21 @@ const ResultadoCard = memo(
                   transition: {
                     duration: 0.4,
                     delay: 0.2,
-                    ease: "easeOut",
+                    ease: 'easeOut',
                   },
                 }}
               >
                 {resultado.symbol && (
-                  <p className="text-grey-00 text-[18px]">
-                    {resultado.symbol}
-                  </p>
+                  <p className="text-grey-00 text-[18px]">{resultado.symbol}</p>
                 )}
                 <h3 className="text-grey-00 text-[36px] leading-[110%] tracking-[-0.36px]">
                   <NumberFlow
                     value={cardInView ? numericValue : 0}
                     format={{
-                      minimumFractionDigits: resultado.number.includes(",")
+                      minimumFractionDigits: resultado.number.includes(',')
                         ? 1
                         : 0,
-                      maximumFractionDigits: resultado.number.includes(",")
+                      maximumFractionDigits: resultado.number.includes(',')
                         ? 1
                         : 0,
                     }}
@@ -256,7 +197,7 @@ const ResultadoCard = memo(
                   transition: {
                     duration: 0.4,
                     delay: 0.3,
-                    ease: "easeOut",
+                    ease: 'easeOut',
                   },
                 }}
                 className="text-grey-00 text-[16px] lg:text-right"
@@ -271,9 +212,9 @@ const ResultadoCard = memo(
   }
 );
 
-ResultadoCard.displayName = "ResultadoCard";
+ResultadoCard.displayName = 'ResultadoCard';
 
-const Resultados = () => {
+const Resultados = ({ title, paragraph1, paragraph2, tagline, cards }) => {
   const [activeId, setActiveId] = useState(null);
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -293,8 +234,8 @@ const Resultados = () => {
     checkIsDesktop();
 
     // Listener para resize
-    window.addEventListener("resize", checkIsDesktop);
-    return () => window.removeEventListener("resize", checkIsDesktop);
+    window.addEventListener('resize', checkIsDesktop);
+    return () => window.removeEventListener('resize', checkIsDesktop);
   }, []);
 
   // Click handler para móvil
@@ -329,85 +270,95 @@ const Resultados = () => {
       data-dark-section="true"
     >
       <div className="relative z-30">
-      <div className="mx-auto flex flex-col items-center max-w-[295px] pb-[64px] md:max-w-[640px] lg:relative lg:flex-row lg:items-center lg:justify-between lg:max-w-full lg:py-[128px]">
-        <h2 className="h1 text-grey-00 text-center mb-[32px] lg:w-[434px] lg:text-left gradient-text lg:mb-0">
-          Resultados que hablan
-        </h2>
-        <div className="lg:w-[434px]">
-          <p className="lg text-grey-00 text-center mb-[24px] lg:text-left">
-            En Ctrl365 convertimos desafíos en resultados medibles. Cada
-            proyecto de IA y automatización crea valor real: eficiencia, ahorro,
-            crecimiento y velocidad.
-          </p>
-          <p className="lg text-grey-00 text-center mb-[64px] lg:text-left lg:mb-0">
-            No implementamos tecnología: diseñamos impacto.
-          </p>
+        <div className="mx-auto flex flex-col items-center max-w-[295px] pb-[64px] md:max-w-[640px] lg:relative lg:flex-row lg:items-center lg:justify-between lg:max-w-full lg:py-[128px]">
+          <h2 className="h1 text-grey-00 text-center mb-[32px] lg:w-[434px] lg:text-left gradient-text lg:mb-0">
+            {title}
+          </h2>
+          <div className="lg:w-[434px]">
+            <p className="lg text-grey-00 text-center mb-[24px] lg:text-left">
+              {paragraph1}
+            </p>
+            <p className="lg text-grey-00 text-center mb-[64px] lg:text-left lg:mb-0">
+              {paragraph2}
+            </p>
+          </div>
+          <div className="relative w-[156px] h-[156px] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:w-[316px] lg:h-[316px]">
+            <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full blur-2xl will-change-transform"></div>
+            <Image
+              src="/images/orb.webp"
+              alt="Resultados"
+              width={405}
+              height={405}
+              className="w-[156px] h-auto z-30 relative lg:w-[316px]"
+              priority
+            />
+            <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full opacity-90 mix-blend-soft-light z-40 pointer-events-none"></div>
+          </div>
         </div>
-        <div className="relative w-[156px] h-[156px] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:w-[316px] lg:h-[316px]">
-          <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full blur-2xl will-change-transform"></div>
-          <Image
-            src="/images/orb.webp"
-            alt="Resultados"
-            width={405}
-            height={405}
-            className="w-[156px] h-auto z-30 relative lg:w-[316px]"
-            priority
-          />
-          <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full opacity-90 mix-blend-soft-light z-40 pointer-events-none"></div>
-        </div>
-      </div>
-      <div
-        ref={linesRef}
-        className="flex flex-col gap-[13px] md:grid md:grid-cols-2 
+        <div
+          ref={linesRef}
+          className="flex flex-col gap-[13px] md:grid md:grid-cols-2 
       md:gap-[13px] md:py-[64px] md:h-[670px] lg:py-[128px] lg:h-[1664px] lg:gap-[32px] 
       lg:grid-rows-[198px_198px_198px_256px_198px_200px] 
       lg:grid-cols-[minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)_2px_minmax(0,1fr)] 
       lg:self-stretch xxl:px-[128px] xxl:h-[1579px]"
-      >
-        {resultados.map((resultado, index) => (
-          <ResultadoCard
-            key={resultado.id}
-            resultado={resultado}
-            index={index}
-            isActive={activeId === resultado.id}
-            onCardClick={() => handleCardClick(resultado.id)}
-            onCardHover={() => handleCardHover(resultado.id)}
-            onCardLeave={handleCardLeave}
+        >
+          {cards.map((resultado, index) => (
+            <ResultadoCard
+              key={resultado.id}
+              resultado={resultado}
+              index={index}
+              isActive={activeId === resultado.id}
+              onCardClick={() => handleCardClick(resultado.id)}
+              onCardHover={() => handleCardHover(resultado.id)}
+              onCardLeave={handleCardLeave}
+            />
+          ))}
+          <div className="hidden lg:flex lg:items-center lg:justify-center lg:col-start-3 lg:row-start-4 lg:col-span-3">
+            <h5 className="text-grey-00 text-center z-20 relative h2">
+              {tagline.split('. ').map((line, i, arr) => (
+                <React.Fragment key={i}>
+                  {i === 0 ? (
+                    <span className="text-grey-20">{line}.</span>
+                  ) : (
+                    line
+                  )}
+                  {i < arr.length - 1 && <br />}
+                </React.Fragment>
+              ))}
+            </h5>
+          </div>
+          {/* Líneas verticales con animación de dibujo */}
+          <motion.div
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: linesInView ? 1 : 0 }}
+            transition={{ duration: 2, ease: 'easeOut', delay: 0 }}
+            className="hidden lg:block bg-grey-30 w-[2px] h-full row-start-1 col-start-2 row-span-6 origin-top"
           />
-        ))}
-        <div className="hidden lg:flex lg:items-center lg:justify-center lg:col-start-3 lg:row-start-4 lg:col-span-3">
-          <h5 className="text-grey-00 text-center z-20 relative h2">
-            <span className="text-grey-20">Transformación visible.</span> <br />
-            Impacto real.
+          <motion.div
+            ref={smallLineRef}
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: smallLineInView ? 1 : 0 }}
+            transition={{ duration: 2, ease: 'easeOut', delay: 0 }}
+            className="hidden lg:block bg-grey-30 w-[2px] h-full row-start-5 col-start-4 row-span-2 origin-top"
+          />
+          <motion.div
+            initial={{ scaleY: 0 }}
+            animate={{ scaleY: linesInView ? 1 : 0 }}
+            transition={{ duration: 2, ease: 'easeOut', delay: 0.4 }}
+            className="hidden lg:block bg-grey-30 w-[2px] h-full row-start-1 col-start-6 row-span-6 origin-top"
+          />
+        </div>
+        <div className="py-[64px] lg:hidden">
+          <h5 className="text-grey-00 text-center h5 z-20 relative">
+            {tagline.split('. ').map((line, i, arr) => (
+              <React.Fragment key={i}>
+                {line}
+                {i === 0 && '.'} {i < arr.length - 1 && <br />}
+              </React.Fragment>
+            ))}
           </h5>
         </div>
-        {/* Líneas verticales con animación de dibujo */}
-        <motion.div
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: linesInView ? 1 : 0 }}
-          transition={{ duration: 2, ease: "easeOut", delay: 0 }}
-          className="hidden lg:block bg-grey-30 w-[2px] h-full row-start-1 col-start-2 row-span-6 origin-top"
-        />
-        <motion.div
-          ref={smallLineRef}
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: smallLineInView ? 1 : 0 }}
-          transition={{ duration: 2, ease: "easeOut", delay: 0 }}
-          className="hidden lg:block bg-grey-30 w-[2px] h-full row-start-5 col-start-4 row-span-2 origin-top"
-        />
-        <motion.div
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: linesInView ? 1 : 0 }}
-          transition={{ duration: 2, ease: "easeOut", delay: 0.4 }}
-          className="hidden lg:block bg-grey-30 w-[2px] h-full row-start-1 col-start-6 row-span-6 origin-top"
-        />
-      </div>
-      <div className="py-[64px] lg:hidden">
-        <h5 className="text-grey-00 text-center h5 z-20 relative">
-          Transformación visible. <br />
-          Impacto real.
-        </h5>
-      </div>
       </div>
       <div
         className="absolute bottom-[-81px] md:bottom-[-121px] left-1/2 -translate-x-1/2 z-10 bg-purple 

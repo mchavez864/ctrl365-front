@@ -213,6 +213,64 @@
       ]
     }
   },
+  "CasosDeExitoPage": {
+    "resultados": {
+      "title": "Results that speak",
+      "paragraph1": "At Ctrl365, we turn challenges into measurable results. Every AI and automation project creates real value: efficiency, savings, growth, and speed.",
+      "paragraph2": "We don't just implement technology — we design impact.",
+      "tagline": "Visible transformation. Real impact.",
+      "cards": [
+        {
+          "number": "70",
+          "symbol": "+",
+          "modifier": "%",
+          "desc": "Higher operational productivity in financial services."
+        },
+        {
+          "number": "90",
+          "symbol": "-",
+          "modifier": "%",
+          "desc": "Lower back-office and policy issuance costs."
+        },
+        {
+          "number": "35",
+          "symbol": "+",
+          "modifier": "%",
+          "desc": "More revenue with agile decisions and optimized processes."
+        },
+        {
+          "number": "94",
+          "symbol": "-",
+          "modifier": "%",
+          "desc": "New agricultural insurance premiums with geospatial AI."
+        },
+        {
+          "number": "3,2",
+          "symbol": "+",
+          "modifier": "M",
+          "desc": "Credit approval reduced from 7 weeks to 20 minutes."
+        },
+        {
+          "number": "30",
+          "symbol": "+",
+          "modifier": "%",
+          "desc": "Greater export capacity and logistics efficiency."
+        },
+        {
+          "number": "24",
+          "symbol": "",
+          "modifier": "h",
+          "desc": "Automated payments to producers in one day."
+        },
+        {
+          "number": "600",
+          "symbol": "+",
+          "modifier": "%",
+          "desc": "More policies issued without expanding cost structure."
+        }
+      ]
+    }
+  },
   "NuestroAdnPage": {
     "hero": {
       "title": "Our DNA",

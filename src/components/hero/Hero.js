@@ -59,7 +59,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="hidden lg:flex lg:justify-between lg:mt-[16px]">
+        {/* <div className="hidden lg:flex lg:justify-between lg:mt-[16px]">
           <div className="flex items-center gap-[8px]">
             <div className="w-[12px] h-[12px] rounded-full bg-grey-30"></div>
             <p className="xs text-grey-30 font-medium! text-[16px]! leading-[100%]!">Scroll</p>
@@ -68,7 +68,7 @@ const Hero = () => {
             <div className="w-[12px] h-[12px] rounded-full bg-grey-30"></div>
             <p className="xs text-grey-30 font-medium! text-[16px]! leading-[100%]!">Ver video</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
