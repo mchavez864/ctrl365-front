@@ -22,12 +22,14 @@ const Menu = ({ onClose }) => {
 
   const changeLanguage = (newLocale) => {
     if (newLocale === locale) return;
-    
+
     // Remover el locale actual del pathname y agregar el nuevo
     const segments = pathname.split('/').filter(Boolean);
     const pathWithoutLocale = segments.slice(1).join('/');
-    const newPath = `/${newLocale}${pathWithoutLocale ? `/${pathWithoutLocale}` : ''}`;
-    
+    const newPath = `/${newLocale}${
+      pathWithoutLocale ? `/${pathWithoutLocale}` : ''
+    }`;
+
     router.push(newPath);
   };
 
@@ -53,22 +55,22 @@ const Menu = ({ onClose }) => {
             </a>
             <div className="md:flex md:items-center md:justify-between md:w-[228px]">
               <div className="hidden md:flex items-center relative w-[82px] h-[26px] ">
-                <button 
+                <button
                   onClick={() => changeLanguage('es')}
                   className={`${
                     locale === 'es'
-                      ? "bg-grey-00 text-grey-40 z-10"
-                      : "bg-transparent border border-grey-20 text-grey-20 z-0"
+                      ? 'bg-grey-00 text-grey-40 z-10'
+                      : 'bg-transparent border border-grey-20 text-grey-20 z-0'
                   } absolute left-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300 cursor-pointer`}
                 >
                   ES
                 </button>
-                <button 
+                <button
                   onClick={() => changeLanguage('en')}
                   className={`${
                     locale === 'en'
-                      ? "bg-grey-00 text-grey-40 z-10"
-                      : "bg-transparent border border-grey-20 text-grey-20 z-0"
+                      ? 'bg-grey-00 text-grey-40 z-10'
+                      : 'bg-transparent border border-grey-20 text-grey-20 z-0'
                   } absolute right-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300 cursor-pointer`}
                 >
                   EN
@@ -104,22 +106,22 @@ const Menu = ({ onClose }) => {
           </div>
           <div className="flex flex-col items-start gap-[32px] md:gap-[64px] lg:h-full lg:justify-between lg:pt-[200px] lg:pb-[90px]">
             <div className="flex items-center relative w-[82px] h-[26px] md:hidden">
-              <button 
+              <button
                 onClick={() => changeLanguage('es')}
                 className={`${
                   locale === 'es'
-                    ? "bg-grey-00 text-grey-40 z-10"
-                    : "bg-transparent border border-grey-20 text-grey-20 z-0"
+                    ? 'bg-grey-00 text-grey-40 z-10'
+                    : 'bg-transparent border border-grey-20 text-grey-20 z-0'
                 } absolute left-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300 cursor-pointer`}
               >
                 ES
               </button>
-              <button 
+              <button
                 onClick={() => changeLanguage('en')}
                 className={`${
                   locale === 'en'
-                    ? "bg-grey-00 text-grey-40 z-10"
-                    : "bg-transparent border border-grey-20 text-grey-20 z-0"
+                    ? 'bg-grey-00 text-grey-40 z-10'
+                    : 'bg-transparent border border-grey-20 text-grey-20 z-0'
                 } absolute right-0 rounded-[900px] text-[16px] leading-[110%] tracking-[-0.32px] uppercase w-[44px] h-[26px] transition-colors duration-300 cursor-pointer`}
               >
                 EN
