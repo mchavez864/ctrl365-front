@@ -264,7 +264,7 @@ const Frameworks = () => {
                           </p>
                         </div>
                       )}
-                      <p className="h1 text-grey-10 gradient-text lg:text-[128px]! lg:tracking-[-5.12px]!">
+                      <p className="h1 text-grey-10 gradient-text lg:text-[90px]! lg:tracking-[-3.6px]!">
                         {frameworks[currentCard].title}
                       </p>
                       <p className="text-grey-10 max-w-[328px] md:max-w-[487px]">
