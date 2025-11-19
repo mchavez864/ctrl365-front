@@ -66,10 +66,12 @@ const Navbar = () => {
     <>
       <nav className="bg-transparent overflow-hidden fixed top-0 left-0 w-full z-50 transition-colors duration-300">
         <div className="flex justify-between items-center px-[16px] md:px-[64px] py-[16px] md:py-[32px] xxl:px-[128px]">
+          <a href="/">
           <Logo
-            color={isDarkBackground ? "white" : "black"}
-            className="w-[92px] h-[32px] md:w-[138px] md:h-[48px] transition-colors duration-300"
-          />
+              color={isDarkBackground ? "white" : "black"}
+              className="w-[92px] h-[32px] md:w-[138px] md:h-[48px] transition-colors duration-300"
+            />
+          </a>
           <div>
             <div className="md:flex md:items-center md:justify-between md:w-[228px]">
               <div className="hidden md:flex items-center relative w-[82px] h-[26px] ">

@@ -83,7 +83,7 @@ const OurDNA = () => {
     };
 
     return (
-        <section className="relative bg-grey-40 py-16 md:py-24 lg:py-32 overflow-hidden">
+        <section data-dark-section="true" className="relative bg-grey-40 py-16 md:py-24 lg:py-32 overflow-hidden">
             {/* Background con opacidad */}
             <div
                 className="absolute inset-0 pointer-events-none"

@@ -11,7 +11,7 @@ import Character from "./quote/Character";
 
 const Quote = () => {
   return (
-    <section className="relative h-[655px] md:h-[438px] lg:h-[603px] xxl:h-[651px] bg-grey-40 px-[16px] md:px-[64px] py-[64px] lg:py-[128px] xxl:px-[408px] overflow-hidden ">
+    <section data-dark-section="true" className="relative h-[655px] md:h-[438px] lg:h-[603px] xxl:h-[651px] bg-grey-40 px-[16px] md:px-[64px] py-[64px] lg:py-[128px] xxl:px-[408px] overflow-hidden ">
       <div
         className="absolute bottom-[-81px] md:bottom-[-121px] left-1/2 -translate-x-1/2 z-10 bg-purple 
       rounded-full w-[256px] md:w-[386px] h-[179px] md:h-[269px] lg:w-[980px] lg:h-[686px]  lg:bottom-[-500px] 
