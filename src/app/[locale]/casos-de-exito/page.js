@@ -1,7 +1,7 @@
 import Navbar from '@/components/navbar/Navbar';
 import SectionCasosDeExito from '@/components/casos-de-exito/SectionCasosDeExito';
 import SectionResultadosCasosdeExito from '@/components/casos-de-exito/SectionResultadosCasosdeExito';
-import Resultados from '@/components/casos-de-exito/Resultados';
+import ResultadosWrapper from '@/components/casos-de-exito/ResultadosWrapper';
 import SectionForm from '@/components/sections/SectionForm';
 
 export default function SuccessStoriesPage() {
@@ -9,7 +9,7 @@ export default function SuccessStoriesPage() {
     <>
       <Navbar />
       <main className="">
-        <Resultados />
+        <ResultadosWrapper />
         <SectionCasosDeExito />
         <SectionResultadosCasosdeExito />
         <SectionForm
