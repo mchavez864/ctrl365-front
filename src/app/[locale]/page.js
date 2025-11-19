@@ -7,6 +7,7 @@ import Navbar from "@/components/navbar/Navbar";
 import Impacto from "@/components/home/Impacto";
 import OurDNA from "@/components/home/OurDNA";
 import Quote from "@/components/home/Quote";
+import CasosDeExito from "@/components/home/CasosDeExito";
 
 
 
@@ -16,6 +17,7 @@ export default async function Home() {
     <main className="bg-grey-40 relative">
       <Navbar />
       <Hero />
+      <CasosDeExito />
       <Impacto />
       <OurDNA />
       <Quote />
