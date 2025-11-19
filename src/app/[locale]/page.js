@@ -6,6 +6,7 @@ import Hero from "@/components/hero/Hero";
 import Navbar from "@/components/navbar/Navbar";
 import Impacto from "@/components/home/Impacto";
 import OurDNA from "@/components/home/OurDNA";
+import Quote from "@/components/home/Quote";
 
 
 
@@ -17,6 +18,7 @@ export default async function Home() {
       <Hero />
       <Impacto />
       <OurDNA />
+      <Quote />
     </main>
   );
 }

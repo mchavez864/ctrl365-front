@@ -208,140 +208,140 @@
   },
   "ContactPage": {
     "hero": {
-      "title": "[i]Contact us",
-      "description": "[i]Want to know more about our services? Leave your details and we’ll get back to you soon with all the information."
+      "title": "Contact us",
+      "description": "Want to know more about our services? Leave your details and we’ll get back to you soon with all the information."
     }
   },
   "Form": {
-    "title": "[i]Let’s talk ",
-    "title2": "[i]about real outcomes",
-    "subtitle": "[i]Measurable, fast and sustainable impact for your company.",
-    "submit": "[i]Send",
-    "sending": "[i]Sending...",
-    "policy": "[i]By submitting the form, you accept the ",
-    "policy2": "[i]Privacy Policy",
-    "policy3": "[i] of Ctrl365",
+    "title": "Join us ",
+    "title2": "to create real impact",
+    "subtitle": "If you want to create real solutions that transform people’s lives and the planet, this is your place.",
+    "submit": "Submit",
+    "sending": "Sending...",
+    "policy": "By submitting the form you accept Ctrl365’s  ",
+    "policy2": "Privacy Policy",
+    "policy3": ".",
     "policyLink": "/",
     "success": {
-      "title": "[i]Message sent",
-      "subtitle": "[i]Thanks for reaching out. Our team will follow up shortly.",
-      "reset": "[i]Send another message"
+      "title": "Message sent",
+      "subtitle": "Thanks for reaching out. Our team will follow up shortly.",
+      "reset": "Send another message"
     },
     "errors": {
-      "required": "[i]This field is required",
-      "email": "[i]Enter a valid email",
-      "onlyLetters": "[i]Letters only",
-      "minChars": "[i]Must be at least 3 characters",
-      "maxChars": "[i]Maximum 25 characters",
-      "maxCharsCountry": "[i]Maximum 20 characters",
-      "maxCharsCompany": "[i]Maximum 30 characters",
-      "alphaNumeric": "[i]Use letters and numbers (at least one letter)",
-      "onlyNumbers": "[i]Digits only",
-      "minDigits": "[i]Must be at least 6 digits",
-      "maxDigits": "[i]Maximum 12 digits",
-      "goals": "[i]Select at least one goal",
-      "services": "[i]Select at least one service",
-      "server": "[i]We couldn't send your message. Please try again later."
+      "required": "This field is required",
+      "email": "Enter a valid email",
+      "onlyLetters": "Letters only",
+      "minChars": "Must be at least 3 characters",
+      "maxChars": "Maximum 25 characters",
+      "maxCharsCountry": "Maximum 20 characters",
+      "maxCharsCompany": "Maximum 30 characters",
+      "alphaNumeric": "Use letters and numbers (at least one letter)",
+      "onlyNumbers": "Digits only",
+      "minDigits": "Must be at least 6 digits",
+      "maxDigits": "Maximum 12 digits",
+      "goals": "Select at least one goal",
+      "services": "Select at least one service",
+      "server": "We couldn't send your message. Please try again later."
     },
     "fields": {
-      "name": "[i]First name",
-      "lastName": "[i]Last name",
-      "company": "[i]Company",
-      "role": "[i]Job title",
-      "phone": "[i]Phone",
-      "email": "[i]Corporate email",
-      "country": "[i]Country",
-      "message": "[i]Message"
+      "name": "First name",
+      "lastName": "Last name",
+      "company": "Company",
+      "role": "Job title",
+      "phone": "Phone number",
+      "email": "Corporate email",
+      "country": "Country",
+      "message": "Message / Inquiry"
     },
     "goals": {
-      "label": "[i]What are you looking to achieve with Ctrl365?",
-      "title": "[i]What are you looking to achieve with Ctrl365?*",
-      "placeholder": "[i]Select",
-      "required": "[i]You must choose an option",
+      "label": "What are you looking to achieve with Ctrl365?",
+      "title": "What are you looking to achieve with Ctrl365?*",
+      "placeholder": "Select",
+      "required": "You must choose an option",
       "options": [
         {
           "value": "techAdvisory",
-          "label": "[i]Technology advisory"
+          "label": "General guidance on technology solutions"
         },
         {
           "value": "processTransformation",
-          "label": "[i]Business process transformation"
+          "label": "Digital transformation of business processes"
         },
         {
           "value": "employeeExperience",
-          "label": "[i]Employee experience and cultural evolution"
+          "label": "Improvement of employee experience and organizational culture"
         },
         {
           "value": "customApps",
-          "label": "[i]Custom application development"
+          "label": "Development of custom applications"
         },
         {
           "value": "automation",
-          "label": "[i]Task automation (RPA, OCR or Low/No-Code)"
+          "label": "Automation of repetitive tasks using RPA, OCR or Low/No-Code"
         },
         {
           "value": "cloud",
-          "label": "[i]Cloud solution implementation"
+          "label": "Implementation of cloud solutions"
         },
         {
           "value": "security",
-          "label": "[i]Security and compliance in digital environments"
+          "label": "Security and regulatory compliance in digital environments"
         },
         {
           "value": "dataAnalytics",
-          "label": "[i]Data analytics & BI visualization"
+          "label": "Data analysis and visualization with BI tools"
         },
         {
           "value": "aiIntegration",
-          "label": "[i]AI integration for processes and decisions (AI/Copilots/Agents)"
+          "label": "Integration of artificial intelligence into processes and decision-making (AI/Copilots/Agents)"
         }
       ]
     },
     "services": {
-      "required": "[i]You must choose an option",
-      "label": "[i]What type of service are you looking for?",
-      "title": "[i]What type of service are you looking for?*",
-      "placeholder": "[i]Select",
+      "required": "You must choose an option",
+      "label": "What type of service are you looking for?",
+      "title": "What type of service are you looking for?*",
+      "placeholder": "Select",
       "options": [
         {
           "value": "discovery",
-          "label": "[i]Discovery"
+          "label": "Discovery"
         },
         {
           "value": "assessment",
-          "label": "[i]Assessment"
+          "label": "Assessment"
         },
         {
           "value": "consultancy",
-          "label": "[i]Consulting"
+          "label": "Consulting"
         },
         {
           "value": "implementation",
-          "label": "[i]Implementation"
+          "label": "Implementation"
         },
         {
           "value": "configuration",
-          "label": "[i]Configuration"
+          "label": "Configuration"
         },
         {
           "value": "training",
-          "label": "[i]Training"
+          "label": "Training"
         },
         {
           "value": "licences",
-          "label": "[i]Licences / Subscriptions"
+          "label": "Licensing / Subscriptions"
         },
         {
           "value": "support",
-          "label": "[i]Support"
+          "label": "Support"
         },
         {
           "value": "partners",
-          "label": "[i]Partners / Alliances / Collaborations"
+          "label": "Partners / Alliances / Collaborations"
         },
         {
           "value": "notSure",
-          "label": "[i]Not sure yet"
+          "label": "I’m not sure yet"
         }
       ]
     }
