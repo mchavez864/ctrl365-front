@@ -3,6 +3,7 @@ import NuestroDiferencial from '@/components/nuestroADN/NuestroDiferencial';
 import Frameworks from '@/components/nuestroADN/Frameworks';
 import HeroNuestroAdn from '@/components/nuestroADN/HeroNuestroAdn';
 import PaisesNuestroAdn from '@/components/nuestroADN/PaisesNuestroAdn';
+import PremiosReconocimientos from '@/components/nuestroADN/PremiosReconocimientos';
 
 export default function SuccessStoriesPage() {
   return (
@@ -13,6 +14,7 @@ export default function SuccessStoriesPage() {
         <PaisesNuestroAdn />
         <Frameworks />
         <NuestroDiferencial />
+        <PremiosReconocimientos />
       </main>
     </>
   );

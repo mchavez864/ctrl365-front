@@ -16,6 +16,10 @@ export default function SliderBase({
   labelClassName = '',
   progressTrackClassName = '',
   progressBarClassName = '',
+  buttonClassName = '',
+  buttonArrowColor = '#161616',
+  buttonPrevClassName = '',
+  buttonNextClassName = '',
 }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -168,24 +172,24 @@ export default function SliderBase({
             aria-label="Slide anterior"
             className={`relative right-[-30px] z-0 flex h-[56px] w-[88px] items-center justify-center rounded-full border border-grey-20/40 ${
               canPrev
-                ? 'bg-gradient-to-br from-[#c2bfbf] to-[#d2cfce]'
-                : 'border-[#9E9E9E] bg-transparent'
+                ? `bg-gradient-to-br from-[#c2bfbf] to-[#d2cfce] ${buttonPrevClassName}`
+                : 'border-[#9E9E9E] bg-transparent '
             }`}
             disabled={!canPrev}
           >
             <ArrowLeft
               width="22"
               height="18"
-              color={canPrev ? '#161616' : '#9E9E9E'}
+              color={canPrev ? `${buttonArrowColor}` : '#9E9E9E'}
               className="relative right-1 rotate-180"
             />
           </button>
           <button
             ref={nextRef}
             aria-label="Slide siguiente"
-            className={`relative z-10 flex h-[56px] w-[88px] items-center justify-center rounded-full border border-gray-200 ${
+            className={`${buttonClassName} relative z-10 flex h-[56px] w-[88px] items-center justify-center rounded-full border border-gray-200 ${
               canNext
-                ? 'border-grey-20/40 bg-gradient-to-br from-[#c2bfbf] to-[#d2cfce]'
+                ? `border-grey-20/40 bg-gradient-to-br from-[#c2bfbf] to-[#d2cfce] ${buttonNextClassName} `
                 : 'border-[#9E9E9E] bg-transparent'
             }`}
             disabled={!canNext}
@@ -193,7 +197,7 @@ export default function SliderBase({
             <ArrowLeft
               width="22"
               height="18"
-              color={canNext ? '#161616' : '#9E9E9E'}
+              color={canNext ? `${buttonArrowColor}` : '#9E9E9E'}
               className="relative top-[1px]"
             />
           </button>
