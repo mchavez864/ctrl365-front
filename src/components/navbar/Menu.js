@@ -9,10 +9,10 @@ import Linkedin from '@/svg/linkedin.js';
 import Youtube from '@/svg/youtube.js';
 
 const menuItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Nuestro ADN', href: '/nuestro-adn' },
-  { name: 'Casos de éxito', href: '/casos-de-exito' },
-  { name: 'Contacto', href: '/contacto' },
+  { nameEs: 'Home', nameEn: 'Home', href: '/' },
+  { nameEs: 'Nuestro ADN', nameEn: 'Our DNA', href: '/nuestro-adn' },
+  { nameEs: 'Casos de éxito', nameEn: 'Case Studies', href: '/casos-de-exito' },
+  { nameEs: 'Contacto', nameEn: 'Contact Us', href: '/contacto' },
 ];
 
 const Menu = ({ onClose }) => {
@@ -81,7 +81,7 @@ const Menu = ({ onClose }) => {
                 className="flex items-center gap-[8px] cursor-pointer"
               >
                 <p className="text-[12px] leading-[120%] tracking-[-0.24px] uppercase text-grey-00">
-                  Cerrar
+                  {locale === 'es' ? 'Cerrar' : 'Close'}
                 </p>
                 <div className="w-[52px] h-[24px] rounded-[900px] bg-grey-00 relative">
                   <Cross
@@ -130,7 +130,7 @@ const Menu = ({ onClose }) => {
             <ul className="flex flex-col gap-[8px] relative px-[8px] lg:gap-[24px]">
               {menuItems.map((item) => (
                 <li
-                  key={item.name}
+                  key={item.nameEs}
                   className="relative before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 
                   before:w-0 before:h-0 before:bg-orange before:rounded-full before:duration-300 before:opacity-0 hover:before:w-[12px] hover:before:h-[12px] 
                   lg:hover:before:w-[16px] lg:hover:before:h-[16px] hover:before:opacity-100 cursor-pointer"
@@ -140,7 +140,7 @@ const Menu = ({ onClose }) => {
                     className="block hover:translate-x-[20px] lg:hover:translate-x-[28px] duration-300 text-grey-20 hover:text-grey-00"
                   >
                     <h3 className="lg:text-[72px]! lg:leading-[120%]! lg:tracking-[-1.44px]!">
-                      {item.name}
+                      {locale === 'es' ? item.nameEs : item.nameEn}
                     </h3>
                   </a>
                 </li>
@@ -148,7 +148,7 @@ const Menu = ({ onClose }) => {
             </ul>
             <div className="flex justify-between items-center w-[128px]">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/ctrl365/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -157,7 +157,7 @@ const Menu = ({ onClose }) => {
                 <Instagram />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/ctrl365/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -166,7 +166,7 @@ const Menu = ({ onClose }) => {
                 <Linkedin />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/user/Ctrl365Media"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
