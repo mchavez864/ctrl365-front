@@ -9,8 +9,6 @@ import OurDNA from "@/components/home/OurDNA";
 import Quote from "@/components/home/Quote";
 import CasosDeExito from "@/components/home/CasosDeExito";
 
-
-
 export default async function Home() {
   const t = await getTranslations("Home");
   return (
@@ -18,7 +16,7 @@ export default async function Home() {
       <Navbar />
       <Hero />
       <CasosDeExito />
-      <Impacto />
+      {/* <Impacto /> */}
       <OurDNA />
       <Quote />
     </main>

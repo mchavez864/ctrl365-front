@@ -1,51 +1,140 @@
-'use client';
-import { useState, useRef, useCallback, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+"use client";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-} from 'framer-motion';
+} from "framer-motion";
+import Spline from "@splinetool/react-spline";
 
 const Impacto = () => {
-  const t = useTranslations('Home.impacto');
-  const cards = t.raw('cards');
+  const t = useTranslations("Home.impacto");
+  const cards = t.raw("cards");
   const [currentCard, setCurrentCard] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
   const containerRef = useRef(null);
   const lastCardRef = useRef(0);
+  const percentageRef = useRef(null);
+  const splineContainerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end end'],
+    offset: ["start start", "end end"],
   });
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(min-width: 1024px)');
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
 
     const handleChange = (e) => {
       setIsDesktop(e.matches);
+      if (!e.matches) {
+        setShouldLoadSpline(false);
+      }
     };
 
-    setIsDesktop(mediaQuery.matches);
-    mediaQuery.addEventListener('change', handleChange);
+    const isDesktopMatch = mediaQuery.matches;
+    setIsDesktop(isDesktopMatch);
 
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
+    // Solo cargar Spline si es desktop y cuando esté cerca del viewport
+    if (isDesktopMatch) {
+      // Usar Intersection Observer para detectar cuando está cerca
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              setShouldLoadSpline(true);
+              observer.disconnect();
+            }
+          });
+        },
+        {
+          rootMargin: "300px", // Cargar cuando esté a 300px de entrar al viewport
+          threshold: 0,
+        }
+      );
 
-  const updateCard = useCallback((latest) => {
-    const cardIndex = Math.min(
-      Math.floor(latest * cards.length),
-      cards.length - 1
-    );
-    if (cardIndex !== lastCardRef.current) {
-      lastCardRef.current = cardIndex;
-      setCurrentCard(cardIndex);
+      // Pequeño delay para asegurar que el ref esté disponible
+      const timeoutId = setTimeout(() => {
+        if (containerRef.current) {
+          observer.observe(containerRef.current);
+        }
+      }, 100);
+
+      mediaQuery.addEventListener("change", handleChange);
+
+      return () => {
+        clearTimeout(timeoutId);
+        observer.disconnect();
+        mediaQuery.removeEventListener("change", handleChange);
+      };
+    } else {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
     }
   }, []);
 
-  useMotionValueEvent(scrollYProgress, 'change', updateCard);
+  // Centrar la escena de Spline respecto al porcentaje
+  useEffect(() => {
+    if (
+      !isDesktop ||
+      !shouldLoadSpline ||
+      !percentageRef.current ||
+      !splineContainerRef.current
+    )
+      return;
+
+    const updateSplinePosition = () => {
+      // Usar requestAnimationFrame para asegurar que el DOM esté actualizado
+      requestAnimationFrame(() => {
+        if (!percentageRef.current || !splineContainerRef.current) return;
+
+        const percentageRect = percentageRef.current.getBoundingClientRect();
+        const section = percentageRef.current.closest("section");
+        if (!section) return;
+
+        const sectionRect = section.getBoundingClientRect();
+
+        // Calcular el centro del porcentaje relativo a la sección
+        const percentageCenterX =
+          percentageRect.left + percentageRect.width / 2 - sectionRect.left;
+        const percentageCenterY =
+          percentageRect.top + percentageRect.height / 2 - sectionRect.top;
+
+        // Ajustar la posición de la escena de Spline
+        const splineContainer = splineContainerRef.current;
+        splineContainer.style.left = `${percentageCenterX}px`;
+        splineContainer.style.top = `${percentageCenterY}px`;
+      });
+    };
+
+    // Pequeño delay para asegurar que las animaciones de cambio de card hayan comenzado
+    const timeoutId = setTimeout(updateSplinePosition, 50);
+    window.addEventListener("resize", updateSplinePosition);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", updateSplinePosition);
+    };
+  }, [isDesktop, shouldLoadSpline, currentCard]);
+
+  const updateCard = useCallback(
+    (latest) => {
+      const cardIndex = Math.min(
+        Math.floor(latest * cards.length),
+        cards.length - 1
+      );
+      if (cardIndex !== lastCardRef.current) {
+        lastCardRef.current = cardIndex;
+        setCurrentCard(cardIndex);
+      }
+    },
+    [cards]
+  );
+
+  useMotionValueEvent(scrollYProgress, "change", updateCard);
 
   return (
     <div
@@ -54,10 +143,29 @@ const Impacto = () => {
       style={{ height: `${cards.length * 80}vh` }}
       data-dark-section="true"
     >
-      <section className="sticky top-0 bg-grey-40 overflow-hidden h-screen px-[16px] md:px-[146px] lg:px-[128px] xxl:px-[256px] py-[64px] flex flex-col items-center justify-center ">
+      <section className="sticky top-0 bg-grey-40 overflow-hidden h-screen px-[16px] md:px-[146px] lg:px-[128px] xxl:px-[256px] py-[64px] flex flex-col items-center justify-center relative">
+        {/* Spline Scene - Solo visible en desktop, centrado respecto al porcentaje, cargado solo cuando está cerca */}
+        {shouldLoadSpline && (
+          <div className="hidden lg:block absolute inset-0 w-full h-full z-0 overflow-hidden">
+            <div
+              ref={splineContainerRef}
+              className="absolute -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh]"
+              style={{ left: "50%", top: "50%" }}
+            >
+              <Spline
+                scene="https://prod.spline.design/yZDPtNcHsclFcFsd/scene.splinecode"
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        )}
+
         {/* Área del porcentaje - posición absoluta fija */}
-        <div className="relative h-[400px] md:h-[547px] w-full lg:flex lg:items-center lg:h-auto lg:min-h-[400px] lg:gap-[64px] lg:justify-center lg:w-[870px]">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2  w-full max-w-4xl lg:relative lg:translate-y-0 lg:translate-x-0 lg:top-0 lg:left-0 lg:w-[470px]">
+        <div className="relative h-[400px] md:h-[547px] w-full lg:flex lg:items-center lg:h-auto lg:min-h-[400px] lg:gap-[64px] lg:justify-center lg:w-[870px] z-10">
+          <div
+            ref={percentageRef}
+            className="absolute top-0 left-1/2 -translate-x-1/2  w-full max-w-4xl lg:relative lg:translate-y-0 lg:translate-x-0 lg:top-0 lg:left-0 lg:w-[470px]"
+          >
             <div className="w-full md:h-[230px] pb-[55px] md:pb-0 md:mb-[128px] flex items-center justify-center lg:mb-0">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -67,7 +175,7 @@ const Impacto = () => {
                   exit={{ opacity: 0 }}
                   transition={{
                     duration: 0.3,
-                    ease: 'easeOut',
+                    ease: "easeOut",
                   }}
                   className="flex items-center gap-2"
                 >
@@ -100,16 +208,16 @@ const Impacto = () => {
                   key={currentCard}
                   initial={{
                     opacity: 0,
-                    y: isDesktop && currentCard === 0 ? '20%' : '0%',
+                    y: isDesktop && currentCard === 0 ? "20%" : "0%",
                   }}
                   animate={{
                     opacity: 1,
-                    y: isDesktop && currentCard === 0 ? '20%' : '0%',
+                    y: isDesktop && currentCard === 0 ? "20%" : "0%",
                   }}
                   exit={{ opacity: 0 }}
                   transition={{
                     duration: 0.3,
-                    ease: 'easeOut',
+                    ease: "easeOut",
                   }}
                   className="lg:flex lg:flex-col lg:items-start"
                 >
