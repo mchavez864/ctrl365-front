@@ -84,6 +84,7 @@ const Button = ({
       <span
         className={[
           selectedVariant,
+          'w-full md:!w-auto',
           isDisabled && variant === 'black' ? '!bg-grey-30 !text-grey-00' : '',
           isDisabled && variant === 'white' ? '!bg-grey-10 !text-grey-30' : '',
           isDisabled &&

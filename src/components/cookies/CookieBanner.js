@@ -49,17 +49,17 @@ export default function CookieBanner() {
           transition={{ duration: 0.4, ease: 'easeOut' }}
           className="fixed bottom-4 left-4 right-4 md:right-auto md:left-16 md:bottom-8 md:max-w-[476px] z-50 lg:max-w-[537px] lg:bottom-16 xxl:max-w-[544px] xxl:left-32"
         >
-          <div className="bg-grey-40 text-center rounded-2xl p-4 shadow-2xl border border-grey-30/20 relative overflow-hidden md:text-left">
-            <h3 className="text-white !font-soratext-lg font-semibold mb-4 relative z-10">
+          <div className="bg-grey-40 text-center rounded-2xl p-4 shadow-2xl border border-grey-30/20 relative overflow-hidden md:p-8 md:text-left">
+            <h3 className="text-white !font-sora !text-xl font-semibold mb-4 relative z-10 lg:!text-2xl">
               {t('title')}
             </h3>
-            <p className="text-white text-sm mb-8 leading-relaxed relative z-10">
+            <p className="text-white !text-sm mb-8 leading-relaxed relative z-10 lg:!text-base lg:!leading-[120%]">
               {t('description')}{' '}
               <a
                 href={`/docs/politicas_de_privacidad_${locale}.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-orange underline hover:text-orange/80 transition-colors"
+                className="text-orange hover:text-orange/80 transition-colors"
               >
                 {t('privacyPolicy')}
               </a>
@@ -78,19 +78,6 @@ export default function CookieBanner() {
                 variant="glassWithoutIcon"
                 className="!w-full md:!w-auto md:order-1"
               />
-              {/* <button
-                onClick={handleAccept}
-                className="bg-white text-grey-40 px-6 py-3 rounded-full font-medium hover:bg-grey-10 transition-colors text-sm flex items-center justify-center gap-2 md:order-2"
-              >
-                <span className="w-2 h-2 bg-grey-40 rounded-full"></span>
-                {t('accept')}
-              </button> */}
-              {/* <button
-                onClick={handleDecline}
-                className="bg-transparent text-grey-20 px-6 py-3 rounded-full font-medium hover:text-white transition-colors text-sm border border-grey-30/40 hover:border-grey-20 md:order-1"
-              >
-                {t('decline')}
-              </button> */}
             </div>
             <span className="absolute z-0 top-[-50%] right-[-30%] w-[259px] h-[259px] filter rounded-full opacity-80 bg-orange blur-[150px]"></span>
           </div>
