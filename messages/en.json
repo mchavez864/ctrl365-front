@@ -292,6 +292,13 @@
       "paragraph2": "Our proximity to our clients lets us understand each industry’s challenges, move fast, and deliver solutions that scale with impact."
     }
   },
+  "CookieBanner": {
+    "title": "This website uses cookies",
+    "description": "Our website use cookies. By continuing, we assume your permission to deploy cookies as detailed in our",
+    "privacyPolicy": "Privacy Policy",
+    "accept": "Accept all cookies",
+    "decline": "Decline Cookies"
+  },
   "ContactPage": {
     "hero": {
       "title": "Contact us",

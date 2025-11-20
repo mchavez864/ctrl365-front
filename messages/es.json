@@ -292,6 +292,13 @@
       "paragraph2": "Nuestra cercanía nos permite entender los desafíos de cada industria, actuar con velocidad y ofrecer soluciones que escalan con impacto."
     }
   },
+  "CookieBanner": {
+    "title": "Este sitio web usa cookies",
+    "description": "Nuestro sitio web utiliza cookies. Al continuar, asumimos tu permiso para implementar cookies según lo detallado en nuestra",
+    "privacyPolicy": "Política de Privacidad",
+    "accept": "Aceptar todas las cookies",
+    "decline": "Rechazar Cookies"
+  },
   "ContactPage": {
     "hero": {
       "title": "Contáctanos",

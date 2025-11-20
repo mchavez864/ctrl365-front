@@ -1,5 +1,6 @@
 import { Sora, Inter } from 'next/font/google';
 import Footer from '@/components/footer/Footer';
+import CookieBanner from '@/components/cookies/CookieBanner';
 import '@/app/globals.css';
 import { ReactLenis } from '@/utils/lenis';
 import { NextIntlClientProvider } from 'next-intl';
@@ -20,8 +21,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <ReactLenis root>
         <body className={`${sora.variable} ${inter.variable} antialiased`}>
-          <NextIntlClientProvider>{children}</NextIntlClientProvider>
-          <Footer />
+          <NextIntlClientProvider>
+            {children}
+            <Footer />
+            <CookieBanner />
+          </NextIntlClientProvider>
         </body>
       </ReactLenis>
     </html>
