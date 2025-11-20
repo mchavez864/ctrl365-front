@@ -1,6 +1,12 @@
 {
   "Home": {
     "title": "Home",
+    "hero": {
+      "title": "AI for real business outcomes:",
+      "subtitle": "Built for AI. Designed for Humans.",
+      "cta": "Get Started",
+      "words": ["Fast", "measurable", "human"]
+    },
     "OurDNA": {
       "title": "Our ADN",
       "Cards": {
