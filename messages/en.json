@@ -15,25 +15,70 @@
           "description": "We are challengers by nature: we question our success, learn faster and empower with technology to generate real value."
         },
         "card2": {
-          "title": "AI with purpose",
-          "description": "We live AI from business reality. We design practical, measurable strategies aligned to concrete results."
+          "title": "Grounded AI",
+          "description": "We live AI from a business-first perspective. We design practical, measurable strategies aligned with real outcomes."
         },
         "card3": {
           "title": "Human+",
-          "description": "AI that amplifies human intelligence, not replaces it. We create solutions that empower people and generate measurable impact."
+          "description": "AI that amplifies human intelligence — not replaces it. We create solutions that empower people and deliver measurable impact."
         },
         "card4": {
           "title": "Our team",
-          "description": "We are thinkers, builders and problem solvers with curiosity, focus and execution. We combine strategic vision with real experience to transform AI and automation into tangible business impact."
+          "description": "We are thinkers, builders, and problem-solvers with curiosity, focus, and strong execution. We combine strategic vision with real-world experience to turn AI and automation into tangible business impact."
         }
       },
       "button": "Learn more"
     },
+    "impacto": {
+      "cards": [
+        {
+          "id": 1,
+          "title": "Real impact",
+          "desc1": "Measurable. Scalable. Human.",
+          "desc2": "AI is no longer a promise — it's real business. Ctrl365 turns strategy into measurable impact."
+        },
+        {
+          "id": 2,
+          "percentage": "70",
+          "symbol": "+",
+          "number": "01",
+          "title": "Increase productivity",
+          "desc1": "Companies that work with Ctrl365 achieve up to +70% higher productivity, freeing teams to focus on higher-value work.",
+          "desc2": "Productivity is human intelligence, amplified at scale."
+        },
+        {
+          "id": 3,
+          "percentage": "90",
+          "symbol": "-",
+          "number": "02",
+          "title": "Reduce costs",
+          "desc1": "Our automation programs deliver up to 90% cost reduction, improving operational efficiency and accuracy.",
+          "desc2": "Efficiency means doing more with less."
+        },
+        {
+          "id": 4,
+          "percentage": "35",
+          "symbol": "+",
+          "number": "03",
+          "title": "Grow revenue",
+          "desc1": "Companies that integrate AI with a clear strategy achieve up to +35% revenue growth, accelerating decisions and outcomes.",
+          "desc2": "AI is about acceleration — not experimentation."
+        },
+        {
+          "id": 5,
+          "percentage": "50",
+          "number": "04",
+          "title": "Lead the change",
+          "desc1": "By 2026, half of all business decisions will be driven by AI. Ctrl365 helps you get ahead with focus, ROI, and measurable impact.",
+          "desc2": "Leading is not adopting AI — it's mastering it."
+        }
+      ]
+    },
     "SuccessStories": {
       "section": {
-        "title": "[i]Descubrí nuestros",
-        "span": "[i]casos de éxito",
-        "button": "[i]Conocer casos"
+        "title": "Explore our ",
+        "span": "case studies",
+        "button": "See case studies"
       }
     }
   },

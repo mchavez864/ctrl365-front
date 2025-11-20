@@ -29,6 +29,51 @@
       },
       "button": "Conocé más"
     },
+    "impacto": {
+      "cards": [
+        {
+          "id": 1,
+          "title": "Impacto real",
+          "desc1": "Medible. Escalable. Humana.",
+          "desc2": "La IA ya no es una promesa — es negocio real. Ctrl365 convierte la estrategia en impacto medible."
+        },
+        {
+          "id": 2,
+          "percentage": "70",
+          "symbol": "+",
+          "number": "01",
+          "title": "Aumentar la productividad",
+          "desc1": "Las empresas que trabajan con Ctrl365 logran +70% más productividad, liberando equipos para enfocarse en tareas de mayor valor.",
+          "desc2": "La productividad es inteligencia humana amplificada a escala."
+        },
+        {
+          "id": 3,
+          "percentage": "90",
+          "symbol": "-",
+          "number": "02",
+          "title": "Reducir costos",
+          "desc1": "Nuestros programas de automatización alcanzan hasta un 90% de reducción de costos, mejorando la eficiencia y la precisión operativa.",
+          "desc2": "La eficiencia es hacer más con menos."
+        },
+        {
+          "id": 4,
+          "percentage": "35",
+          "symbol": "+",
+          "number": "03",
+          "title": "Impulsar ingresos",
+          "desc1": "Las empresas que integran IA con estrategia clara alcanzan hasta +35 % de crecimiento en ingresos, acelerando decisiones y resultados.",
+          "desc2": "La IA significa aceleración — no experimentación."
+        },
+        {
+          "id": 5,
+          "percentage": "50",
+          "number": "04",
+          "title": "Liderar el cambio",
+          "desc1": "Para 2026, la mitad de las decisiones empresariales estarán impulsadas por IA. Ctrl365 ayuda a anticiparse, con foco, retorno e impacto medible.",
+          "desc2": "Liderar no es adoptar la IA — es dominarla."
+        }
+      ]
+    },
     "SuccessStories": {
       "section": {
         "title": "Descubrí nuestros",
