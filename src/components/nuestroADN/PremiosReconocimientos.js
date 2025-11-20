@@ -1,16 +1,18 @@
-"use client";
-import React, { useState, useRef, useCallback, useEffect } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Button from "../buttons/Button";
-import SliderBase from "../sliders/SliderBase";
+'use client';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Button from '../buttons/Button';
+import SliderBase from '../sliders/SliderBase';
 
 const PremiosReconocimientos = () => {
+  const t = useTranslations('NuestroAdnPage.premios');
   const sliderRef = useRef(null);
 
   useEffect(() => {
     let interval = null;
-    
+
     // Esperar a que el slider se monte
     const timeout = setTimeout(() => {
       const forceButtonsEnabled = () => {
@@ -30,7 +32,7 @@ const PremiosReconocimientos = () => {
             }
             prevButton.style.pointerEvents = 'auto';
             prevButton.style.cursor = 'pointer';
-            
+
             const prevArrow = prevButton.querySelector('svg path');
             if (prevArrow) {
               prevArrow.setAttribute('fill', '#FFFFFF');
@@ -42,11 +44,16 @@ const PremiosReconocimientos = () => {
             nextButton.disabled = false;
             if (nextButton.classList.contains('border-[#9E9E9E]')) {
               nextButton.classList.remove('border-[#9E9E9E]', 'bg-transparent');
-              nextButton.classList.add('bg-gradient-to-br', 'from-[#c2bfbf]', 'to-[#d2cfce]', 'border-grey-20/40');
+              nextButton.classList.add(
+                'bg-gradient-to-br',
+                'from-[#c2bfbf]',
+                'to-[#d2cfce]',
+                'border-grey-20/40'
+              );
             }
             nextButton.style.pointerEvents = 'auto';
             nextButton.style.cursor = 'pointer';
-            
+
             const nextArrow = nextButton.querySelector('svg path');
             if (nextArrow) {
               nextArrow.setAttribute('fill', '#FFFFFF');
@@ -72,31 +79,31 @@ const PremiosReconocimientos = () => {
   const premios = [
     {
       id: 1,
-      imgUrl: "/images/pages/nuestro-adn/iqnet.svg",
+      imgUrl: '/images/pages/nuestro-adn/iqnet.svg',
     },
     {
       id: 2,
-      imgUrl: "/images/pages/nuestro-adn/microsoft-modern-work.svg",
+      imgUrl: '/images/pages/nuestro-adn/microsoft-modern-work.svg',
     },
     {
       id: 3,
-      imgUrl: "/images/pages/nuestro-adn/microsoft-innovation.svg",
+      imgUrl: '/images/pages/nuestro-adn/microsoft-innovation.svg',
     },
     {
       id: 4,
-      imgUrl: "/images/pages/nuestro-adn/microsoft-ai.svg",
+      imgUrl: '/images/pages/nuestro-adn/microsoft-ai.svg',
     },
     {
       id: 5,
-      imgUrl: "/images/pages/nuestro-adn/blueprism-platinum.svg",
+      imgUrl: '/images/pages/nuestro-adn/blueprism-platinum.svg',
     },
     {
       id: 6,
-      imgUrl: "/images/pages/nuestro-adn/award.svg",
+      imgUrl: '/images/pages/nuestro-adn/award.svg',
     },
     {
       id: 7,
-      imgUrl: "/images/pages/nuestro-adn/iram.svg",
+      imgUrl: '/images/pages/nuestro-adn/iram.svg',
     },
   ];
 
@@ -114,7 +121,7 @@ const PremiosReconocimientos = () => {
         <div className="lg:flex lg:h-[351px] lg:justify-between lg:items-center lg:px-[64px] lg:mb-[128px] xxl:px-[128px]">
           <div className="w-[328px] h-[151px] mx-auto relative z-10 px-[16px] md:px-[64px] md:w-[365px] md:h-[145px] lg:px-0 lg:w-[558px] lg:h-[308px] lg:mx-0">
             <p className="h1 lg:text-[128px]! lg:tracking-[-5.12px]! lg:leading-[120%]! text-grey-00 text-center py-[56px] z-30 relative lg:py-0 lg:text-right">
-              Avalados por
+              {t('avaladosPor')}
             </p>
             <div className="absolute flex items-center justify-center z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[365px] h-[147px] lg:w-[548px] lg:h-[218px] lg:-bottom-[43px] lg:top-auto lg:left-auto lg:-right-[90px] lg:translate-x-0 lg:translate-y-0 lg:justify-end ">
               <p className=" text-grey-30 text-[220px]! opacity-10 font-bold! lg:text-[300px]! lg:tracking-[-21px]! lg:leading-[100%]!">
@@ -139,9 +146,13 @@ const PremiosReconocimientos = () => {
             />
           </div>
         </div>
-        <div className="w-full relative z-20 " ref={sliderRef}>
+        <div
+          className="w-full relative z-20 "
+          ref={sliderRef}
+        >
           <p className="h2 text-grey-00 mb-[32px] px-[16px] md:max-w-[328px] md:px-[64px] lg:max-w-[404px] xxl:px-[128px]">
-            Premios y <span className="text-grey-20">reconocimientos</span>
+            {t('premiosY')}{' '}
+            <span className="text-grey-20">{t('reconocimientos')}</span>
           </p>
           <SliderBase
             slides={premios}
@@ -175,13 +186,11 @@ const PremiosReconocimientos = () => {
                   slidesPerView: 4.5,
                   spaceBetween: 16,
                   slidesOffsetBefore: 64,
-              
                 },
                 1280: {
                   slidesPerView: 6.5,
                   spaceBetween: 40,
-                
-                }
+                },
               },
             }}
           />

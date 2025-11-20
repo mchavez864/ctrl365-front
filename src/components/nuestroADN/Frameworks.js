@@ -1,46 +1,16 @@
-"use client";
-import React, { useState, useRef, useCallback, useEffect } from "react";
+'use client';
+import React, { useState, useRef, useCallback, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import {
   motion,
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-} from "framer-motion";
-
-const frameworks = [
-  {
-    id: 1,
-    title: "Human+ AI",
-    desc: "Guiamos la evolución AI-First: estrategia, automatización y cultura con impacto rápido y sostenible.",
-  },
-  {
-    id: 2,
-    title: "Exploratorio",
-    desc: "Adopción Cultural: Primeras experiencias con IA para entender su potencial e inspirar adopción y cultura digital.",
-  },
-  {
-    id: 3,
-    title: "Experimental",
-    desc: "Productividad Personal: Agentes en vivo, resultados medidos y menos tareas repetitivas; la IA amplifica a cada persona.",
-  },
-  {
-    id: 4,
-    title: "Integrado",
-    desc: "Eficiencia Organizacional: Procesos end-to-end con orquestación de agentes y RPA; eficiencia, trazabilidad y escala.",
-  },
-  {
-    id: 5,
-    title: "Estratégico",
-    desc: "Gobierno y Alineación: Métricas de impacto, gobierno responsable y conexión directa con los objetivos del negocio.",
-  },
-  {
-    id: 6,
-    title: "Transformacional",
-    desc: "Ventaja Sostenible: IA en cada decisión, innovación continua y resultados que perduran.",
-  },
-];
+} from 'framer-motion';
 
 const Frameworks = () => {
+  const t = useTranslations('NuestroAdnPage.frameworks');
+  const frameworks = t.raw('cards');
   const [currentCard, setCurrentCard] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
   const containerRef = useRef(null);
@@ -48,7 +18,7 @@ const Frameworks = () => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"],
+    offset: ['start start', 'end end'],
   });
 
   const updateCard = useCallback((latest) => {
@@ -62,7 +32,7 @@ const Frameworks = () => {
     }
   }, []);
 
-  useMotionValueEvent(scrollYProgress, "change", updateCard);
+  useMotionValueEvent(scrollYProgress, 'change', updateCard);
 
   useEffect(() => {
     setIsMounted(true);
@@ -74,7 +44,7 @@ const Frameworks = () => {
   const centerX = 400;
   const centerY = 400;
   const circlePoints = 5; // Always 5 points forming a complete circle
-  
+
   const getCircularPosition = (index) => {
     // Start from top (270 degrees = -90 degrees from 0)
     const angle = (270 + (360 / circlePoints) * index) * (Math.PI / 180);
@@ -88,7 +58,7 @@ const Frameworks = () => {
   const createArcPath = (startIndex, endIndex) => {
     const start = getCircularPosition(startIndex);
     const end = getCircularPosition(endIndex);
-    
+
     // Large arc flag = 0 for short arc
     return `M ${start.x} ${start.y} A ${radius} ${radius} 0 0 1 ${end.x} ${end.y}`;
   };
@@ -112,22 +82,24 @@ const Frameworks = () => {
       data-dark-section="true"
     >
       <section className="sticky top-0 overflow-hidden h-screen">
-        <div className="relative bg-grey-40 md:bg-gradient-to-t  md:from-[#2D1D36]  
+        <div
+          className="relative bg-grey-40 md:bg-gradient-to-t  md:from-[#2D1D36]  
         md:from-5% via-grey-40 via-40% md:to-grey-40 to-90% lg:bg-grey-40 rounded-[16px] 
         md:rounded-[32px] px-[16px]  overflow-hidden xxl:px-[128px] h-full 
-        flex flex-col justify-center">
-         {/* Add lg:from-grey-40 to try circlegradient background blur on desktop */}
+        flex flex-col justify-center"
+        >
+          {/* Add lg:from-grey-40 to try circlegradient background blur on desktop */}
           <div
             className="absolute bottom-[-300px] left-[50%] -translate-x-1/2 h-[700px] w-full
             bg-[radial-gradient(circle,rgba(37,27,43,0.7)_0%,rgba(128,0,255,0)_50%)] md:hidden "
           ></div>
-           {/* Add class grad-purple and lg:block to try circle background blur on desktop */}
+          {/* Add class grad-purple and lg:block to try circle background blur on desktop */}
           <div className="relative z-10">
             <div className="h-full">
               <div className="flex items-center gap-2 md:hidden">
                 <div className="bg-orange w-[12px] h-[12px] rounded-full"></div>
                 <p className="text-grey-00 font-inter text-base! leading-[120%]! font-medium uppercase">
-                  Framework
+                  {t('label')}
                 </p>
               </div>
 
@@ -139,12 +111,12 @@ const Frameworks = () => {
                       className={`w-[12px] h-[12px] rounded-full flex-shrink-0`}
                       animate={{
                         backgroundColor:
-                          index <= currentCard ? "#FF6B35" : "#565656",
+                          index <= currentCard ? '#FF6B35' : '#565656',
                       }}
                       transition={{
                         duration: 0.3,
                         delay: index === currentCard ? 0.5 : 0,
-                        ease: "easeInOut",
+                        ease: 'easeInOut',
                       }}
                     />
                     {index < frameworks.length - 1 && (
@@ -157,7 +129,7 @@ const Frameworks = () => {
                           }}
                           transition={{
                             duration: 0.5,
-                            ease: "easeInOut",
+                            ease: 'easeInOut',
                           }}
                         />
                       </div>
@@ -180,7 +152,7 @@ const Frameworks = () => {
                         const nextIndex = (index + 1) % circlePoints;
                         const pathD = createArcPath(index, nextIndex);
                         const activeSegment = getActiveSegment(currentCard);
-                        
+
                         return (
                           <g key={`arc-${index}`}>
                             {/* Background arc */}
@@ -202,20 +174,23 @@ const Frameworks = () => {
                               }}
                               transition={{
                                 duration: 0.5,
-                                ease: "easeInOut",
+                                ease: 'easeInOut',
                               }}
                             />
                           </g>
                         );
                       })}
-                      
+
                       {/* Draw 5 points */}
                       {Array.from({ length: circlePoints }).map((_, index) => {
                         const pos = getCircularPosition(index);
                         // Points get activated as we progress: point 0 always active, then 1, 2, 3, 4
-                        const isActive = index <= Math.min(currentCard, circlePoints - 1);
-                        const isCurrentActivating = index === currentCard && currentCard <= circlePoints - 1;
-                        
+                        const isActive =
+                          index <= Math.min(currentCard, circlePoints - 1);
+                        const isCurrentActivating =
+                          index === currentCard &&
+                          currentCard <= circlePoints - 1;
+
                         return (
                           <motion.circle
                             key={`point-${index}`}
@@ -223,12 +198,12 @@ const Frameworks = () => {
                             cy={pos.y}
                             r="8"
                             animate={{
-                              fill: isActive ? "#FF6B35" : "#565656",
+                              fill: isActive ? '#FF6B35' : '#565656',
                             }}
                             transition={{
                               duration: 0.3,
                               delay: isCurrentActivating ? 0.5 : 0,
-                              ease: "easeInOut",
+                              ease: 'easeInOut',
                             }}
                           />
                         );
@@ -242,7 +217,7 @@ const Frameworks = () => {
                   <div className="hidden md:flex items-center gap-2">
                     <div className="bg-orange w-[12px] h-[12px] rounded-full"></div>
                     <p className="text-grey-00 font-inter text-base! leading-[120%]! font-medium uppercase">
-                      Framework
+                      {t('label')}
                     </p>
                   </div>
                   <AnimatePresence mode="wait">
@@ -253,7 +228,7 @@ const Frameworks = () => {
                       exit={{ opacity: 0 }}
                       transition={{
                         duration: 0.3,
-                        ease: "easeOut",
+                        ease: 'easeOut',
                       }}
                       className="flex flex-col gap-[16px] md:items-center"
                     >

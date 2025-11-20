@@ -332,6 +332,55 @@
     }
   },
   "NuestroAdnPage": {
+    "premios": {
+      "avaladosPor": "Backed by",
+      "premiosY": "Awards and",
+      "reconocimientos": "recognitions"
+    },
+    "contacto": {
+      "title": "Would you like to be part of our team?",
+      "description": "Send us your resume and we'll get in touch."
+    },
+    "diferencial": {
+      "title": "Every company moves at its own pace.",
+      "description": "Our role is to accelerate that journey with vision, method, and execution so that applied intelligence turns into real growth.",
+      "sectionTitle": "What sets us apart"
+    },
+    "frameworks": {
+      "label": "Framework",
+      "cards": [
+        {
+          "id": 1,
+          "title": "Human+ AI",
+          "desc": "We guide AI-first evolution: strategy, automation, and culture with fast, sustainable impact."
+        },
+        {
+          "id": 2,
+          "title": "Exploratory",
+          "desc": "Cultural Adoption: first AI experiences to understand its potential and ignite adoption and digital culture."
+        },
+        {
+          "id": 3,
+          "title": "Experimental",
+          "desc": "Personal Productivity: live agents, measurable results, and fewer repetitive tasks — AI amplifies every person."
+        },
+        {
+          "id": 4,
+          "title": "Integrated",
+          "desc": "Organizational Efficiency: end-to-end processes with orchestration of agents and RPA — efficiency, traceability, and scale."
+        },
+        {
+          "id": 5,
+          "title": "Strategic",
+          "desc": "Governance & Alignment: impact metrics, responsible governance, and a direct link to business objectives."
+        },
+        {
+          "id": 6,
+          "title": "Transformational",
+          "desc": "Sustainable Advantage: AI in every decision, continuous innovation, and outcomes that endure."
+        }
+      ]
+    },
     "hero": {
       "title": "Our DNA",
       "description": "We are a strategic partner for organizations that want real business outcomes, not promises.",

@@ -332,6 +332,55 @@
     }
   },
   "NuestroAdnPage": {
+    "premios": {
+      "avaladosPor": "Avalados por",
+      "premiosY": "Premios y",
+      "reconocimientos": "reconocimientos"
+    },
+    "contacto": {
+      "title": "¿Te gustaría formar parte de nuestro equipo?",
+      "description": "Enviá tu CV y nos pondremos en contacto."
+    },
+    "diferencial": {
+      "title": "Cada compañía avanza a su ritmo.",
+      "description": "Nuestro rol es acelerar ese camino con visión, método y ejecución, para que la inteligencia aplicada se traduzca en crecimiento real.",
+      "sectionTitle": "Nuestro diferencial"
+    },
+    "frameworks": {
+      "label": "Framework",
+      "cards": [
+        {
+          "id": 1,
+          "title": "Human+ AI",
+          "desc": "Guiamos la evolución AI-First: estrategia, automatización y cultura con impacto rápido y sostenible."
+        },
+        {
+          "id": 2,
+          "title": "Exploratorio",
+          "desc": "Adopción Cultural: Primeras experiencias con IA para entender su potencial e inspirar adopción y cultura digital."
+        },
+        {
+          "id": 3,
+          "title": "Experimental",
+          "desc": "Productividad Personal: Agentes en vivo, resultados medidos y menos tareas repetitivas; la IA amplifica a cada persona."
+        },
+        {
+          "id": 4,
+          "title": "Integrado",
+          "desc": "Eficiencia Organizacional: Procesos end-to-end con orquestación de agentes y RPA; eficiencia, trazabilidad y escala."
+        },
+        {
+          "id": 5,
+          "title": "Estratégico",
+          "desc": "Gobierno y Alineación: Métricas de impacto, gobierno responsable y conexión directa con los objetivos del negocio."
+        },
+        {
+          "id": 6,
+          "title": "Transformacional",
+          "desc": "Ventaja Sostenible: IA en cada decisión, innovación continua y resultados que perduran."
+        }
+      ]
+    },
     "hero": {
       "title": "Nuestro ADN",
       "description": "Somos un aliado estratégico para organizaciones que buscan resultados reales, no promesas.",
