@@ -103,15 +103,15 @@ const PremiosReconocimientos = () => {
   return (
     <section
       data-dark-section="true"
-      className="relative h-[715px]  lg:h-[1071px] xxl:h-[651px] bg-grey-10  overflow-hidden "
+      className="relative h-[715px]  lg:h-[1071px] bg-grey-10  overflow-hidden "
     >
-      <div className="relative z-30 w-full h-full bg-grey-40 rounded-[16px] lg:rounded-[32px] py-[64px] lg:py-[128px] xxl:px-[408px]">
+      <div className="relative z-30 w-full h-full bg-grey-40 rounded-[16px] lg:rounded-[32px] py-[64px] lg:py-[128px] ">
         <div
           className="absolute bottom-[-81px] md:bottom-[-121px] left-1/2 -translate-x-1/2 z-10 bg-purple 
       rounded-full w-[256px] md:w-[386px] h-[179px] md:h-[269px] lg:w-[980px] lg:h-[686px]  lg:bottom-[-500px] 
       blur-2xl will-change-transform lg:blur-3xl"
         ></div>
-        <div className="lg:flex lg:h-[351px] lg:justify-between lg:items-center lg:px-[64px] lg:mb-[128px]">
+        <div className="lg:flex lg:h-[351px] lg:justify-between lg:items-center lg:px-[64px] lg:mb-[128px] xxl:px-[128px]">
           <div className="w-[328px] h-[151px] mx-auto relative z-10 px-[16px] md:px-[64px] md:w-[365px] md:h-[145px] lg:px-0 lg:w-[558px] lg:h-[308px] lg:mx-0">
             <p className="h1 lg:text-[128px]! lg:tracking-[-5.12px]! lg:leading-[120%]! text-grey-00 text-center py-[56px] z-30 relative lg:py-0 lg:text-right">
               Avalados por
@@ -140,7 +140,7 @@ const PremiosReconocimientos = () => {
           </div>
         </div>
         <div className="w-full relative z-20 " ref={sliderRef}>
-          <p className="h2 text-grey-00 mb-[32px] px-[16px] md:max-w-[328px] md:px-[64px] lg:max-w-[404px]">
+          <p className="h2 text-grey-00 mb-[32px] px-[16px] md:max-w-[328px] md:px-[64px] lg:max-w-[404px] xxl:px-[128px]">
             Premios y <span className="text-grey-20">reconocimientos</span>
           </p>
           <SliderBase
