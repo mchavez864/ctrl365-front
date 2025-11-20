@@ -1,6 +1,6 @@
 'use client';
 
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import Logo from '@/svg/logo.js';
 import Linkedin from '@/svg/linkedin.js';
 import Instagram from '@/svg/instagram.js';
@@ -8,6 +8,7 @@ import Youtube from '@/svg/youtube.js';
 
 const Footer = () => {
   const locale = useLocale();
+  const t = useTranslations('Footer');
   return (
     <footer
       className="relative bg-grey-40 h-full w-full overflow-hidden"
@@ -17,17 +18,8 @@ const Footer = () => {
         <div className="lg:relative ">
           <div className="px-[16px] md:px-[64px] lg:absolute z-10 lg:top-[50%] lg:-translate-y-1/2  xxl:px-[128px]">
             <h4 className="text-grey-00 text-center lg:text-left">
-              {locale === 'es' ? (
-                <>
-                  La transformación <br /> no termina,{' '}
-                  <span className="text-orange">evoluciona.</span>
-                </>
-              ) : (
-                <>
-                  Transformation never ends <br />
-                  <span className="text-orange">— it evolves.</span>
-                </>
-              )}
+              {t('tagline1')} <br /> {t('tagline2')}{' '}
+              <span className="text-orange">{t('tagline3')}</span>
             </h4>
           </div>
           <div className="h-[300px] w-full relative mt-[32px] md:mt-[64px] lg:h-[598px] lg:mt-0">
@@ -103,7 +95,7 @@ const Footer = () => {
               </a>
             </div>
             <p className="text-grey-20 text-center leading-[120%] md:order-1">
-              © Ctrl365 - All rights reserved.
+              {t('copyright')}
             </p>
           </div>
         </div>
