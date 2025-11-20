@@ -29,6 +29,15 @@
       },
       "button": "Conocé más"
     },
+    "quote": {
+      "tagline": "Menos ruido. Más impacto.",
+      "text1": "\"Creemos en una tecnología que genera resultados reales, no promesas.",
+      "text2": "Diseñamos inteligencia que impulsa a las organizaciones a moverse más rápido, decidir mejor y alcanzar más —con propósito real y humano.\"",
+      "author": {
+        "name": "Erik Dziubak",
+        "role": "Chief Visionary Officer at Ctrl365"
+      }
+    },
     "impacto": {
       "cards": [
         {
