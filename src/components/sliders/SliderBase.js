@@ -172,7 +172,7 @@ export default function SliderBase({
             aria-label="Slide anterior"
             className={`relative right-[-30px] z-0 flex h-[56px] w-[88px] items-center justify-center rounded-full border border-grey-20/40 ${
               canPrev
-                ? `bg-gradient-to-br from-[#c2bfbf] to-[#d2cfce] ${buttonPrevClassName}`
+                ? `cursor-pointer bg-gradient-to-br from-[#c2bfbf] to-[#d2cfce] ${buttonPrevClassName}`
                 : 'border-[#9E9E9E] bg-transparent '
             }`}
             disabled={!canPrev}
@@ -189,7 +189,7 @@ export default function SliderBase({
             aria-label="Slide siguiente"
             className={`${buttonClassName} relative z-10 flex h-[56px] w-[88px] items-center justify-center rounded-full border border-gray-200 ${
               canNext
-                ? `border-grey-20/40 bg-gradient-to-br from-[#c2bfbf] to-[#d2cfce] ${buttonNextClassName} `
+                ? `cursor-pointer border-grey-20/40 bg-gradient-to-br from-[#c2bfbf] to-[#d2cfce] ${buttonNextClassName} `
                 : 'border-[#9E9E9E] bg-transparent'
             }`}
             disabled={!canNext}
