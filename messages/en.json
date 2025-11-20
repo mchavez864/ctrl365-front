@@ -77,33 +77,33 @@
   },
   "ResultadosCasosdeExitoSlider": {
     "section": {
-      "title": "[i]Visible transformation. Real impact.",
-      "description": "[i]Stories that showcase how we scale operations, accelerate launches and deliver measurable business value."
+      "title": "Designed to deliver real outcomes.",
+      "description": "Stories that showcase how we scale operations, accelerate launches and deliver measurable business value."
     },
     "items": {
       "santander": {
-        "title": "[i]Santander",
-        "description": "[i]Digitized the credit process, cutting approval times from 7 weeks to 20 minutes, with a 94% efficiency uplift and over 1M loans processed."
+        "title": "Santander",
+        "description": "Digitalization of the credit process, cutting approval times from 7 weeks to 20 minutes, with a 94% efficiency improvement and over 1M loans processed."
       },
       "galiciaSeguros": {
-        "title": "[i]Galicia Seguros",
-        "description": "[i]Automated agricultural insurance quotes, achieving a 90% reduction in processing time, USD 3.2M in new premiums and coverage for 125,000 hectares."
+        "title": "Galicia Seguros",
+        "description": "Automated quoting for agricultural insurance, with a 90% reduction in processing time, USD 3.2M in new premiums, and coverage of 125,000 hectares."
       },
       "supervielle": {
-        "title": "[i]Supervielle",
-        "description": "[i]Streamlined underwriting workflows, removing friction and reducing branch operating costs by 60%."
+        "title": "Supervielle",
+        "description": "Intelligent onboarding with AI and automation, reducing customer onboarding time by 75% and increasing new-user conversion by 40%."
       },
       "prisma": {
-        "title": "[i]Prisma Payments",
-        "description": "[i]Automated 50+ industrial processes, boosting export capacity by 30%, trimming logistics costs 15% and improving energy efficiency 10%."
+        "title": "PRISMA MEDIOS DE PAGO",
+        "description": "Optimization of 70+ processes, delivering a 60% increase in productivity, 45% fewer critical incidents, and continuous 24/7 operations."
       },
       "molinosAgro": {
-        "title": "[i]Molinos Agro",
-        "description": "[i]Implemented control towers for agricultural trading, cutting reconciliation time 35% and lifting operating margin 18%."
+        "title": "Molinos Agro",
+        "description": "Automation of 50+ industrial processes, driving a 30% increase in export capacity, a 15% reduction in logistics costs, and a 10% improvement in energy efficiency."
       },
       "molinosRio": {
-        "title": "[i]Molinos Río de la Plata",
-        "description": "[i]Digitized 40+ e-commerce processes, delivering 0% errors, 40% cost reduction and automated fiscal compliance in real time."
+        "title": "Molinos Río de la Plata",
+        "description": "Digitalization of 40+ e-commerce processes, achieving 0% errors, 40% cost reduction, and real-time automated tax compliance."
       },
       "ypf": {
         "title": "[i]YPF",
@@ -314,7 +314,7 @@
     "policy": "By submitting the form you accept Ctrl365’s  ",
     "policy2": "Privacy Policy",
     "policy3": ".",
-    "policyLink": "/",
+    "policyLink": "/docs/politicas_de_privacidad_en.pdf",
     "success": {
       "title": "Message sent",
       "subtitle": "Thanks for reaching out. Our team will follow up shortly.",
