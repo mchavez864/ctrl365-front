@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
@@ -9,10 +8,10 @@ import Linkedin from '@/svg/linkedin.js';
 import Youtube from '@/svg/youtube.js';
 
 const menuItems = [
-  { name: 'Home', href: '/' },
-  { name: 'Nuestro ADN', href: '/nuestro-adn' },
-  { name: 'Casos de éxito', href: '/casos-de-exito' },
-  { name: 'Contacto', href: '/contacto' },
+  { nameEs: 'Home', nameEn: 'Home', href: '/' },
+  { nameEs: 'Nuestro ADN', nameEn: 'Our DNA', href: '/nuestro-adn' },
+  { nameEs: 'Casos de éxito', nameEn: 'Case Studies', href: '/casos-de-exito' },
+  { nameEs: 'Contacto', nameEn: 'Contact Us', href: '/contacto' },
 ];
 
 const Menu = ({ onClose }) => {
@@ -81,7 +80,7 @@ const Menu = ({ onClose }) => {
                 className="flex items-center gap-[8px] cursor-pointer"
               >
                 <p className="text-[12px] leading-[120%] tracking-[-0.24px] uppercase text-grey-00">
-                  Cerrar
+                  {locale === 'es' ? 'Cerrar' : 'Close'}
                 </p>
                 <div className="w-[52px] h-[24px] rounded-[900px] bg-grey-00 relative">
                   <Cross
@@ -96,13 +95,20 @@ const Menu = ({ onClose }) => {
 
         <div className="relative w-full h-[80%] flex flex-col lg:flex-row items-start justify-between z-30 px-[16px] md:px-[64px] xxl:px-[128px] lg:h-full lg:items-center">
           <div className="lg:order-2 xxl:w-1/2 self-center	lg:self-auto">
-            <Image
-              src="/images/orb.webp"
-              alt=""
-              width={544}
-              height={544}
-              className="w-[186px] h-[186px] mx-auto md:w-[312px] md:h-[312px] md:mt-[138px]  lg:mx-0 lg:mt-0 lg:w-[426px] lg:h-[426px] xxl:w-[544px] xxl:h-[544px]"
-            />
+            <video
+              className="w-[186px] h-[186px] mx-auto md:w-[312px] md:h-[312px] md:mt-[138px] lg:mx-0 lg:mt-0 lg:w-[426px] lg:h-[426px] xxl:w-[544px] xxl:h-[544px] object-contain pointer-events-none grayscale"
+              style={{
+                clipPath: 'circle(50%)',
+              }}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+            >
+              <source src="/videos/orb-full.webm" type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
           </div>
           <div className="flex flex-col items-start gap-[32px] md:gap-[64px] lg:h-full lg:justify-between lg:pt-[200px] lg:pb-[90px]">
             <div className="flex items-center relative w-[82px] h-[26px] md:hidden">
@@ -130,7 +136,7 @@ const Menu = ({ onClose }) => {
             <ul className="flex flex-col gap-[8px] relative px-[8px] lg:gap-[24px]">
               {menuItems.map((item) => (
                 <li
-                  key={item.name}
+                  key={item.nameEs}
                   className="relative before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 
                   before:w-0 before:h-0 before:bg-orange before:rounded-full before:duration-300 before:opacity-0 hover:before:w-[12px] hover:before:h-[12px] 
                   lg:hover:before:w-[16px] lg:hover:before:h-[16px] hover:before:opacity-100 cursor-pointer"
@@ -140,7 +146,7 @@ const Menu = ({ onClose }) => {
                     className="block hover:translate-x-[20px] lg:hover:translate-x-[28px] duration-300 text-grey-20 hover:text-grey-00"
                   >
                     <h3 className="lg:text-[72px]! lg:leading-[120%]! lg:tracking-[-1.44px]!">
-                      {item.name}
+                      {locale === 'es' ? item.nameEs : item.nameEn}
                     </h3>
                   </a>
                 </li>
@@ -148,7 +154,7 @@ const Menu = ({ onClose }) => {
             </ul>
             <div className="flex justify-between items-center w-[128px]">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/ctrl365/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -157,7 +163,7 @@ const Menu = ({ onClose }) => {
                 <Instagram />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/ctrl365/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -166,7 +172,7 @@ const Menu = ({ onClose }) => {
                 <Linkedin />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/user/Ctrl365Media"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
@@ -177,13 +183,20 @@ const Menu = ({ onClose }) => {
             </div>
           </div>
         </div>
-        <Image
-          src="/images/white-mesh.webp"
-          alt=""
-          width={1638}
-          height={1113}
-          className="absolute -bottom-[400px] w-full h-full object-cover opacity-10 z-20  md:bottom-[50%] md:translate-y-1/2 md:h-auto xxl:opacity-5"
-        />
+        <video
+          className="absolute -bottom-[400px] w-full h-full object-cover opacity-10 z-20 md:bottom-[50%] md:translate-y-1/2 md:h-auto xxl:opacity-5 pointer-events-none"
+          style={{
+            transform: "scale(1.2)",
+          }}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/videos/mesh-white.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
         <div className="absolute bottom-0 right-0 lg:top-[-163px] lg:right-[-250px] w-[187px] h-[252px] lg:w-[800px] xxl:h-[800px] xxl:w-[500px] lg:h-[500px] bg-orange rounded-full blur-[150px] lg:blur-[250px] z-20" />
       </div>
     </motion.div>

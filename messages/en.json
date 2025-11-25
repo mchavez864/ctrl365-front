@@ -1,6 +1,27 @@
 {
   "Home": {
     "title": "Home",
+    "hero": {
+      "title": "AI for real business outcomes:",
+      "subtitle": "Built for AI. Designed for Humans.",
+      "cta": "Get Started",
+      "words": ["Fast", "measurable", "human"]
+    },
+    "solutions": {
+      "title1": "AI copilots & agents",
+      "text1": "We empower people with natural-language interfaces and autonomous agents that simplify daily work.",
+      "title2": "AI-powered process automation",
+      "text2": "We eliminate manual work, reduce friction, and scale efficiency through intelligent automation.",
+      "title3": "Generative AI for business",
+      "text3": "We use data and LLMs to solve real business challenges and accelerate decision-making.",
+      "title4": "AI foundation",
+      "text4": "We build a secure, scalable foundation to grow automation and AI with confidence and governance.",
+      "section1": "AI copilots & agents",
+      "section2": "AI-powered process automation",
+      "section3": "Generative AI for business",
+      "section4": "AI foundation",
+      "sectionTitle": "SOLUTIONS"
+    },
     "OurDNA": {
       "title": "Our ADN",
       "Cards": {
@@ -9,25 +30,79 @@
           "description": "We are challengers by nature: we question our success, learn faster and empower with technology to generate real value."
         },
         "card2": {
-          "title": "AI with purpose",
-          "description": "We live AI from business reality. We design practical, measurable strategies aligned to concrete results."
+          "title": "Grounded AI",
+          "description": "We live AI from a business-first perspective. We design practical, measurable strategies aligned with real outcomes."
         },
         "card3": {
           "title": "Human+",
-          "description": "AI that amplifies human intelligence, not replaces it. We create solutions that empower people and generate measurable impact."
+          "description": "AI that amplifies human intelligence — not replaces it. We create solutions that empower people and deliver measurable impact."
         },
         "card4": {
           "title": "Our team",
-          "description": "We are thinkers, builders and problem solvers with curiosity, focus and execution. We combine strategic vision with real experience to transform AI and automation into tangible business impact."
+          "description": "We are thinkers, builders, and problem-solvers with curiosity, focus, and strong execution. We combine strategic vision with real-world experience to turn AI and automation into tangible business impact."
         }
       },
       "button": "Learn more"
     },
+    "quote": {
+      "tagline": "Less noise. More impact.",
+      "text1": "\"We believe in technology that delivers real results, not promises.",
+      "text2": "We design intelligence that helps organizations move faster, make better decisions, and achieve more — with real human purpose.\"",
+      "author": {
+        "name": "Erik Dziubak",
+        "role": "Chief Visionary Officer at Ctrl365"
+      }
+    },
+    "impacto": {
+      "cards": [
+        {
+          "id": 1,
+          "title": "Real impact",
+          "desc1": "Measurable. Scalable. Human.",
+          "desc2": "AI is no longer a promise — it's real business. Ctrl365 turns strategy into measurable impact."
+        },
+        {
+          "id": 2,
+          "percentage": "70",
+          "symbol": "+",
+          "number": "01",
+          "title": "Increase productivity",
+          "desc1": "Companies that work with Ctrl365 achieve up to +70% higher productivity, freeing teams to focus on higher-value work.",
+          "desc2": "Productivity is human intelligence, amplified at scale."
+        },
+        {
+          "id": 3,
+          "percentage": "90",
+          "symbol": "-",
+          "number": "02",
+          "title": "Reduce costs",
+          "desc1": "Our automation programs deliver up to 90% cost reduction, improving operational efficiency and accuracy.",
+          "desc2": "Efficiency means doing more with less."
+        },
+        {
+          "id": 4,
+          "percentage": "35",
+          "symbol": "+",
+          "number": "03",
+          "title": "Grow revenue",
+          "desc1": "Companies that integrate AI with a clear strategy achieve up to +35% revenue growth, accelerating decisions and outcomes.",
+          "desc2": "AI is about acceleration — not experimentation."
+        },
+        {
+          "id": 5,
+          "percentage": "50",
+          "number": "04",
+          "title": "Lead the change",
+          "desc1": "By 2026, half of all business decisions will be driven by AI. Ctrl365 helps you get ahead with focus, ROI, and measurable impact.",
+          "desc2": "Leading is not adopting AI — it's mastering it."
+        }
+      ]
+    },
     "SuccessStories": {
       "section": {
-        "title": "[i]Descubrí nuestros",
-        "span": "[i]casos de éxito",
-        "button": "[i]Conocer casos"
+        "title": "Explore our ",
+        "span": "case studies",
+        "button": "See case studies"
       }
     }
   },
@@ -77,33 +152,33 @@
   },
   "ResultadosCasosdeExitoSlider": {
     "section": {
-      "title": "[i]Visible transformation. Real impact.",
-      "description": "[i]Stories that showcase how we scale operations, accelerate launches and deliver measurable business value."
+      "title": "Designed to deliver real outcomes.",
+      "description": "Stories that showcase how we scale operations, accelerate launches and deliver measurable business value."
     },
     "items": {
       "santander": {
-        "title": "[i]Santander",
-        "description": "[i]Digitized the credit process, cutting approval times from 7 weeks to 20 minutes, with a 94% efficiency uplift and over 1M loans processed."
+        "title": "Santander",
+        "description": "Digitalization of the credit process, cutting approval times from 7 weeks to 20 minutes, with a 94% efficiency improvement and over 1M loans processed."
       },
       "galiciaSeguros": {
-        "title": "[i]Galicia Seguros",
-        "description": "[i]Automated agricultural insurance quotes, achieving a 90% reduction in processing time, USD 3.2M in new premiums and coverage for 125,000 hectares."
+        "title": "Galicia Seguros",
+        "description": "Automated quoting for agricultural insurance, with a 90% reduction in processing time, USD 3.2M in new premiums, and coverage of 125,000 hectares."
       },
       "supervielle": {
-        "title": "[i]Supervielle",
-        "description": "[i]Streamlined underwriting workflows, removing friction and reducing branch operating costs by 60%."
+        "title": "Supervielle",
+        "description": "Intelligent onboarding with AI and automation, reducing customer onboarding time by 75% and increasing new-user conversion by 40%."
       },
       "prisma": {
-        "title": "[i]Prisma Payments",
-        "description": "[i]Automated 50+ industrial processes, boosting export capacity by 30%, trimming logistics costs 15% and improving energy efficiency 10%."
+        "title": "PRISMA MEDIOS DE PAGO",
+        "description": "Optimization of 70+ processes, delivering a 60% increase in productivity, 45% fewer critical incidents, and continuous 24/7 operations."
       },
       "molinosAgro": {
-        "title": "[i]Molinos Agro",
-        "description": "[i]Implemented control towers for agricultural trading, cutting reconciliation time 35% and lifting operating margin 18%."
+        "title": "Molinos Agro",
+        "description": "Automation of 50+ industrial processes, driving a 30% increase in export capacity, a 15% reduction in logistics costs, and a 10% improvement in energy efficiency."
       },
       "molinosRio": {
-        "title": "[i]Molinos Río de la Plata",
-        "description": "[i]Digitized 40+ e-commerce processes, delivering 0% errors, 40% cost reduction and automated fiscal compliance in real time."
+        "title": "Molinos Río de la Plata",
+        "description": "Digitalization of 40+ e-commerce processes, achieving 0% errors, 40% cost reduction, and real-time automated tax compliance."
       },
       "ypf": {
         "title": "[i]YPF",
@@ -179,38 +254,10 @@
       }
     },
     "slides": {
-      "list-1": [
-        "santander",
-        "galiciaSeguros",
-        "supervielle",
-        "prisma",
-        "molinosAgro",
-        "molinosRio"
-      ],
-      "list-2": [
-        "ypf",
-        "bbva",
-        "telecom",
-        "osde",
-        "axion",
-        "bancoProvincia"
-      ],
-      "list-3": [
-        "arcor",
-        "mercadoLibre",
-        "sanCor",
-        "nacionSeguros",
-        "tarjetaNaranja",
-        "bancoCiudad"
-      ],
-      "list-4": [
-        "laAnonima",
-        "petrobras",
-        "icbc",
-        "clarin",
-        "andreani",
-        "globant"
-      ]
+      "list-1": ["santander", "galiciaSeguros", "supervielle", "prisma", "molinosAgro", "molinosRio"],
+      "list-2": ["ypf", "bbva", "telecom", "osde", "axion", "bancoProvincia"],
+      "list-3": ["arcor", "mercadoLibre", "sanCor", "nacionSeguros", "tarjetaNaranja", "bancoCiudad"],
+      "list-4": ["laAnonima", "petrobras", "icbc", "clarin", "andreani", "globant"]
     }
   },
   "CasosDeExitoPage": {
@@ -272,6 +319,55 @@
     }
   },
   "NuestroAdnPage": {
+    "premios": {
+      "avaladosPor": "Backed by",
+      "premiosY": "Awards and",
+      "reconocimientos": "recognitions"
+    },
+    "contacto": {
+      "title": "Would you like to be part of our team?",
+      "description": "Send us your resume and we'll get in touch."
+    },
+    "diferencial": {
+      "title": "Every company moves at its own pace.",
+      "description": "Our role is to accelerate that journey with vision, method, and execution so that applied intelligence turns into real growth.",
+      "sectionTitle": "What sets us apart"
+    },
+    "frameworks": {
+      "label": "Framework",
+      "cards": [
+        {
+          "id": 1,
+          "title": "Human+ AI",
+          "desc": "We guide AI-first evolution: strategy, automation, and culture with fast, sustainable impact."
+        },
+        {
+          "id": 2,
+          "title": "Exploratory",
+          "desc": "Cultural Adoption: first AI experiences to understand its potential and ignite adoption and digital culture."
+        },
+        {
+          "id": 3,
+          "title": "Experimental",
+          "desc": "Personal Productivity: live agents, measurable results, and fewer repetitive tasks — AI amplifies every person."
+        },
+        {
+          "id": 4,
+          "title": "Integrated",
+          "desc": "Organizational Efficiency: end-to-end processes with orchestration of agents and RPA — efficiency, traceability, and scale."
+        },
+        {
+          "id": 5,
+          "title": "Strategic",
+          "desc": "Governance & Alignment: impact metrics, responsible governance, and a direct link to business objectives."
+        },
+        {
+          "id": 6,
+          "title": "Transformational",
+          "desc": "Sustainable Advantage: AI in every decision, continuous innovation, and outcomes that endure."
+        }
+      ]
+    },
     "hero": {
       "title": "Our DNA",
       "description": "We are a strategic partner for organizations that want real business outcomes, not promises.",
@@ -291,6 +387,12 @@
       "paragraph1": "We operate without borders, partnering with companies across the Americas, Europe, and the Caribbean. We drive projects that combine technology, intelligence, and real business outcomes, with regional presence and a global vision.",
       "paragraph2": "Our proximity to our clients lets us understand each industry’s challenges, move fast, and deliver solutions that scale with impact."
     }
+  },
+  "Footer": {
+    "tagline1": "Transformation never ends",
+    "tagline2": "",
+    "tagline3": "— it evolves.",
+    "copyright": "© Ctrl365 - All rights reserved."
   },
   "CookieBanner": {
     "title": "This website uses cookies",
@@ -314,7 +416,7 @@
     "policy": "By submitting the form you accept Ctrl365’s  ",
     "policy2": "Privacy Policy",
     "policy3": ".",
-    "policyLink": "/",
+    "policyLink": "/docs/politicas_de_privacidad_en.pdf",
     "success": {
       "title": "Message sent",
       "subtitle": "Thanks for reaching out. Our team will follow up shortly.",

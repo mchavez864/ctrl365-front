@@ -1,6 +1,27 @@
 {
   "Home": {
     "title": "CASA",
+    "hero": {
+      "title": "IA para resultados reales de negocio:",
+      "subtitle": "Creado para la IA Pensado para las personas.",
+      "cta": "Comenzá hoy",
+      "words": ["rápida", "medible", "humana"]
+    },
+    "solutions": {
+      "title1": "Copilotos y agentes de IA",
+      "text1": "Potenciamos a las personas con interfaces en lenguaje natural y agentes autónomos que simplifican el trabajo diario.",
+      "title2": "Automatización de procesos con IA",
+      "text2": "Eliminamos tareas manuales, reducimos fricción y escalamos la eficiencia mediante automatización inteligente.",
+      "title3": " IA generativa para empresas",
+      "text3": "Usamos datos y modelos avanzados para resolver desafíos reales de negocio y acelerar la toma de decisiones.",
+      "title4": "Fundamento de IA",
+      "text4": "Construimos una base segura y escalable para expandir la automatización y la IA con confianza y gobernanza.",
+      "section1": "Copilotos y agentes de IA",
+      "section2": "Automatización de Procesos con IA",
+      "section3": " IA Generativa para Empresas",
+      "section4": "Fundamento de ia",
+      "sectionTitle": "SOLUCIONES"
+    },
     "OurDNA": {
       "title": "Nuestro ADN",
       "Cards": {
@@ -22,6 +43,60 @@
         }
       },
       "button": "Conocé más"
+    },
+    "quote": {
+      "tagline": "Menos ruido. Más impacto.",
+      "text1": "\"Creemos en una tecnología que genera resultados reales, no promesas.",
+      "text2": "Diseñamos inteligencia que impulsa a las organizaciones a moverse más rápido, decidir mejor y alcanzar más —con propósito real y humano.\"",
+      "author": {
+        "name": "Erik Dziubak",
+        "role": "Chief Visionary Officer at Ctrl365"
+      }
+    },
+    "impacto": {
+      "cards": [
+        {
+          "id": 1,
+          "title": "Impacto real",
+          "desc1": "Medible. Escalable. Humana.",
+          "desc2": "La IA ya no es una promesa — es negocio real. Ctrl365 convierte la estrategia en impacto medible."
+        },
+        {
+          "id": 2,
+          "percentage": "70",
+          "symbol": "+",
+          "number": "01",
+          "title": "Aumentar la productividad",
+          "desc1": "Las empresas que trabajan con Ctrl365 logran +70% más productividad, liberando equipos para enfocarse en tareas de mayor valor.",
+          "desc2": "La productividad es inteligencia humana amplificada a escala."
+        },
+        {
+          "id": 3,
+          "percentage": "90",
+          "symbol": "-",
+          "number": "02",
+          "title": "Reducir costos",
+          "desc1": "Nuestros programas de automatización alcanzan hasta un 90% de reducción de costos, mejorando la eficiencia y la precisión operativa.",
+          "desc2": "La eficiencia es hacer más con menos."
+        },
+        {
+          "id": 4,
+          "percentage": "35",
+          "symbol": "+",
+          "number": "03",
+          "title": "Impulsar ingresos",
+          "desc1": "Las empresas que integran IA con estrategia clara alcanzan hasta +35 % de crecimiento en ingresos, acelerando decisiones y resultados.",
+          "desc2": "La IA significa aceleración — no experimentación."
+        },
+        {
+          "id": 5,
+          "percentage": "50",
+          "number": "04",
+          "title": "Liderar el cambio",
+          "desc1": "Para 2026, la mitad de las decisiones empresariales estarán impulsadas por IA. Ctrl365 ayuda a anticiparse, con foco, retorno e impacto medible.",
+          "desc2": "Liderar no es adoptar la IA — es dominarla."
+        }
+      ]
     },
     "SuccessStories": {
       "section": {
@@ -272,6 +347,55 @@
     }
   },
   "NuestroAdnPage": {
+    "premios": {
+      "avaladosPor": "Avalados por",
+      "premiosY": "Premios y",
+      "reconocimientos": "reconocimientos"
+    },
+    "contacto": {
+      "title": "¿Te gustaría formar parte de nuestro equipo?",
+      "description": "Enviá tu CV y nos pondremos en contacto."
+    },
+    "diferencial": {
+      "title": "Cada compañía avanza a su ritmo.",
+      "description": "Nuestro rol es acelerar ese camino con visión, método y ejecución, para que la inteligencia aplicada se traduzca en crecimiento real.",
+      "sectionTitle": "Nuestro diferencial"
+    },
+    "frameworks": {
+      "label": "Framework",
+      "cards": [
+        {
+          "id": 1,
+          "title": "Human+ AI",
+          "desc": "Guiamos la evolución AI-First: estrategia, automatización y cultura con impacto rápido y sostenible."
+        },
+        {
+          "id": 2,
+          "title": "Exploratorio",
+          "desc": "Adopción Cultural: Primeras experiencias con IA para entender su potencial e inspirar adopción y cultura digital."
+        },
+        {
+          "id": 3,
+          "title": "Experimental",
+          "desc": "Productividad Personal: Agentes en vivo, resultados medidos y menos tareas repetitivas; la IA amplifica a cada persona."
+        },
+        {
+          "id": 4,
+          "title": "Integrado",
+          "desc": "Eficiencia Organizacional: Procesos end-to-end con orquestación de agentes y RPA; eficiencia, trazabilidad y escala."
+        },
+        {
+          "id": 5,
+          "title": "Estratégico",
+          "desc": "Gobierno y Alineación: Métricas de impacto, gobierno responsable y conexión directa con los objetivos del negocio."
+        },
+        {
+          "id": 6,
+          "title": "Transformacional",
+          "desc": "Ventaja Sostenible: IA en cada decisión, innovación continua y resultados que perduran."
+        }
+      ]
+    },
     "hero": {
       "title": "Nuestro ADN",
       "description": "Somos un aliado estratégico para organizaciones que buscan resultados reales, no promesas.",
@@ -291,6 +415,12 @@
       "paragraph1": "Operamos sin fronteras, acompañando a empresas en América, Europa y el Caribe. Impulsamos proyectos que combinan tecnología, inteligencia y resultados reales, con presencia regional y visión global.",
       "paragraph2": "Nuestra cercanía nos permite entender los desafíos de cada industria, actuar con velocidad y ofrecer soluciones que escalan con impacto."
     }
+  },
+  "Footer": {
+    "tagline1": "La transformación",
+    "tagline2": "no termina,",
+    "tagline3": "evoluciona.",
+    "copyright": "© Ctrl365 - Todos los derechos reservados."
   },
   "CookieBanner": {
     "title": "Este sitio web usa cookies",
@@ -314,7 +444,7 @@
     "policy": "Al completar el formulario, aceptas la ",
     "policy2": "Política de Privacidad",
     "policy3": " de Ctrl365",
-    "policyLink": "/",
+    "policyLink": "/docs/politicas_de_privacidad_es.pdf",
     "success": {
       "title": "Mensaje enviado",
       "subtitle": "Gracias por escribirnos. Nuestro equipo se pondrá en contacto muy pronto.",

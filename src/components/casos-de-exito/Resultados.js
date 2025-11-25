@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, memo, useCallback, useEffect } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import NumberFlow from '@number-flow/react';
 
@@ -36,7 +35,7 @@ const ResultadoCard = memo(
                 : 'border-b border-grey-20 border-solid md:border-none'
             }`}
       >
-        {/* Animación MOBILE: Tipo cortina simple (del Untitled-1) */}
+        {/* Animación MOBILE: Tipo cortina simple*/}
         <AnimatePresence>
           {isActive && (
             <motion.div
@@ -271,7 +270,7 @@ const Resultados = ({ title, paragraph1, paragraph2, tagline, cards }) => {
     >
       <div className="relative z-30">
         <div className="mx-auto flex flex-col items-center max-w-[295px] pb-[64px] md:max-w-[640px] lg:relative lg:flex-row lg:items-center lg:justify-between lg:max-w-full lg:py-[128px]">
-          <h2 className="h1 text-grey-00 text-center mb-[32px] lg:w-[434px] lg:text-left gradient-text lg:mb-0">
+          <h2 className="h1 text-grey-00 text-center mb-[32px] lg:w-[482px] lg:text-left gradient-text lg:mb-0">
             {title}
           </h2>
           <div className="lg:w-[434px]">
@@ -282,19 +281,40 @@ const Resultados = ({ title, paragraph1, paragraph2, tagline, cards }) => {
               {paragraph2}
             </p>
           </div>
-          <div className="relative w-[156px] h-[156px] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:w-[316px] lg:h-[316px]">
-            <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full blur-2xl will-change-transform"></div>
-            <Image
-              src="/images/orb.webp"
-              alt="Resultados"
-              width={405}
-              height={405}
-              className="w-[156px] h-auto z-30 relative lg:w-[316px]"
-              priority
-            />
-            <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full opacity-90 mix-blend-soft-light z-40 pointer-events-none"></div>
+          <div className="relative z-30 w-[156px] h-[156px] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:w-[316px] lg:h-[316px]">
+            <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full blur-3xl will-change-transform"></div>
+            <video
+              className="w-[156px] h-auto z-30 relative lg:w-[316px] object-contain pointer-events-none"
+              style={{
+                clipPath: 'circle(50%)',
+              }}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+            >
+              <source src="/videos/orb-full.webm" type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[315.9px] lg:h-[315.9px] bg-orange rounded-full opacity-90 mix-blend-soft-light z-40 pointer-events-none"></div>
           </div>
         </div>
+        <video
+          className="hidden lg:block absolute left-0 w-full z-0 pointer-events-none object-cover opacity-5"
+          style={{
+            top: '50%',
+            transform: 'translateY(-50%) scale(1.4)',
+          }}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/videos/mesh-white.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
         <div
           ref={linesRef}
           className="flex flex-col gap-[13px] md:grid md:grid-cols-2 

@@ -464,6 +464,8 @@ export default function Form({ subject, destination } = {}) {
             <Link
               href={t('policyLink')}
               className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               {t('policy2')}
             </Link>

@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 // Lista de países
 const paises = [
@@ -98,14 +97,18 @@ export default function PaisesNuestroAdnClient({ paragraph1, paragraph2 }) {
 
       {/* Esfera decorativa */}
       <div className="z-0 absolute bottom-0 left-0 w-full h-[116px] flex justify-center lg:justify-start">
-        <div className="relative translate-y-[100px] opacity-50 lg:translate-y-[-100px] lg:translate-x-[-50px]">
-          <Image
-            src="/images/animations/orbe-de-particulas.gif"
-            alt="Sphere"
-            width={672}
-            height={672}
-            className="w-full h-auto scale-200 lg:scale-160"
-          />
+        <div className="relative translate-y-[100px] opacity-50 lg:translate-y-[-200px] lg:translate-x-[-200px]">
+          <video
+            className="w-full h-auto scale-200 lg:scale-none object-contain pointer-events-none"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+          >
+            <source src="/videos/orb-mesh.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </section>

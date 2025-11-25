@@ -1,70 +1,24 @@
 "use client";
 import { useState, useRef, useCallback, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-
-const cards = [
-  {
-    id: 1,
-    title: "Impacto real",
-    desc1: "Medible. Escalable. Humana.",
-    desc2:
-      "La IA ya no es una promesa — es negocio real. Ctrl365 convierte la estrategia en impacto medible.",
-  },
-  {
-    id: 2,
-    percentage: "70",
-    symbol: "+",
-    number: "01",
-    title: "Aumentar la productividad",
-    desc1:
-      "Las empresas que trabajan con Ctrl365 logran +70% más productividad, liberando equipos para enfocarse en tareas de mayor valor.",
-    desc2:
-      "La productividad es inteligencia humana amplificada a escala.",
-  },
-  {
-    id: 3,
-    percentage: "90",
-    symbol: "-",
-    number: "02",
-    title: "Reducir costos",
-    desc1:
-      "Nuestros programas de automatización alcanzan hasta un 90% de reducción de costos, mejorando la eficiencia y la precisión operativa.",
-    desc2:
-      "La eficiencia es hacer más con menos.",
-  },
-  {
-    id: 4,
-    percentage: "35",
-    symbol: "+",
-    number: "03",
-    title: "Impulsar ingresos",
-    desc1:
-      "Las empresas que integran IA con estrategia clara alcanzan hasta +35 % de crecimiento en ingresos, acelerando decisiones y resultados.",
-    desc2:
-      "La IA significa aceleración — no experimentación.",
-  },
-  {
-    id: 5,
-    percentage: "50",
-    number: "04",
-    title: "Liderar el cambio",
-    desc1:
-      "Para 2026, la mitad de las decisiones empresariales estarán impulsadas por IA. Ctrl365 ayuda a anticiparse, con foco, retorno e impacto medible.",
-    desc2:
-      "Liderar no es adoptar la IA — es dominarla.",
-  },
-];
+import Spline from "@splinetool/react-spline";
 
 const Impacto = () => {
+  const t = useTranslations("Home.impacto");
+  const cards = t.raw("cards");
   const [currentCard, setCurrentCard] = useState(0);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
   const containerRef = useRef(null);
   const lastCardRef = useRef(0);
+  const percentageRef = useRef(null);
+  const splineContainerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -73,27 +27,112 @@ const Impacto = () => {
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
-    
+
     const handleChange = (e) => {
       setIsDesktop(e.matches);
+      if (!e.matches) {
+        setShouldLoadSpline(false);
+      }
     };
-    
-    setIsDesktop(mediaQuery.matches);
-    mediaQuery.addEventListener("change", handleChange);
-    
-    return () => mediaQuery.removeEventListener("change", handleChange);
-  }, []);
 
-  const updateCard = useCallback((latest) => {
-    const cardIndex = Math.min(
-      Math.floor(latest * cards.length),
-      cards.length - 1
-    );
-    if (cardIndex !== lastCardRef.current) {
-      lastCardRef.current = cardIndex;
-      setCurrentCard(cardIndex);
+    const isDesktopMatch = mediaQuery.matches;
+    setIsDesktop(isDesktopMatch);
+
+    // Solo cargar Spline si es desktop y cuando esté cerca del viewport
+    if (isDesktopMatch) {
+      // Usar Intersection Observer para detectar cuando está cerca
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              setShouldLoadSpline(true);
+              observer.disconnect();
+            }
+          });
+        },
+        {
+          rootMargin: "300px", // Cargar cuando esté a 300px de entrar al viewport
+          threshold: 0,
+        }
+      );
+
+      // Pequeño delay para asegurar que el ref esté disponible
+      const timeoutId = setTimeout(() => {
+        if (containerRef.current) {
+          observer.observe(containerRef.current);
+        }
+      }, 100);
+
+      mediaQuery.addEventListener("change", handleChange);
+
+      return () => {
+        clearTimeout(timeoutId);
+        observer.disconnect();
+        mediaQuery.removeEventListener("change", handleChange);
+      };
+    } else {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
     }
   }, []);
+
+  // Centrar la escena de Spline respecto al porcentaje
+  useEffect(() => {
+    if (
+      !isDesktop ||
+      !shouldLoadSpline ||
+      !percentageRef.current ||
+      !splineContainerRef.current
+    )
+      return;
+
+    const updateSplinePosition = () => {
+      // Usar requestAnimationFrame para asegurar que el DOM esté actualizado
+      requestAnimationFrame(() => {
+        if (!percentageRef.current || !splineContainerRef.current) return;
+
+        const percentageRect = percentageRef.current.getBoundingClientRect();
+        const section = percentageRef.current.closest("section");
+        if (!section) return;
+
+        const sectionRect = section.getBoundingClientRect();
+
+        // Calcular el centro del porcentaje relativo a la sección
+        const percentageCenterX =
+          percentageRect.left + percentageRect.width / 2 - sectionRect.left;
+        const percentageCenterY =
+          percentageRect.top + percentageRect.height / 2 - sectionRect.top;
+
+        // Ajustar la posición de la escena de Spline
+        const splineContainer = splineContainerRef.current;
+        splineContainer.style.left = `${percentageCenterX}px`;
+        splineContainer.style.top = `${percentageCenterY}px`;
+      });
+    };
+
+    // Pequeño delay para asegurar que las animaciones de cambio de card hayan comenzado
+    const timeoutId = setTimeout(updateSplinePosition, 50);
+    window.addEventListener("resize", updateSplinePosition);
+
+    return () => {
+      clearTimeout(timeoutId);
+      window.removeEventListener("resize", updateSplinePosition);
+    };
+  }, [isDesktop, shouldLoadSpline, currentCard]);
+
+  const updateCard = useCallback(
+    (latest) => {
+      const cardIndex = Math.min(
+        Math.floor(latest * cards.length),
+        cards.length - 1
+      );
+      if (cardIndex !== lastCardRef.current) {
+        lastCardRef.current = cardIndex;
+        setCurrentCard(cardIndex);
+      }
+    },
+    [cards]
+  );
 
   useMotionValueEvent(scrollYProgress, "change", updateCard);
 
@@ -104,10 +143,29 @@ const Impacto = () => {
       style={{ height: `${cards.length * 80}vh` }}
       data-dark-section="true"
     >
-      <section className="sticky top-0 bg-grey-40 overflow-hidden h-screen px-[16px] md:px-[146px] lg:px-[128px] xxl:px-[256px] py-[64px] flex flex-col items-center justify-center ">
+      <section className="sticky top-0 bg-grey-40 overflow-hidden h-screen px-[16px] md:px-[146px] lg:px-[128px] xxl:px-[256px] py-[64px] flex flex-col items-center justify-center relative">
+        {/* Spline Scene - Solo visible en desktop, centrado respecto al porcentaje, cargado solo cuando está cerca */}
+        {shouldLoadSpline && (
+          <div className="hidden lg:block absolute inset-0 w-full h-full z-0 overflow-hidden">
+            <div
+              ref={splineContainerRef}
+              className="absolute -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vh]"
+              style={{ left: "50%", top: "50%" }}
+            >
+              <Spline
+                scene="https://prod.spline.design/yZDPtNcHsclFcFsd/scene.splinecode"
+                className="w-full h-full"
+              />
+            </div>
+          </div>
+        )}
+
         {/* Área del porcentaje - posición absoluta fija */}
-        <div className="relative h-[400px] md:h-[547px] w-full lg:flex lg:items-center lg:h-auto lg:min-h-[400px] lg:gap-[64px] lg:justify-center lg:w-[870px]">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2  w-full max-w-4xl lg:relative lg:translate-y-0 lg:translate-x-0 lg:top-0 lg:left-0 lg:w-[470px]">
+        <div className="relative h-[400px] md:h-[547px] w-full lg:flex lg:items-center lg:h-auto lg:min-h-[400px] lg:gap-[64px] lg:justify-center lg:w-[870px] z-10">
+          <div
+            ref={percentageRef}
+            className="absolute top-0 left-1/2 -translate-x-1/2  w-full max-w-4xl lg:relative lg:translate-y-0 lg:translate-x-0 lg:top-0 lg:left-0 lg:w-[470px]"
+          >
             <div className="w-full md:h-[230px] pb-[55px] md:pb-0 md:mb-[128px] flex items-center justify-center lg:mb-0">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -120,7 +178,6 @@ const Impacto = () => {
                     ease: "easeOut",
                   }}
                   className="flex items-center gap-2"
-
                 >
                   {cards[currentCard].symbol && (
                     <p className="text-grey-00 text-[36px]! leading-[110%]! tracking-[-0.72px]!">
@@ -143,22 +200,19 @@ const Impacto = () => {
           </div>
 
           {/* Contenedor del contenido de texto - posición absoluta fija desde un punto */}
-          
-          <div
-            className="absolute lg:relative top-[200px] md:top-auto md:bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl lg:w-[380px] lg:max-w-full lg:translate-y-0 lg:translate-x-0 lg:top-0 lg:left-0"
 
-          >
+          <div className="absolute lg:relative top-[200px] md:top-auto md:bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl lg:w-[380px] lg:max-w-full lg:translate-y-0 lg:translate-x-0 lg:top-0 lg:left-0">
             <div className="lg:flex lg:flex-col lg:items-start lg:justify-start lg:min-h-[280px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentCard}
-                  initial={{ 
+                  initial={{
                     opacity: 0,
-                    y: isDesktop && currentCard === 0 ? '20%' : '0%'
+                    y: isDesktop && currentCard === 0 ? "20%" : "0%",
                   }}
-                  animate={{ 
+                  animate={{
                     opacity: 1,
-                    y: isDesktop && currentCard === 0 ? '20%' : '0%'
+                    y: isDesktop && currentCard === 0 ? "20%" : "0%",
                   }}
                   exit={{ opacity: 0 }}
                   transition={{
@@ -166,7 +220,6 @@ const Impacto = () => {
                     ease: "easeOut",
                   }}
                   className="lg:flex lg:flex-col lg:items-start"
-
                 >
                   {cards[currentCard].number && (
                     <div className="flex items-center gap-2 pl-[4px] mb-[20px]">
@@ -179,9 +232,9 @@ const Impacto = () => {
                   <p className="text-grey-00 h2 pb-[16px] gradient-text">
                     {cards[currentCard].title}
                   </p>
-                    <p className="text-grey-00 pb-[16px] text-xl font-semibold xxl:w-[550px]">
-                      {cards[currentCard].desc1}
-                    </p>
+                  <p className="text-grey-00 pb-[16px] text-xl font-semibold xxl:w-[550px]">
+                    {cards[currentCard].desc1}
+                  </p>
                   <p className="text-grey-00 text-lg xxl:w-[550px]">
                     {cards[currentCard].desc2}
                   </p>

@@ -30,16 +30,19 @@ export default async function SectionResultadosCasosdeExito() {
         </p>
       </div>
 
-      <div className="flex flex-col gap-10 rounded-[48px] bg-grey-00/6 p-6 md:flex-row md:items-start md:p-10">
+      <div className="flex flex-col gap-10 rounded-[48px]  p-6 md:flex-row md:items-start md:p-10">
         <div className="hidden lg:block justify-center items-start lg:w-1/3">
-          <img
-            src="/images/animations/orbe-de-particulas.gif"
-            alt=""
-            width={340}
-            height={340}
-            className="max-h-[320px] w-auto object-contain"
-            loading="lazy"
-          />
+          <video
+            className="max-h-[320px] w-auto object-contain pointer-events-none"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+          >
+            <source src="/videos/orb-mesh.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
         </div>
         <div className="w-full lg:w-2/3">
           <SliderCasosDeExito

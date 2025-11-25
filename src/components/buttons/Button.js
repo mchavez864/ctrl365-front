@@ -1,6 +1,7 @@
 'use client';
 
 import ArrowLeftLight from '@/svg/arrow-left-light';
+import ArrowLeft from '@/svg/arrow-left';
 
 // Componente del botón
 const Button = ({
@@ -18,9 +19,9 @@ const Button = ({
 
   const variantStyles = {
     black:
-      'leading-[110%] tracking-[-0.32px] font-normal bg-grey-40 text-grey-00 px-[32px] py-[15px] items-center justify-center rounded-[900px] relative flex gap-[8px]',
+      'leading-[110%] tracking-[-0.32px] font-normal bg-grey-40 text-grey-00 px-[32px] h-12  items-center justify-center rounded-[900px] relative flex gap-[8px]',
     white:
-      'leading-[110%] tracking-[-0.32px] bg-grey-00 text-grey-40 px-[32px] py-[15px] items-center justify-center rounded-[900px] relative flex gap-[8px]',
+      'leading-[110%] tracking-[-0.32px] bg-grey-00 text-grey-40 px-[32px] h-10 items-center justify-center rounded-[900px] relative flex gap-[8px]',
     glass:
       'leading-[110%] tracking-[-0.32px] glass font-normal  text-grey-00 px-[32px] py-[15px] items-center justify-center rounded-[900px] relative flex gap-[8px] border border-solid border-grey-00 duration-300',
     glassArrow:
@@ -36,7 +37,7 @@ const Button = ({
 
   // Clases comunes para el contenedor (button o a), incluyendo disabled
   const containerClasses = [
-    `cursor-pointer flex items-center justify-center relative font-semibold group gap-[2px] duration-300 ${
+    `cursor-pointer flex items-center justify-center relative font-semibold group gap-[2px] transition-all duration-300 ease-in-out ${
       variant === 'onlyText' ? 'rounded-[4px]' : 'rounded-[900px]'
     } focus:outline-none`,
     isDisabled
@@ -107,20 +108,52 @@ const Button = ({
           .join(' ')}
       >
         {variant === 'black' && (
-          <div
-            className={`w-[8px] h-[8px] rounded-full duration-300 ${
+          <span
+            className={`rounded-full transition-all duration-300 ease-in-out flex items-center justify-center overflow-hidden ${
               isDisabled
-                ? 'bg-grey-00'
-                : 'bg-grey-00 group-hover:bg-orange group-active:bg-grey-00'
+                ? 'w-[8px] h-[8px] bg-grey-00'
+                : 'w-[8px] h-[8px] bg-grey-00 group-hover:w-[26px] group-hover:h-[26px] group-hover:p-1 group-hover:bg-orange'
             }`}
-          />
+          >
+            <span className={`relative inline-block overflow-hidden transition-all duration-300 ease-in-out ${
+              isDisabled 
+                ? 'w-0 h-0' 
+                : 'w-0 h-0 group-hover:w-[18px] group-hover:h-[15px]'
+            }`}>
+              <ArrowLeft
+                color={isDisabled ? '#000000' : '#000000'}
+                className={`absolute -translate-x-[200%] opacity-0 scale-0 transition-all duration-300 ease-in-out group-hover:translate-x-0 group-hover:opacity-100 group-hover:scale-75 ${
+                  isDisabled ? '' : ''
+                }`}
+                width="18"
+                height="15"
+              />
+            </span>
+          </span>
         )}
         {variant === 'white' && (
-          <div
-            className={`w-[8px] h-[8px] rounded-full duration-300 ${
-              isDisabled ? 'bg-grey-30' : 'bg-grey-40 group-hover:bg-orange'
+          <span
+            className={`rounded-full transition-all duration-300 ease-in-out flex items-center justify-center overflow-hidden ${
+              isDisabled
+                ? 'w-[8px] h-[8px] bg-grey-30'
+                : 'w-[8px] h-[8px] bg-grey-40 group-hover:w-[26px] group-hover:h-[26px] group-hover:p-1 group-hover:bg-grey-40'
             }`}
-          />
+          >
+            <span className={`relative inline-block overflow-hidden transition-all duration-300 ease-in-out ${
+              isDisabled 
+                ? 'w-0 h-0' 
+                : 'w-0 h-0 group-hover:w-[18px] group-hover:h-[15px]'
+            }`}>
+              <ArrowLeft
+                color={isDisabled ? '#666666' : '#ffffff'}
+                className={`absolute -translate-x-[200%] opacity-0 scale-0 transition-all duration-300 ease-in-out group-hover:translate-x-0 group-hover:opacity-100 group-hover:scale-75 ${
+                  isDisabled ? '' : ''
+                }`}
+                width="18"
+                height="15"
+              />
+            </span>
+          </span>
         )}
         {variant !== 'glassArrow' && copy}
         {loading && (

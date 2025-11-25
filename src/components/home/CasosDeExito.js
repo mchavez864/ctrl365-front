@@ -59,9 +59,22 @@ export default async function SectionCasosDeExito() {
         className="hidden absolute top-0 right-0 opacity-50 xl:block xl:translate-x-[20%]"
       />
       <div className="mb-[32px] text-center flex flex-col items-center gap-[16px] lg:gap-[32px]">
-        <Image src="/images/elements/over.png" alt="" width={156} height={60} className='md:w-[230px] lg:w-[333px]'/>
-        <h2 className='h1 md:max-w-[400px] lg:max-w-[800px]'>{tPage('section.title')} <span className='text-grey-20'>{tPage('section.span')}</span></h2>
-        <Button variant='black' copy={tPage('section.button')} url='/casos-de-exito' />
+        <Image
+          src="/images/elements/over.png"
+          alt=""
+          width={156}
+          height={60}
+          className="md:w-[230px] lg:w-[333px]"
+        />
+        <h2 className="h1 md:max-w-[400px] lg:max-w-[800px]">
+          {tPage('section.title')} <br />
+          <span className="text-grey-20">{tPage('section.span')}</span>
+        </h2>
+        <Button
+          variant="black"
+          copy={tPage('section.button')}
+          url="/casos-de-exito"
+        />
       </div>
       <SliderCasosDeExito
         swiperConfig={{
