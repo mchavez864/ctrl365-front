@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 import Button from "@/components/buttons/Button";
 import Image from "next/image";
 import RevealTextAnimation from "@/components/animations/RevealTextAnimation";
@@ -12,8 +13,20 @@ const Hero = () => {
   const words = t.raw("words");
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [fade, setFade] = useState(true);
+  const [initialFade, setInitialFade] = useState(false);
+  const [isInitialFadeComplete, setIsInitialFadeComplete] = useState(false);
+  const [hasAppliedInitialDelay, setHasAppliedInitialDelay] = useState(false);
 
   useEffect(() => {
+    // Fade in inicial
+    setTimeout(() => {
+      setInitialFade(true);
+      // Marcar que el fade in inicial está completo después del delay + duration
+      setTimeout(() => {
+        setIsInitialFadeComplete(true);
+      }, 500 + 300); // delay + duration
+    }, 0.4 * 1000); // Delay similar al de los otros textos
+
     const interval = setInterval(() => {
       setFade(false);
       setTimeout(() => {
@@ -24,6 +37,17 @@ const Hero = () => {
 
     return () => clearInterval(interval);
   }, [words.length]);
+
+  // Rastrear si ya se aplicó el delay inicial
+  useEffect(() => {
+    if (initialFade && fade && !hasAppliedInitialDelay) {
+      // Marcar que ya se aplicó el delay después de que se active
+      const timer = setTimeout(() => {
+        setHasAppliedInitialDelay(true);
+      }, 100); // Pequeño delay para asegurar que se aplicó
+      return () => clearTimeout(timer);
+    }
+  }, [initialFade, fade, hasAppliedInitialDelay]);
 
   return (
     <section className="bg-grey-10 overflow-hidden">
@@ -57,13 +81,20 @@ const Hero = () => {
             </FadeInUp>
           </div>
           <div className="lg:self-end lg:flex lg:flex-col lg:items-end">
-            <p
-              className={`display hidden lg:block transition-opacity duration-300 ${
-                fade ? "opacity-100" : "opacity-0"
-              }`}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: initialFade ? (fade ? 1 : 0) : 0
+              }}
+              transition={{
+                duration: 0.3,
+                delay: hasAppliedInitialDelay ? 0 : (initialFade && fade ? 0.5 : 0),
+                ease: "easeOut"
+              }}
+              className="display hidden lg:block"
             >
               {words[currentWordIndex]}
-            </p>
+            </motion.p>
             <FadeInUp delay={0.8} className="w-full h-full lg:h-auto lg:w-[426px] rounded-[16px] overflow-hidden">
             <div className="w-full h-full lg:h-auto lg:w-[426px] rounded-[16px] overflow-hidden">
               <Image
