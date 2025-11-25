@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import Button from "@/components/buttons/Button";
 import Image from "next/image";
+import RevealTextAnimation from "@/components/animations/RevealTextAnimation";
+import FadeInUp from "@/components/animations/FadeInUp";
 
 const Hero = () => {
   const t = useTranslations("Home.hero");
@@ -44,11 +46,15 @@ const Hero = () => {
         <div className="relative z-10 lg:flex lg:justify-between lg:h-[610px]">
           <div>
             <h1 className="lg:max-w-[800px]">
-              {t("title")}{" "}
-              <span className="lg:hidden">{words.join(", ")}.</span>
+              <RevealTextAnimation>{t("title1")} </RevealTextAnimation>
+              <RevealTextAnimation delay={0.2}>{t("title2")} </RevealTextAnimation>
+              <RevealTextAnimation delay={0.4}>
+              <span className="lg:hidden">{words.join(", ")}.</span></RevealTextAnimation>
             </h1>
-            <p className="lg my-[16px]">{t("subtitle")}</p>
-            <Button copy={t("cta")} variant="black" className="mb-[64px]" />
+            <FadeInUp delay={0.4} className="lg my-[16px]">{t("subtitle")}</FadeInUp>
+            <FadeInUp delay={0.6} className="mb-[64px]">
+              <Button copy={t("cta")} variant="black" />
+            </FadeInUp>
           </div>
           <div className="lg:self-end lg:flex lg:flex-col lg:items-end">
             <p
@@ -58,6 +64,7 @@ const Hero = () => {
             >
               {words[currentWordIndex]}
             </p>
+            <FadeInUp delay={0.8} className="w-full h-full lg:h-auto lg:w-[426px] rounded-[16px] overflow-hidden">
             <div className="w-full h-full lg:h-auto lg:w-[426px] rounded-[16px] overflow-hidden">
               <Image
                 src="/images/hero/video.webp"
@@ -67,6 +74,7 @@ const Hero = () => {
                 className="object-cover"
               />
             </div>
+            </FadeInUp>
           </div>
         </div>
         {/* <div className="hidden lg:flex lg:justify-between lg:mt-[16px]">
