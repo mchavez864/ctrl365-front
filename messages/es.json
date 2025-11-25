@@ -7,6 +7,21 @@
       "cta": "Comenzá hoy",
       "words": ["rápida", "medible", "humana"]
     },
+    "solutions": {
+      "title1": "Copilotos y agentes de IA",
+      "text1": "Potenciamos a las personas con interfaces en lenguaje natural y agentes autónomos que simplifican el trabajo diario.",
+      "title2": "Automatización de procesos con IA",
+      "text2": "Eliminamos tareas manuales, reducimos fricción y escalamos la eficiencia mediante automatización inteligente.",
+      "title3": " IA generativa para empresas",
+      "text3": "Usamos datos y modelos avanzados para resolver desafíos reales de negocio y acelerar la toma de decisiones.",
+      "title4": "Fundamento de IA",
+      "text4": "Construimos una base segura y escalable para expandir la automatización y la IA con confianza y gobernanza.",
+      "section1": "Copilotos y agentes de IA",
+      "section2": "Automatización de Procesos con IA",
+      "section3": " IA Generativa para Empresas",
+      "section4": "Fundamento de ia",
+      "sectionTitle": "SOLUCIONES"
+    },
     "OurDNA": {
       "title": "Nuestro ADN",
       "Cards": {

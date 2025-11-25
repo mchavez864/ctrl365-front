@@ -8,6 +8,7 @@ import Impacto from "@/components/home/Impacto";
 import OurDNA from "@/components/home/OurDNA";
 import Quote from "@/components/home/Quote";
 import CasosDeExito from "@/components/home/CasosDeExito";
+import Soluciones from "@/components/soluciones/Soluciones";
 
 export default async function Home() {
   const t = await getTranslations("Home");
@@ -15,6 +16,7 @@ export default async function Home() {
     <main className="bg-grey-40 relative">
       <Navbar />
       <Hero />
+      <Soluciones/>
       <CasosDeExito />
       {/* <Impacto /> */}
       <OurDNA />
