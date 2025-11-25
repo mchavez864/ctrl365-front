@@ -1,36 +1,38 @@
-import SliderCasosDeExito from '../sliders/SliderCasosDeExito';
-import { getTranslations } from 'next-intl/server';
-import Image from 'next/image';
-import Button from '../buttons/Button';
+import SliderCasosDeExito from "../sliders/SliderCasosDeExito";
+import { getTranslations } from "next-intl/server";
+import Image from "next/image";
+import Button from "../buttons/Button";
+import FadeInUp from "../animations/FadeInUp";
+import RevealTextAnimation from "../animations/RevealTextAnimation";
 
 const SLIDER_MEDIA = [
   {
     id: 1,
-    translationKey: 'santander',
-    brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-santander.svg',
+    translationKey: "santander",
+    brand: "/images/pages/casos-de-uso/slider-casos-de-uso/logo-santander.svg",
     image:
-      '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-santander.webp',
-    link: '/casos/example-case',
+      "/images/pages/casos-de-uso/slider-casos-de-uso/imagen-santander.webp",
+    link: "/casos/example-case",
   },
   {
     id: 2,
-    translationKey: 'galicia',
-    brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-galicia.svg',
-    image: '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-galicia.webp',
-    link: '/casos/example-case',
+    translationKey: "galicia",
+    brand: "/images/pages/casos-de-uso/slider-casos-de-uso/logo-galicia.svg",
+    image: "/images/pages/casos-de-uso/slider-casos-de-uso/imagen-galicia.webp",
+    link: "/casos/example-case",
   },
   {
     id: 3,
-    translationKey: 'howden',
-    brand: '/images/pages/casos-de-uso/slider-casos-de-uso/logo-howden.svg',
-    image: '/images/pages/casos-de-uso/slider-casos-de-uso/imagen-howden.webp',
-    link: '/casos/example-case',
+    translationKey: "howden",
+    brand: "/images/pages/casos-de-uso/slider-casos-de-uso/logo-howden.svg",
+    image: "/images/pages/casos-de-uso/slider-casos-de-uso/imagen-howden.webp",
+    link: "/casos/example-case",
   },
 ];
 
 export default async function SectionCasosDeExito() {
-  const t = await getTranslations('SuccessStoriesSlider');
-  const tPage = await getTranslations('Home.SuccessStories');
+  const t = await getTranslations("SuccessStoriesSlider");
+  const tPage = await getTranslations("Home.SuccessStories");
 
   const slides = SLIDER_MEDIA.map(({ translationKey, ...slide }) => {
     return {
@@ -67,20 +69,24 @@ export default async function SectionCasosDeExito() {
           className="md:w-[230px] lg:w-[333px]"
         />
         <h2 className="h1 md:max-w-[400px] lg:max-w-[800px]">
-          {tPage('section.title')} <br />
-          <span className="text-grey-20">{tPage('section.span')}</span>
+          <RevealTextAnimation>{tPage("section.title")} </RevealTextAnimation>
+          <RevealTextAnimation delay={0.2}>
+            <span className="text-grey-20">{tPage("section.span")}</span>
+          </RevealTextAnimation>
         </h2>
+        <FadeInUp>
         <Button
           variant="black"
-          copy={tPage('section.button')}
+          copy={tPage("section.button")}
           url="/casos-de-exito"
         />
+        </FadeInUp>
       </div>
       <SliderCasosDeExito
         swiperConfig={{
           slidesPerView: 1.1,
           spaceBetween: 16,
-          className: '!overflow-visible',
+          className: "!overflow-visible",
         }}
         slides={slides}
         footerClassName="mt-8"
