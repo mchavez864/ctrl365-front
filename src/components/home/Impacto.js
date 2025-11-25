@@ -143,7 +143,7 @@ const Impacto = () => {
       style={{ height: `${cards.length * 80}vh` }}
       data-dark-section="true"
     >
-      <section className="sticky top-0 bg-grey-40 overflow-hidden h-screen px-[16px] md:px-[146px] lg:px-[128px] xxl:px-[256px] py-[64px] flex flex-col items-center justify-center relative">
+      <section className="sticky top-0 bg-grey-40 overflow-hidden h-screen px-[16px] md:px-[146px] lg:px-[128px] xxl:px-[256px] py-[64px] flex flex-col items-center justify-center">
         {/* Spline Scene - Solo visible en desktop, centrado respecto al porcentaje, cargado solo cuando está cerca */}
         {shouldLoadSpline && (
           <div className="hidden lg:block absolute inset-0 w-full h-full z-0 overflow-hidden">
@@ -162,11 +162,28 @@ const Impacto = () => {
 
         {/* Área del porcentaje - posición absoluta fija */}
         <div className="relative h-[400px] md:h-[547px] w-full lg:flex lg:items-center lg:h-auto lg:min-h-[400px] lg:gap-[64px] lg:justify-center lg:w-[870px] z-10">
+          {/* Video orb-full - Solo visible en mobile y tablet, detrás de los números - posición fija */}
+          <div className="lg:hidden absolute top-[-55px] md:top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl flex items-center justify-center" style={{ height: '230px' }}>
+            <video
+              className="w-[250px] h-[250px] md:w-[350px] md:h-[350px] object-contain pointer-events-none z-0"
+              style={{
+                clipPath: 'circle(50%)',
+              }}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+            >
+              <source src="/videos/orb-full.webm" type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
           <div
             ref={percentageRef}
             className="absolute top-0 left-1/2 -translate-x-1/2  w-full max-w-4xl lg:relative lg:translate-y-0 lg:translate-x-0 lg:top-0 lg:left-0 lg:w-[470px]"
           >
-            <div className="w-full md:h-[230px] pb-[55px] md:pb-0 md:mb-[128px] flex items-center justify-center lg:mb-0">
+            <div className="relative w-full md:h-[230px] pb-[55px] md:pb-0 md:mb-[128px] flex items-center justify-center lg:mb-0 z-10">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentCard}
