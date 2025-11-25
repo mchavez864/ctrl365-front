@@ -8,19 +8,19 @@
       "words": ["Fast", "measurable", "human"]
     },
     "solutions": {
-      "title1": "Copilotos y agentes de IA",
-      "text1": "Potenciamos a las personas con interfaces en lenguaje natural y agentes autónomos que simplifican el trabajo diario.",
-      "title2": "Automatización de procesos con IA",
-      "text2": "Eliminamos tareas manuales, reducimos fricción y escalamos la eficiencia mediante automatización inteligente.",
-      "title3": " IA generativa para empresas",
-      "text3": "Usamos datos y modelos avanzados para resolver desafíos reales de negocio y acelerar la toma de decisiones.",
-      "title4": "Fundamento de IA",
-      "text4": "Construimos una base segura y escalable para expandir la automatización y la IA con confianza y gobernanza.",
-      "section1": "Copilotos y agentes de IA",
-      "section2": "Automatización de Procesos con IA",
-      "section3": " IA Generativa para Empresas",
-      "section4": "Fundamento de ia",
-      "sectionTitle": "SOLUCIONES"
+      "title1": "AI copilots & agents",
+      "text1": "We empower people with natural-language interfaces and autonomous agents that simplify daily work.",
+      "title2": "AI-powered process automation",
+      "text2": "We eliminate manual work, reduce friction, and scale efficiency through intelligent automation.",
+      "title3": "Generative AI for business",
+      "text3": "We use data and LLMs to solve real business challenges and accelerate decision-making.",
+      "title4": "AI foundation",
+      "text4": "We build a secure, scalable foundation to grow automation and AI with confidence and governance.",
+      "section1": "AI copilots & agents",
+      "section2": "AI-powered process automation",
+      "section3": "Generative AI for business",
+      "section4": "AI foundation",
+      "sectionTitle": "SOLUTIONS"
     },
     "OurDNA": {
       "title": "Our ADN",

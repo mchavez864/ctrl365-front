@@ -218,7 +218,7 @@ const Soluciones = () => {
                     <svg className="translate-y-[-1px]" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <circle cx="6" cy="6" r="6" fill="#FF4D00" />
                     </svg>
-                    <p className="text-[16px] font-[500] leading-[120%] text-white">SOLUCIONES</p>
+                    <p className="text-[16px] font-[500] leading-[120%] text-white">{t("sectionTitle")}</p>
                   </div>
                   <div className="w-full h-[60%] flex flex-col items-center justify-center">
                     <h2 className="text-white text-center text-[24px] font-[400] leading-[110%] tracking-[-0.24px]">{slides.title}</h2>
@@ -271,7 +271,7 @@ const Soluciones = () => {
               <svg className="translate-y-[-1px]" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                 <circle cx="6" cy="6" r="6" fill="#FF4D00" />
               </svg>
-              <p className="text-[16px] font-[500] leading-[120%] text-white">SOLUCIONES</p>
+              <p className="text-[16px] font-[500] leading-[120%] text-white">{t("sectionTitle")}</p>
             </div>
             <div className={`text-center w-full h-[60%] flex flex-col items-center justify-center transition-opacity duration-500 ease-out ${showContent ? "opacity-100" : "opacity-0"}`}>
               <h2 className="text-white">{sliderData[actualSlide - 1].title}</h2>
