@@ -1,8 +1,8 @@
 {
   "Home": {
-    "title": "CASA",
     "hero": {
-      "title": "IA para resultados reales de negocio:",
+      "title1": "IA para resultados",
+      "title2": "reales de negocio:",
       "subtitle": "Creado para la IA Pensado para las personas.",
       "cta": "Comenzá hoy",
       "words": ["rápida", "medible", "humana"]

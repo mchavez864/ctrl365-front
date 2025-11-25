@@ -10,12 +10,15 @@ import Quote from "@/components/home/Quote";
 import CasosDeExito from "@/components/home/CasosDeExito";
 import Soluciones from "@/components/soluciones/Soluciones";
 import SectionForm from '@/components/sections/SectionForm';
+import FadeInUp from "@/components/animations/FadeInUp";
 
 export default async function Home() {
   const t = await getTranslations("Home");
   return (
     <main className="bg-grey-40 relative">
-      <Navbar />
+      <FadeInUp animateOnMount delay={0} duration={0.6} yOffset={20}>
+        <Navbar />
+      </FadeInUp>
       <Hero />
       <Soluciones/>
       <CasosDeExito />

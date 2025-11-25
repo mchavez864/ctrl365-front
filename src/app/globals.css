@@ -297,3 +297,17 @@ body {
 .bg-grid-white {
   background: #e7e5e4 url("/images/elements/gridWhite.svg") no-repeat top left;
 }
+
+
+.animation {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  min-height: 1px;
+}
+
+.animation__inside {
+  display: block;
+  position: relative;
+}
+
