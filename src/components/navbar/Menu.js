@@ -177,13 +177,20 @@ const Menu = ({ onClose }) => {
             </div>
           </div>
         </div>
-        <Image
-          src="/images/white-mesh.webp"
-          alt=""
-          width={1638}
-          height={1113}
-          className="absolute -bottom-[400px] w-full h-full object-cover opacity-10 z-20  md:bottom-[50%] md:translate-y-1/2 md:h-auto xxl:opacity-5"
-        />
+        <video
+          className="absolute -bottom-[400px] w-full h-full object-cover opacity-10 z-20 md:bottom-[50%] md:translate-y-1/2 md:h-auto xxl:opacity-5 pointer-events-none"
+          style={{
+            transform: "scale(1.2)",
+          }}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src="/videos/mesh-white.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
         <div className="absolute bottom-0 right-0 lg:top-[-163px] lg:right-[-250px] w-[187px] h-[252px] lg:w-[800px] xxl:h-[800px] xxl:w-[500px] lg:h-[500px] bg-orange rounded-full blur-[150px] lg:blur-[250px] z-20" />
       </div>
     </motion.div>

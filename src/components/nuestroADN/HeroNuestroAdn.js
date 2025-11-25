@@ -41,29 +41,20 @@ export default async function HeroNuestroAdn() {
           className="lg:w-[50%]"
         />
       </div>
-      <figure className="opacity-30 absolute top-[495px] left-0 w-full z-10 overflow-hidden md:top-[295px]">
-        <img
-          src="/images/elements/dots-flying-mb.png"
-          alt=""
-          width={540}
-          height={1080}
-          className="w-full h-full object-cover md:hidden"
-        />
-        <img
-          src="/images/elements/dots-flying-tablet.png"
-          alt=""
-          width={1536}
-          height={2070}
-          className="w-full h-full object-cover hidden md:block lg:hidden"
-        />
-        <img
-          src="/images/elements/dots-flying-desktop.png"
-          alt=""
-          width={2160}
-          height={2151}
-          className="w-full h-full object-cover hidden lg:block"
-        />
-      </figure>
+      <video
+        className="opacity-10 absolute top-[495px] left-0 w-full z-10 overflow-hidden md:top-[295px] pointer-events-none object-cover"
+        style={{
+          transform: "scale(1.3)",
+        }}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+      >
+        <source src="/videos/mesh-white.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
       <span className="z-0 absolute rounded-full filter blur-[150px] bottom-[-120px] left-[20%] w-[948px] h-[470px] bg-purple xxl:w-[1388px] lg:blur-[200px] xxl:h-[686px]"></span>
     </section>
   );
