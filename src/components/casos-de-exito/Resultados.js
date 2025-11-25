@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, memo, useCallback, useEffect } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import NumberFlow from '@number-flow/react';
 
@@ -282,17 +281,23 @@ const Resultados = ({ title, paragraph1, paragraph2, tagline, cards }) => {
               {paragraph2}
             </p>
           </div>
-          <div className="relative w-[156px] h-[156px] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:w-[316px] lg:h-[316px]">
-            <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full blur-2xl will-change-transform"></div>
-            <Image
-              src="/images/orb.webp"
-              alt="Resultados"
-              width={405}
-              height={405}
-              className="w-[156px] h-auto z-30 relative lg:w-[316px]"
-              priority
-            />
-            <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full opacity-90 mix-blend-soft-light z-40 pointer-events-none"></div>
+          <div className="relative z-30 w-[156px] h-[156px] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:w-[316px] lg:h-[316px]">
+            <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[316px] lg:h-[316px] bg-orange rounded-full blur-3xl will-change-transform"></div>
+            <video
+              className="w-[156px] h-auto z-30 relative lg:w-[316px] object-contain pointer-events-none"
+              style={{
+                clipPath: 'circle(50%)',
+              }}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+            >
+              <source src="/videos/orb-full.webm" type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[315.9px] lg:h-[315.9px] bg-orange rounded-full opacity-90 mix-blend-soft-light z-40 pointer-events-none"></div>
           </div>
         </div>
         <video

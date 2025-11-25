@@ -10,13 +10,20 @@ export default function SectionForm({ subject, destination }) {
     <section className="px-4 py-16 md:px-16 xl:py-32 xxl:px-32 bg-grey-10 bg-grid-white">
       <div className="xl:flex">
         <div className="xl:w-1/3 space-y-6">
-          <img
-            src="/images/orb.webp"
-            alt=""
-            width={408}
-            height={378}
-            className="ml-auto mb-14 max-w-[167px] md:mb-0 md:max-w-[230px] xl:mx-auto xl:mt-[270px] lg:max-w-[324px] xxl:mt-[170px] xxl:max-w-[408px] "
-          />
+          <video
+            className="ml-auto mb-14 max-w-[167px] md:mb-0 md:max-w-[230px] xl:mx-auto xl:mt-[270px] lg:max-w-[324px] xxl:mt-[170px] xxl:max-w-[408px] object-contain pointer-events-none grayscale"
+            style={{
+              clipPath: 'circle(50%)',
+            }}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+          >
+            <source src="/videos/orb-full.webm" type="video/webm" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <div className="xl:w-2/3">

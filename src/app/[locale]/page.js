@@ -9,6 +9,7 @@ import OurDNA from "@/components/home/OurDNA";
 import Quote from "@/components/home/Quote";
 import CasosDeExito from "@/components/home/CasosDeExito";
 import Soluciones from "@/components/soluciones/Soluciones";
+import SectionForm from '@/components/sections/SectionForm';
 
 export default async function Home() {
   const t = await getTranslations("Home");
@@ -21,6 +22,10 @@ export default async function Home() {
       {/* <Impacto /> */}
       <OurDNA />
       <Quote />
+      <SectionForm
+        subject="Llega a jaubetete?"
+        destination="matias@jaubet.com"
+      />
     </main>
   );
 }

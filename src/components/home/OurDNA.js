@@ -24,19 +24,19 @@ const OurDNA = () => {
     {
       id: 1,
       title: t("Cards.card1.title"),
-      icon: "./images/pages/home/ourDNA/ChallengersIcon.svg",
+      icon: "/videos/icon-02.json",
       description: t("Cards.card1.description"),
     },
     {
       id: 2,
       title: t("Cards.card2.title"),
-      icon: "./images/pages/home/ourDNA/HumanIcon.svg",
+      icon: "/videos/icon-03.json",
       description: t("Cards.card2.description"),
     },
     {
       id: 3,
       title: t("Cards.card3.title"),
-      icon: "./images/pages/home/ourDNA/IAIcon.svg",
+      icon: "/videos/icon-05.json",
       description: t("Cards.card3.description"),
     },
     {

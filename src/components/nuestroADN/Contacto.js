@@ -9,6 +9,20 @@ const Contacto = () => {
       className="relative h-[475px] md:h-[387px] lg:h-[468px] xxl:h-[468px] bg-grey-10 px-[16px] md:px-[64px] pt-[128px] pb-[64px] lg:py-[128px]  overflow-hidden lg:flex 
     lg:justify-end xxl:justify-center"
     >
+      <video
+        className="absolute top-4 right-4 w-[80px] h-[80px] lg:top-1/2 lg:left-[64px] lg:-translate-y-1/2 lg:w-[200px] lg:h-[200px] xl:w-[250px] xl:h-[250px] xxl:left-[128px] object-contain pointer-events-none grayscale z-10"
+        style={{
+          clipPath: 'circle(50%)',
+        }}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+      >
+        <source src="/videos/orb-full.webm" type="video/webm" />
+        Your browser does not support the video tag.
+      </video>
       <div className="lg:w-[869px] xxl:w-[684px]">
         <h2 className="text-grey-40 pb-[8px] lg:text-[32px]! lg:max-w-[648px]">
           {t('title')}
