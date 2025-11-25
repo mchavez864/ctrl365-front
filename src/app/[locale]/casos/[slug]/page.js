@@ -3,6 +3,7 @@ import HeroCaso from '@/components/caso-page/HeroCaso';
 import ImpactCaso from '@/components/caso-page/ImpactCaso';
 import SolutionCaso from '@/components/caso-page/SolutionCaso';
 import Navbar from '@/components/navbar/Navbar';
+import { getCase } from '@/actions/getCases';
 
 // Función para obtener datos de Strapi (hardcodeado por ahora)
 async function getCasoData(slug) {
@@ -24,27 +25,27 @@ async function getCasoData(slug) {
 }
 
 // Función para generar metadatos dinámicos (SEO)
-export async function generateMetadata({ params }) {
-  const { slug, locale } = await params;
-  const data = await getCasoData(slug);
+// export async function generateMetadata({ params }) {
+//   const { slug, locale } = await params;
+//   const data = await getCase(slug, locale);
 
-  return {
-    title: data.title,
-    description: data.description,
-    openGraph: {
-      title: data.title,
-      description: data.description,
-      images: ['/og-image.jpg'],
-      locale: locale,
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: data.title,
-      description: data.description,
-    },
-  };
-}
+//   return {
+//     title: data.title,
+//     description: data.description,
+//     openGraph: {
+//       title: data.title,
+//       description: data.description,
+//       images: ['/og-image.jpg'],
+//       locale: locale,
+//       type: 'website',
+//     },
+//     twitter: {
+//       card: 'summary_large_image',
+//       title: data.title,
+//       description: data.description,
+//     },
+//   };
+// }
 
 // Componente de página (Server Component)
 export default async function CasoDeExitoPage({ params }) {

@@ -20,19 +20,23 @@ export default function CaseCard({
   return (
     <article className="relative flex h-[700px] flex-col overflow-hidden rounded-[40px] bg-grey-30 text-grey-00">
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/10" />
-      <img
-        src={image}
-        alt={`Imagen del caso ${brand}`}
-        className="h-full w-full object-cover"
-      />
+      {image && (
+        <img
+          src={image}
+          alt={`Imagen del caso ${title || 'caso de éxito'}`}
+          className="h-full w-full object-cover"
+        />
+      )}
 
       <div className="absolute inset-0 flex flex-col justify-between p-8 sm:p-10">
         <div className="flex items-center justify-between">
-          <img
-            src={brand}
-            alt={`Imagen del caso ${brand}`}
-            className="w-[100px] md:w-auto"
-          />
+          {brand && (
+            <img
+              src={brand}
+              alt={`Logo del caso ${title || 'caso de éxito'}`}
+              className="w-[100px] md:w-auto"
+            />
+          )}
           <a
             href={link}
             className="text-xs uppercase tracking-[0.35em] glass w-14 h-14 rounded-full flex items-center justify-center text-orange rotate-[-45deg]"

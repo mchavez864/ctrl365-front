@@ -75,9 +75,7 @@ export default function HeroCaso({ slug, title, data }) {
             }}
           >
             <p className="mb-8 lg:mb-16 lg:!text-[18px]">
-              La demanda de préstamos prendarios crecía con fuerza en Argentina.
-              Santander necesitaba escalar la originación y aprobación sin
-              sacrificar experiencia del cliente ni control operativo.
+              {data.subtitle}
             </p>
             <div className="border-l-4 border-orange pl-4 py-2 mb-8 lg:py-1 lg:mb-16">
               <p className="!font-sora mb-2 text-xl flex items-center gap-2 lg:!text-2xl">
