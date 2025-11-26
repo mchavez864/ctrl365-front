@@ -47,26 +47,35 @@ function buildMessageBody(fields) {
 }
 
 export async function sendContactEmail({ subject, to, fields }) {
-  const transporter = getTransporter();
+  try {
+    const transporter = getTransporter();
 
-  const resolvedSubject =
-    subject || CONTACT_DEFAULT_SUBJECT || 'Formulario de contacto';
-  const resolvedTo = to || CONTACT_DEFAULT_TO || SMTP_USER;
+    const resolvedSubject =
+      subject || CONTACT_DEFAULT_SUBJECT || 'Formulario de contacto';
+    const resolvedTo = to || CONTACT_DEFAULT_TO || SMTP_USER;
 
-  const textBody = Object.entries(fields)
-    .map(
-      ([key, value]) =>
-        `${key}: ${Array.isArray(value) ? value.join(', ') : value ?? ''}`
-    )
-    .join('\n');
+    if (!resolvedTo) {
+      throw new Error('No recipient email address configured');
+    }
 
-  const message = {
-    from: SMTP_FROM || SMTP_USER,
-    to: resolvedTo,
-    subject: resolvedSubject,
-    text: textBody,
-    html: buildMessageBody(fields),
-  };
+    const textBody = Object.entries(fields)
+      .map(
+        ([key, value]) =>
+          `${key}: ${Array.isArray(value) ? value.join(', ') : value ?? ''}`
+      )
+      .join('\n');
 
-  await transporter.sendMail(message);
+    const message = {
+      from: SMTP_FROM || SMTP_USER || 'noreply@ctrl365.com',
+      to: resolvedTo,
+      subject: resolvedSubject,
+      text: textBody,
+      html: buildMessageBody(fields),
+    };
+
+    await transporter.sendMail(message);
+  } catch (error) {
+    console.error('Error sending contact email:', error.message);
+    throw error;
+  }
 }
