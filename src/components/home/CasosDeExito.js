@@ -42,6 +42,7 @@ export default async function SectionCasosDeExito() {
     const imageUrl = getImageUrl(caseItem.Image);
     const brandUrl = getImageUrl(caseItem.Logo);
     
+    
     // Construir el link usando el slug
     const link = caseItem.Slug || caseItem.slug
       ? `/casos/${caseItem.Slug || caseItem.slug}`
@@ -62,6 +63,9 @@ export default async function SectionCasosDeExito() {
       ctaLabel: t("slides.ctaLabel"),
     };
   });
+
+console.log("slides", slides);
+console.log("cases", cases);
 
   return (
     <section className="px-4 py-16 md:px-16 xl:py-32 xxl:px-32 overflow-hidden relative bg-grey-10">
