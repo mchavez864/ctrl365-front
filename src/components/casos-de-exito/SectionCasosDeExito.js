@@ -26,10 +26,10 @@ export default async function SectionCasosDeExito() {
     return `${cmsBaseUrl}${url}`;
   };
 
-  // Validar que cases sea un array válido
-  if (!cases || !Array.isArray(cases) || cases.length === 0) {
-    return null;
-  }
+  // // Validar que cases sea un array válido
+  // if (!cases || !Array.isArray(cases) || cases.length === 0) {
+  //   return null;
+  // }
 
   // Mapear los casos de la API a la estructura esperada por CaseCard
   const slides = cases.map((caseItem, index) => {
