@@ -60,7 +60,7 @@ export default function HeroCaso({ slug, title, data }) {
               {title}
             </h1>
             <img
-              src="/images/pages/casos-de-uso/caso/logo.svg"
+              src={data.brandLogoBlack}
               alt=""
               width={149}
               height={26}
@@ -79,17 +79,17 @@ export default function HeroCaso({ slug, title, data }) {
             </p>
             <div className="border-l-4 border-orange pl-4 py-2 mb-8 lg:py-1 lg:mb-16">
               <p className="!font-sora mb-2 text-xl flex items-center gap-2 lg:!text-2xl">
-                +{' '}
+              {data.metricPrefix} {' '}
                 <span className="text-[32px] lg:!text-[48px]">
                   <AnimatedCounter
-                    value={1.5}
+                    value={data.metricValue}
                     decimals={1}
                   />
                 </span>{' '}
-                M USD
+                {data.metricSuffix}
               </p>
               <small className="block text-sm text-grey-30 max-w-[186px] leading-[120%] font-inter lg:text-base">
-                Decisiones en el punto de venta
+                {data.metricDescription}
               </small>
             </div>
             <SmallCard
@@ -106,8 +106,8 @@ export default function HeroCaso({ slug, title, data }) {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
         >
-          <Image
-            src="/images/pages/casos-de-uso/caso/santander.png"
+          <img
+            src={data.heroImage}
             alt=""
             width={1000}
             height={1000}
@@ -147,12 +147,10 @@ export default function HeroCaso({ slug, title, data }) {
             }}
           >
             <h2 className="mb-8 xxl:max-w-[1050px]">
-              El reto era absorber un pico de demanda manteniendo tiempos de
-              respuesta de minutos, no de días.
+                {data.challengeTitle}
             </h2>
             <p className="!text-[18px] text-grey-30 lg:max-w-[544px]">
-              Además había que aumentar throughput, mejorar la experiencia en
-              concesionarias y asegurar cumplimiento normativo de punta a punta.
+             {data.challengeDescription}
             </p>
           </motion.div>
         </motion.div>

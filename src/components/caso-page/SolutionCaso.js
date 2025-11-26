@@ -39,8 +39,7 @@ export default function SolutionCaso({ slug, title, data }) {
           className="mb-4"
         />
         <h2 className="mb-8 text-white lg:max-w-[869px] xxl:max-w-[824px] relative z-10">
-          Transformamos la originación en una experiencia de mostrador: decisión
-          en 20 minutos y fondos listos en 48–72 horas.
+         {data.title}
         </h2>
       </motion.div>
 
@@ -65,10 +64,7 @@ export default function SolutionCaso({ slug, title, data }) {
               visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
             }}
           >
-            Agentes comerciales capturan la solicitud en el punto de venta; los
-            datos se validan al instante y se disparan verificaciones, scoring y
-            políticas de crédito. En menos de 20 minutos el cliente obtiene una
-            decisión y el préstamo queda listo para desembolso en 48-72 horas.
+            {data.text1}
           </motion.p>
           <motion.p
             className="text-white md:w-1/2"
@@ -77,8 +73,7 @@ export default function SolutionCaso({ slug, title, data }) {
               visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
             }}
           >
-            El modelo es escalable a motos, camiones y otros productos de
-            financiación.
+            {data.text2}
           </motion.p>
         </motion.div>
       </div>
