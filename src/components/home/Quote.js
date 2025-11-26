@@ -1,17 +1,18 @@
-'use client';
-import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+"use client";
+import React, { useState, useRef, useCallback, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import {
   motion,
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-} from 'framer-motion';
-import Image from 'next/image';
-import Character from './quote/Character';
+} from "framer-motion";
+import Image from "next/image";
+import Character from "./quote/Character";
+import FadeInUp from "../animations/FadeInUp";
 
 const Quote = () => {
-  const t = useTranslations('Home.quote');
+  const t = useTranslations("Home.quote");
   return (
     <section
       data-dark-section="true"
@@ -26,30 +27,30 @@ const Quote = () => {
         <div className="flex items-center gap-2 ">
           <div className="bg-orange w-[12px] h-[12px] rounded-full"></div>
           <p className="text-grey-00 font-inter text-base! leading-[120%]! font-medium uppercase">
-            {t('tagline')}
+            {t("tagline")}
           </p>
         </div>
         <p className="h3 text-grey-20">
-          <Character value={t('text1') + ' '} />
-          <span className="text-grey-20 inline">{t('text2')}</span>
+          <Character value={t("text1") + " "} />
+          <span className="text-grey-20 inline">{t("text2")}</span>
         </p>
-        <div className="flex items-center gap-[16px] self-end">
-          <div className="flex items-center">
-            <div className="hidden md:block glass-results w-[98px] h-[64px] rounded-[46px] mr-[-16px]"></div>
-            <div className=" rounded-full overflow-hidden">
-              <Image
-                src="/images/pages/home/erik.webp"
-                alt=""
-                width={64}
-                height={64}
-              />
+        <FadeInUp className="flex items-center gap-[16px] self-end">
+            <div className="flex items-center">
+              <div className="hidden md:block glass-results w-[98px] h-[64px] rounded-[46px] mr-[-16px]"></div>
+              <div className=" rounded-full overflow-hidden">
+                <Image
+                  src="/images/pages/home/erik.webp"
+                  alt=""
+                  width={64}
+                  height={64}
+                />
+              </div>
             </div>
-          </div>
-          <div className="flex flex-col text-grey-00 max-w-[200px] z-30 md:max-w-full">
-            <p className="font-bold!">{t('author.name')}</p>
-            <p>{t('author.role')}</p>
-          </div>
-        </div>
+            <div className="flex flex-col text-grey-00 max-w-[200px] z-30 md:max-w-full">
+              <p className="font-bold!">{t("author.name")}</p>
+              <p>{t("author.role")}</p>
+            </div>
+        </FadeInUp>
       </div>
     </section>
   );
