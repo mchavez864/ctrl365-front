@@ -148,9 +148,11 @@
         "metricDescription": "[i]increase in issued policies volume.",
         "ctaLabel": "[i]Learn more"
       },
-      "results": "Results",
-      "ctaLabel": "Learn more"
-    }
+      "results": "Outcomes",
+      "ctaLabel": "See case studies"
+    },
+    "title": "Explore our",
+    "span": "case studies"
   },
   "ResultadosCasosdeExitoSlider": {
     "section": {
@@ -256,10 +258,31 @@
       }
     },
     "slides": {
-      "list-1": ["santander", "galiciaSeguros", "supervielle", "prisma", "molinosAgro", "molinosRio"],
+      "list-1": [
+        "santander",
+        "galiciaSeguros",
+        "supervielle",
+        "prisma",
+        "molinosAgro",
+        "molinosRio"
+      ],
       "list-2": ["ypf", "bbva", "telecom", "osde", "axion", "bancoProvincia"],
-      "list-3": ["arcor", "mercadoLibre", "sanCor", "nacionSeguros", "tarjetaNaranja", "bancoCiudad"],
-      "list-4": ["laAnonima", "petrobras", "icbc", "clarin", "andreani", "globant"]
+      "list-3": [
+        "arcor",
+        "mercadoLibre",
+        "sanCor",
+        "nacionSeguros",
+        "tarjetaNaranja",
+        "bancoCiudad"
+      ],
+      "list-4": [
+        "laAnonima",
+        "petrobras",
+        "icbc",
+        "clarin",
+        "andreani",
+        "globant"
+      ]
     }
   },
   "CasosDeExitoPage": {
