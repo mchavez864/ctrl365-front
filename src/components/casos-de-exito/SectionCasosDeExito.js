@@ -23,10 +23,6 @@ export default async function SectionCasosDeExito() {
     
     // Si es relativa, construir la URL completa
     const cmsBaseUrl = process.env.CMS_URL_API?.replace('/api', '') || '';
-    if (!cmsBaseUrl) {
-      console.warn('CMS_URL_API not configured, returning relative URL');
-      return url;
-    }
     return `${cmsBaseUrl}${url}`;
   };
 
