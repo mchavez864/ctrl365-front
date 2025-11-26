@@ -14,7 +14,7 @@ export async function getCases(locale) {
   const result = await response.json();
   return result.data;
 }
-
+ 
 
 export async function getCase(id, locale) {
 
