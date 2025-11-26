@@ -15,7 +15,7 @@ export async function getCases(locale) {
   return result.data;
 }
  
-
+ 
 export async function getCase(id, locale) {
 
 
