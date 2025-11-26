@@ -4,7 +4,7 @@
 function validateEnvVars() {
   const cmsUrl = process.env.CMS_URL_API;
   const cmsKey = process.env.CMS_KEY;
-
+ 
   if (!cmsUrl || !cmsKey) {
     const missing = [];
     if (!cmsUrl) missing.push('CMS_URL_API');
