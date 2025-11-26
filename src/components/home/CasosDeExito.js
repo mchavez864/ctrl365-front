@@ -8,7 +8,6 @@ import { getCases } from "@/actions/getCases";
 
 export default async function SectionCasosDeExito() {
   const t = await getTranslations("SuccessStoriesSlider");
-  const tPage = await getTranslations("Home.SuccessStories");
   const locale = await getLocale();
   const cases = await getCases(locale);
 
@@ -88,15 +87,15 @@ console.log("cases", cases);
           className="md:w-[230px] lg:w-[333px]"
         />
         <h2 className="h1 md:max-w-[400px] lg:max-w-[800px]">
-          <RevealTextAnimation>{tPage("section.title")} </RevealTextAnimation>
+          <RevealTextAnimation>{t("title")} </RevealTextAnimation>
           <RevealTextAnimation delay={0.2}>
-            <span className="text-grey-20">{tPage("section.span")}</span>
+            <span className="text-grey-20">{t("span")}</span>
           </RevealTextAnimation>
         </h2>
         <FadeInUp>
         <Button
           variant="black"
-          copy={tPage("section.button")}
+          copy={t("slides.ctaLabel")}
           url="/casos-de-exito"
         />
         </FadeInUp>

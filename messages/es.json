@@ -109,7 +109,8 @@
   "SuccessStoriesSlider": {
     "section": {
       "title": "Diseñado para entregar resultados",
-      "description": "Soluciones reconocidas por su impacto en eficiencia, velocidad y crecimiento."
+      "description": "Soluciones reconocidas por su impacto en eficiencia, velocidad y crecimiento.",
+      "span": "Soluciones destacadas por su impacto en eficiencia, velocidad y crecimiento."
     },
     "slides": {
       "santander": {
@@ -147,10 +148,12 @@
         },
         "metricDescription": "en volumen de pólizas emitidas.",
         "ctaLabel": "Conocer más"
-      }
+      },
+      "results": "Resultados",
+      "ctaLabel": "Conocer más"
     },
-    "results": "Resultados",
-    "ctaLabel": "Conocer más"
+    "title": "Descubrí nuestros",
+    "span": "casos de éxito"
   },
   "ResultadosCasosdeExitoSlider": {
     "section": {
@@ -264,14 +267,7 @@
         "molinosAgro",
         "molinosRio"
       ],
-      "list-2": [
-        "ypf",
-        "bbva",
-        "telecom",
-        "osde",
-        "axion",
-        "bancoProvincia"
-      ],
+      "list-2": ["ypf", "bbva", "telecom", "osde", "axion", "bancoProvincia"],
       "list-3": [
         "arcor",
         "mercadoLibre",

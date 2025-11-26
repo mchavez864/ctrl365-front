@@ -2,7 +2,7 @@
 
 export async function getCases(locale) {
   const response = await fetch(
-    `${process.env.CMS_URL_API}/case-studies?&populate=*&locale=${locale}`,
+    `${process.env.CMS_URL_API}/case-studies?&populate=*&locale=${locale === 'es' ? 'es-AR' : 'en'}`,
     {
       method: "GET",
       headers: {
