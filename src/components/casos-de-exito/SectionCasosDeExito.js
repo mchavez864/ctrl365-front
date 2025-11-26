@@ -1,9 +1,10 @@
 import SliderCasosDeExito from '../sliders/SliderCasosDeExito';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, getLocale } from 'next-intl/server';
 import { getCases } from '@/actions/getCases';
 
 export default async function SectionCasosDeExito() {
   const t = await getTranslations('SuccessStoriesSlider');
+  const locale = await getLocale();
   const cases = await getCases(locale);
   console.log(cases);
 
@@ -47,14 +48,14 @@ export default async function SectionCasosDeExito() {
       brand: brandUrl,
       image: imageUrl,
       link: link,
-      pre: 'resultados',
+      pre: t('slides.results'),
       title: caseItem.CardTitle || '',
       description: caseItem.CardText || '',
       premetric: caseItem.CardSymbol || '',
       metric: caseItem.CardNumber || '',
       postmetric: '%',
       metricDescription: caseItem.CardNumberText || '',
-      ctaLabel: 'Conocer más',
+      ctaLabel: t('slides.ctaLabel'),
     };
   });
 

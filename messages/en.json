@@ -147,7 +147,9 @@
         },
         "metricDescription": "[i]increase in issued policies volume.",
         "ctaLabel": "[i]Learn more"
-      }
+      },
+      "results": "Results",
+      "ctaLabel": "Learn more"
     }
   },
   "ResultadosCasosdeExitoSlider": {

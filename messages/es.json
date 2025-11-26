@@ -148,7 +148,9 @@
         "metricDescription": "en volumen de pólizas emitidas.",
         "ctaLabel": "Conocer más"
       }
-    }
+    },
+    "results": "Resultados",
+    "ctaLabel": "Conocer más"
   },
   "ResultadosCasosdeExitoSlider": {
     "section": {

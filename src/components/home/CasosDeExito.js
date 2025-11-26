@@ -1,50 +1,65 @@
 import SliderCasosDeExito from "../sliders/SliderCasosDeExito";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 import Image from "next/image";
 import Button from "../buttons/Button";
 import FadeInUp from "../animations/FadeInUp";
 import RevealTextAnimation from "../animations/RevealTextAnimation";
-
-const SLIDER_MEDIA = [
-  {
-    id: 1,
-    translationKey: "santander",
-    brand: "/images/pages/casos-de-uso/slider-casos-de-uso/logo-santander.svg",
-    image:
-      "/images/pages/casos-de-uso/slider-casos-de-uso/imagen-santander.webp",
-    link: "/casos/example-case",
-  },
-  {
-    id: 2,
-    translationKey: "galicia",
-    brand: "/images/pages/casos-de-uso/slider-casos-de-uso/logo-galicia.svg",
-    image: "/images/pages/casos-de-uso/slider-casos-de-uso/imagen-galicia.webp",
-    link: "/casos/example-case",
-  },
-  {
-    id: 3,
-    translationKey: "howden",
-    brand: "/images/pages/casos-de-uso/slider-casos-de-uso/logo-howden.svg",
-    image: "/images/pages/casos-de-uso/slider-casos-de-uso/imagen-howden.webp",
-    link: "/casos/example-case",
-  },
-];
+import { getCases } from "@/actions/getCases";
 
 export default async function SectionCasosDeExito() {
   const t = await getTranslations("SuccessStoriesSlider");
   const tPage = await getTranslations("Home.SuccessStories");
+  const locale = await getLocale();
+  const cases = await getCases(locale);
 
-  const slides = SLIDER_MEDIA.map(({ translationKey, ...slide }) => {
+  // Función helper para construir URLs de Strapi
+  const getImageUrl = (imageData) => {
+    if (!imageData) return "";
+    
+    // La estructura de Strapi tiene url directamente en el objeto Image
+    // url ya viene como URL absoluta desde Azure Blob Storage
+    const url = imageData.url || imageData.data?.attributes?.url || imageData.attributes?.url || "";
+    if (!url) return "";
+    
+    // Si la URL ya es absoluta, retornarla directamente
+    if (url.startsWith("http://") || url.startsWith("https://")) {
+      return url;
+    }
+    
+    // Si es relativa, construir la URL completa
+    const cmsBaseUrl = process.env.CMS_URL_API?.replace("/api", "") || "";
+    return `${cmsBaseUrl}${url}`;
+  };
+
+  // Validar que cases sea un array válido
+  if (!cases || !Array.isArray(cases) || cases.length === 0) {
+    return null;
+  }
+
+  // Mapear los casos de la API a la estructura esperada por CaseCard
+  const slides = cases.map((caseItem, index) => {
+    // Construir URLs de imágenes
+    const imageUrl = getImageUrl(caseItem.Image);
+    const brandUrl = getImageUrl(caseItem.Logo);
+    
+    // Construir el link usando el slug
+    const link = caseItem.Slug || caseItem.slug
+      ? `/casos/${caseItem.Slug || caseItem.slug}`
+      : caseItem.link || "/casos/example-case";
+
     return {
-      ...slide,
-      pre: t(`slides.${translationKey}.pre`),
-      title: t(`slides.${translationKey}.title`),
-      description: t(`slides.${translationKey}.description`),
-      premetric: t(`slides.${translationKey}.metric.prefix`),
-      metric: t(`slides.${translationKey}.metric.value`),
-      postmetric: t(`slides.${translationKey}.metric.suffix`),
-      metricDescription: t(`slides.${translationKey}.metricDescription`),
-      ctaLabel: t(`slides.${translationKey}.ctaLabel`),
+      id: caseItem.id || index + 1,
+      brand: brandUrl,
+      image: imageUrl,
+      link: link,
+      pre: t("slides.results"),
+      title: caseItem.CardTitle || "",
+      description: caseItem.CardText || "",
+      premetric: caseItem.CardSymbol || "",
+      metric: caseItem.CardNumber || "",
+      postmetric: "%",
+      metricDescription: caseItem.CardNumberText || "",
+      ctaLabel: t("slides.ctaLabel"),
     };
   });
 
