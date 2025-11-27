@@ -31,8 +31,8 @@ const Quote = () => {
           </p>
         </div>
         <p className="h3 text-grey-20">
-          <Character value={t("text1") + " "} />
-          <span className="text-grey-20 inline">{t("text2")}</span>
+          <Character value={t("text")} />
+          {/* <span className="text-grey-20 inline">{t("text2")}</span> */}
         </p>
         <FadeInUp className="flex items-center gap-[16px] self-end">
             <div className="flex items-center">

@@ -46,8 +46,7 @@
     },
     "quote": {
       "tagline": "Less noise. More impact.",
-      "text1": "\"We believe in technology that delivers real results, not promises.",
-      "text2": "We design intelligence that helps organizations move faster, make better decisions, and achieve more — with real human purpose.\"",
+      "text": "\"We believe in technology that delivers real results, not promises. We design intelligence that helps organizations move faster, make better decisions, and achieve more — with real human purpose.\"",
       "author": {
         "name": "Erik Dziubak",
         "role": "Chief Visionary Officer at Ctrl365"
