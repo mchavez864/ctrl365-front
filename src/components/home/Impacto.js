@@ -7,7 +7,7 @@ import {
   useScroll,
   useMotionValueEvent,
 } from "framer-motion";
-import Spline from "@splinetool/react-spline";
+// import Spline from "@splinetool/react-spline"; // Comentado temporalmente
 
 const Impacto = () => {
   const t = useTranslations("Home.impacto");
@@ -144,8 +144,8 @@ const Impacto = () => {
       data-dark-section="true"
     >
       <section className="sticky top-0 bg-grey-40 overflow-hidden h-screen px-[16px] md:px-[146px] lg:px-[128px] xxl:px-[256px] py-[64px] flex flex-col items-center justify-center">
-        {/* Spline Scene - Solo visible en desktop, centrado respecto al porcentaje, cargado solo cuando está cerca */}
-        {shouldLoadSpline && (
+        {/* Spline Scene - Comentado temporalmente, reemplazado por video */}
+        {/* {shouldLoadSpline && (
           <div className="hidden lg:block absolute inset-0 w-full h-full z-0 overflow-hidden">
             <div
               ref={splineContainerRef}
@@ -158,31 +158,50 @@ const Impacto = () => {
               />
             </div>
           </div>
-        )}
+        )} */}
 
         {/* Área del porcentaje - posición absoluta fija */}
         <div className="relative h-[400px] md:h-[547px] w-full lg:flex lg:items-center lg:h-auto lg:min-h-[400px] lg:gap-[64px] lg:justify-center lg:w-[870px] z-10">
-          {/* Video orb-full - Solo visible en mobile y tablet, detrás de los números - posición fija */}
+          {/* Video orb-full - Visible en mobile/tablet, posición fija arriba */}
+          <div className="absolute top-0 left-0 w-[309px] h-[175px] lg:w-[450px] lg:h-[384px] bg-orange rounded-full blur-3xl will-change-transform"></div>
+
           <div className="lg:hidden absolute top-[-55px] md:top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl flex items-center justify-center" style={{ height: '230px' }}>
-            <video
-              className="w-[250px] h-[250px] md:w-[350px] md:h-[350px] object-contain pointer-events-none z-0"
-              style={{
-                clipPath: 'circle(50%)',
-              }}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-            >
-              <source src="/videos/orb-full.webm" type="video/webm" />
-              Your browser does not support the video tag.
-            </video>
+            
+            <div className="w-[250px] h-[250px] md:w-[350px] md:h-[350px] aspect-square flex-shrink-0 rounded-full overflow-hidden">
+              
+              <video
+                className="w-full h-full object-cover pointer-events-none"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="auto"
+              >
+                <source src="/videos/orb-full.webm" type="video/webm" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
           <div
             ref={percentageRef}
-            className="absolute top-0 left-1/2 -translate-x-1/2  w-full max-w-4xl lg:relative lg:translate-y-0 lg:translate-x-0 lg:top-0 lg:left-0 lg:w-[470px]"
+            className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl lg:relative lg:translate-y-0 lg:translate-x-0 lg:top-0 lg:left-0 lg:w-[470px]"
           >
+            {/* Video orb-full - Visible en desktop, centrado detrás del número */}
+            <div className="hidden lg:flex absolute inset-0 items-center justify-center z-0 pointer-events-none">
+              <div className="w-[420px] h-[420px] min-w-[420px] min-h-[420px] aspect-square flex-shrink-0 rounded-full overflow-hidden">
+                <video
+                  className="w-full h-full object-cover scale-100"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                >
+                  <source src="/videos/orb-full.webm" type="video/webm" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
             <div className="relative w-full md:h-[230px] pb-[55px] md:pb-0 md:mb-[128px] flex items-center justify-center lg:mb-0 z-10">
               <AnimatePresence mode="wait">
                 <motion.div
