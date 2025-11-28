@@ -7,6 +7,13 @@ export default async function SectionCasosDeExito() {
   const locale = await getLocale();
   const cases = await getCases(locale);
 
+  // Ordenar casos por createdAt (más recientes primero)
+  const sortedCases = [...cases].sort((a, b) => {
+    const dateA = new Date(a.createdAt || 0);
+    const dateB = new Date(b.createdAt || 0);
+    return dateB - dateA; // Descendente: más recientes primero
+  });
+
   // Función helper para construir URLs de Strapi
   const getImageUrl = (imageData) => {
     if (!imageData) return '';
@@ -36,7 +43,7 @@ export default async function SectionCasosDeExito() {
   // }
 
   // Mapear los casos de la API a la estructura esperada por CaseCard
-  const slides = cases.map((caseItem, index) => {
+  const slides = sortedCases.map((caseItem, index) => {
     // Construir URLs de imágenes
     const imageUrl = getImageUrl(caseItem.Image);
     const brandUrl = getImageUrl(caseItem.Logo);
@@ -47,43 +54,17 @@ export default async function SectionCasosDeExito() {
         ? `/casos/${caseItem.Slug || caseItem.slug}`
         : caseItem.link || '/casos/example-case';
 
-    // Detectar si el caso es el de geoespacial/geospatial
-    const title = (caseItem.CardTitle || '').trim();
-    const description = (caseItem.CardText || '').trim();
-    const slug = (caseItem.Slug || caseItem.slug || '').toLowerCase();
-
-    // Búsqueda simple en minúsculas (sin normalización compleja)
-    const titleLower = title.toLowerCase();
-    const descriptionLower = description.toLowerCase();
-
-    const isGeospatial =
-      titleLower.includes('geoespacial') ||
-      titleLower.includes('geospatial') ||
-      descriptionLower.includes('geoespacial') ||
-      descriptionLower.includes('geospatial') ||
-      slug.includes('geoespacial') ||
-      slug.includes('geospatial');
-
-    // Debug log - MIRA LA TERMINAL DEL SERVIDOR
-    console.log('🔍 Case Debug:', {
-      id: caseItem.id,
-      title: title.substring(0, 40),
-      slug,
-      isGeospatial,
-      postmetric: isGeospatial ? '% M' : '%',
-    });
-
     return {
       id: caseItem.id || index + 1,
       brand: brandUrl,
       image: imageUrl,
       link: link,
       pre: t('slides.results'),
-      title: title,
-      description: description,
+      title: caseItem.CardTitle || '',
+      description: caseItem.CardText || '',
       premetric: caseItem.CardSymbol || '',
       metric: caseItem.CardNumber || '',
-      postmetric: isGeospatial ? '% M' : '%',
+      postmetric: index === 1 ? ' M' : '%',
       metricDescription: caseItem.CardNumberText || '',
       ctaLabel: t('slides.ctaLabel'),
     };
