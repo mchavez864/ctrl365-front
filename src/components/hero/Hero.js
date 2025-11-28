@@ -94,6 +94,8 @@ const Hero = () => {
               <Button
                 copy={t('cta')}
                 variant="black"
+                url="#contact"
+                className="inline-block"
               />
             </FadeInUp>
           </div>
