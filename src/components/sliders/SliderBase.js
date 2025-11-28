@@ -85,7 +85,7 @@ export default function SliderBase({
               <span className="inline-flex h-3 w-3 rounded-full bg-orange" />
               {item.title}
             </p>
-            <p className="font-inter text-grey-40">{item.description}</p>www
+            <p className="font-inter text-grey-40">{item.description}</p>
           </li>
         ))}
       </ul>

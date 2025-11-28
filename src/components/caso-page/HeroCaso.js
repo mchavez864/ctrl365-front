@@ -6,7 +6,7 @@ import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import SmallCard from '../cards/SmallCard';
 
 // Componente para animar números
-function AnimatedCounter({ value, decimals = 0, suffix = '' }) {
+function AnimatedCounter({ value, suffix = '' }) {
   const ref = useRef(null);
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {
@@ -15,11 +15,16 @@ function AnimatedCounter({ value, decimals = 0, suffix = '' }) {
   });
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
+  // Convertir value a número y detectar decimales automáticamente
+  const numValue = parseFloat(value) || 0;
+  const hasDecimals = numValue % 1 !== 0;
+  const decimals = hasDecimals ? 1 : 0;
+
   useEffect(() => {
     if (isInView) {
-      motionValue.set(value);
+      motionValue.set(numValue);
     }
-  }, [motionValue, isInView, value]);
+  }, [motionValue, isInView, numValue]);
 
   useEffect(() => {
     springValue.on('change', (latest) => {
@@ -79,10 +84,7 @@ export default function HeroCaso({ slug, title, data }) {
               <p className="!font-sora mb-2 text-xl flex items-center gap-2 lg:!text-2xl">
                 {data.metricPrefix}{' '}
                 <span className="text-[32px] lg:!text-[48px]">
-                  <AnimatedCounter
-                    value={data.metricValue}
-                    decimals={1}
-                  />
+                  <AnimatedCounter value={data.metricValue} />
                 </span>{' '}
                 {data.metricSuffix}
               </p>
