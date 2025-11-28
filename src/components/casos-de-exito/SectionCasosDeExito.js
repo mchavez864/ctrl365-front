@@ -52,37 +52,26 @@ export default async function SectionCasosDeExito() {
     const description = (caseItem.CardText || '').trim();
     const slug = (caseItem.Slug || caseItem.slug || '').toLowerCase();
 
-    // Normalizar texto removiendo acentos y espacios extra
-    const normalizeText = (text) => {
-      return text
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim();
-    };
-
-    const normalizedTitle = normalizeText(title);
-    const normalizedDescription = normalizeText(description);
+    // Búsqueda simple en minúsculas (sin normalización compleja)
+    const titleLower = title.toLowerCase();
+    const descriptionLower = description.toLowerCase();
 
     const isGeospatial =
-      normalizedTitle.includes('geoespacial') ||
-      normalizedTitle.includes('geospatial') ||
-      normalizedDescription.includes('geoespacial') ||
-      normalizedDescription.includes('geospatial') ||
+      titleLower.includes('geoespacial') ||
+      titleLower.includes('geospatial') ||
+      descriptionLower.includes('geoespacial') ||
+      descriptionLower.includes('geospatial') ||
       slug.includes('geoespacial') ||
       slug.includes('geospatial');
 
-    // Debug log para staging
-    if (process.env.NODE_ENV !== 'production') {
-      console.log('Case item:', {
-        id: caseItem.id,
-        title,
-        slug,
-        isGeospatial,
-        normalizedTitle: normalizedTitle.substring(0, 50),
-      });
-    }
+    // Debug log - MIRA LA TERMINAL DEL SERVIDOR
+    console.log('🔍 Case Debug:', {
+      id: caseItem.id,
+      title: title.substring(0, 40),
+      slug,
+      isGeospatial,
+      postmetric: isGeospatial ? '% M' : '%',
+    });
 
     return {
       id: caseItem.id || index + 1,
