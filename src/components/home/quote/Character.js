@@ -49,7 +49,7 @@ const Word = ({ children, range, progress }) => {
 
 
 const Character = ({ children, range, progress }) => {
-    const opacity = useTransform(progress, range, [0.6, 1]);
+    const opacity = useTransform(progress, range, [0.2, 1]);
     return(
         <motion.span style={{ opacity }} className="">
             {children}

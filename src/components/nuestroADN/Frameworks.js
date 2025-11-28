@@ -145,7 +145,7 @@ const Frameworks = () => {
                   {isMounted && (
                     <svg
                       viewBox="0 0 800 800"
-                      className="overflow-visible w-[800px] h-[800px] lg:w-[1000px] lg:h-[1000px] "
+                      className="overflow-visible w-[800px] h-[800px] lg:w-[900px] lg:h-[900px] xl:w-[1000px] xl:h-[1000px] "
                     >
                       {/* Draw 5 arcs forming a complete circle */}
                       {Array.from({ length: circlePoints }).map((_, index) => {
@@ -239,10 +239,10 @@ const Frameworks = () => {
                           </p>
                         </div>
                       )}
-                      <p className="h1 text-grey-10 gradient-text lg:text-[90px]! lg:tracking-[-3.6px]!">
+                      <p className="h1 text-grey-10 gradient-text lg:text-[80px]! xl:text-[90px]! lg:tracking-[-3.6px]!">
                         {frameworks[currentCard].title}
                       </p>
-                      <p className="text-grey-10 max-w-[328px] md:max-w-[487px]">
+                      <p className="text-grey-10 max-w-[328px] md:max-w-[507px]">
                         {frameworks[currentCard].desc}
                       </p>
                     </motion.div>
