@@ -15,7 +15,7 @@ export default function CaseCard({
   premetric,
   postmetric,
 }) {
-  const metricWidthDesktop = id === 3 ? 'xl:w-[36%]' : 'xl:w-[27%]';
+  const metricWidthDesktop = id === 3 ? 'xl:w-[36%]' : 'xl:w-[31%]';
 
   return (
     <article className="relative flex h-[700px] flex-col overflow-hidden rounded-[40px] bg-grey-30 text-grey-00">
