@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import Button from "@/components/buttons/Button";
-import Image from "next/image";
-import RevealTextAnimation from "@/components/animations/RevealTextAnimation";
-import FadeInUp from "@/components/animations/FadeInUp";
+import { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
+import Button from '@/components/buttons/Button';
+import Image from 'next/image';
+import RevealTextAnimation from '@/components/animations/RevealTextAnimation';
+import FadeInUp from '@/components/animations/FadeInUp';
 
 const Hero = () => {
-  const t = useTranslations("Home.hero");
-  const words = t.raw("words");
+  const t = useTranslations('Home.hero');
+  const words = t.raw('words');
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [fade, setFade] = useState(true);
   const [initialFade, setInitialFade] = useState(false);
@@ -63,48 +63,72 @@ const Hero = () => {
             preload="auto"
             className="w-[500px] md:w-[600px] lg:w-[700px] h-full object-cover"
           >
-            <source src="/videos/mesh-orange.webm" type="video/mp4" />
+            <source
+              src="/videos/mesh-orange.webm"
+              type="video/mp4"
+            />
             Your browser does not support the video tag.
           </video>
         </div>
         <div className="relative z-10 lg:flex lg:justify-between lg:h-[610px]">
           <div>
             <h1 className="lg:max-w-[800px]">
-              <RevealTextAnimation>{t("title1")} </RevealTextAnimation>
-              <RevealTextAnimation delay={0.2}>{t("title2")} </RevealTextAnimation>
+              <RevealTextAnimation>{t('title1')} </RevealTextAnimation>
+              <RevealTextAnimation delay={0.2}>
+                {t('title2')}{' '}
+              </RevealTextAnimation>
               <RevealTextAnimation delay={0.4}>
-              <span className="lg:hidden">{words.join(", ")}.</span></RevealTextAnimation>
+                <span className="lg:hidden">{words.join(', ')}.</span>
+              </RevealTextAnimation>
             </h1>
-            <FadeInUp delay={0.4} className="lg my-[16px]">{t("subtitle")}</FadeInUp>
-            <FadeInUp delay={0.6} className="mb-[64px]">
-              <Button copy={t("cta")} variant="black" />
+            <FadeInUp
+              delay={0.4}
+              className="lg my-[16px]"
+            >
+              {t('subtitle')}
+            </FadeInUp>
+            <FadeInUp
+              delay={0.6}
+              className="mb-[64px]"
+            >
+              <Button
+                copy={t('cta')}
+                variant="black"
+              />
             </FadeInUp>
           </div>
           <div className="lg:self-end lg:flex lg:flex-col lg:items-end">
             <motion.p
               initial={{ opacity: 0 }}
-              animate={{ 
-                opacity: initialFade ? (fade ? 1 : 0) : 0
+              animate={{
+                opacity: initialFade ? (fade ? 1 : 0) : 0,
               }}
               transition={{
                 duration: 0.3,
-                delay: hasAppliedInitialDelay ? 0 : (initialFade && fade ? 0.5 : 0),
-                ease: "easeOut"
+                delay: hasAppliedInitialDelay
+                  ? 0
+                  : initialFade && fade
+                  ? 0.5
+                  : 0,
+                ease: 'easeOut',
               }}
               className="display hidden lg:block"
             >
               {words[currentWordIndex]}
             </motion.p>
-            <FadeInUp delay={0.8} className="w-full h-full lg:h-auto lg:w-[426px] rounded-[16px] overflow-hidden">
-            <div className="w-full h-full lg:h-auto lg:w-[426px] rounded-[16px] overflow-hidden">
-              <Image
-                src="/images/hero/video.webp"
-                alt="video"
-                width={640}
-                height={360}
-                className="object-cover"
-              />
-            </div>
+            <FadeInUp
+              delay={0.8}
+              className="w-full h-full lg:h-auto lg:w-[426px] rounded-[16px] overflow-hidden"
+            >
+              <div className="w-full h-full lg:h-auto lg:w-[426px] rounded-[16px] overflow-hidden">
+                <Image
+                  src="/images/hero/video.webp"
+                  alt="video"
+                  width={640}
+                  height={360}
+                  className="object-cover"
+                />
+              </div>
             </FadeInUp>
           </div>
         </div>
