@@ -22,7 +22,7 @@ export default async function SectionResultadosCasosdeExito() {
   return (
     <section className="bg-grey-10 overflow-hidden px-4 py-16 md:px-16 xl:py-32 xxl:px-32">
       <div className="mb-16 text-center lg:text-left xl:flex xl:items-start xl:justify-between">
-        <h2 className="mt-3 text-3xl font-semibold text-grey-40 md:text-4xl lg:text-5xl">
+        <h2 className="mt-3 text-3xl font-semibold text-grey-40 md:text-4xl lg:text-5xl lg:max-w-[648px] xxl:max-w-[1000px]">
           {t('section.title')}
         </h2>
         <p className="mt-4 max-w-xl text-base text-grey-20 md:text-lg">
@@ -40,7 +40,10 @@ export default async function SectionResultadosCasosdeExito() {
             playsInline
             preload="auto"
           >
-            <source src="/videos/orb-mesh.webm" type="video/webm" />
+            <source
+              src="/videos/orb-mesh.webm"
+              type="video/webm"
+            />
             Your browser does not support the video tag.
           </video>
         </div>

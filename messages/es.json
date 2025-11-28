@@ -157,8 +157,8 @@
   },
   "ResultadosCasosdeExitoSlider": {
     "section": {
-      "title": "Transformación visible. Impacto real.",
-      "description": "Casos que demuestran cómo escalamos operaciones, aceleramos lanzamientos y generamos resultados de negocio medibles."
+      "title": "Diseñado para entregar resultados",
+      "description": " "
     },
     "items": {
       "santander": {
@@ -171,15 +171,15 @@
       },
       "supervielle": {
         "title": "Supervielle",
-        "description": "Automatización de underwriting, con workflows sin fricción y 60% menos costos operativos en la red de sucursales."
+        "description": "Implementación de onboarding inteligente con IA y automatización, reduciendo en 75% el tiempo de alta de clientes y aumentando en 40% la conversión de nuevos usuarios."
       },
       "prisma": {
         "title": "Prisma Medios de Pago",
-        "description": "Automatización de 50+ procesos industriales, con 30% de incremento en capacidad exportadora, 15% de reducción en costos logísticos y 10% de mejora energética."
+        "description": "Optimización de más de 70 procesos, con un 60% de aumento en productividad, 45% menos incidentes críticos y operatividad continua 24/7."
       },
       "molinosAgro": {
         "title": "Molinos Agro",
-        "description": "Implementación de torres de control para trading agrícola, reduciendo un 35% los tiempos de conciliación y aumentando un 18% el margen operativo."
+        "description": "Automatización de 50+ procesos industriales, con un 30% de incremento en capacidad exportadora, 15% de reducción en costos logísticos y 10% de mejora energética."
       },
       "molinosRio": {
         "title": "Molinos Río de la Plata",
@@ -291,7 +291,7 @@
       "title": "Resultados que hablan",
       "paragraph1": "En Ctrl365 convertimos desafíos en resultados medibles. Cada proyecto de IA y automatización crea valor real: eficiencia, ahorro, crecimiento y velocidad.",
       "paragraph2": "No implementamos tecnología: diseñamos impacto.",
-      "tagline": "Transformación visible. Impacto real.",
+      "tagline": "Diseñado para entregar resultados",
       "cards": [
         {
           "number": "70",
