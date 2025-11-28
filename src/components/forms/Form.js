@@ -305,6 +305,18 @@ export default function Form({ subject, destination } = {}) {
             hint={errors.role?.message}
           />
           <Input
+            placeholder={t('fields.email')}
+            type="email"
+            {...register('email', {
+              required: t('errors.required'),
+              pattern: {
+                value: /[^\s@]+@[^\s@]+\.[^\s@]+/,
+                message: t('errors.email'),
+              },
+            })}
+            hint={errors.email?.message}
+          />
+          <Input
             placeholder={t('fields.phone')}
             maxLength={12}
             limitHint={t('errors.maxDigits')}
@@ -324,18 +336,6 @@ export default function Form({ subject, destination } = {}) {
               },
             })}
             hint={errors.phone?.message}
-          />
-          <Input
-            placeholder={t('fields.email')}
-            type="email"
-            {...register('email', {
-              required: t('errors.required'),
-              pattern: {
-                value: /[^\s@]+@[^\s@]+\.[^\s@]+/,
-                message: t('errors.email'),
-              },
-            })}
-            hint={errors.email?.message}
           />
 
           <Input
