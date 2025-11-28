@@ -47,7 +47,7 @@ export default function CookieBanner() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
           transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="fixed bottom-4 left-4 right-4 md:right-auto md:left-16 md:bottom-8 md:max-w-[476px] z-50 lg:max-w-[537px] lg:bottom-16 xxl:max-w-[544px] xxl:left-32"
+          className="fixed bottom-4 left-4 right-4 md:right-auto md:left-16 md:bottom-8 md:max-w-[576px] z-50 lg:max-w-[590px] lg:bottom-16 xxl:left-32"
         >
           <div className="bg-grey-40 text-center rounded-2xl p-4 shadow-2xl border border-grey-30/20 relative overflow-hidden md:p-8 md:text-left">
             <h3 className="text-white !font-sora !text-xl font-semibold mb-4 relative z-10 lg:!text-2xl">
@@ -70,7 +70,7 @@ export default function CookieBanner() {
                 copy={t('accept')}
                 onClick={handleAccept}
                 variant="white"
-                className="!w-full md:!w-auto md:order-2"
+                className="!w-full md:!w-auto md:order-2 !h-[50px] !bg-white"
               />
               <Button
                 copy={t('decline')}
