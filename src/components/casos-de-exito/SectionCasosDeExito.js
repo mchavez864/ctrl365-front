@@ -48,13 +48,30 @@ export default async function SectionCasosDeExito() {
         : caseItem.link || '/casos/example-case';
 
     // Detectar si el caso es el de geoespacial/geospatial
-    const title = caseItem.CardTitle || '';
-    const description = caseItem.CardText || '';
+    const title = (caseItem.CardTitle || '').trim();
+    const description = (caseItem.CardText || '').trim();
+    const slug = (caseItem.Slug || caseItem.slug || '').toLowerCase();
+
+    // Búsqueda simple en minúsculas (sin normalización compleja)
+    const titleLower = title.toLowerCase();
+    const descriptionLower = description.toLowerCase();
+
     const isGeospatial =
-      title.toLowerCase().includes('geoespacial') ||
-      title.toLowerCase().includes('geospatial') ||
-      description.toLowerCase().includes('geoespacial') ||
-      description.toLowerCase().includes('geospatial');
+      titleLower.includes('geoespacial') ||
+      titleLower.includes('geospatial') ||
+      descriptionLower.includes('geoespacial') ||
+      descriptionLower.includes('geospatial') ||
+      slug.includes('geoespacial') ||
+      slug.includes('geospatial');
+
+    // Debug log - MIRA LA TERMINAL DEL SERVIDOR
+    console.log('🔍 Case Debug:', {
+      id: caseItem.id,
+      title: title.substring(0, 40),
+      slug,
+      isGeospatial,
+      postmetric: isGeospatial ? '% M' : '%',
+    });
 
     return {
       id: caseItem.id || index + 1,
