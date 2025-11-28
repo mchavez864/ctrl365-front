@@ -61,7 +61,7 @@ export default async function SectionCasosDeExito() {
       description: caseItem.CardText || '',
       premetric: caseItem.CardSymbol || '',
       metric: caseItem.CardNumber || '',
-      postmetric: '%',
+      postmetric: index === 1 ? ' M' : '%',
       metricDescription: caseItem.CardNumberText || '',
       ctaLabel: t('slides.ctaLabel'),
     };
