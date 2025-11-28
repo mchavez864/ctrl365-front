@@ -57,7 +57,7 @@ export default function PaisesNuestroAdnClient({ paragraph1, paragraph2 }) {
             x: ['0%', '-50%'],
           }}
           transition={{
-            duration: 30,
+            duration: 10,
             repeat: Infinity,
             ease: 'linear',
           }}
@@ -106,7 +106,10 @@ export default function PaisesNuestroAdnClient({ paragraph1, paragraph2 }) {
             playsInline
             preload="auto"
           >
-            <source src="/videos/orb-mesh.webm" type="video/webm" />
+            <source
+              src="/videos/orb-mesh.webm"
+              type="video/webm"
+            />
             Your browser does not support the video tag.
           </video>
         </div>
@@ -114,4 +117,3 @@ export default function PaisesNuestroAdnClient({ paragraph1, paragraph2 }) {
     </section>
   );
 }
-
