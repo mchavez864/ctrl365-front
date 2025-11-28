@@ -1,32 +1,36 @@
-import SliderCasosDeExito from "../sliders/SliderCasosDeExito";
-import { getTranslations, getLocale } from "next-intl/server";
-import Image from "next/image";
-import Button from "../buttons/Button";
-import FadeInUp from "../animations/FadeInUp";
-import RevealTextAnimation from "../animations/RevealTextAnimation";
-import { getCases } from "@/actions/getCases";
+import SliderCasosDeExito from '../sliders/SliderCasosDeExito';
+import { getTranslations, getLocale } from 'next-intl/server';
+import Image from 'next/image';
+import Button from '../buttons/Button';
+import FadeInUp from '../animations/FadeInUp';
+import RevealTextAnimation from '../animations/RevealTextAnimation';
+import { getCases } from '@/actions/getCases';
 
 export default async function SectionCasosDeExito() {
-  const t = await getTranslations("SuccessStoriesSlider");
+  const t = await getTranslations('SuccessStoriesSlider');
   const locale = await getLocale();
   const cases = await getCases(locale);
 
   // Función helper para construir URLs de Strapi
   const getImageUrl = (imageData) => {
-    if (!imageData) return "";
-    
+    if (!imageData) return '';
+
     // La estructura de Strapi tiene url directamente en el objeto Image
     // url ya viene como URL absoluta desde Azure Blob Storage
-    const url = imageData.url || imageData.data?.attributes?.url || imageData.attributes?.url || "";
-    if (!url) return "";
-    
+    const url =
+      imageData.url ||
+      imageData.data?.attributes?.url ||
+      imageData.attributes?.url ||
+      '';
+    if (!url) return '';
+
     // Si la URL ya es absoluta, retornarla directamente
-    if (url.startsWith("http://") || url.startsWith("https://")) {
+    if (url.startsWith('http://') || url.startsWith('https://')) {
       return url;
     }
-    
+
     // Si es relativa, construir la URL completa
-    const cmsBaseUrl = process.env.CMS_URL_API?.replace("/api", "") || "";
+    const cmsBaseUrl = process.env.CMS_URL_API?.replace('/api', '') || '';
     return `${cmsBaseUrl}${url}`;
   };
 
@@ -40,31 +44,31 @@ export default async function SectionCasosDeExito() {
     // Construir URLs de imágenes
     const imageUrl = getImageUrl(caseItem.Image);
     const brandUrl = getImageUrl(caseItem.Logo);
-    
-    
+
     // Construir el link usando el slug
-    const link = caseItem.Slug || caseItem.slug
-      ? `/casos/${caseItem.Slug || caseItem.slug}`
-      : caseItem.link || "/casos/example-case";
+    const link =
+      caseItem.Slug || caseItem.slug
+        ? `/casos/${caseItem.Slug || caseItem.slug}`
+        : caseItem.link || '/casos/example-case';
 
     return {
       id: caseItem.id || index + 1,
       brand: brandUrl,
       image: imageUrl,
       link: link,
-      pre: t("slides.results"),
-      title: caseItem.CardTitle || "",
-      description: caseItem.CardText || "",
-      premetric: caseItem.CardSymbol || "",
-      metric: caseItem.CardNumber || "",
-      postmetric: "%",
-      metricDescription: caseItem.CardNumberText || "",
-      ctaLabel: t("slides.ctaLabel"),
+      pre: t('slides.results'),
+      title: caseItem.CardTitle || '',
+      description: caseItem.CardText || '',
+      premetric: caseItem.CardSymbol || '',
+      metric: caseItem.CardNumber || '',
+      postmetric: '%',
+      metricDescription: caseItem.CardNumberText || '',
+      ctaLabel: t('slides.ctaLabel'),
     };
   });
 
-console.log("slides", slides);
-console.log("cases", cases);
+  console.log('slides', slides);
+  console.log('cases', cases);
 
   return (
     <section className="px-4 py-16 md:px-16 xl:py-32 xxl:px-32 overflow-hidden relative bg-grey-10">
@@ -87,24 +91,24 @@ console.log("cases", cases);
           className="md:w-[230px] lg:w-[333px]"
         />
         <h2 className="h1 md:max-w-[400px] lg:max-w-[800px]">
-          <RevealTextAnimation>{t("title")} </RevealTextAnimation>
+          <RevealTextAnimation>{t('title')} </RevealTextAnimation>
           <RevealTextAnimation delay={0.2}>
-            <span className="text-grey-20">{t("span")}</span>
+            <span className="text-grey-20">{t('span')}</span>
           </RevealTextAnimation>
         </h2>
         <FadeInUp>
-        <Button
-          variant="black"
-          copy={t("slides.ctaLabel")}
-          url="/casos-de-exito"
-        />
+          <Button
+            variant="black"
+            copy={t('button')}
+            url="/casos-de-exito"
+          />
         </FadeInUp>
       </div>
       <SliderCasosDeExito
         swiperConfig={{
           slidesPerView: 1.1,
           spaceBetween: 16,
-          className: "!overflow-visible",
+          className: '!overflow-visible',
         }}
         slides={slides}
         footerClassName="mt-8"
