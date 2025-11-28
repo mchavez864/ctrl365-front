@@ -185,77 +185,13 @@
         "title": "Molinos Río de la Plata",
         "description": "Digitalization of 40+ e-commerce processes, achieving 0% errors, 40% cost reduction, and real-time automated tax compliance."
       },
-      "ypf": {
-        "title": "[i]YPF",
-        "description": "[i]Predictive asset management that reduced critical incidents 25% and saved USD 4M annually in maintenance."
+      "howden": {
+        "title": "Howden",
+        "description": "[i] Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
       },
-      "bbva": {
-        "title": "[i]BBVA",
-        "description": "[i]Digital onboarding for SMBs, tripling account openings and reaching positive NPS in under six weeks."
-      },
-      "telecom": {
-        "title": "[i]Telecom",
-        "description": "[i]Omnichannel post-sales experience with conversational AI, resolving 45% of cases at first contact."
-      },
-      "osde": {
-        "title": "[i]OSDE",
-        "description": "[i]Telemedicine ecosystem that cut in-person visits 60% and lifted member satisfaction by 22 points."
-      },
-      "axion": {
-        "title": "[i]Axion",
-        "description": "[i]Regional loyalty platform with real-time segmentation, growing cross-sales by 28%."
-      },
-      "bancoProvincia": {
-        "title": "[i]Banco Provincia",
-        "description": "[i]Digitized productive credit, issuing 75% of loans in under 48 hours."
-      },
-      "arcor": {
-        "title": "[i]Arcor",
-        "description": "[i]Smart supply chain with end-to-end visibility, reducing retail stockouts 18%."
-      },
-      "mercadoLibre": {
-        "title": "[i]Mercado Libre",
-        "description": "[i]Personalization engine for fintech products, increasing conversion by 32%."
-      },
-      "sanCor": {
-        "title": "[i]SanCor Salud",
-        "description": "[i]Unified digital front office that improved commercial productivity 40% and enabled regulatory reporting in minutes."
-      },
-      "nacionSeguros": {
-        "title": "[i]Nación Seguros",
-        "description": "[i]Composable broker portal that cut the time-to-market for new products by 55%."
-      },
-      "tarjetaNaranja": {
-        "title": "[i]Naranja X",
-        "description": "[i]Benefits super app with scalable architecture, lifting recurring transactions 25%."
-      },
-      "bancoCiudad": {
-        "title": "[i]Banco Ciudad",
-        "description": "[i]Credit marketplace with responsible scoring, expanding financial inclusion for underserved segments."
-      },
-      "laAnonima": {
-        "title": "[i]La Anónima",
-        "description": "[i]Dynamic pricing for retail powered by real-time analytics, adding 3.5 margin points."
-      },
-      "petrobras": {
-        "title": "[i]Petrobras",
-        "description": "[i]Remote plant supervision that cut downtime hours 20% with predictive alerts."
-      },
-      "icbc": {
-        "title": "[i]ICBC",
-        "description": "[i]Open banking architecture with secure APIs, enabling new partnerships and products in weeks."
-      },
-      "clarin": {
-        "title": "[i]Clarín",
-        "description": "[i]Data-driven strategy for digital subscriptions, tripling conversion while strengthening engagement."
-      },
-      "andreani": {
-        "title": "[i]Andreani",
-        "description": "[i]Smart logistics with optimized routing, cutting last-mile delivery times 30%."
-      },
-      "globant": {
-        "title": "[i]Globant",
-        "description": "[i]Global agile excellence hub that accelerates talent ramp-up and best-practice adoption across distributed squads."
+      "santanderEmployee": {
+        "title": "Santander Employee",
+        "description": "[i] Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
       }
     },
     "slides": {
@@ -267,23 +203,7 @@
         "molinosAgro",
         "molinosRio"
       ],
-      "list-2": ["ypf", "bbva", "telecom", "osde", "axion", "bancoProvincia"],
-      "list-3": [
-        "arcor",
-        "mercadoLibre",
-        "sanCor",
-        "nacionSeguros",
-        "tarjetaNaranja",
-        "bancoCiudad"
-      ],
-      "list-4": [
-        "laAnonima",
-        "petrobras",
-        "icbc",
-        "clarin",
-        "andreani",
-        "globant"
-      ]
+      "list-2": ["howden", "santanderEmployee"]
     }
   },
   "CasosDeExitoPage": {

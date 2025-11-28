@@ -1,7 +1,7 @@
 import SliderCasosDeExito from '@/components/sliders/SliderCasosDeExito';
 import { getTranslations } from 'next-intl/server';
 
-const RESULTADOS_SLIDES_KEYS = ['list-1', 'list-2', 'list-3', 'list-4'];
+const RESULTADOS_SLIDES_KEYS = ['list-1', 'list-2'];
 
 export default async function SectionResultadosCasosdeExito() {
   const t = await getTranslations('ResultadosCasosdeExitoSlider');

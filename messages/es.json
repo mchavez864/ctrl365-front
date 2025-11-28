@@ -185,77 +185,13 @@
         "title": "Molinos Río de la Plata",
         "description": "Digitalización de 40+ procesos de e-commerce, logrando 0% de errores, 40% de reducción de costos y cumplimiento fiscal automatizado en tiempo real."
       },
-      "ypf": {
-        "title": "YPF",
-        "description": "Gestión predictiva de activos energéticos, con 25% menos incidentes críticos y ahorros anuales de USD 4M en mantenimiento."
+      "howden": {
+        "title": "Howden",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
       },
-      "bbva": {
-        "title": "BBVA",
-        "description": "Plataforma de onboarding digital para pymes, con 3x más cuentas abiertas y NPS positivo en menos de seis semanas."
-      },
-      "telecom": {
-        "title": "Telecom",
-        "description": "Experiencia omnicanal para posventa, integrando IA conversacional y logrando un 45% de resolución en primer contacto."
-      },
-      "osde": {
-        "title": "OSDE",
-        "description": "Ecosistema de telemedicina que reduce en 60% las visitas presenciales y sube 22 puntos la satisfacción de afiliados."
-      },
-      "axion": {
-        "title": "Axion",
-        "description": "Plataforma de fidelización regional con segmentación en tiempo real y crecimiento del 28% en ventas cruzadas."
-      },
-      "bancoProvincia": {
-        "title": "Banco Provincia",
-        "description": "Digitalización de crédito productivo, emitiendo el 75% de los préstamos en menos de 48 horas."
-      },
-      "arcor": {
-        "title": "Arcor",
-        "description": "Cadena de suministro inteligente, con visibilidad end-to-end y 18% menos quiebres de stock en retail."
-      },
-      "mercadoLibre": {
-        "title": "Mercado Libre",
-        "description": "Motor de personalización para fintech, generando un uplift del 32% en conversión de productos financieros."
-      },
-      "sanCor": {
-        "title": "SanCor Salud",
-        "description": "Front digital unificado que mejora 40% la productividad comercial y habilita reporting regulatorio en minutos."
-      },
-      "nacionSeguros": {
-        "title": "Nación Seguros",
-        "description": "Portal de brokers con servicios componibles que reduce en 55% el time-to-market de nuevos productos."
-      },
-      "tarjetaNaranja": {
-        "title": "Naranja X",
-        "description": "Superapp de beneficios con arquitectura escalable y aumento del 25% en transacciones recurrentes."
-      },
-      "bancoCiudad": {
-        "title": "Banco Ciudad",
-        "description": "Marketplace crediticio con scoring responsable que expande la inclusión financiera en segmentos subatendidos."
-      },
-      "laAnonima": {
-        "title": "La Anónima",
-        "description": "Pricing dinámico para retail, con analítica en tiempo real y 3,5 puntos de mejora en márgenes."
-      },
-      "petrobras": {
-        "title": "Petrobras",
-        "description": "Supervisión remota de plantas industriales, con reducción de 20% en horas de parada y alertas predictivas."
-      },
-      "icbc": {
-        "title": "ICBC",
-        "description": "Arquitectura de banca abierta con APIs seguras que habilitan nuevas alianzas y productos en semanas."
-      },
-      "clarin": {
-        "title": "Clarín",
-        "description": "Estrategia data-driven para suscripciones digitales, triplicando la conversión y fidelizando audiencias."
-      },
-      "andreani": {
-        "title": "Andreani",
-        "description": "Logística inteligente con ruteo optimizado y 30% menos tiempos de entrega en última milla."
-      },
-      "globant": {
-        "title": "Globant",
-        "description": "Centro global de excelencia ágil que acelera la incorporación de talento y buenas prácticas en squads distribuidos."
+      "santanderEmployee": {
+        "title": "Santander Employee",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
       }
     },
     "slides": {
@@ -267,23 +203,7 @@
         "molinosAgro",
         "molinosRio"
       ],
-      "list-2": ["ypf", "bbva", "telecom", "osde", "axion", "bancoProvincia"],
-      "list-3": [
-        "arcor",
-        "mercadoLibre",
-        "sanCor",
-        "nacionSeguros",
-        "tarjetaNaranja",
-        "bancoCiudad"
-      ],
-      "list-4": [
-        "laAnonima",
-        "petrobras",
-        "icbc",
-        "clarin",
-        "andreani",
-        "globant"
-      ]
+      "list-2": ["howden", "santanderEmployee"]
     }
   },
   "CasosDeExitoPage": {
