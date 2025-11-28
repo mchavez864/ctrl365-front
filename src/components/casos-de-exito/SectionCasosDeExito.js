@@ -48,13 +48,41 @@ export default async function SectionCasosDeExito() {
         : caseItem.link || '/casos/example-case';
 
     // Detectar si el caso es el de geoespacial/geospatial
-    const title = caseItem.CardTitle || '';
-    const description = caseItem.CardText || '';
+    const title = (caseItem.CardTitle || '').trim();
+    const description = (caseItem.CardText || '').trim();
+    const slug = (caseItem.Slug || caseItem.slug || '').toLowerCase();
+
+    // Normalizar texto removiendo acentos y espacios extra
+    const normalizeText = (text) => {
+      return text
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    };
+
+    const normalizedTitle = normalizeText(title);
+    const normalizedDescription = normalizeText(description);
+
     const isGeospatial =
-      title.toLowerCase().includes('geoespacial') ||
-      title.toLowerCase().includes('geospatial') ||
-      description.toLowerCase().includes('geoespacial') ||
-      description.toLowerCase().includes('geospatial');
+      normalizedTitle.includes('geoespacial') ||
+      normalizedTitle.includes('geospatial') ||
+      normalizedDescription.includes('geoespacial') ||
+      normalizedDescription.includes('geospatial') ||
+      slug.includes('geoespacial') ||
+      slug.includes('geospatial');
+
+    // Debug log para staging
+    if (process.env.NODE_ENV !== 'production') {
+      console.log('Case item:', {
+        id: caseItem.id,
+        title,
+        slug,
+        isGeospatial,
+        normalizedTitle: normalizedTitle.substring(0, 50),
+      });
+    }
 
     return {
       id: caseItem.id || index + 1,
