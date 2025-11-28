@@ -74,12 +74,10 @@ export default function HeroCaso({ slug, title, data }) {
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            <p className="mb-8 lg:mb-16 lg:!text-[18px]">
-              {data.subtitle}
-            </p>
+            <p className="mb-8 lg:mb-16 lg:!text-[18px]">{data.subtitle}</p>
             <div className="border-l-4 border-orange pl-4 py-2 mb-8 lg:py-1 lg:mb-16">
               <p className="!font-sora mb-2 text-xl flex items-center gap-2 lg:!text-2xl">
-              {data.metricPrefix} {' '}
+                {data.metricPrefix}{' '}
                 <span className="text-[32px] lg:!text-[48px]">
                   <AnimatedCounter
                     value={data.metricValue}
@@ -146,11 +144,9 @@ export default function HeroCaso({ slug, title, data }) {
               visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
             }}
           >
-            <h2 className="mb-8 xxl:max-w-[1050px]">
-                {data.challengeTitle}
-            </h2>
+            <h2 className="mb-8 xxl:max-w-[1050px]">{data.challengeTitle}</h2>
             <p className="!text-[18px] text-grey-30 lg:max-w-[544px]">
-             {data.challengeDescription}
+              {data.challengeDescription}
             </p>
           </motion.div>
         </motion.div>

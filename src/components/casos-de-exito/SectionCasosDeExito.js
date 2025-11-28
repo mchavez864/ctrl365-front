@@ -10,17 +10,21 @@ export default async function SectionCasosDeExito() {
   // Función helper para construir URLs de Strapi
   const getImageUrl = (imageData) => {
     if (!imageData) return '';
-    
+
     // La estructura de Strapi tiene url directamente en el objeto Image
     // url ya viene como URL absoluta desde Azure Blob Storage
-    const url = imageData.url || imageData.data?.attributes?.url || imageData.attributes?.url || '';
+    const url =
+      imageData.url ||
+      imageData.data?.attributes?.url ||
+      imageData.attributes?.url ||
+      '';
     if (!url) return '';
-    
+
     // Si la URL ya es absoluta, retornarla directamente
     if (url.startsWith('http://') || url.startsWith('https://')) {
       return url;
     }
-    
+
     // Si es relativa, construir la URL completa
     const cmsBaseUrl = process.env.CMS_URL_API?.replace('/api', '') || '';
     return `${cmsBaseUrl}${url}`;
@@ -36,11 +40,21 @@ export default async function SectionCasosDeExito() {
     // Construir URLs de imágenes
     const imageUrl = getImageUrl(caseItem.Image);
     const brandUrl = getImageUrl(caseItem.Logo);
-    
+
     // Construir el link usando el slug
-    const link = caseItem.Slug || caseItem.slug
-      ? `/casos/${caseItem.Slug || caseItem.slug}`
-      : caseItem.link || '/casos/example-case';
+    const link =
+      caseItem.Slug || caseItem.slug
+        ? `/casos/${caseItem.Slug || caseItem.slug}`
+        : caseItem.link || '/casos/example-case';
+
+    // Detectar si el caso es el de geoespacial/geospatial
+    const title = caseItem.CardTitle || '';
+    const description = caseItem.CardText || '';
+    const isGeospatial =
+      title.toLowerCase().includes('geoespacial') ||
+      title.toLowerCase().includes('geospatial') ||
+      description.toLowerCase().includes('geoespacial') ||
+      description.toLowerCase().includes('geospatial');
 
     return {
       id: caseItem.id || index + 1,
@@ -48,11 +62,11 @@ export default async function SectionCasosDeExito() {
       image: imageUrl,
       link: link,
       pre: t('slides.results'),
-      title: caseItem.CardTitle || '',
-      description: caseItem.CardText || '',
+      title: title,
+      description: description,
       premetric: caseItem.CardSymbol || '',
       metric: caseItem.CardNumber || '',
-      postmetric: '%',
+      postmetric: isGeospatial ? '% M' : '%',
       metricDescription: caseItem.CardNumberText || '',
       ctaLabel: t('slides.ctaLabel'),
     };
