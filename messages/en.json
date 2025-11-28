@@ -2,10 +2,10 @@
   "Home": {
     "hero": {
       "title1": "AI for real",
-      "title2": "business outcomes:",
+      "title2": "real business",
       "subtitle": "Built for AI. Designed for Humans.",
-      "cta": "Get Started",
-      "words": ["Fast", "measurable", "human"]
+      "cta": "Start today",
+      "words": ["fast", "measurable", "human"]
     },
     "solutions": {
       "title1": "AI copilots & agents",
@@ -13,9 +13,9 @@
       "title2": "AI-powered process automation",
       "text2": "We eliminate manual work, reduce friction, and scale efficiency through intelligent automation.",
       "title3": "Generative AI for business",
-      "text3": "We use data and LLMs to solve real business challenges and accelerate decision-making.",
+      "text3": "We leverage data and advanced models to solve real business challenges and accelerate decision-making.",
       "title4": "AI foundation",
-      "text4": "We build a secure, scalable foundation to grow automation and AI with confidence and governance.",
+      "text4": "We build a secure, scalable foundation to expand automation and AI with confidence and strong governance.",
       "section1": "AI copilots & agents",
       "section2": "AI-powered process automation",
       "section3": "Generative AI for business",
@@ -23,11 +23,11 @@
       "sectionTitle": "SOLUTIONS"
     },
     "OurDNA": {
-      "title": "Our ADN",
+      "title": "Our DNA",
       "Cards": {
         "card1": {
           "title": "Challengers",
-          "description": "We are challengers by nature: we question our success, learn faster and empower with technology to generate real value."
+          "description": "We are challengers by nature: we question our own success, learn faster, and empower organizations with technology that creates real value."
         },
         "card2": {
           "title": "Grounded AI",
@@ -107,8 +107,8 @@
   },
   "SuccessStoriesSlider": {
     "section": {
-      "title": "Designed to deliver real outcomes.",
-      "description": "Solutions highlighted for their impact on efficiency, speed, and growth."
+      "title": "Explore our case studies",
+      "description": " "
     },
     "slides": {
       "santander": {
@@ -148,10 +148,12 @@
         "ctaLabel": "[i]Learn more"
       },
       "results": "Outcomes",
-      "ctaLabel": "See case studies"
+      "ctaLabel": "Learn more"
+      
     },
     "title": "Explore our",
-    "span": "case studies"
+    "span": "case studies",
+    "button": "See more cases"
   },
   "ResultadosCasosdeExitoSlider": {
     "section": {
