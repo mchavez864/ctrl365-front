@@ -311,3 +311,19 @@ body {
   position: relative;
 }
 
+
+.paragraph{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.paragraph-word{
+  margin-right: 8px;
+  margin-left: 8px;
+}
+.paragraph-word:first-child{
+  margin-left: 0;
+}
+.paragraph-word:last-child{
+  margin-right: 0;
+}

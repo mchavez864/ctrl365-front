@@ -7,6 +7,8 @@ export default function SliderCasosDeExito({
   renderSlide,
   variant = 'case',
   isHome = false,
+  animateSlides = true,
+  staggerDelay = 0.15,
   ...rest
 }) {
   const defaultRenderer =
@@ -24,6 +26,8 @@ export default function SliderCasosDeExito({
       {...rest}
       variant={resolvedVariant}
       renderSlide={resolvedVariant === 'list' ? renderSlide : defaultRenderer}
+      animateSlides={animateSlides}
+      staggerDelay={staggerDelay}
     />
   );
 }
