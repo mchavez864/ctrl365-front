@@ -14,11 +14,15 @@ export default function CaseCard({
   link,
   premetric,
   postmetric,
+  isHome = false,
 }) {
   const metricWidthDesktop = id === 3 ? 'xl:w-[36%]' : 'xl:w-[31%]';
+  const cardHeight = isHome ? 'h-[700px] lg:h-[466px] ' : 'h-[700px]';
 
   return (
-    <article className="relative flex h-[700px] flex-col overflow-hidden rounded-[40px] bg-grey-30 text-grey-00">
+    <article
+      className={`relative flex ${cardHeight} flex-col overflow-hidden rounded-[40px] bg-grey-30 text-grey-00`}
+    >
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-black/10" />
       {image && (
         <img
