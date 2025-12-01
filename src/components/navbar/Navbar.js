@@ -24,7 +24,25 @@ const Navbar = () => {
   const changeLanguage = (newLocale) => {
     if (newLocale === locale) return;
 
-    // Remover el locale actual del pathname y agregar el nuevo
+    // Para páginas de casos individuales, buscar el alternate link en el DOM
+    if (typeof window !== 'undefined' && pathname.includes('/casos/')) {
+      const hreflang = newLocale === 'es' ? 'es' : 'en';
+      const alternateLink = document.querySelector(
+        `link[rel="alternate"][hreflang="${hreflang}"]`
+      );
+
+      if (alternateLink && alternateLink.href) {
+        // Extraer el pathname y forzar recarga completa
+        const url = new URL(alternateLink.href);
+        const targetPath = url.pathname;
+        
+        // Usar href completo para forzar recarga con el pathname correcto
+        window.location.href = `${window.location.origin}${targetPath}`;
+        return;
+      }
+    }
+
+    // Fallback: remover el locale actual del pathname y agregar el nuevo
     const segments = pathname.split('/').filter(Boolean);
     const pathWithoutLocale = segments.slice(1).join('/');
     const newPath = `/${newLocale}${
