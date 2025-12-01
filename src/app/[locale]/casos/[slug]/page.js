@@ -95,17 +95,7 @@ export async function generateMetadata({ params }) {
   }
 
   // Obtener el slug del otro idioma desde las localizaciones
-  console.log('DEBUG - Current locale:', locale);
-  console.log('DEBUG - Localizations array:', caseData.localizations);
   const alternateSlug = caseData.localizations?.[0]?.Slug || slug;
-  console.log(
-    'DEBUG - alternateSlug:',
-    alternateSlug,
-    'currentSlug:',
-    slug,
-    'locale:',
-    locale
-  );
 
   const data = await getCasoData(slug, locale);
   const baseUrl = 'https://ctrl365.com';
