@@ -129,6 +129,12 @@ export default function SliderBase({
         fadeEffect={fadeEffect}
         className={`${swiperClassName} w-full`}
         breakpoints={breakpoints}
+        allowTouchMove={true}
+        simulateTouch={true}
+        grabCursor={true}
+        touchRatio={1}
+        touchAngle={45}
+        longSwipesRatio={0.5}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
           updateControls(swiper);
