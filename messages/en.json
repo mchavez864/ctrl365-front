@@ -272,6 +272,13 @@
     }
   },
   "NuestroAdnPage": {
+    "seo": {
+      "title": "Ctrl365 DNA | AI-First · Challengers · Human+",
+      "description": "Discover our DNA: we challenge rules, apply AI with purpose, and empower people. Ctrl365 transforms businesses with vision, method, and execution.",
+      "ogTitle": "Ctrl365 DNA | AI-First · Challengers · Human+",
+      "ogDescription": "Discover our DNA: we challenge rules, apply AI with purpose, and empower people. Ctrl365 transforms businesses with vision, method, and execution.",
+      "ogImage": "/images/pages/home/solutions/card-4-desktop.png"
+    },
     "premios": {
       "avaladosPor": "Backed by",
       "premiosY": "Awards and",
