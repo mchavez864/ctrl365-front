@@ -1,5 +1,12 @@
 {
   "Home": {
+    "seo": {
+      "title": "Artificial Intelligence for Business | Ctrl365",
+      "description": "AI solutions to scale sales, automate processes, and improve real results. Ctrl365 integrates AI with strategy and human execution.",
+      "ogTitle": "Artificial Intelligence for Business | Ctrl365",
+      "ogDescription": "AI solutions to scale sales, automate processes, and improve real results. Ctrl365 integrates AI with strategy and human execution.",
+      "ogImage": "/images/pages/home/solutions/card-4-desktop.png"
+    },
     "hero": {
       "title1": "AI for real",
       "title2": "real business",

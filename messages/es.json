@@ -1,5 +1,12 @@
 {
   "Home": {
+    "seo": {
+      "title": "Inteligencia Artificial para empresas | Ctrl365",
+      "description": "Soluciones de IA para escalar ventas, automatizar procesos y mejorar resultados reales. Ctrl365 integra IA con estrategia y ejecución humana.",
+      "ogTitle": "Inteligencia Artificial para empresas | Ctrl365",
+      "ogDescription": "Soluciones de IA para escalar ventas, automatizar procesos y mejorar resultados reales. Ctrl365 integra IA con estrategia y ejecución humana.",
+      "ogImage": "/images/pages/home/solutions/card-4-desktop.png"
+    },
     "hero": {
       "title1": "IA para resultados",
       "title2": "reales de negocio:",
