@@ -214,6 +214,13 @@
     }
   },
   "CasosDeExitoPage": {
+    "seo": {
+      "title": "Casos de Éxito en IA para Empresas | Ctrl365",
+      "description": "Descubrí cómo implementamos IA en empresas: reducción de costos, aumento de eficiencia y crecimiento medible.",
+      "ogTitle": "Casos de Éxito en IA para Empresas | Ctrl365",
+      "ogDescription": "Descubrí cómo implementamos IA en empresas: reducción de costos, aumento de eficiencia y crecimiento medible.",
+      "ogImage": "/images/hero/video.webp"
+    },
     "resultados": {
       "title": "Resultados que hablan",
       "paragraph1": "En Ctrl365 convertimos desafíos en resultados medibles. Cada proyecto de IA y automatización crea valor real: eficiencia, ahorro, crecimiento y velocidad.",

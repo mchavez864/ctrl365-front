@@ -214,6 +214,13 @@
     }
   },
   "CasosDeExitoPage": {
+    "seo": {
+      "title": "AI Success Stories for Companies | Ctrl365",
+      "description": "Discover how we implement AI in companies: cost reduction, increased efficiency, and measurable growth.",
+      "ogTitle": "AI Success Stories for Companies | Ctrl365",
+      "ogDescription": "Discover how we implement AI in companies: cost reduction, increased efficiency, and measurable growth.",
+      "ogImage": "/images/hero/video.webp"
+    },
     "resultados": {
       "title": "Outcomes that speak for themselves",
       "paragraph1": "At Ctrl365 we turn challenges into measurable outcomes. Every AI and automation project creates real value: efficiency, savings, growth, and speed.",
