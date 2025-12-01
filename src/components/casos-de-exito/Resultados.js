@@ -22,13 +22,13 @@ const ResultadoCard = memo(
         className={`relative flex flex-col p-[16px] items-center cursor-pointer overflow-hidden transition-[border-color] duration-300                ${
           resultado.id === 1 ? 'lg:col-start-1 lg:row-start-1' : ''
         }
-    ${resultado.id === 2 ? 'lg:col-start-7 lg:row-start-1' : ''}
-    ${resultado.id === 3 ? 'lg:col-start-3 lg:row-start-2' : ''}
-    ${resultado.id === 4 ? 'lg:col-start-5 lg:row-start-3' : ''}
-    ${resultado.id === 5 ? 'lg:col-start-3 lg:row-start-5' : ''}
-    ${resultado.id === 6 ? 'lg:col-start-7 lg:row-start-5' : ''}
-    ${resultado.id === 7 ? 'lg:col-start-1 lg:row-start-6' : ''}
-    ${resultado.id === 8 ? 'lg:col-start-5 lg:row-start-6' : ''}
+    ${resultado.id === 2 ? 'lg:col-start-3 lg:row-start-2' : ''}
+    ${resultado.id === 3 ? 'lg:col-start-5 lg:row-start-3' : ''}
+    ${resultado.id === 4 ? 'lg:col-start-7 lg:row-start-1' : ''}
+    ${resultado.id === 5 ? 'lg:col-start-1 lg:row-start-6' : ''}
+    ${resultado.id === 6 ? 'lg:col-start-3 lg:row-start-5' : ''}
+    ${resultado.id === 7 ? 'lg:col-start-5 lg:row-start-6' : ''}
+    ${resultado.id === 8 ? 'lg:col-start-7 lg:row-start-5' : ''}
             ${
               isActive
                 ? ''
