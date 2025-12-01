@@ -105,6 +105,7 @@ export default async function SectionCasosDeExito() {
         </FadeInUp>
       </div>
       <SliderCasosDeExito
+        isHome={true}
         swiperConfig={{
           slidesPerView: 1.1,
           spaceBetween: 16,

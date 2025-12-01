@@ -6,9 +6,17 @@ import CaseCard from '@/components/cards/CaseCard';
 export default function SliderCasosDeExito({
   renderSlide,
   variant = 'case',
+  isHome = false,
   ...rest
 }) {
-  const defaultRenderer = renderSlide || ((slide) => <CaseCard {...slide} />);
+  const defaultRenderer =
+    renderSlide ||
+    ((slide) => (
+      <CaseCard
+        {...slide}
+        isHome={isHome}
+      />
+    ));
   const resolvedVariant = variant === 'case' ? 'custom' : variant;
 
   return (
