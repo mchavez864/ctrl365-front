@@ -1,12 +1,12 @@
 // src/app/[locale]/casos/[slug]/page.js
-import HeroCaso from "@/components/caso-page/HeroCaso";
-import ImpactCaso from "@/components/caso-page/ImpactCaso";
-import SolutionCaso from "@/components/caso-page/SolutionCaso";
-import Navbar from "@/components/navbar/Navbar";
-import { getCase } from "@/actions/getCases";
+import HeroCaso from '@/components/caso-page/HeroCaso';
+import ImpactCaso from '@/components/caso-page/ImpactCaso';
+import SolutionCaso from '@/components/caso-page/SolutionCaso';
+import Navbar from '@/components/navbar/Navbar';
+import { getCase } from '@/actions/getCases';
 
 // Función para obtener datos del caso desde getCase
-async function getCasoData(slug, locale = "es") {
+async function getCasoData(slug, locale = 'es') {
   const caseData = await getCase(slug, locale);
 
   if (!caseData) {
@@ -15,141 +15,129 @@ async function getCasoData(slug, locale = "es") {
 
   // Función helper para obtener URLs de imágenes
   const getImageUrl = (imageData) => {
-    if (!imageData) return "";
+    if (!imageData) return '';
     const url =
       imageData.url ||
       imageData.data?.attributes?.url ||
       imageData.attributes?.url ||
-      "";
-    return url || "";
+      '';
+    return url || '';
   };
 
   return {
-    title: caseData.HeroTitle || "",
-    description: caseData.HeroText || "",
-    slug: caseData.Slug || "",
+    title: caseData.HeroTitle || '',
+    description: caseData.HeroText || '',
+    slug: caseData.Slug || '',
 
     // Datos para HeroCaso
     heroData: {
       brandLogo: getImageUrl(caseData.Logo),
       heroImage: getImageUrl(caseData.Image),
       brandLogoBlack: getImageUrl(caseData.BlackLogo),
-      subtitle:
-        caseData.HeroText || "",
-      description:
-        caseData.HeroText || "",
-      metricValue:
-        caseData.HeroNumber ||
-        "",
-      metricPrefix:
-        caseData.HeroSymbol ||
-        "",
-      metricSuffix:
-        caseData.HeroCurrency ||
-        "",
-      metricDescription:
-        caseData.HeroNumberText || "",
-      challengeTitle: caseData.ChallengeTitle  || "",
-      challengeDescription:
-        caseData.ChallengeText || "",
+      subtitle: caseData.HeroText || '',
+      description: caseData.HeroText || '',
+      metricValue: caseData.HeroNumber || '',
+      metricPrefix: caseData.HeroSymbol || '',
+      metricSuffix: caseData.HeroCurrency || '',
+      metricDescription: caseData.HeroNumberText || '',
+      challengeTitle: caseData.ChallengeTitle || '',
+      challengeDescription: caseData.ChallengeText || '',
     },
 
     // Datos para SolutionCaso
     solutionData: {
-      title: caseData.SolutionTitle || "",
-      text1:
-        caseData.SolutionText1 || "",
-      text2:
-        caseData.SolutionText2 || "",
+      title: caseData.SolutionTitle || '',
+      text1: caseData.SolutionText1 || '',
+      text2: caseData.SolutionText2 || '',
     },
 
     // Datos para ImpactCaso
     impactData: {
       metrics: [
         {
-          value:
-            caseData.ImpactNumberList[0].Number || "",
-          suffix:
-            caseData.ImpactNumberList[0].Text || "",
-          description:
-            caseData.ImpactNumberList[0].Description || "",
+          value: caseData.ImpactNumberList[0].Number || '',
+          suffix: caseData.ImpactNumberList[0].Text || '',
+          description: caseData.ImpactNumberList[0].Description || '',
         },
         {
-          value:
-            caseData.ImpactNumberList[1].Number || "",
-          suffix:
-            caseData.ImpactNumberList[1].Text || "",
-          description:
-            caseData.ImpactNumberList[1].Description || "",
+          value: caseData.ImpactNumberList[1].Number || '',
+          suffix: caseData.ImpactNumberList[1].Text || '',
+          description: caseData.ImpactNumberList[1].Description || '',
         },
         {
-          value:
-            caseData.ImpactNumberList[2].Number || "",
-          suffix:
-            caseData.ImpactNumberList[2].Text || "",
-          description:
-            caseData.ImpactNumberList[2].Description || "",
+          value: caseData.ImpactNumberList[2].Number || '',
+          suffix: caseData.ImpactNumberList[2].Text || '',
+          description: caseData.ImpactNumberList[2].Description || '',
         },
       ],
-      impactTitle:
-        caseData.ImpactTextListTitle || "",
+      impactTitle: caseData.ImpactTextListTitle || '',
       results: (caseData.ImpactTextList || []).map((item, index) => ({
-        number: String(index + 1).padStart(2, "0"),
-        description: item.Text || item.text || "",
+        number: String(index + 1).padStart(2, '0'),
+        description: item.Text || item.text || '',
       })),
     },
 
     // Metadatos para SEO
-    // metaTitle:
-    //   caseData.MetaTitle ||
-    //   caseData.metaTitle ||
-    //   caseData.Title ||
-    //   caseData.title ||
-    //   "",
-    // metaDescription:
-    //   caseData.MetaDescription ||
-    //   caseData.metaDescription ||
-    //   caseData.Description ||
-    //   caseData.description ||
-    //   "",
-    // metaImage: getImageUrl(
-    //   caseData.Image ||
-    //     caseData.image ||
-    //     caseData.MetaImage ||
-    //     caseData.metaImage
-    // ),
+    metaImage: getImageUrl(caseData.Image),
   };
 }
 
 // Función para generar metadatos dinámicos (SEO)
-// export async function generateMetadata({ params }) {
-//   const { slug, locale } = await params;
-//   const data = await getCasoData(slug, locale);
+export async function generateMetadata({ params }) {
+  const { slug, locale } = await params;
+  const data = await getCasoData(slug, locale);
 
-//   if (!data) {
-//     return {
-//       title: "Caso no encontrado",
-//       description: "El caso de éxito que buscas no existe.",
-//     };
-//   }
+  if (!data) {
+    return {
+      title: 'Caso no encontrado | Ctrl365',
+      description: 'El caso de éxito que buscas no existe.',
+    };
+  }
 
-//   return {
-//     title: data.metaTitle || data.title,
-//     description: data.metaDescription || data.description,
-//     openGraph: {
-//       title: data.metaTitle || data.title,
-//       description: data.metaDescription || data.description,
-//       images: data.metaImage ? [data.metaImage] : ["/og-image.jpg"],
-//       locale: locale,
-//       type: "website",
-//     },
-//     twitter: {
-//       card: "summary_large_image",
-//       title: data.metaTitle || data.title,
-//       description: data.metaDescription || data.description,
-//     },
-//   };
-// }
+  const baseUrl = 'https://ctrl365.com';
+  const canonicalUrl =
+    locale === 'es'
+      ? `${baseUrl}/casos/${slug}`
+      : `${baseUrl}/en/casos/${slug}`;
+
+  const ogImageUrl = data.metaImage
+    ? `${baseUrl}${data.metaImage}`
+    : `${baseUrl}/images/hero/video.webp`;
+
+  return {
+    title: `${data.title} | Ctrl365`,
+    description: data.heroData.subtitle || data.description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        es: `${baseUrl}/casos/${slug}`,
+        en: `${baseUrl}/en/casos/${slug}`,
+      },
+    },
+    openGraph: {
+      title: `${data.title} | Ctrl365`,
+      description: data.heroData.subtitle || data.description,
+      url: canonicalUrl,
+      siteName: 'Ctrl365',
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: data.title,
+        },
+      ],
+      locale: locale === 'es' ? 'es_ES' : 'en_US',
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${data.title} | Ctrl365`,
+      description: data.heroData.subtitle || data.description,
+      images: [ogImageUrl],
+    },
+  };
+}
 
 // Componente de página (Server Component)
 export default async function CasoDeExitoPage({ params }) {
@@ -177,9 +165,21 @@ export default async function CasoDeExitoPage({ params }) {
     <>
       <Navbar />
       <main className="pt-16 lg:pt-32">
-        <HeroCaso slug={slug} title={data.title} data={data.heroData} />
-        <SolutionCaso slug={slug} title={data.title} data={data.solutionData} />
-        <ImpactCaso slug={slug} title={data.title} data={data.impactData} />
+        <HeroCaso
+          slug={slug}
+          title={data.title}
+          data={data.heroData}
+        />
+        <SolutionCaso
+          slug={slug}
+          title={data.title}
+          data={data.solutionData}
+        />
+        <ImpactCaso
+          slug={slug}
+          title={data.title}
+          data={data.impactData}
+        />
       </main>
     </>
   );
