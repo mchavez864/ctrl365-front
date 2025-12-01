@@ -137,7 +137,7 @@ const Soluciones = () => {
   return (
     <>
       {/* desktop */}
-      <section className="w-full h-[100dvh] relative bg-grey-10 hidden xl:block">
+      <section className="w-full h-[100dvh] relative bg-grey-10 hidden lg:block">
         <div className="w-full h-full bg-grey-40 rounded-[35px]">
           <div
             className="w-full h-full rounded-[35px]"
@@ -336,7 +336,7 @@ const Soluciones = () => {
       </section>
 
       {/* tablet */}
-      <section className="w-full h-[100dvh] relative bg-grey-10 hidden md:block overflow-hidden xl:hidden pt-[64px]">
+      <section className="w-full h-[100dvh] relative bg-grey-10 hidden md:block overflow-hidden lg:hidden pt-[64px]">
         <div
           style={{ transform: `translateX(${transformValue}vw)` }}
           className="w-[calc(160vw+64px+64px)] h-[80%] flex flex-row gap-[16px] overflow-x-hidden mx-[64px] translate-0.5 transition-transform duration-700 ease-in-out"
