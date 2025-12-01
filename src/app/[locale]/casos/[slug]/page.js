@@ -85,19 +85,38 @@ async function getCasoData(slug, locale = 'es') {
 // Función para generar metadatos dinámicos (SEO)
 export async function generateMetadata({ params }) {
   const { slug, locale } = await params;
-  const data = await getCasoData(slug, locale);
+  const caseData = await getCase(slug, locale);
 
-  if (!data) {
+  if (!caseData) {
     return {
       title: 'Caso no encontrado | Ctrl365',
       description: 'El caso de éxito que buscas no existe.',
     };
   }
 
+  // Obtener el slug del otro idioma desde las localizaciones
+  console.log('DEBUG - Current locale:', locale);
+  console.log('DEBUG - Localizations array:', caseData.localizations);
+  const alternateSlug = caseData.localizations?.[0]?.Slug || slug;
+  console.log(
+    'DEBUG - alternateSlug:',
+    alternateSlug,
+    'currentSlug:',
+    slug,
+    'locale:',
+    locale
+  );
+
+  const data = await getCasoData(slug, locale);
   const baseUrl = 'https://ctrl365.com';
+
+  // Construir URLs correctas según el idioma actual
+  const esSlug = locale === 'es' ? slug : alternateSlug;
+  const enSlug = locale === 'en' ? slug : alternateSlug;
+
   const canonicalUrl =
     locale === 'es'
-      ? `${baseUrl}/casos/${slug}`
+      ? `${baseUrl}/es/casos/${slug}`
       : `${baseUrl}/en/casos/${slug}`;
 
   const ogImageUrl = data.metaImage
@@ -110,8 +129,8 @@ export async function generateMetadata({ params }) {
     alternates: {
       canonical: canonicalUrl,
       languages: {
-        es: `${baseUrl}/casos/${slug}`,
-        en: `${baseUrl}/en/casos/${slug}`,
+        es: `${baseUrl}/es/casos/${esSlug}`,
+        en: `${baseUrl}/en/casos/${enSlug}`,
       },
     },
     openGraph: {

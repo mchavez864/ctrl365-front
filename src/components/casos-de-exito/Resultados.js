@@ -270,9 +270,9 @@ const Resultados = ({ title, paragraph1, paragraph2, tagline, cards }) => {
     >
       <div className="relative z-30">
         <div className="mx-auto flex flex-col items-center max-w-[295px] pb-[64px] md:max-w-[640px] lg:relative lg:flex-row lg:items-center lg:justify-between lg:max-w-full lg:py-[128px]">
-          <h2 className="h1 text-grey-00 text-center mb-[32px] lg:w-[482px] lg:text-left gradient-text lg:mb-0">
+          <h1 className="h1 text-grey-00 text-center mb-[32px] lg:w-[482px] lg:text-left gradient-text lg:mb-0">
             {title}
-          </h2>
+          </h1>
           <div className="lg:w-[434px]">
             <p className="lg text-grey-00 text-center mb-[24px] lg:text-left">
               {paragraph1}
@@ -294,7 +294,10 @@ const Resultados = ({ title, paragraph1, paragraph2, tagline, cards }) => {
               playsInline
               preload="auto"
             >
-              <source src="/videos/orb-full.webm" type="video/webm" />
+              <source
+                src="/videos/orb-full.webm"
+                type="video/webm"
+              />
               Your browser does not support the video tag.
             </video>
             <div className="absolute top-0 left-0 w-[156px] h-[156px] lg:w-[315.9px] lg:h-[315.9px] bg-orange rounded-full opacity-90 mix-blend-soft-light z-40 pointer-events-none"></div>
@@ -312,7 +315,10 @@ const Resultados = ({ title, paragraph1, paragraph2, tagline, cards }) => {
           playsInline
           preload="auto"
         >
-          <source src="/videos/mesh-white.webm" type="video/webm" />
+          <source
+            src="/videos/mesh-white.webm"
+            type="video/webm"
+          />
           Your browser does not support the video tag.
         </video>
         <div
