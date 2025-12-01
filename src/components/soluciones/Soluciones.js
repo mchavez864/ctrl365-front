@@ -79,6 +79,10 @@ const Soluciones = () => {
     }
   };
 
+  const goToSlide = (index) => {
+    setActualSlide(index + 1); // index va de 0-3, actualSlide va de 1-4
+  };
+
   //efectos
   useEffect(() => {
     setShowContent(false);
@@ -191,7 +195,7 @@ const Soluciones = () => {
   return (
     <>
       {/* desktop */}
-      <section className="w-full h-[100dvh] relative bg-grey-10 hidden lg:block">
+      <section className="w-full h-[100dvh] relative bg-grey-10 hidden xl:block">
         <div className="w-full h-full bg-grey-40 rounded-[35px]">
           <div
             className="w-full h-full rounded-[35px]"
@@ -270,7 +274,7 @@ const Soluciones = () => {
             </div>
             <div className="w-full h-[60%] flex flex-col gap-[8px] items-start justify-center">
               <h2
-                className={`text-white transition-opacity duration-500 ease-out ${
+                className={`mb-2 text-white transition-opacity duration-500 ease-out ${
                   showContent ? 'opacity-100' : 'opacity-0'
                 } !leading-[100%]`}
               >
@@ -318,8 +322,11 @@ const Soluciones = () => {
                 return (
                   <div
                     key={index}
-                    className={`flex items-center gap-[8px] transition-all duration-500 ${
-                      isActive ? 'text-white' : 'text-[#9e9e9e]'
+                    onClick={() => goToSlide(index)}
+                    className={`flex items-center gap-[8px] transition-all duration-500 cursor-pointer ${
+                      isActive
+                        ? 'text-white'
+                        : 'text-[#9e9e9e] hover:text-grey-20'
                     }`}
                   >
                     {isActive && (
@@ -390,7 +397,7 @@ const Soluciones = () => {
       </section>
 
       {/* tablet */}
-      <section className="w-full h-[100dvh] relative bg-grey-10 hidden md:block overflow-hidden lg:hidden pt-[64px]">
+      <section className="w-full h-[100dvh] relative bg-grey-10 hidden md:block overflow-hidden xl:hidden pt-[64px]">
         <div
           style={{ transform: `translateX(${transformValue}vw)` }}
           className="w-[calc(160vw+64px+64px)] h-[80%] flex flex-row gap-[16px] overflow-x-hidden mx-[64px] translate-0.5 transition-transform duration-700 ease-in-out"
@@ -577,7 +584,7 @@ const Soluciones = () => {
                 showContent ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              <h2 className="text-white">
+              <h2 className="text-white ">
                 {sliderData[actualSlide - 1].title}
               </h2>
               <p className="text-white text-[16px] font-[400] leading-[120%]">
