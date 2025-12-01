@@ -18,6 +18,7 @@ export async function generateMetadata() {
 
   const baseUrl = 'https://ctrl365.com';
   const canonicalUrl = locale === 'es' ? baseUrl : `${baseUrl}/${locale}`;
+  const ogImageUrl = `${baseUrl}${t('ogImage')}`;
 
   return {
     title: t('title'),
@@ -36,7 +37,7 @@ export async function generateMetadata() {
       siteName: 'Ctrl365',
       images: [
         {
-          url: t('ogImage'),
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: t('ogTitle'),
@@ -49,7 +50,7 @@ export async function generateMetadata() {
       card: 'summary_large_image',
       title: t('ogTitle'),
       description: t('ogDescription'),
-      images: [t('ogImage')],
+      images: [ogImageUrl],
     },
   };
 }

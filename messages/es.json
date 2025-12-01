@@ -272,6 +272,13 @@
     }
   },
   "NuestroAdnPage": {
+    "seo": {
+      "title": "ADN de Ctrl365 | IA-First · Challengers · Human+",
+      "description": "Descubrí nuestro ADN: cuestionamos reglas, ponemos IA con sentido y empoderamos personas. Ctrl365 transforma negocios con visión, método y ejecución.",
+      "ogTitle": "ADN de Ctrl365 | IA-First · Challengers · Human+",
+      "ogDescription": "Descubrí nuestro ADN: cuestionamos reglas, ponemos IA con sentido y empoderamos personas. Ctrl365 transforma negocios con visión, método y ejecución.",
+      "ogImage": "/images/pages/home/solutions/card-4-desktop.png"
+    },
     "premios": {
       "avaladosPor": "Avalados por",
       "premiosY": "Premios y",
