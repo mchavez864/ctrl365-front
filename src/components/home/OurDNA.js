@@ -1,12 +1,12 @@
-'use client';
-import React from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useState, useRef } from 'react';
-import DNACard from './Cards/DnaCard';
-import useMeasure from 'react-use-measure';
-import Button from '../buttons/Button';
-import { useTranslations } from 'next-intl';
-import WordReveal from '../animations/WordReveal';
+"use client";
+import React from "react";
+import { motion, useInView } from "framer-motion";
+import { useState, useRef } from "react";
+import DNACard from "./Cards/DnaCard";
+import useMeasure from "react-use-measure";
+import Button from "../buttons/Button";
+import { useTranslations } from "next-intl";
+import WordReveal from "../animations/WordReveal";
 
 const BREAKPOINTS = {
   xs: 360,
@@ -19,36 +19,36 @@ const BREAKPOINTS = {
 const OurDNA = () => {
   const [ref, { width }] = useMeasure();
   const [offset, setOffset] = useState(0);
-  const t = useTranslations('Home.OurDNA');
-  
+  const t = useTranslations("Home.OurDNA");
+
   // Ref para detectar cuando el slider entra en pantalla
   const sliderRef = useRef(null);
-  const isInView = useInView(sliderRef, { once: true, margin: '-100px' });
+  const isInView = useInView(sliderRef, { once: true, margin: "-100px" });
 
   const dnaCards = [
     {
       id: 1,
-      title: t('Cards.card1.title'),
-      icon: '/videos/icon-02.json',
-      description: t('Cards.card1.description'),
+      title: t("Cards.card1.title"),
+      icon: "/videos/icon-02.json",
+      description: t("Cards.card1.description"),
     },
     {
       id: 2,
-      title: t('Cards.card2.title'),
-      icon: '/videos/icon-03.json',
-      description: t('Cards.card2.description'),
+      title: t("Cards.card2.title"),
+      icon: "/videos/icon-03.json",
+      description: t("Cards.card2.description"),
     },
     {
       id: 3,
-      title: t('Cards.card3.title'),
-      icon: '/videos/icon-05.json',
-      description: t('Cards.card3.description'),
+      title: t("Cards.card3.title"),
+      icon: "/videos/icon-05.json",
+      description: t("Cards.card3.description"),
     },
     {
       id: 4,
-      title: t('Cards.card4.title'),
-      icon: '',
-      description: t('Cards.card4.description'),
+      title: t("Cards.card4.title"),
+      icon: "",
+      description: t("Cards.card4.description"),
     },
   ];
   // Calcular el tamaño de la tarjeta según el breakpoint actual
@@ -63,13 +63,11 @@ const OurDNA = () => {
   };
 
   const CARD_SIZE = getCardSize();
-  const CARD_BUFFER =
-    width > BREAKPOINTS.lg ? 3 : width > BREAKPOINTS.sm ? 2 : 1;
+  const CARD_BUFFER = width > BREAKPOINTS.lg ? 3 : width > BREAKPOINTS.sm ? 2 : 1;
 
   const CAN_SHIFT_LEFT = offset < 0;
 
-  const CAN_SHIFT_RIGHT =
-    Math.abs(offset) < CARD_SIZE * (dnaCards.length - CARD_BUFFER);
+  const CAN_SHIFT_RIGHT = Math.abs(offset) < CARD_SIZE * (dnaCards.length - CARD_BUFFER);
 
   const shiftLeft = () => {
     if (!CAN_SHIFT_LEFT) {
@@ -86,46 +84,36 @@ const OurDNA = () => {
   };
 
   return (
-    <section
-      data-dark-section="true"
-      className="relative bg-grey-40 py-16 md:py-24 lg:py-32 overflow-hidden"
-    >
+    <section data-dark-section="true" className="relative bg-grey-40 py-16 md:py-24 lg:py-32 overflow-hidden">
       {/* Background con opacidad */}
       <video
-        className="absolute inset-0 pointer-events-none object-cover"
+        className="absolute left-1/2 -translate-x-1/2 inset-0 pointer-events-none object-cover"
         style={{
-          opacity: 0.1,
-          transform: 'scale(1.2)',
+          opacity: 0.05,
+          transform: "scale(1.25)",
         }}
         autoPlay
         loop
         muted
         playsInline
-        preload="auto"
-      >
-        <source
-          src="/videos/mesh-white.webm"
-          type="video/webm"
-        />
+        preload="auto">
+        <source src="/videos/mesh-white.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
 
-      <div
-        className="relative z-10"
-        ref={ref}
-      >
+      <div className="relative z-10" ref={ref}>
         {/* Header con título y botones */}
         <div className="flex justify-between mb-12 md:mb-16 pl-4 md:pl-16 lg:pl-[285px] xl:pl-[400px]">
-          <span className='h2 text-grey-00 font-sora'>
-          <WordReveal
-           
+          <span className="h2 text-grey-00 font-sora">
+            <WordReveal
+
             // initial={{ opacity: 0, y: 20 }}
             // whileInView={{ opacity: 1, y: 0 }}
             // viewport={{ once: true }}
             // transition={{ duration: 0.6 }}
-          >
-            {t('title')}
-          </WordReveal>
+            >
+              {t("title")}
+            </WordReveal>
           </span>
         </div>
 
@@ -156,45 +144,20 @@ const OurDNA = () => {
               x: offset,
             }}
             transition={{
-              ease: 'easeInOut',
+              ease: "easeInOut",
             }}
-            className="flex cursor-grab active:cursor-grabbing"
-          >
+            className="flex cursor-grab active:cursor-grabbing">
             {dnaCards.map((card, index) => (
-              <DNACard
-                key={card.id}
-                title={card.title}
-                id={card.id}
-                icon={card.icon}
-                description={card.description}
-                index={index}
-                isInView={isInView}
-              />
+              <DNACard key={card.id} title={card.title} id={card.id} icon={card.icon} description={card.description} index={index} isInView={isInView} />
             ))}
           </motion.div>
         </div>
         {/* Botones de navegación */}
         <div className="flex items-center justify-between pl-4 md:pl-16 lg:pl-[285px] xl:pl-[400px] mr-4 xl:mr-[128px] mt-8 xl:mt-[64px]">
-          <Button
-            variant="white"
-            url="/nuestro-adn"
-            copy={t('button')}
-          />
+          <Button variant="white" url="/nuestro-adn" copy={t("button")} />
           <div className="relative flex items-center gap-4">
-            <Button
-              disabled={!CAN_SHIFT_LEFT}
-              onClick={shiftLeft}
-              variant="glass"
-              size="md"
-              className="absolute -right-10 rotate-180"
-            />
-            <Button
-              disabled={!CAN_SHIFT_RIGHT}
-              onClick={shiftRight}
-              variant="glass"
-              size="md"
-              className="absolute right-0"
-            />
+            <Button disabled={!CAN_SHIFT_LEFT} onClick={shiftLeft} variant="glass" size="md" className="absolute -right-10 rotate-180" />
+            <Button disabled={!CAN_SHIFT_RIGHT} onClick={shiftRight} variant="glass" size="md" className="absolute right-0" />
           </div>
         </div>
       </div>
