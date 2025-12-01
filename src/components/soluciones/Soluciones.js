@@ -8,6 +8,8 @@ const Soluciones = () => {
   const [buttonNextActive, setButtonNextActive] = useState(true);
   const [buttonPrevActive, setButtonPrevActive] = useState(false);
   const [showContent, setShowContent] = useState(true);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
 
   //variables
   const t = useTranslations('Home.solutions');
@@ -105,6 +107,8 @@ const Soluciones = () => {
   const [buttonNextActiveTablet, setButtonNextActiveTablet] = useState(true);
   const [buttonPrevActiveTablet, setButtonPrevActiveTablet] = useState(false);
   const [transformValue, setTrasnformValue] = useState(0);
+  const [touchStartTablet, setTouchStartTablet] = useState(0);
+  const [touchEndTablet, setTouchEndTablet] = useState(0);
 
   // Estas funciones modifican actualSlideTablet, y el render se encargará de mover el track.
   const handleNextButtonSlide = () => {
@@ -131,6 +135,56 @@ const Soluciones = () => {
     } else {
       setButtonPrevActiveTablet(false);
       setButtonNextActiveTablet(true);
+    }
+  };
+
+  // Funciones para swipe en mobile
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 50) {
+      // Swipe left - next slide
+      if (buttonNextActive) {
+        changeSlideNext();
+      }
+    }
+
+    if (touchStart - touchEnd < -50) {
+      // Swipe right - prev slide
+      if (buttonPrevActive) {
+        changeSlidePrev();
+      }
+    }
+  };
+
+  // Funciones para swipe en tablet
+  const handleTouchStartTablet = (e) => {
+    setTouchStartTablet(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMoveTablet = (e) => {
+    setTouchEndTablet(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEndTablet = () => {
+    if (touchStartTablet - touchEndTablet > 50) {
+      // Swipe left - next slide
+      if (buttonNextActiveTablet) {
+        handleNextButtonSlide();
+      }
+    }
+
+    if (touchStartTablet - touchEndTablet < -50) {
+      // Swipe right - prev slide
+      if (buttonPrevActiveTablet) {
+        handlePrevButtonSlide();
+      }
     }
   };
 
@@ -340,6 +394,9 @@ const Soluciones = () => {
         <div
           style={{ transform: `translateX(${transformValue}vw)` }}
           className="w-[calc(160vw+64px+64px)] h-[80%] flex flex-row gap-[16px] overflow-x-hidden mx-[64px] translate-0.5 transition-transform duration-700 ease-in-out"
+          onTouchStart={handleTouchStartTablet}
+          onTouchMove={handleTouchMoveTablet}
+          onTouchEnd={handleTouchEndTablet}
         >
           {sliderData.map((slides, index) => {
             const backgroundStyleTablet = {
@@ -480,7 +537,12 @@ const Soluciones = () => {
 
       {/* mobile */}
       <section className="w-full h-[100dvh] relative bg-grey-10 md:hidden py-[64px]">
-        <div className="w-auto h-[80%] mx-[16px] bg-grey-40 rounded-[16px] relative">
+        <div
+          className="w-auto h-[80%] mx-[16px] bg-grey-40 rounded-[16px] relative"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div
             className="w-full h-full rounded-[35px]"
             style={backgroundStyle}
