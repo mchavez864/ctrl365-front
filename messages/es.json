@@ -5,7 +5,7 @@
       "description": "Soluciones de IA para escalar ventas, automatizar procesos y mejorar resultados reales. Ctrl365 integra IA con estrategia y ejecución humana.",
       "ogTitle": "Inteligencia Artificial para empresas | Ctrl365",
       "ogDescription": "Soluciones de IA para escalar ventas, automatizar procesos y mejorar resultados reales. Ctrl365 integra IA con estrategia y ejecución humana.",
-      "ogImage": "/images/pages/home/solutions/card-4-desktop.png"
+      "ogImage": "/images/hero/video.webp"
     },
     "hero": {
       "title1": "IA para resultados",
@@ -277,7 +277,7 @@
       "description": "Descubrí nuestro ADN: cuestionamos reglas, ponemos IA con sentido y empoderamos personas. Ctrl365 transforma negocios con visión, método y ejecución.",
       "ogTitle": "ADN de Ctrl365 | IA-First · Challengers · Human+",
       "ogDescription": "Descubrí nuestro ADN: cuestionamos reglas, ponemos IA con sentido y empoderamos personas. Ctrl365 transforma negocios con visión, método y ejecución.",
-      "ogImage": "/images/pages/home/solutions/card-4-desktop.png"
+      "ogImage": "/images/hero/video.webp"
     },
     "premios": {
       "avaladosPor": "Avalados por",
@@ -362,6 +362,13 @@
     "decline": "Rechazar Cookies"
   },
   "ContactPage": {
+    "seo": {
+      "title": "Contacto Ctrl365 | IA aplicada al negocio",
+      "description": "¿Listo para escalar tu negocio con IA real? Hablá con nuestro equipo de IA y estrategia.",
+      "ogTitle": "Contacto Ctrl365 | IA aplicada al negocio",
+      "ogDescription": "¿Listo para escalar tu negocio con IA real? Hablá con nuestro equipo de IA y estrategia.",
+      "ogImage": "/images/hero/video.webp"
+    },
     "hero": {
       "title": "Contactanos",
       "description": "¿Querés saber más sobre nuestros servicios? Dejanos tus datos y te responderemos pronto con toda la información."

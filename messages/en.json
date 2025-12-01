@@ -5,7 +5,7 @@
       "description": "AI solutions to scale sales, automate processes, and improve real results. Ctrl365 integrates AI with strategy and human execution.",
       "ogTitle": "Artificial Intelligence for Business | Ctrl365",
       "ogDescription": "AI solutions to scale sales, automate processes, and improve real results. Ctrl365 integrates AI with strategy and human execution.",
-      "ogImage": "/images/pages/home/solutions/card-4-desktop.png"
+      "ogImage": "/images/hero/video.webp"
     },
     "hero": {
       "title1": "AI for real",
@@ -277,7 +277,7 @@
       "description": "Discover our DNA: we challenge rules, apply AI with purpose, and empower people. Ctrl365 transforms businesses with vision, method, and execution.",
       "ogTitle": "Ctrl365 DNA | AI-First · Challengers · Human+",
       "ogDescription": "Discover our DNA: we challenge rules, apply AI with purpose, and empower people. Ctrl365 transforms businesses with vision, method, and execution.",
-      "ogImage": "/images/pages/home/solutions/card-4-desktop.png"
+      "ogImage": "/images/hero/video.webp"
     },
     "premios": {
       "avaladosPor": "Backed by",
@@ -362,6 +362,13 @@
     "decline": "Decline Cookies"
   },
   "ContactPage": {
+    "seo": {
+      "title": "Contact Ctrl365 | AI applied to business",
+      "description": "Ready to scale your business with real AI? Talk to our AI and strategy team.",
+      "ogTitle": "Contact Ctrl365 | AI applied to business",
+      "ogDescription": "Ready to scale your business with real AI? Talk to our AI and strategy team.",
+      "ogImage": "/images/hero/video.webp"
+    },
     "hero": {
       "title": "Contact us",
       "description": "Want to know more about our services? Leave your details and we'll get back to you soon with all the information."
