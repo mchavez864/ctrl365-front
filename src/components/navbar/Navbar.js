@@ -13,6 +13,7 @@ import Menu from './Menu';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkBackground, setIsDarkBackground] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -35,6 +36,9 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Detectar si hay scroll
+      setIsScrolled(window.scrollY > 10);
+
       // Obtener la posición del navbar
       const navbarHeight = 100; // Altura aproximada del navbar
       const scrollPosition = window.scrollY + navbarHeight;
@@ -68,7 +72,15 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="bg-transparent overflow-hidden fixed top-0 left-0 w-full z-50 transition-colors duration-300">
+      <nav
+        className={`overflow-hidden fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          isScrolled
+            ? isDarkBackground
+              ? 'backdrop-blur-lg bg-grey-40/15'
+              : 'backdrop-blur-lg bg-grey-00/15'
+            : 'bg-transparent'
+        }`}
+      >
         <div className="flex justify-between items-center px-[16px] md:px-[64px] py-[16px] md:py-[32px] xxl:px-[128px]">
           <a href="/">
             <Logo
