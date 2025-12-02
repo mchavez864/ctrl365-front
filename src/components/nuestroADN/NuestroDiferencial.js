@@ -3,6 +3,7 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import ShuffleCards from './ShuffleCards';
+import WordReveal from '../animations/WordReveal';
 
 import {
   motion,
@@ -18,7 +19,7 @@ const NuestroDiferencial = () => {
       <div className="block absolute top-0 right-0 w-[400px] h-[300px] bg-[url('/images/elements/grid.svg')]"></div>
       <div>
         <h2 className="max-w-[282px] mb-[64px] lg:mb-[128px] lg:max-w-full">
-          {t('title')}
+          <WordReveal wordGap={5}>{t('title')}</WordReveal>
         </h2>
         <div className="md:flex gap-[32px] lg:items-center lg:gap-0 lg:justify-between">
           <div className="w-full h-[184px] rounded-[16px] overflow-hidden md:flex-1 lg:h-[385px] lg:max-w-[684px]">
