@@ -83,7 +83,7 @@ const Footer = () => {
         <div className="px-[16px] md:px-[64px] lg:mt-[64px] xxl:px-[128px]">
           <hr className="w-full border-grey-20 my-[32px] lg:hidden" />
           <div className="flex flex-col gap-[32px] items-center md:flex-row md:justify-between">
-            <div className="flex justify-between items-center w-[128px] mx-auto md:mx-0 md:order-2">z
+            <div className="flex justify-between items-center w-[128px] mx-auto md:mx-0 md:order-2">
               <a
                 href="https://www.instagram.com/ctrl365/"
                 target="_blank"
