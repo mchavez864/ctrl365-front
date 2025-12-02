@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import SliderCasosDeExito from '@/components/sliders/SliderCasosDeExito';
+import WordReveal from '../animations/WordReveal';
+import FadeInUp from '../animations/FadeInUp';
 
 export default function SectionResultadosClient({ slides, sectionData }) {
   const [isDesktop, setIsDesktop] = useState(false);
@@ -23,10 +25,14 @@ export default function SectionResultadosClient({ slides, sectionData }) {
     <section className="bg-grey-10 overflow-hidden px-4 py-16 md:px-16 xl:py-32 xxl:px-32">
       <div className="mb-16 text-center lg:text-left xl:flex xl:items-start xl:justify-between">
         <h2 className="mt-3 text-3xl font-semibold text-grey-40 md:text-4xl lg:text-5xl lg:max-w-[648px] xxl:max-w-[1000px]">
+          <WordReveal wordGap={5} delay={0.2}>
           {sectionData.title}
+          </WordReveal>
         </h2>
         <p className="mt-4 max-w-xl text-base text-grey-20 md:text-lg">
+        <WordReveal wordGap={2} delay={0.4}>
           {sectionData.description}
+          </WordReveal>
         </p>
       </div>
 
