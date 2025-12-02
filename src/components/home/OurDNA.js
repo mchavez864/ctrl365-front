@@ -1,11 +1,12 @@
 'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useState, useRef } from 'react';
 import DNACard from './Cards/DnaCard';
 import useMeasure from 'react-use-measure';
 import Button from '../buttons/Button';
 import { useTranslations } from 'next-intl';
+import WordReveal from '../animations/WordReveal';
 
 const BREAKPOINTS = {
   xs: 360,
@@ -19,6 +20,10 @@ const OurDNA = () => {
   const [ref, { width }] = useMeasure();
   const [offset, setOffset] = useState(0);
   const t = useTranslations('Home.OurDNA');
+  
+  // Ref para detectar cuando el slider entra en pantalla
+  const sliderRef = useRef(null);
+  const isInView = useInView(sliderRef, { once: true, margin: '-100px' });
 
   const dnaCards = [
     {
@@ -111,19 +116,21 @@ const OurDNA = () => {
       >
         {/* Header con título y botones */}
         <div className="flex justify-between mb-12 md:mb-16 pl-4 md:pl-16 lg:pl-[285px] xl:pl-[400px]">
-          <motion.h2
-            className="h2 text-grey-00 font-sora"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <span className='h2 text-grey-00 font-sora'>
+          <WordReveal
+           
+            // initial={{ opacity: 0, y: 20 }}
+            // whileInView={{ opacity: 1, y: 0 }}
+            // viewport={{ once: true }}
+            // transition={{ duration: 0.6 }}
           >
             {t('title')}
-          </motion.h2>
+          </WordReveal>
+          </span>
         </div>
 
         {/* Slider de tarjetas */}
-        <div className="overflow-hidden pl-4 md:pl-16 lg:pl-[285px] xl:pl-[400px]">
+        <div ref={sliderRef} className="overflow-hidden pl-4 md:pl-16 lg:pl-[285px] xl:pl-[400px]">
           <motion.div
             drag="x"
             dragConstraints={{
@@ -161,6 +168,7 @@ const OurDNA = () => {
                 icon={card.icon}
                 description={card.description}
                 index={index}
+                isInView={isInView}
               />
             ))}
           </motion.div>
