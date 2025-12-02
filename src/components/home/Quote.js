@@ -6,15 +6,21 @@ import {
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
+  useInView,
 } from "framer-motion";
 import Image from "next/image";
 import Character from "./quote/Character";
 import FadeInUp from "../animations/FadeInUp";
+import WordReveal from "../animations/WordReveal";
 
 const Quote = () => {
   const t = useTranslations("Home.quote");
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+
   return (
     <section
+      ref={sectionRef}
       data-dark-section="true"
       className="relative h-[655px] md:h-[438px] lg:h-[603px] xxl:h-[651px] bg-grey-40 px-[16px] md:px-[64px] py-[64px] lg:py-[128px] xxl:px-[408px] overflow-hidden "
     >
@@ -25,16 +31,26 @@ const Quote = () => {
       ></div>
       <div className="relative z-30 flex flex-col items-start justify-between h-full">
         <div className="flex items-center gap-2 ">
-          <div className="bg-orange w-[12px] h-[12px] rounded-full"></div>
-          <p className="text-grey-00 font-inter text-base! leading-[120%]! font-medium uppercase">
+          <motion.div 
+            className="bg-orange w-[12px] h-[12px] rounded-full"
+            initial={{ scale: 0 }}
+            animate={isInView ? { scale: 1 } : { scale: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+          />
+          <motion.p 
+            className="text-grey-00 font-inter text-base! leading-[120%]! font-medium uppercase"
+            initial={{ clipPath: "inset(0 100% 0 0)" }}
+            animate={isInView ? { clipPath: "inset(0 0% 0 0)" } : { clipPath: "inset(0 100% 0 0)" }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.7 }}
+          >
             {t("tagline")}
-          </p>
+          </motion.p>
         </div>
         <p className="h3 text-grey-20">
           <Character value={t("text")} />
           {/* <span className="text-grey-20 inline">{t("text2")}</span> */}
         </p>
-        <FadeInUp className="flex items-center gap-[16px] self-end">
+        <FadeInUp delay={0.8} className="flex items-center gap-[8px] self-end">
             <div className="flex items-center">
               <div className="hidden md:block glass-results w-[98px] h-[64px] rounded-[46px] mr-[-16px]"></div>
               <div className=" rounded-full overflow-hidden">
@@ -47,8 +63,8 @@ const Quote = () => {
               </div>
             </div>
             <div className="flex flex-col text-grey-00 max-w-[200px] z-30 md:max-w-full">
-              <p className="font-bold!">{t("author.name")}</p>
-              <p>{t("author.role")}</p>
+              <p className="font-bold!"><WordReveal delay={0.8} wordGap={3}>{t("author.name")}</WordReveal></p>
+              <p><WordReveal delay={1} wordGap={2}>{t("author.role")}</WordReveal></p>
             </div>
         </FadeInUp>
       </div>
