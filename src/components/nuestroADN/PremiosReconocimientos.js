@@ -1,14 +1,29 @@
 'use client';
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import Button from '../buttons/Button';
 import SliderBase from '../sliders/SliderBase';
+import WordReveal from '../animations/WordReveal';
+import FadeInUp from '../animations/FadeInUp';
 
 const PremiosReconocimientos = () => {
   const t = useTranslations('NuestroAdnPage.premios');
   const sliderRef = useRef(null);
+  const titleContainerRef = useRef(null);
+
+  // Scroll-based animation for "avalados por" and "365"
+  const { scrollYProgress } = useScroll({
+    target: titleContainerRef,
+    offset: ["start end", "center center"],
+  });
+
+  // "avalados por" comes from left (-100% to 0%)
+  const avaladosX = useTransform(scrollYProgress, [0, 1], ["-100%", "0%"]);
+  
+  // "365" comes from right (100% to 0%)
+  const num365X = useTransform(scrollYProgress, [0, 1], ["100%", "0%"]);
 
   useEffect(() => {
     let interval = null;
@@ -119,17 +134,27 @@ const PremiosReconocimientos = () => {
       blur-2xl will-change-transform lg:blur-3xl"
         ></div>
         <div className="lg:flex lg:h-[351px] lg:justify-between lg:items-center lg:px-[64px] lg:mb-[128px] xxl:px-[128px]">
-          <div className="w-[328px] h-[151px] mx-auto relative z-10 px-[16px] md:px-[64px] md:w-[365px] md:h-[145px] lg:px-0 lg:w-[558px] lg:h-[308px] lg:mx-0">
-            <p className="h1 lg:text-[128px]! lg:tracking-[-5.12px]! lg:leading-[120%]! text-grey-00 text-center py-[56px] z-30 relative lg:py-0 lg:text-right">
+          <div 
+            ref={titleContainerRef}
+            className="w-[328px] h-[151px] mx-auto relative z-10 px-[16px] md:px-[64px] md:w-[365px] md:h-[145px] lg:px-0 lg:w-[558px] lg:h-[308px] lg:mx-0 "
+          >
+            <motion.p 
+              style={{ x: avaladosX }}
+              className="h1 lg:text-[128px]! lg:tracking-[-5.12px]! lg:leading-[120%]! text-grey-00 text-center py-[56px] z-30 relative lg:py-0 lg:text-right"
+            >
               {t('avaladosPor')}
-            </p>
-            <div className="absolute flex items-center justify-center z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[365px] h-[147px] lg:w-[548px] lg:h-[218px] lg:-bottom-[43px] lg:top-auto lg:left-auto lg:-right-[90px] lg:translate-x-0 lg:translate-y-0 lg:justify-end ">
+            </motion.p>
+            <motion.div 
+              style={{ x: num365X }}
+              className="absolute flex items-center justify-center z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[365px] h-[147px] lg:w-[548px] lg:h-[218px] lg:-bottom-[43px] lg:top-auto lg:left-auto lg:-right-[90px] lg:translate-x-0 lg:translate-y-0 lg:justify-end "
+            >
               <p className=" text-grey-30 text-[220px]! opacity-10 font-bold! lg:text-[300px]! lg:tracking-[-21px]! lg:leading-[100%]!">
                 365
               </p>
-            </div>
+            </motion.div>
           </div>
           <div className="flex items-center justify-between md:justify-center md:gap-[32px] lg:gap-[64px] mt-[32px] mb-[64px] px-[16px]">
+            <FadeInUp delay={0.2}>
             <Image
               src="/images/pages/nuestro-adn/blueprism.svg"
               alt=""
@@ -137,6 +162,8 @@ const PremiosReconocimientos = () => {
               height={67}
               className="w-[150] h-[50px] lg:w-[200px] lg:h-[67px]"
             />
+            </FadeInUp>
+            <FadeInUp delay={0.4}>
             <Image
               src="/images/pages/nuestro-adn/microsoft.svg"
               alt=""
@@ -144,15 +171,16 @@ const PremiosReconocimientos = () => {
               height={67}
               className="w-[150] h-[50px] lg:w-[200px] lg:h-[67px]"
             />
+            </FadeInUp>
           </div>
         </div>
         <div
           className="w-full relative z-20 "
           ref={sliderRef}
         >
-          <p className="h2 text-grey-00 mb-[32px] px-[16px] md:max-w-[328px] md:px-[64px] lg:max-w-[404px] xxl:px-[128px]">
-            {t('premiosY')}{' '}
-            <span className="text-grey-20">{t('reconocimientos')}</span>
+          <p className="h2 text-grey-00 mb-[32px] px-[16px] md:max-w-[328px] md:px-[64px] lg:max-w-[1000px] xxl:px-[128px]">
+            <WordReveal wordGap={5}>{t('premiosY')}</WordReveal>{' '}
+            <span className="text-grey-20"><WordReveal wordGap={5}>{t('reconocimientos')}</WordReveal></span>
           </p>
           <SliderBase
             slides={premios}
