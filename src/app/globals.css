@@ -217,6 +217,7 @@ body {
 
 /* Gradient border with border-radius */
 .gradient-border-rounded {
+  position: relative;
   background: rgba(41, 41, 41, 0.5);
 }
 

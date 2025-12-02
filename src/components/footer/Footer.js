@@ -1,6 +1,8 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import Logo from "@/svg/logo.js";
 import Linkedin from "@/svg/linkedin.js";
 import Instagram from "@/svg/instagram.js";
@@ -11,6 +13,8 @@ import FadeInUp from "../animations/FadeInUp";
 const Footer = () => {
   const locale = useLocale();
   const t = useTranslations("Footer");
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
   return (
     <footer
       className="relative bg-grey-40 h-full w-full overflow-hidden"
@@ -30,9 +34,36 @@ const Footer = () => {
               <span className="text-orange"><WordReveal wordGap={6}>{t("tagline3")}</WordReveal></span></div>
             </h4>
           </div>
-          <div className="h-[300px] w-full relative mt-[32px] md:mt-[64px] lg:h-[598px] lg:mt-0">
-            <div className="absolute right-[-1px] overflow-hidden rounded-l-[999px] w-[70%] md:w-[60%] h-full gradient-border-rounded"></div>
-            <div className="absolute left-[-1px] overflow-hidden rounded-r-[999px] w-[70%] md:w-[60%] h-full gradient-border-dark"></div>
+          <div 
+            ref={containerRef}
+            className="h-[300px] w-full relative mt-[32px] md:mt-[64px] lg:h-[598px] lg:mt-0"
+          >
+            {/* Contenedor derecho */}
+            <div 
+              style={{ position: 'absolute', top: 0, right: -1 }}
+              className="overflow-hidden rounded-l-[999px] w-[70%] md:w-[60%] h-full"
+            >
+              <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: isInView ? 0 : "100%" }}
+                transition={{ duration: 2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                style={{ position: 'relative' }}
+                className="w-full h-full gradient-border-rounded rounded-l-[999px]"
+              />
+            </div>
+            {/* Contenedor izquierdo */}
+            <div 
+              style={{ position: 'absolute', top: 0, left: -1 }}
+              className="overflow-hidden rounded-r-[999px] w-[70%] md:w-[60%] h-full"
+            >
+              <motion.div
+                initial={{ x: "-100%" }}
+                animate={{ x: isInView ? 0 : "-100%" }}
+                transition={{ duration: 2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                style={{ position: 'relative' }}
+                className="w-full h-full gradient-border-dark rounded-r-[999px]"
+              />
+            </div>
           </div>
           <div className="px-[16px] md:px-[64px] mt-[32px] md:mt-[64px] lg:absolute lg:bottom-[75px] lg:left-0 lg:flex lg:justify-between lg:items-center lg:w-full xxl:px-[128px]">
             <FadeInUp>
