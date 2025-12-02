@@ -215,9 +215,9 @@
   },
   "CasosDeExitoPage": {
     "seo": {
-      "title": "AI Success Stories for Companies | Ctrl365",
+      "title": "Case studies: AI Success Cases for Businesses | Ctrl365",
       "description": "Discover how we implement AI in companies: cost reduction, increased efficiency, and measurable growth.",
-      "ogTitle": "AI Success Stories for Companies | Ctrl365",
+      "ogTitle": "Case studies: AI Success Cases for Businesses | Ctrl365",
       "ogDescription": "Discover how we implement AI in companies: cost reduction, increased efficiency, and measurable growth.",
       "ogImage": "/images/hero/video.webp"
     },
@@ -281,9 +281,9 @@
   "NuestroAdnPage": {
     "seo": {
       "title": "Ctrl365 DNA | AI-First · Challengers · Human+",
-      "description": "Discover our DNA: we challenge rules, apply AI with purpose, and empower people. Ctrl365 transforms businesses with vision, method, and execution.",
+      "description": "Discover our DNA: we question the rules, apply AI with purpose, and empower people. Ctrl365 transforms businesses with vision, method, and execution.",
       "ogTitle": "Ctrl365 DNA | AI-First · Challengers · Human+",
-      "ogDescription": "Discover our DNA: we challenge rules, apply AI with purpose, and empower people. Ctrl365 transforms businesses with vision, method, and execution.",
+      "ogDescription": "Discover our DNA: we question the rules, apply AI with purpose, and empower people. Ctrl365 transforms businesses with vision, method, and execution.",
       "ogImage": "/images/hero/video.webp"
     },
     "premios": {
@@ -399,6 +399,7 @@
     "errors": {
       "required": "This field is required",
       "email": "Enter a valid email",
+      "corporateEmail": "Please use your corporate email address",
       "onlyLetters": "Letters only",
       "minChars": "Must be at least 3 characters",
       "maxChars": "Maximum 25 characters",

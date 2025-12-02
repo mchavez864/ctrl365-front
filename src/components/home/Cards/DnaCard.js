@@ -3,15 +3,18 @@ import { motion } from "framer-motion";
 import Logo from "@/svg/logo";
 import LottieIcon from "./LottieIcon";
 
-const DNACard = ({ index, id, title, icon, description }) => {
+const DNACard = ({ index, id, title, icon, description, isInView }) => {
   return (
     <motion.div
       key={id}
       className="relative w-[328px] md:w-[394px] 2xl:w-[400px] mr-4 xl:mr-5 rounded-2xl  xl:rounded-3xl p-8 overflow-hidden group cursor-pointer shrink-0 bg-grey-40"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+      initial={{ opacity: 0, x: 200 }}
+      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 200 }}
+      transition={{ 
+        duration: 1, 
+        delay: index * 0.2,
+        ease: [0.25, 0.1, 0.25, 1] // easeOut suave
+      }}
     >
       {/* Contenido de la tarjeta */}
       {/* Overlay gradient on hover */}

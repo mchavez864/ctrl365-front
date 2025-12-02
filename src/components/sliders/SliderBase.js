@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, EffectFade } from 'swiper/modules';
+import { motion, useInView } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import ArrowLeft from '@/svg/arrow-left';
@@ -20,10 +21,15 @@ export default function SliderBase({
   buttonArrowColor = '#161616',
   buttonPrevClassName = '',
   buttonNextClassName = '',
+  animateSlides = false,
+  staggerDelay = 0.20,
+  animationDuration = 0.6,
 }) {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: '-100px' });
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [canPrev, setCanPrev] = useState(false);
@@ -118,8 +124,21 @@ export default function SliderBase({
     resolvedModules.push(EffectFade);
   }
 
+  const slideVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: animationDuration,
+        delay: index * staggerDelay,
+        ease: 'easeOut',
+      },
+    }),
+  };
+
   return (
-    <section className="w-full">
+    <section className="w-full" ref={containerRef}>
       <Swiper
         modules={resolvedModules}
         slidesPerView={slidesPerView}
@@ -146,8 +165,21 @@ export default function SliderBase({
         }}
         {...restSwiperConfig}
       >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>{slideRenderer(slide)}</SwiperSlide>
+        {slides.map((slide, index) => (
+          <SwiperSlide key={slide.id}>
+            {animateSlides ? (
+              <motion.div
+                custom={index}
+                variants={slideVariants}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+              >
+                {slideRenderer(slide)}
+              </motion.div>
+            ) : (
+              slideRenderer(slide)
+            )}
+          </SwiperSlide>
         ))}
       </Swiper>
 

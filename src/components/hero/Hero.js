@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Button from '@/components/buttons/Button';
 import Image from 'next/image';
 import RevealTextAnimation from '@/components/animations/RevealTextAnimation';
+import WordReveal from '@/components/animations/WordReveal';
 import FadeInUp from '@/components/animations/FadeInUp';
 
 const Hero = () => {
@@ -32,8 +33,8 @@ const Hero = () => {
       setTimeout(() => {
         setCurrentWordIndex((prev) => (prev + 1) % words.length);
         setFade(true);
-      }, 300);
-    }, 1700);
+      }, 800); // Debe coincidir con la duración de la animación (0.8s)
+    }, 2200); // Ajustado para dar tiempo a la animación completa
 
     return () => clearInterval(interval);
   }, [words.length]);
@@ -73,20 +74,19 @@ const Hero = () => {
         <div className="relative z-10 lg:flex lg:justify-between lg:h-[610px]">
           <div>
             <h1 className="lg:max-w-[800px]">
-              <RevealTextAnimation>{t('title1')} </RevealTextAnimation>
-              <RevealTextAnimation delay={0.2}>
-                {t('title2')}{' '}
-              </RevealTextAnimation>
-              <RevealTextAnimation delay={0.4}>
+              <WordReveal>{t('title1')}</WordReveal>
+              <WordReveal delay={0.3}>{t('title2')}</WordReveal>
+              <RevealTextAnimation delay={0.6}>
                 <span className="lg:hidden">{words.join(', ')}.</span>
               </RevealTextAnimation>
             </h1>
-            <FadeInUp
+            <WordReveal
               delay={0.4}
+              wordGap={2}
               className="lg my-[16px]"
             >
               {t('subtitle')}
-            </FadeInUp>
+            </WordReveal>
             <FadeInUp
               delay={0.6}
               className="mb-[64px]"
@@ -101,12 +101,14 @@ const Hero = () => {
           </div>
           <div className="lg:self-end lg:flex lg:flex-col lg:items-end">
             <motion.p
-              initial={{ opacity: 0 }}
+              key={currentWordIndex}
+              initial={{ opacity: 0, x: 300 }}
               animate={{
                 opacity: initialFade ? (fade ? 1 : 0) : 0,
+                x: fade ? 0 : -300,
               }}
               transition={{
-                duration: 0.3,
+                duration: 0.6,
                 delay: hasAppliedInitialDelay
                   ? 0
                   : initialFade && fade

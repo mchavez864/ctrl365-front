@@ -8,11 +8,78 @@ import {
   useMotionValueEvent,
 } from 'framer-motion';
 
+// WordReveal controlado externamente por isActive
+const ControlledWordReveal = ({
+  children,
+  className,
+  wordClassName,
+  delay = 0,
+  wordDelay = 0.05,
+  duration = 1,
+  wordGap = null,
+  isActive = false,
+  applyGradient = false,
+}) => {
+  const text = typeof children === 'string' ? children : String(children);
+  const words = text.split(' ');
+
+  const gapStyle =
+    wordGap !== null ? { marginLeft: wordGap, marginRight: wordGap } : {};
+
+  // Función para calcular el estilo del gradient continuo por palabra
+  const getGradientStyle = (wordIndex, totalWords) => {
+    if (!applyGradient) return {};
+    
+    // Calculamos el porcentaje de posición de esta palabra en el texto total
+    const progress = (wordIndex / (totalWords - 1)) * 100;
+    
+    return {
+      background: 'linear-gradient(96deg, #fff 0%, #8a8a8a 100%)',
+      backgroundSize: `${totalWords * 100}% 100%`,
+      backgroundPosition: `${progress}% 0`,
+      backgroundClip: 'text',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+    };
+  };
+
+  return (
+    <span className={className || ''} style={{ display: 'inline-flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+      {words.map((word, i) => (
+        <span
+          key={i}
+          className={wordClassName || ''}
+          style={{
+            overflow: 'hidden',
+            display: 'inline-block',
+            verticalAlign: 'top',
+            ...gapStyle,
+          }}
+        >
+          <motion.span
+            style={{ display: 'inline-block', ...getGradientStyle(i, words.length) }}
+            initial={{ y: '100%' }}
+            animate={isActive ? { y: 0 } : { y: '100%' }}
+            transition={{
+              duration: duration,
+              ease: [0.22, 1, 0.36, 1],
+              delay: delay + i * wordDelay,
+            }}
+          >
+            {word}
+          </motion.span>
+        </span>
+      ))}
+    </span>
+  );
+};
+
 const Frameworks = () => {
   const t = useTranslations('NuestroAdnPage.frameworks');
   const frameworks = t.raw('cards');
   const [currentCard, setCurrentCard] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
+  const [hasAnimatedLabel, setHasAnimatedLabel] = useState(false);
   const containerRef = useRef(null);
   const lastCardRef = useRef(0);
 
@@ -22,6 +89,11 @@ const Frameworks = () => {
   });
 
   const updateCard = useCallback((latest) => {
+    // Activar animación del label cuando el sticky está activo (scroll >= 0)
+    if (latest >= 0 && !hasAnimatedLabel) {
+      setHasAnimatedLabel(true);
+    }
+    
     const cardIndex = Math.min(
       Math.floor(latest * frameworks.length),
       frameworks.length - 1
@@ -30,7 +102,7 @@ const Frameworks = () => {
       lastCardRef.current = cardIndex;
       setCurrentCard(cardIndex);
     }
-  }, []);
+  }, [hasAnimatedLabel]);
 
   useMotionValueEvent(scrollYProgress, 'change', updateCard);
 
@@ -80,6 +152,7 @@ const Frameworks = () => {
       className="relative bg-grey-10"
       style={{ height: `${frameworks.length * 80}vh` }}
       data-dark-section="true"
+      data-no-blur="true"
     >
       <section className="sticky top-0 overflow-hidden h-screen">
         <div
@@ -97,10 +170,24 @@ const Frameworks = () => {
           <div className="relative z-10">
             <div className="h-full">
               <div className="flex items-center gap-2 md:hidden">
-                <div className="bg-orange w-[12px] h-[12px] rounded-full"></div>
-                <p className="text-grey-00 font-inter text-base! leading-[120%]! font-medium uppercase">
+                <motion.div
+                  className="bg-orange w-[12px] h-[12px] rounded-full"
+                  initial={{ scale: 0 }}
+                  animate={hasAnimatedLabel ? { scale: 1 } : { scale: 0 }}
+                  transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
+                />
+                <motion.p
+                  className="text-grey-00 font-inter text-base! leading-[120%]! font-medium uppercase"
+                  initial={{ clipPath: 'inset(0 100% 0 0)' }}
+                  animate={
+                    hasAnimatedLabel
+                      ? { clipPath: 'inset(0 0% 0 0)' }
+                      : { clipPath: 'inset(0 100% 0 0)' }
+                  }
+                  transition={{ duration: 0.7, ease: 'easeOut', delay: 0.7 }}
+                >
                   {t('label')}
-                </p>
+                </motion.p>
               </div>
 
               {/* Progress indicator - Horizontal (Mobile) */}
@@ -215,15 +302,29 @@ const Frameworks = () => {
                 {/* Text content - centered and on top */}
                 <div className="flex flex-col gap-[16px] md:items-center md:text-center md:relative md:z-10">
                   <div className="hidden md:flex items-center gap-2">
-                    <div className="bg-orange w-[12px] h-[12px] rounded-full"></div>
-                    <p className="text-grey-00 font-inter text-base! leading-[120%]! font-medium uppercase">
+                    <motion.div
+                      className="bg-orange w-[12px] h-[12px] rounded-full"
+                      initial={{ scale: 0 }}
+                      animate={hasAnimatedLabel ? { scale: 1 } : { scale: 0 }}
+                      transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
+                    />
+                    <motion.p
+                      className="text-grey-00 font-inter text-base! leading-[120%]! font-medium uppercase"
+                      initial={{ clipPath: 'inset(0 100% 0 0)' }}
+                      animate={
+                        hasAnimatedLabel
+                          ? { clipPath: 'inset(0 0% 0 0)' }
+                          : { clipPath: 'inset(0 100% 0 0)' }
+                      }
+                      transition={{ duration: 0.7, ease: 'easeOut', delay: 0.7 }}
+                    >
                       {t('label')}
-                    </p>
+                    </motion.p>
                   </div>
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentCard}
-                      initial={{ opacity: 0 }}
+                      initial={currentCard === 0 ? { opacity: 1 } : { opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{
@@ -239,12 +340,42 @@ const Frameworks = () => {
                           </p>
                         </div>
                       )}
-                      <p className="h1 text-grey-10 gradient-text lg:text-[80px]! xl:text-[90px]! lg:tracking-[-3.6px]!">
-                        {frameworks[currentCard].title}
-                      </p>
-                      <p className="text-grey-10 max-w-[328px] md:max-w-[507px]">
-                        {frameworks[currentCard].desc}
-                      </p>
+                      {currentCard === 0 ? (
+                        <>
+                          <p className="h1 text-grey-10 lg:text-[80px]! xl:text-[90px]! lg:tracking-[-3.6px]!">
+                            <ControlledWordReveal
+                              isActive={hasAnimatedLabel}
+                              delay={0.9}
+                              wordDelay={0.1}
+                              duration={0.9}
+                              wordGap={6}
+                              applyGradient={true}
+                            >
+                              {frameworks[currentCard].title}
+                            </ControlledWordReveal>
+                          </p>
+                          <p className="text-grey-10 max-w-[328px] md:max-w-[507px]">
+                            <ControlledWordReveal
+                              isActive={hasAnimatedLabel}
+                              delay={1.5}
+                              wordDelay={0.02}
+                              duration={0.7}
+                              wordGap={2}
+                            >
+                              {frameworks[currentCard].desc}
+                            </ControlledWordReveal>
+                          </p>
+                        </>
+                      ) : (
+                        <>
+                          <p className="h1 text-grey-10 gradient-text lg:text-[80px]! xl:text-[90px]! lg:tracking-[-3.6px]!">
+                            {frameworks[currentCard].title}
+                          </p>
+                          <p className="text-grey-10 max-w-[328px] md:max-w-[507px]">
+                            {frameworks[currentCard].desc}
+                          </p>
+                        </>
+                      )}
                     </motion.div>
                   </AnimatePresence>
                 </div>

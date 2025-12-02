@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import FadeInUp from '../animations/FadeInUp';
 
 // Lista de países
 const paises = [
@@ -49,8 +50,12 @@ export default function PaisesNuestroAdnClient({ paragraph1, paragraph2 }) {
   return (
     <section className="pb-32 relative overflow-hidden lg:flex lg:justify-between lg:gap-32 lg:pb-0">
       <div className="px-4 py-16 md:px-16 lg:pt-32 lg:w-1/2">
+        <FadeInUp delay={0} yOffset={50}>
         <p className="text-grey-40 !text-xl !font-sora mb-6">{paragraph1}</p>
+        </FadeInUp>
+        <FadeInUp delay={0.3} yOffset={50}>
         <p className="text-grey-40 !text-xl !font-sora">{paragraph2}</p>
+        </FadeInUp>
       </div>
 
       {/* Marquee Horizontal (Mobile y Tablet) */}

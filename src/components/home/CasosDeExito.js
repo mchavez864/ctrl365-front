@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Button from '../buttons/Button';
 import FadeInUp from '../animations/FadeInUp';
 import RevealTextAnimation from '../animations/RevealTextAnimation';
+import WordReveal from '../animations/WordReveal';
 import { getCases } from '@/actions/getCases';
 
 export default async function SectionCasosDeExito() {
@@ -90,11 +91,9 @@ export default async function SectionCasosDeExito() {
           height={60}
           className="md:w-[230px] lg:w-[333px]"
         />
-        <h2 className="h1 md:max-w-[400px] lg:max-w-[800px]">
-          <RevealTextAnimation>{t('title')} </RevealTextAnimation>
-          <RevealTextAnimation delay={0.2}>
-            <span className="text-grey-20">{t('span')}</span>
-          </RevealTextAnimation>
+        <h2 className="h1 md:max-w-[400px] lg:max-w-[800px] flex flex-col items-center">
+          <WordReveal >{t('title')}</WordReveal>
+          <WordReveal delay={0.2} className="text-grey-20">{t('span')}</WordReveal>
         </h2>
         <FadeInUp>
           <Button

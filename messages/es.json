@@ -399,6 +399,7 @@
     "errors": {
       "required": "Este campo es obligatorio",
       "email": "Ingresá un correo válido",
+      "corporateEmail": "Por favor usá tu correo corporativo",
       "onlyLetters": "Solo se permiten letras",
       "minChars": "Debe tener al menos 3 caracteres",
       "maxChars": "Máximo 25 caracteres",

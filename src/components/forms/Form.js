@@ -5,14 +5,109 @@ import Checkbox from '@/components/forms/Checkbox';
 import Input from '@/components/forms/Input';
 import Select from '@/components/forms/Select';
 import Textarea from '@/components/forms/Textarea';
+import CountrySelect from '@/components/forms/CountrySelect';
 import Link from 'next/link';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import { useForm } from 'react-hook-form';
+
+// Lista de dominios de email públicos/genéricos bloqueados
+const BLOCKED_EMAIL_DOMAINS = [
+  // Google
+  'gmail.com',
+  'googlemail.com',
+  // Microsoft
+  'hotmail.com',
+  'hotmail.es',
+  'hotmail.co.uk',
+  'hotmail.fr',
+  'hotmail.de',
+  'hotmail.it',
+  'outlook.com',
+  'outlook.es',
+  'outlook.co.uk',
+  'outlook.fr',
+  'outlook.de',
+  'live.com',
+  'live.es',
+  'live.co.uk',
+  'live.fr',
+  'msn.com',
+  // Yahoo
+  'yahoo.com',
+  'yahoo.es',
+  'yahoo.co.uk',
+  'yahoo.fr',
+  'yahoo.de',
+  'yahoo.it',
+  'yahoo.com.ar',
+  'yahoo.com.mx',
+  'yahoo.com.br',
+  'ymail.com',
+  'rocketmail.com',
+  // Apple
+  'icloud.com',
+  'me.com',
+  'mac.com',
+  // AOL
+  'aol.com',
+  'aim.com',
+  // Proton
+  'protonmail.com',
+  'proton.me',
+  'pm.me',
+  // Zoho (personal)
+  'zohomail.com',
+  // Otros populares
+  'mail.com',
+  'email.com',
+  'usa.com',
+  'gmx.com',
+  'gmx.net',
+  'gmx.de',
+  'gmx.es',
+  'yandex.com',
+  'yandex.ru',
+  'mail.ru',
+  'inbox.ru',
+  'list.ru',
+  'bk.ru',
+  'tutanota.com',
+  'tutanota.de',
+  'tuta.io',
+  'fastmail.com',
+  'fastmail.fm',
+  // Latam específicos
+  'terra.com',
+  'terra.com.ar',
+  'terra.com.br',
+  'terra.com.mx',
+  'uol.com.br',
+  'bol.com.br',
+  'speedy.com.ar',
+  'fibertel.com.ar',
+  'arnet.com.ar',
+  'ciudad.com.ar',
+  'fullzero.com.ar',
+  // Temporales/desechables comunes
+  'tempmail.com',
+  'guerrillamail.com',
+  'mailinator.com',
+  '10minutemail.com',
+  'throwaway.email',
+];
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { sendContactEmail } from '@/actions/sendContactEmail';
 
+// Función para validar email corporativo
+const isPersonalEmail = (email) => {
+  if (!email) return false;
+  const domain = email.toLowerCase().split('@')[1];
+  return BLOCKED_EMAIL_DOMAINS.includes(domain);
+};
+
 export default function Form({ subject, destination } = {}) {
   const t = useTranslations('Form');
+  const locale = useLocale();
 
   const goalOptions = useMemo(() => t.raw('goals.options') ?? [], [t]);
   const serviceOptions = useMemo(() => t.raw('services.options') ?? [], [t]);
@@ -313,6 +408,8 @@ export default function Form({ subject, destination } = {}) {
                 value: /[^\s@]+@[^\s@]+\.[^\s@]+/,
                 message: t('errors.email'),
               },
+              validate: (value) =>
+                !isPersonalEmail(value) || t('errors.corporateEmail'),
             })}
             hint={errors.email?.message}
           />
@@ -338,27 +435,22 @@ export default function Form({ subject, destination } = {}) {
             hint={errors.phone?.message}
           />
 
-          <Input
+          <CountrySelect
             placeholder={t('fields.country')}
             wrapperClassName="md:col-span-2"
-            maxLength={20}
-            limitHint={t('errors.maxCharsCountry')}
+            name="country"
+            locale={locale}
+            value={watch('country')}
+            onChange={(value) => {
+              setValue('country', value, { shouldValidate: true });
+            }}
+            hint={errors.country?.message}
+          />
+          <input
+            type="hidden"
             {...register('country', {
               required: t('errors.required'),
-              minLength: {
-                value: 3,
-                message: t('errors.minChars'),
-              },
-              maxLength: {
-                value: 20,
-                message: t('errors.maxCharsCountry'),
-              },
-              pattern: {
-                value: /^[A-Za-zÁÉÍÓÚáéíóúÜüÑñ\s]+$/,
-                message: t('errors.onlyLetters'),
-              },
             })}
-            hint={errors.country?.message}
           />
           <div className="md:col-span-2 md:order-4">
             <Textarea
