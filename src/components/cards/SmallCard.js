@@ -23,7 +23,7 @@ export default function SmallCard({
           className={`${colorCircle} inline-block w-[12px] h-[12px] rounded-full`}
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut', delay: animationDelay }}
+          transition={{ duration: 0.4, ease: 'easeOut', delay: animationDelay }}
         />
         <motion.span
           initial={{ clipPath: 'inset(0 100% 0 0)' }}
@@ -32,7 +32,7 @@ export default function SmallCard({
               ? { clipPath: 'inset(0 0% 0 0)' }
               : { clipPath: 'inset(0 100% 0 0)' }
           }
-          transition={{ duration: 0.7, ease: 'easeOut', delay: animationDelay + 0.3 }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: animationDelay + 0.3 }}
         >
           {copy}
         </motion.span>

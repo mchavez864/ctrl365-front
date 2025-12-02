@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import SmallCard from '../cards/SmallCard';
+import WordReveal from '../animations/WordReveal';
 
 // Componente para animar números
 function AnimatedCounter({ value, decimals = 0, suffix = '' }) {
@@ -36,7 +37,7 @@ export default function ImpactCaso({ slug, title, data }) {
     <section className="px-4 mb-16  md:px-16 lg:mb-32 xxl:px-32">
       <div className="flex mb-16 lg:mb-32">
         <div className="w-1/3 md:w-1/4">
-          <SmallCard copy="IMPACT" />
+          <SmallCard animated animationDelay={0.2} copy="IMPACT" />
         </div>
         <div className="w-2/3 md:w-3/4">
           <div className="flex gap-8 flex-col md:flex-row md:flex-wrap lg:justify-end">
@@ -54,7 +55,7 @@ export default function ImpactCaso({ slug, title, data }) {
                   )}
                 </p>
                 <p className="!text-[20px] text-grey-30 max-w-[150px] xl:!text-[24px] xl:max-w-[210px]">
-                  {metric.description}
+                  <WordReveal wordGap={2.5} delay={0.6}>{metric.description}</WordReveal>
                 </p>
               </article>
             ))}
@@ -69,7 +70,7 @@ export default function ImpactCaso({ slug, title, data }) {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          {data.impactTitle}
+          <WordReveal wordGap={6} delay={0.4}>{data.impactTitle}</WordReveal>
         </motion.h2>
       )}
       <div className="lg:flex ">
