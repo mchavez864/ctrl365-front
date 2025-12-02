@@ -80,6 +80,7 @@ const Frameworks = () => {
       className="relative bg-grey-10"
       style={{ height: `${frameworks.length * 80}vh` }}
       data-dark-section="true"
+      data-no-blur="true"
     >
       <section className="sticky top-0 overflow-hidden h-screen">
         <div

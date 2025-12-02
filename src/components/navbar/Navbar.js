@@ -14,6 +14,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkBackground, setIsDarkBackground] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hideBlur, setHideBlur] = useState(false);
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -66,7 +67,14 @@ const Navbar = () => {
         '[data-dark-section="true"]'
       );
 
+      // Obtener secciones que ocultan el blur
+      const noBlurSections = document.querySelectorAll(
+        '[data-no-blur="true"]'
+      );
+
       let isOverDark = false;
+      let isOverNoBlur = false;
+
       darkSections.forEach((section) => {
         const rect = section.getBoundingClientRect();
         const sectionTop = rect.top + window.scrollY;
@@ -78,7 +86,19 @@ const Navbar = () => {
         }
       });
 
+      noBlurSections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top + window.scrollY;
+        const sectionBottom = sectionTop + rect.height;
+
+        // Verificar si el navbar está sobre esta sección
+        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+          isOverNoBlur = true;
+        }
+      });
+
       setIsDarkBackground(isOverDark);
+      setHideBlur(isOverNoBlur);
     };
 
     // Ejecutar al montar y en cada scroll
@@ -92,7 +112,7 @@ const Navbar = () => {
     <>
       <nav
         className={`overflow-hidden fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
+          isScrolled && !hideBlur
             ? isDarkBackground
               ? 'backdrop-blur-lg bg-grey-40/15'
               : 'backdrop-blur-lg bg-grey-00/15'
