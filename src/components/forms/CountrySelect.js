@@ -30,7 +30,11 @@ const COUNTRIES = [
   { value: 'BJ', labelEs: 'Benín', labelEn: 'Benin' },
   { value: 'BY', labelEs: 'Bielorrusia', labelEn: 'Belarus' },
   { value: 'BO', labelEs: 'Bolivia', labelEn: 'Bolivia' },
-  { value: 'BA', labelEs: 'Bosnia y Herzegovina', labelEn: 'Bosnia and Herzegovina' },
+  {
+    value: 'BA',
+    labelEs: 'Bosnia y Herzegovina',
+    labelEn: 'Bosnia and Herzegovina',
+  },
   { value: 'BW', labelEs: 'Botsuana', labelEn: 'Botswana' },
   { value: 'BR', labelEs: 'Brasil', labelEn: 'Brazil' },
   { value: 'BN', labelEs: 'Brunéi', labelEn: 'Brunei' },
@@ -60,7 +64,11 @@ const COUNTRIES = [
   { value: 'EC', labelEs: 'Ecuador', labelEn: 'Ecuador' },
   { value: 'EG', labelEs: 'Egipto', labelEn: 'Egypt' },
   { value: 'SV', labelEs: 'El Salvador', labelEn: 'El Salvador' },
-  { value: 'AE', labelEs: 'Emiratos Árabes Unidos', labelEn: 'United Arab Emirates' },
+  {
+    value: 'AE',
+    labelEs: 'Emiratos Árabes Unidos',
+    labelEn: 'United Arab Emirates',
+  },
   { value: 'ER', labelEs: 'Eritrea', labelEn: 'Eritrea' },
   { value: 'SK', labelEs: 'Eslovaquia', labelEn: 'Slovakia' },
   { value: 'SI', labelEs: 'Eslovenia', labelEn: 'Slovenia' },
@@ -151,20 +159,48 @@ const COUNTRIES = [
   { value: 'PL', labelEs: 'Polonia', labelEn: 'Poland' },
   { value: 'PT', labelEs: 'Portugal', labelEn: 'Portugal' },
   { value: 'GB', labelEs: 'Reino Unido', labelEn: 'United Kingdom' },
-  { value: 'CF', labelEs: 'República Centroafricana', labelEn: 'Central African Republic' },
+  {
+    value: 'CF',
+    labelEs: 'República Centroafricana',
+    labelEn: 'Central African Republic',
+  },
   { value: 'CZ', labelEs: 'República Checa', labelEn: 'Czech Republic' },
-  { value: 'CG', labelEs: 'República del Congo', labelEn: 'Republic of the Congo' },
-  { value: 'CD', labelEs: 'República Democrática del Congo', labelEn: 'Democratic Republic of the Congo' },
-  { value: 'DO', labelEs: 'República Dominicana', labelEn: 'Dominican Republic' },
+  {
+    value: 'CG',
+    labelEs: 'República del Congo',
+    labelEn: 'Republic of the Congo',
+  },
+  {
+    value: 'CD',
+    labelEs: 'República Democrática del Congo',
+    labelEn: 'Democratic Republic of the Congo',
+  },
+  {
+    value: 'DO',
+    labelEs: 'República Dominicana',
+    labelEn: 'Dominican Republic',
+  },
   { value: 'RW', labelEs: 'Ruanda', labelEn: 'Rwanda' },
   { value: 'RO', labelEs: 'Rumania', labelEn: 'Romania' },
   { value: 'RU', labelEs: 'Rusia', labelEn: 'Russia' },
   { value: 'WS', labelEs: 'Samoa', labelEn: 'Samoa' },
-  { value: 'KN', labelEs: 'San Cristóbal y Nieves', labelEn: 'Saint Kitts and Nevis' },
+  {
+    value: 'KN',
+    labelEs: 'San Cristóbal y Nieves',
+    labelEn: 'Saint Kitts and Nevis',
+  },
   { value: 'SM', labelEs: 'San Marino', labelEn: 'San Marino' },
-  { value: 'VC', labelEs: 'San Vicente y las Granadinas', labelEn: 'Saint Vincent and the Grenadines' },
+  {
+    value: 'VC',
+    labelEs: 'San Vicente y las Granadinas',
+    labelEn: 'Saint Vincent and the Grenadines',
+  },
   { value: 'LC', labelEs: 'Santa Lucía', labelEn: 'Saint Lucia' },
-  { value: 'ST', labelEs: 'Santo Tomé y Príncipe', labelEn: 'Sao Tome and Principe' },
+  {
+    value: 'ST',
+    labelEs: 'Santo Tomé y Príncipe',
+    labelEn: 'Sao Tome and Principe',
+  },
   { value: 'SN', labelEs: 'Senegal', labelEn: 'Senegal' },
   { value: 'RS', labelEs: 'Serbia', labelEn: 'Serbia' },
   { value: 'SC', labelEs: 'Seychelles', labelEn: 'Seychelles' },
@@ -314,10 +350,12 @@ const CountrySelect = forwardRef(
       const newValue = e.target.value;
       setInputValue(newValue);
       setOpened(true);
-      
+
       // Limpiar selección si el usuario está escribiendo algo diferente
       if (internalValue) {
-        const selectedCountry = COUNTRIES.find((c) => c.value === internalValue || getLabel(c) === internalValue);
+        const selectedCountry = COUNTRIES.find(
+          (c) => c.value === internalValue || getLabel(c) === internalValue
+        );
         if (selectedCountry && getLabel(selectedCountry) !== newValue) {
           if (!controlled) {
             setInternalValue('');
@@ -371,7 +409,7 @@ const CountrySelect = forwardRef(
               disabled={disabled}
               autoComplete="off"
               className={classNames(
-                'flex w-full items-center rounded-full border border-grey-20/40 bg-grey-00 px-4 py-3 pr-10 text-left font-inter transition focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/40 text-grey-40 placeholder:text-grey-20',
+                'flex w-full items-center rounded-2xl border border-grey-20/40 bg-grey-00 px-4 py-3 pr-10 text-left font-inter transition focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/40 text-grey-40 placeholder:text-grey-20',
                 opened && 'border-orange',
                 className
               )}
@@ -416,7 +454,9 @@ const CountrySelect = forwardRef(
                 {filteredCountries.length > 0 ? (
                   filteredCountries.map((country) => {
                     const countryLabel = getLabel(country);
-                    const selected = countryLabel === internalValue || country.value === internalValue;
+                    const selected =
+                      countryLabel === internalValue ||
+                      country.value === internalValue;
                     return (
                       <li key={country.value}>
                         <button
@@ -436,7 +476,9 @@ const CountrySelect = forwardRef(
                   })
                 ) : (
                   <li className="px-4 py-3 text-grey-20 font-inter">
-                    {locale === 'es' ? 'No se encontraron países' : 'No countries found'}
+                    {locale === 'es'
+                      ? 'No se encontraron países'
+                      : 'No countries found'}
                   </li>
                 )}
               </ul>
@@ -453,4 +495,3 @@ const CountrySelect = forwardRef(
 CountrySelect.displayName = 'CountrySelect';
 
 export default CountrySelect;
-
