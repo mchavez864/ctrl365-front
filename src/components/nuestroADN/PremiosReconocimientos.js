@@ -59,9 +59,9 @@ const PremiosReconocimientos = () => {
   return (
     <section
       data-dark-section="true"
-      className="relative h-[715px]  lg:h-[1071px] bg-grey-10  overflow-hidden "
+      className="relative h-[715px]  lg:h-[1000px] bg-grey-10  overflow-hidden "
     >
-      <div className="relative z-30 w-full h-full bg-grey-40 rounded-[16px] lg:rounded-[32px] py-[64px] lg:py-[128px] ">
+      <div className="relative z-30 w-full h-full bg-grey-40 rounded-[16px] lg:rounded-[32px] py-[64px] lg:pt-[128px] lg:pb-[64px] ">
         <div
           className="absolute bottom-[-81px] md:bottom-[-121px] left-1/2 -translate-x-1/2 z-10 bg-purple 
       rounded-full w-[256px] md:w-[386px] h-[179px] md:h-[269px] lg:w-[980px] lg:h-[686px]  lg:bottom-[-500px] 
@@ -109,7 +109,7 @@ const PremiosReconocimientos = () => {
           </div>
         </div>
         <div className="w-full relative z-20">
-          <p className="h2 text-grey-00 mb-[32px] px-[16px] md:max-w-[328px] md:px-[64px] lg:max-w-[1000px] xxl:px-[128px]">
+          <p className="h2 text-grey-00 mb-[32px] px-[16px] md:max-w-[328px] md:px-[64px] lg:max-w-[1000px] xxl:px-[128px] md:mb-[64px]">
             <WordReveal wordGap={5}>{t('premiosY')}</WordReveal>{' '}
             <span className="text-grey-20"><WordReveal wordGap={5}>{t('reconocimientos')}</WordReveal></span>
           </p>

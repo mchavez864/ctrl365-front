@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, EffectFade } from 'swiper/modules';
 import { motion, useInView } from 'framer-motion';
+import FadeInUp from '@/components/animations/FadeInUp';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import ArrowLeft from '@/svg/arrow-left';
@@ -81,18 +82,22 @@ export default function SliderBase({
 
   const listRenderer = (slide) => (
     <div className="">
-      <ul className="flex flex-col divide-y divide-grey-10">
-        {slide.items?.map((item) => (
-          <li
+      <ul className="flex flex-col">
+        {slide.items?.map((item, index) => (
+          <FadeInUp
             key={item.id || item.title}
-            className="py-4 first:pt-0 last:pb-0"
+            delay={index * staggerDelay}
+            duration={animationDuration}
+            className={`py-4 border-b border-grey-10 ${index === 0 ? 'pt-0' : ''} ${index === slide.items.length - 1 ? 'pb-0 border-b-0' : ''}`}
           >
-            <p className="flex items-center gap-2 font-inter font-medium uppercase text-grey-40 mb-4">
-              <span className="inline-flex h-3 w-3 rounded-full bg-orange" />
-              {item.title}
-            </p>
-            <p className="font-inter text-grey-40">{item.description}</p>
-          </li>
+            <li>
+              <p className="flex items-center gap-2 font-inter font-medium uppercase text-grey-40 mb-4">
+                <span className="inline-flex h-3 w-3 rounded-full bg-orange" />
+                {item.title}
+              </p>
+              <p className="font-inter text-grey-40">{item.description}</p>
+            </li>
+          </FadeInUp>
         ))}
       </ul>
     </div>

@@ -1,6 +1,7 @@
 import SliderCasosDeExito from '../sliders/SliderCasosDeExito';
 import { getTranslations, getLocale } from 'next-intl/server';
 import { getCases } from '@/actions/getCases';
+import WordReveal from '../animations/WordReveal';
 
 export default async function SectionCasosDeExito() {
   const t = await getTranslations('SuccessStoriesSlider');
@@ -84,7 +85,9 @@ export default async function SectionCasosDeExito() {
       />
       <div className="mb-16 text-center lg:text-left xl:flex xl:justify-between xl:items-start">
         <h2 className="mt-3 text-3xl font-semibold text-grey-40 md:text-4xl lg:text-5xl">
+          <WordReveal wordGap={5} delay={0.2}>
           {t('section.title')}
+          </WordReveal>
         </h2>
         <p className="mt-4 max-w-xl text-base text-grey-20 md:text-lg">
           {t('section.description')}
