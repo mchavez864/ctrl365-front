@@ -10,6 +10,8 @@ export default function WordReveal({
   wordDelay = 0.05,
   duration = 1,
   wordGap = null,
+  applyGradient = false,
+  centered = false,
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -19,7 +21,7 @@ export default function WordReveal({
   const words = text.split(" ");
 
   return (
-    <span ref={ref} className={`paragraph ${className || ""}`}>
+    <span ref={ref} className={`paragraph ${className || ""}`} style={centered ? { justifyContent: 'center' } : undefined}>
       {words.map((word, i) => (
         <Word 
           key={i} 
@@ -28,6 +30,9 @@ export default function WordReveal({
           duration={duration}
           wordClassName={wordClassName}
           wordGap={wordGap}
+          applyGradient={applyGradient}
+          wordIndex={i}
+          totalWords={words.length}
         >
           {word}
         </Word>
@@ -36,8 +41,25 @@ export default function WordReveal({
   );
 }
 
-const Word = ({ children, isInView, delay, duration, wordClassName, wordGap }) => {
+const Word = ({ children, isInView, delay, duration, wordClassName, wordGap, applyGradient, wordIndex, totalWords }) => {
   const gapStyle = wordGap !== null ? { marginLeft: wordGap, marginRight: wordGap } : {};
+  
+  // Función para calcular el estilo del gradient continuo por palabra
+  const getGradientStyle = () => {
+    if (!applyGradient) return {};
+    
+    // Calculamos el porcentaje de posición de esta palabra en el texto total
+    const progress = totalWords > 1 ? (wordIndex / (totalWords - 1)) * 100 : 0;
+    
+    return {
+      background: 'linear-gradient(96deg, #fff 0%, #8a8a8a 100%)',
+      backgroundSize: `${totalWords * 100}% 100%`,
+      backgroundPosition: `${progress}% 0`,
+      backgroundClip: 'text',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+    };
+  };
   
   return (
     <span 
@@ -51,7 +73,7 @@ const Word = ({ children, isInView, delay, duration, wordClassName, wordGap }) =
       }}
     >
       <motion.span
-        style={{ display: "inline-block" }}
+        style={{ display: "inline-block", ...getGradientStyle() }}
      
         initial={{ y: "100%" }}
         animate={isInView ? { y: 0 } : { y: "100%" }}
