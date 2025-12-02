@@ -12,6 +12,7 @@ export default function WordReveal({
   wordGap = null,
   applyGradient = false,
   centered = false,
+  insideClassName,
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -33,6 +34,7 @@ export default function WordReveal({
           applyGradient={applyGradient}
           wordIndex={i}
           totalWords={words.length}
+          insideClassName={insideClassName}
         >
           {word}
         </Word>
@@ -41,7 +43,7 @@ export default function WordReveal({
   );
 }
 
-const Word = ({ children, isInView, delay, duration, wordClassName, wordGap, applyGradient, wordIndex, totalWords }) => {
+const Word = ({ children, insideClassName, isInView, delay, duration, wordClassName, wordGap, applyGradient, wordIndex, totalWords }) => {
   const gapStyle = wordGap !== null ? { marginLeft: wordGap, marginRight: wordGap } : {};
   
   // Función para calcular el estilo del gradient continuo por palabra
@@ -74,8 +76,9 @@ const Word = ({ children, isInView, delay, duration, wordClassName, wordGap, app
     >
       <motion.span
         style={{ display: "inline-block", ...getGradientStyle() }}
+     className={insideClassName}
      
-        initial={{ y: "100%" }}
+     initial={{ y: "100%" }}
         animate={isInView ? { y: 0 } : { y: "100%" }}
         transition={{
           duration: duration,

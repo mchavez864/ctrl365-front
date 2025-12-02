@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import WordReveal from "../animations/WordReveal";
 
 const Contacto = () => {
   const t = useTranslations("NuestroAdnPage.contacto");
@@ -22,10 +23,11 @@ const Contacto = () => {
         Your browser does not support the video tag.
       </video>
       <div className="lg:w-[869px] xxl:w-[684px]">
-        <h2 className="text-grey-40 pb-[8px] lg:text-[32px]! lg:max-w-[648px]">{t("title")}</h2>
-        <p className="text-grey-40 opacity-60 mb-[64px] lg">{t("description")}</p>
+        <h2 className="text-grey-40 pb-[8px] lg:text-[32px]! lg:max-w-[648px]"><WordReveal wordGap={3.5}>{t("title")}</WordReveal></h2>
+        <p className="text-grey-40 opacity-60 mb-[64px] lg"><WordReveal wordGap={2} delay={0.2}>{t("description")}</WordReveal></p>
         <a href="mailto:recruiting@ctrl365.com">
-          <h3 className="text-[24px]! md:text-[28px]! lg:text-[40px]! text-grey-40 underline">recruiting@ctrl365.com</h3>
+          <h3 className="text-[24px]! md:text-[28px]! lg:text-[40px]! text-grey-40 underline"><WordReveal 
+          wordGap={2} delay={0.4} insideClassName="underline">recruiting@ctrl365.com</WordReveal></h3>
         </a>
       </div>
     </section>
