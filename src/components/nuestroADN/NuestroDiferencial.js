@@ -32,14 +32,16 @@ const NuestroDiferencial = () => {
             />
           </div>
           <p className="text-[#474747] lg mt-[16px] md:mt-0 md:flex-1 lg:max-w-[408px]">
+            <WordReveal wordGap={2}>
             {t('description')}
+            </WordReveal>
           </p>
         </div>
       </div>
       <div className="mt-[64px] lg:flex lg:justify-between lg:h-full ">
         <div className="flex items-center justify-between  mb-[12px] md:mb-[32px] md:h-[111px] lg:pt-[55px] lg:flex-col lg:w-[264px] lg:items-start lg:h-full lg:gap-[100px]">
           <h2 className="max-w-[190px] lg:max-w-[264px]">
-            {t('sectionTitle')}
+            <WordReveal wordGap={5}>{t('sectionTitle')}</WordReveal>
           </h2>
           <div className="w-[99px] h-[75px] overflow-hidden rounded-[8px] md:h-full md:w-[148px] lg:-h-[200px] lg:w-full md:rounded-[16px]">
             <Image
