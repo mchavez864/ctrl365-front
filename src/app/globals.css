@@ -327,3 +327,33 @@ body {
 .paragraph-word:last-child{
   margin-right: 0;
 }
+
+/* Marquee animation - seamless infinite scroll */
+.marquee-container {
+  --marquee-duration: 30s;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll var(--marquee-duration) linear infinite;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Move exactly 25% (1 of 4 copies) for seamless loop */
+    transform: translateX(-25%);
+  }
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
