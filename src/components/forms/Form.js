@@ -9,6 +9,7 @@ import CountrySelect from '@/components/forms/CountrySelect';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { useForm } from 'react-hook-form';
+import { sendToHubspot } from '@/actions/sendToHubspot';
 
 // Lista de dominios de email públicos/genéricos bloqueados
 const BLOCKED_EMAIL_DOMAINS = [
@@ -236,10 +237,15 @@ export default function Form({ subject, destination } = {}) {
 
     try {
       setServerState('loading');
-      await sendContactEmail({
-        subject,
-        to: destination,
-        fields: payload,
+      // await sendContactEmail({
+      //   subject,
+      //   to: destination,
+      //   fields: payload,
+      // });
+      await sendToHubspot({
+        ...payload,
+        pageUri: typeof window !== 'undefined' ? window.location.href : '',
+        pageName: 'Formulario de Contacto',
       });
 
       setServerState('success');

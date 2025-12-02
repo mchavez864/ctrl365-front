@@ -1,14 +1,20 @@
-'use client';
+"use client";
 
-import { useLocale, useTranslations } from 'next-intl';
-import Logo from '@/svg/logo.js';
-import Linkedin from '@/svg/linkedin.js';
-import Instagram from '@/svg/instagram.js';
-import Youtube from '@/svg/youtube.js';
+import { useLocale, useTranslations } from "next-intl";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import Logo from "@/svg/logo.js";
+import Linkedin from "@/svg/linkedin.js";
+import Instagram from "@/svg/instagram.js";
+import Youtube from "@/svg/youtube.js";
+import WordReveal from "../animations/WordReveal";
+import FadeInUp from "../animations/FadeInUp";
 
 const Footer = () => {
   const locale = useLocale();
-  const t = useTranslations('Footer');
+  const t = useTranslations("Footer");
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
   return (
     <footer
       className="relative bg-grey-40 h-full w-full overflow-hidden"
@@ -18,45 +24,88 @@ const Footer = () => {
         <div className="lg:relative ">
           <div className="px-[16px] md:px-[64px] lg:absolute z-10 lg:top-[50%] lg:-translate-y-1/2  xxl:px-[128px]">
             <h4 className="text-grey-00 text-center lg:text-left">
-              {t('tagline1')} <br /> {t('tagline2')}{' '}
-              <span className="text-orange">{t('tagline3')}</span>
+              <WordReveal wordGap={6}>{t("tagline1")}</WordReveal>
+              <div className="flex">
+              {locale === "es" ? (
+                 <span className="text-grey-00"><WordReveal wordGap={6}>{t("tagline2")}</WordReveal></span>
+              ) : (
+               ""
+              )}
+              <span className="text-orange"><WordReveal wordGap={6}>{t("tagline3")}</WordReveal></span></div>
             </h4>
           </div>
-          <div className="h-[300px] w-full relative mt-[32px] md:mt-[64px] lg:h-[598px] lg:mt-0">
-            <div className="absolute right-[-1px] overflow-hidden rounded-l-[999px] w-[70%] md:w-[60%] h-full gradient-border-rounded"></div>
-            <div className="absolute left-[-1px] overflow-hidden rounded-r-[999px] w-[70%] md:w-[60%] h-full gradient-border-dark"></div>
+          <div 
+            ref={containerRef}
+            className="h-[300px] w-full relative mt-[32px] md:mt-[64px] lg:h-[598px] lg:mt-0"
+          >
+            {/* Contenedor derecho */}
+            <div 
+              style={{ position: 'absolute', top: 0, right: -1 }}
+              className="overflow-hidden rounded-l-[999px] w-[70%] md:w-[60%] h-full"
+            >
+              <motion.div
+                initial={{ x: "100%" }}
+                animate={{ x: isInView ? 0 : "100%" }}
+                transition={{ duration: 2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                style={{ position: 'relative' }}
+                className="w-full h-full gradient-border-rounded rounded-l-[999px]"
+              />
+            </div>
+            {/* Contenedor izquierdo */}
+            <div 
+              style={{ position: 'absolute', top: 0, left: -1 }}
+              className="overflow-hidden rounded-r-[999px] w-[70%] md:w-[60%] h-full"
+            >
+              <motion.div
+                initial={{ x: "-100%" }}
+                animate={{ x: isInView ? 0 : "-100%" }}
+                transition={{ duration: 2, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                style={{ position: 'relative' }}
+                className="w-full h-full gradient-border-dark rounded-r-[999px]"
+              />
+            </div>
           </div>
           <div className="px-[16px] md:px-[64px] mt-[32px] md:mt-[64px] lg:absolute lg:bottom-[75px] lg:left-0 lg:flex lg:justify-between lg:items-center lg:w-full xxl:px-[128px]">
+            <FadeInUp>
             <Logo
               color="white"
               className="w-[92px] h-[32px] md:w-[138px] md:h-[48px]"
             />
+            </FadeInUp>
             <div className="flex items-center justify-between h-[132px] mt-[32px] md:h-auto lg:mt-0">
               <div className="flex flex-col gap-[16px] py-[4px] md:flex-row">
+                <FadeInUp>
                 <a
                   href="/"
                   className="relative hover:pl-[20px] uppercase text-grey-20 font-medium leading-[120%] hover:text-grey-00 cursor-pointer text-left duration-300 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-0 before:h-0 before:bg-orange before:rounded-full before:duration-300 before:opacity-0 hover:before:w-[12px] hover:before:h-[12px] hover:before:opacity-100"
                 >
                   Home
                 </a>
+                </FadeInUp>
+                <FadeInUp delay={0.2}>
                 <a
                   href="/nuestro-adn"
                   className="relative hover:pl-[20px] uppercase text-grey-20 font-medium leading-[120%] hover:text-grey-00 cursor-pointer text-left duration-300 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-0 before:h-0 before:bg-orange before:rounded-full before:duration-300 before:opacity-0 hover:before:w-[12px] hover:before:h-[12px] hover:before:opacity-100"
                 >
-                  {locale === 'es' ? 'Nuestro ADN' : 'Our DNA'}
+                  {locale === "es" ? "Nuestro ADN" : "Our DNA"}
                 </a>
+                </FadeInUp>
+                <FadeInUp delay={0.4}>
                 <a
                   href="/casos-de-exito"
                   className="relative hover:pl-[20px] uppercase text-grey-20 font-medium leading-[120%] hover:text-grey-00 cursor-pointer text-left duration-300 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-0 before:h-0 before:bg-orange before:rounded-full before:duration-300 before:opacity-0 hover:before:w-[12px] hover:before:h-[12px] hover:before:opacity-100"
                 >
-                  {locale === 'es' ? 'Casos de éxito' : 'Case Studies'}
+                  {locale === "es" ? "Casos de éxito" : "Case Studies"}
                 </a>
+                </FadeInUp>
+                <FadeInUp delay={0.6}>
                 <a
                   href="/contacto"
                   className="relative hover:pl-[20px] uppercase text-grey-20 font-medium leading-[120%] hover:text-grey-00 cursor-pointer text-left duration-300 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-0 before:h-0 before:bg-orange before:rounded-full before:duration-300 before:opacity-0 hover:before:w-[12px] hover:before:h-[12px] hover:before:opacity-100"
                 >
-                  {locale === 'es' ? 'Contacto' : 'Contact Us'}
+                  {locale === "es" ? "Contacto" : "Contact Us"}
                 </a>
+                </FadeInUp>
               </div>
             </div>
           </div>
@@ -95,7 +144,7 @@ const Footer = () => {
               </a>
             </div>
             <p className="text-grey-20 text-center leading-[120%] md:order-1">
-              {t('copyright')}
+              {t("copyright")}
             </p>
           </div>
         </div>

@@ -119,7 +119,7 @@ const Navbar = () => {
             : 'bg-transparent'
         }`}
       >
-        <div className="flex justify-between items-center px-[16px] md:px-[64px] py-[16px] md:py-[32px] xxl:px-[128px]">
+        <div className="flex justify-between items-center px-[16px] md:px-[64px] py-[16px] md:py-[16px] xxl:px-[128px]">
           <a href="/">
             <Logo
               color={isDarkBackground ? 'white' : 'black'}
