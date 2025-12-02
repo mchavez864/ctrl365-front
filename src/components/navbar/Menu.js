@@ -45,7 +45,7 @@ const Menu = ({ onClose }) => {
     >
       <div className="relative w-full h-full overflow-hidden flex items-center">
         <div className="absolute top-0 left-0 w-full z-40 bg-transparent">
-          <div className="bg-transparent flex justify-between items-center px-[16px] md:px-[64px] py-[16px] md:py-[32px] xxl:px-[128px]">
+          <div className="bg-transparent flex justify-between items-center px-[16px] md:px-[64px] py-[16px] md:py-[16px] xxl:px-[128px]">
           <a href="/">
             <Logo
               color="white"
