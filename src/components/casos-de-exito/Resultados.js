@@ -2,6 +2,7 @@
 import React, { useState, memo, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import NumberFlow from '@number-flow/react';
+import WordReveal from '../animations/WordReveal';
 
 // Componente Card memoizado para evitar re-renders innecesarios
 const ResultadoCard = memo(
@@ -270,15 +271,27 @@ const Resultados = ({ title, paragraph1, paragraph2, tagline, cards }) => {
     >
       <div className="relative z-30">
         <div className="mx-auto flex flex-col items-center max-w-[295px] pb-[64px] md:max-w-[640px] lg:relative lg:flex-row lg:items-center lg:justify-between lg:max-w-full lg:py-[128px]">
-          <h1 className="h1 text-grey-00 text-center mb-[32px] lg:w-[482px] lg:text-left gradient-text lg:mb-0">
-            {title}
+          <h1 className="h1 text-grey-00 text-center mb-[32px] lg:w-[482px] lg:text-left lg:mb-0">
+            <WordReveal
+              applyGradient={true}
+              delay={0.2}
+              wordDelay={0.08}
+              duration={0.8}
+              wordGap={4}
+            >
+              {title}
+            </WordReveal>
           </h1>
           <div className="lg:w-[434px]">
             <p className="lg text-grey-00 text-center mb-[24px] lg:text-left">
+              <WordReveal wordGap={2} delay={0.2}>
               {paragraph1}
+              </WordReveal>
             </p>
             <p className="lg text-grey-00 text-center mb-[64px] lg:text-left lg:mb-0">
+              <WordReveal wordGap={2} delay={0.6}>
               {paragraph2}
+              </WordReveal>
             </p>
           </div>
           <div className="relative z-30 w-[156px] h-[156px] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:w-[316px] lg:h-[316px]">
@@ -341,16 +354,20 @@ const Resultados = ({ title, paragraph1, paragraph2, tagline, cards }) => {
             />
           ))}
           <div className="hidden lg:flex lg:items-center lg:justify-center lg:col-start-3 lg:row-start-4 lg:col-span-3">
-            <h5 className="text-grey-00 text-center z-20 relative h2">
+            <h5 className="text-grey-00 text-center z-20 relative h2 flex flex-col items-center">
               {tagline.split('. ').map((line, i, arr) => (
-                <React.Fragment key={i}>
-                  {i === 0 ? (
-                    <span className="text-grey-20">{line}.</span>
-                  ) : (
-                    line
-                  )}
-                  {i < arr.length - 1 && <br />}
-                </React.Fragment>
+                <span key={i} className="block">
+                  <WordReveal
+                    delay={0.2 + i * 0.3}
+                    wordDelay={0.05}
+                    duration={0.7}
+                    wordGap={3}
+                    insideClassName={i === 0 ? 'text-grey-20' : undefined}
+                    centered={true}
+                  >
+                    {i === 0 ? `${line}.` : line}
+                  </WordReveal>
+                </span>
               ))}
             </h5>
           </div>
@@ -376,12 +393,19 @@ const Resultados = ({ title, paragraph1, paragraph2, tagline, cards }) => {
           />
         </div>
         <div className="py-[64px] lg:hidden">
-          <h5 className="text-grey-00 text-center h5 z-20 relative">
+          <h5 className="text-grey-00 text-center h5 z-20 relative flex flex-col items-center">
             {tagline.split('. ').map((line, i, arr) => (
-              <React.Fragment key={i}>
-                {line}
-                {i === 0 && '.'} {i < arr.length - 1 && <br />}
-              </React.Fragment>
+              <span key={i} className="block">
+                <WordReveal
+                  delay={0.2 + i * 0.3}
+                  wordDelay={0.05}
+                  duration={0.7}
+                  wordGap={2}
+                  centered={true}
+                >
+                  {i === 0 ? `${line}.` : line}
+                </WordReveal>
+              </span>
             ))}
           </h5>
         </div>
