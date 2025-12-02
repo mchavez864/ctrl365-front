@@ -1,19 +1,20 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import Image from 'next/image';
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
-import SmallCard from '../cards/SmallCard';
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import SmallCard from "../cards/SmallCard";
+import WordReveal from "../animations/WordReveal";
 
 // Componente para animar números
-function AnimatedCounter({ value, suffix = '' }) {
+function AnimatedCounter({ value, suffix = "" }) {
   const ref = useRef(null);
   const motionValue = useMotionValue(0);
   const springValue = useSpring(motionValue, {
     damping: 60,
     stiffness: 100,
   });
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   // Convertir value a número y detectar decimales automáticamente
   const numValue = parseFloat(value) || 0;
@@ -27,7 +28,7 @@ function AnimatedCounter({ value, suffix = '' }) {
   }, [motionValue, isInView, numValue]);
 
   useEffect(() => {
-    springValue.on('change', (latest) => {
+    springValue.on("change", (latest) => {
       if (ref.current) {
         ref.current.textContent = latest.toFixed(decimals) + suffix;
       }
@@ -45,7 +46,7 @@ export default function HeroCaso({ slug, title, data }) {
           className="mb-8 md:mb-16 md:flex md:items-start lg:mb-24 lg:justify-between"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           variants={{
             visible: {
               transition: {
@@ -62,7 +63,9 @@ export default function HeroCaso({ slug, title, data }) {
             }}
           >
             <h1 className="mb-16 md:mb-8 order-2 md:order-1 lg:max-w-[648px] xxl:max-w-[1000px]">
-              {title}
+              <WordReveal wordGap={5} delay={0.2}>
+                {title}
+              </WordReveal>
             </h1>
             <img
               src={data.brandLogoBlack}
@@ -79,17 +82,32 @@ export default function HeroCaso({ slug, title, data }) {
               visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
             }}
           >
-            <p className="mb-8 lg:mb-16 lg:!text-[18px]">{data.subtitle}</p>
-            <div className="border-l-4 border-orange pl-4 py-2 mb-8 lg:py-1 lg:mb-16">
+            <p className="mb-8 lg:mb-16 lg:!text-[18px]">
+              <WordReveal wordGap={2} delay={0.4}>
+                {data.subtitle}
+              </WordReveal>
+            </p>
+            <div className="relative pl-4 py-2 mb-8 lg:py-1 lg:mb-16">
+              {/* Línea naranja animada como cortina */}
+              <motion.div
+                className="absolute left-0 top-0 bottom-0 w-1 bg-orange"
+                initial={{ scaleY: 0 }}
+                whileInView={{ scaleY: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+                style={{ transformOrigin: "top" }}
+              />
               <p className="!font-sora mb-2 text-xl flex items-center gap-2 lg:!text-2xl">
-                {data.metricPrefix}{' '}
+                {data.metricPrefix}{" "}
                 <span className="text-[32px] lg:!text-[48px]">
                   <AnimatedCounter value={data.metricValue} />
-                </span>{' '}
+                </span>{" "}
                 {data.metricSuffix}
               </p>
               <small className="block text-sm text-grey-30 max-w-[186px] leading-[120%] font-inter lg:text-base">
-                {data.metricDescription}
+                <WordReveal wordGap={2} delay={0.6}>
+                  {data.metricDescription}
+                </WordReveal>
               </small>
             </div>
             <SmallCard
@@ -103,8 +121,8 @@ export default function HeroCaso({ slug, title, data }) {
           className="h-[218px] rounded-4xl overflow-hidden mb-8 md:mb-16 md:h-[462px] lg:h-[786px] lg:mb-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
         >
           <img
             src={data.heroImage}
@@ -118,7 +136,7 @@ export default function HeroCaso({ slug, title, data }) {
           className="mb-8 md:mb-16 lg:mb-24 lg:flex"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: "-100px" }}
           variants={{
             visible: {
               transition: {
@@ -135,6 +153,8 @@ export default function HeroCaso({ slug, title, data }) {
             }}
           >
             <SmallCard
+              animated
+              animationDelay={0.2}
               copy="CHALLENGE"
               className="mb-4  lg:mb-0"
             />
@@ -146,9 +166,9 @@ export default function HeroCaso({ slug, title, data }) {
               visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
             }}
           >
-            <h2 className="mb-8 xxl:max-w-[1050px]">{data.challengeTitle}</h2>
+            <h2 className="mb-8 xxl:max-w-[1050px]"><WordReveal wordGap={6} delay={0.4}>{data.challengeTitle}</WordReveal></h2>
             <p className="!text-[18px] text-grey-30 lg:max-w-[544px]">
-              {data.challengeDescription}
+              <WordReveal wordGap={2} delay={0.6}>{data.challengeDescription}</WordReveal>
             </p>
           </motion.div>
         </motion.div>

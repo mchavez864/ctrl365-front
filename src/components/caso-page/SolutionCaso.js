@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import SmallCard from '../cards/SmallCard';
+import WordReveal from '../animations/WordReveal';
 
 export default function SolutionCaso({ slug, title, data }) {
   return (
@@ -37,9 +38,13 @@ export default function SolutionCaso({ slug, title, data }) {
           copy="SOLUTION"
           colorCopy="text-white"
           className="mb-4"
+          animated
+          animationDelay={0.2}
         />
         <h2 className="mb-8 text-white lg:max-w-[869px] xxl:max-w-[824px] relative z-10">
+          <WordReveal wordGap={6} delay={0.4}>
          {data.title}
+         </WordReveal>
         </h2>
       </motion.div>
 
@@ -64,7 +69,7 @@ export default function SolutionCaso({ slug, title, data }) {
               visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
             }}
           >
-            {data.text1}
+            <WordReveal wordGap={2.5} delay={0.6}>{data.text1}</WordReveal>
           </motion.p>
           <motion.p
             className="text-white md:w-1/2"
@@ -73,7 +78,7 @@ export default function SolutionCaso({ slug, title, data }) {
               visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
             }}
           >
-            {data.text2}
+            <WordReveal wordGap={2.5} delay={1}>{data.text2}</WordReveal>
           </motion.p>
         </motion.div>
       </div>
