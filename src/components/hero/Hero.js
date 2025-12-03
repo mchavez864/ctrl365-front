@@ -127,10 +127,10 @@ const Hero = () => {
               <div className="w-full h-full lg:h-auto lg:w-[426px] rounded-[16px] overflow-hidden">
                 <Image
                   src="/images/hero/video.webp"
-                  alt="video"
+                  alt="video" 
                   width={640}
                   height={360}
-                  className="object-cover"
+                  className="object-cover rounded-[16px]"
                 />
               </div>
             </FadeInUp>

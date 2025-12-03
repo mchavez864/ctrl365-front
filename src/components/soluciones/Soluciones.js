@@ -71,6 +71,10 @@ const Soluciones = () => {
       if (haveNext) changeSlideNext();
     }
   };
+  const handleClickOnTitleSection = (e, index) => {
+    e.preventDefault();
+    setActualSlide(index + 1);
+  };
 
   //efectos
   useEffect(() => {
@@ -210,7 +214,7 @@ const Soluciones = () => {
               {titleSection.map((title, index) => {
                 const isActive = index === actualSlide - 1;
                 return (
-                  <div key={index} className={`flex items-center gap-[8px] transition-all duration-500 ${isActive ? "text-white" : "text-[#9e9e9e]"}`}>
+                  <div onClick={(e) => handleClickOnTitleSection(e, index)} key={index} className={`cursor-pointer flex items-center gap-[8px] transition-all duration-500 ${isActive ? "text-white" : "text-[#9e9e9e]"}`}>
                     {isActive && (
                       <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" className="translate-y-[-1px]">
                         <circle cx="6" cy="6" r="6" fill="#FF4D00" />
