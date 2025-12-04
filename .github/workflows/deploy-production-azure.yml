@@ -33,7 +33,7 @@ jobs:
       - name: Azure Login
         uses: azure/login@v1
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS_CTRL365WEB }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Install Node.js
         uses: actions/setup-node@v4
@@ -51,13 +51,13 @@ jobs:
       - name: Build and Push Docker image to ACR
         run: |
           IMAGE_TAG=$(echo $GITHUB_SHA | cut -c1-7)
-          docker build . -t ${{ secrets.ACR_LOGIN_SERVER }}/ctrl365-front:latest -t ${{ secrets.ACR_LOGIN_SERVER }}/ctrl365-front:$IMAGE_TAG
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/ctrl365-front:latest
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/ctrl365-front:$IMAGE_TAG
+          docker build . -t ${{ secrets.ACR_LOGIN_SERVER_PROD }}/ctrl365-front:latest -t ${{ secrets.ACR_LOGIN_SERVER_PROD }}/ctrl365-front:$IMAGE_TAG
+          docker push ${{ secrets.ACR_LOGIN_SERVER_PROD }}/ctrl365-front:latest
+          docker push ${{ secrets.ACR_LOGIN_SERVER_PROD }}/ctrl365-front:$IMAGE_TAG
 
       - name: Deploy to Azure Container App
         run: |
           az containerapp update \
-            --name ${{ secrets.AZURE_CONTAINERAPP_NAME }} \
-            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
-            --image ${{ secrets.ACR_LOGIN_SERVER }}/ctrl365-front:latest
+            --name ${{ secrets.AZURE_CONTAINERAPP_NAME_PROD }} \
+            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP_PROD }} \
+            --image ${{ secrets.ACR_LOGIN_SERVER_PROD }}/ctrl365-front:latest
